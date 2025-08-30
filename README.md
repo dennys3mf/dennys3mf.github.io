@@ -13,8 +13,8 @@ Este sitio presenta mis proyectos, experiencia técnica y formación académica,
 
 ## 🛠️ Tecnologías destacadas
 
-- Node.js | React.js | Flutter  
-- MongoDB | MySQL | Git  
+- Flutter | React.js | Django  
+- Python | MySQL | Git  
 - UI/UX | Testing | Documentación técnica
 
 ---
