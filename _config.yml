@@ -1,3 +1,11 @@
-theme: jekyll-theme-minimal
-title: Dennys Marquez homepage
-description: Bookmark this to keep an eye on my project updates!
+title: "Dennys Gabriel Marquez Flores"
+description: "Portafolio técnico en desarrollo de software | Bilingüe | Enfocado en minería"
+theme: minima
+lang: es-PE
+email: dennysmarflor1@gmail.com
+github_username: dennys3mf
+header_pages:
+  - index.md
+  - proyectos.md
+  - educacion.md
+  - contacto.md
