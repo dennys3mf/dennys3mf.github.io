@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Dennys Gabriel Marquez Flores"
+# 👋 Bienvenido al portafolio de {{ site.name }}
 permalink: /
 ---
 
@@ -54,3 +54,41 @@ Promedio: 18 / 20
 ---
 
 Gracias por visitar mi portafolio. Puedes explorar mis [proyectos](/proyectos/) o ir a la sección de [contacto](/contacto/) para conectarte conmigo.
+
+
+
+:root {
+  --rojo-arequipa: #B22222;
+  --sillar: #F5F5F5;
+  --gris-volcanico: #4B4B4B;
+  --tierra: #A0522D;
+}
+
+body {
+  background-color: var(--sillar);
+  color: var(--gris-volcanico);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--rojo-arequipa);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+section {
+  padding: 2rem;
+}
+
+a {
+  color: var(--tierra);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+

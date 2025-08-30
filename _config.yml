@@ -1,11 +1,1 @@
-title: "Dennys Gabriel Marquez Flores"
-description: "Portafolio técnico en desarrollo de software | Bilingüe | Enfocado en minería"
-theme: minima
-lang: es-PE
-email: dennysmarflor1@gmail.com
-github_username: dennys3mf
-header_pages:
-  - index.md
-  - proyectos.md
-  - educacion.md
-  - contacto.md
+name: "Dennys Gabriel Marquez Flores"
