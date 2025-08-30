@@ -7,7 +7,7 @@ Este sitio presenta mis proyectos, experiencia técnica y formación académica,
 ## 🔗 Enlaces importantes
 
 - 🌐 Sitio web: [dennys3mf.github.io](https://dennys3mf.github.io/)
-- 📧 Email: dennysmarquez.dev@gmail.com
+- 📧 Email: dennys.marquez.dev@gmail.com
 - 💼 LinkedIn: [Dennys Gabriel Marquez Flores](https://www.linkedin.com/in/dennys-marquez/)
 - 📁 Repositorio de proyectos: [GitHub](https://github.com/dennys3mf)
 
