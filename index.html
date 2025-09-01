@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dennys Marquez - Desarrollador de Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #4f46e5; /* indigo-600 */
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .skill-card {
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header y Navegación -->
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-900">Dennys Marquez</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link">Sobre Mí</a>
+                <a href="#projects" class="nav-link">Proyectos</a>
+                <a href="#skills" class="nav-link">Habilidades</a>
+                <a href="#contact" class="nav-link bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 hover:text-white">Contacto</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#about" class="block py-2 nav-link">Sobre Mí</a>
+            <a href="#projects" class="block py-2 nav-link">Proyectos</a>
+            <a href="#skills" class="block py-2 nav-link">Habilidades</a>
+            <a href="#contact" class="block mt-2 text-center bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Sección Principal (Hero) -->
+    <main class="container mx-auto px-6">
+        <section id="hero" class="text-center py-20 md:py-32">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4">Desarrollador de Software</h1>
+            <h2 class="text-2xl md:text-3xl text-indigo-600 mb-8">Soluciones Web y Móviles para la Industria</h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 mb-10">
+                Egresado de TECSUP apasionado por la tecnología. Convierto problemas complejos en soluciones de software seguras y eficientes. Especializado en aplicaciones móviles con Flutter y sistemas industriales con Python.
+            </p>
+            <div class="flex justify-center items-center space-x-4">
+                 <a href="#projects" class="bg-indigo-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 transition">Ver mis Proyectos</a>
+                 <a href="https://github.com/dennys3mf" target="_blank" class="bg-slate-200 text-slate-800 px-6 py-3 rounded-md text-lg font-semibold hover:bg-slate-300 transition">Mi GitHub</a>
+            </div>
+        </section>
+
+        <!-- Sobre Mí -->
+        <section id="about" class="py-20 border-t border-slate-200">
+            <div class="text-center mb-12">
+                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Sobre Mí</h2>
+                 <p class="text-lg text-slate-600 mt-4">Un poco más sobre mi formación y mis objetivos.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                 <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Mi Trayectoria</h3>
+                    <p class="text-slate-600 mb-4">
+                        Como egresado de Diseño y Desarrollo de Software de TECSUP, he cultivado una fuerte pasión por resolver problemas del mundo real. Mi formación, donde me ubiqué en el Tercio Superior, me ha dado una base sólida en la creación de tecnología que no solo funciona bien, sino que también es segura y eficiente.
+                    </p>
+                     <p class="text-slate-600">
+                        Me especializo en dos áreas clave: el desarrollo de aplicaciones móviles con Flutter para crear experiencias de usuario fluidas, y la programación con Python para sistemas de IoT (Internet de las Cosas) que pueden aplicarse en la industria, mejorando la seguridad y la productividad.
+                    </p>
+                 </div>
+                 <div class="bg-white p-8 rounded-lg shadow-md border border-slate-100">
+                     <h3 class="text-2xl font-bold text-slate-800 mb-4">Datos Clave</h3>
+                     <ul class="space-y-4">
+                         <li class="flex items-start">
+                             <span class="text-indigo-500 mr-3 mt-1">✓</span>
+                             <span><strong class="text-slate-700">Educación:</strong> Diseño y Desarrollo de Software, TECSUP (Egresado 2024).</span>
+                         </li>
+                         <li class="flex items-start">
+                             <span class="text-indigo-500 mr-3 mt-1">✓</span>
+                             <span><strong class="text-slate-700">Reconocimiento:</strong> Perteneciente al Tercio Superior.</span>
+                         </li>
+                          <li class="flex items-start">
+                             <span class="text-indigo-500 mr-3 mt-1">✓</span>
+                             <span><strong class="text-slate-700">Enfoque:</strong> Desarrollo móvil (Flutter) y soluciones para la industria (Python, IoT).</span>
+                         </li>
+                         <li class="flex items-start">
+                             <span class="text-indigo-500 mr-3 mt-1">✓</span>
+                             <span><strong class="text-slate-700">Ubicación:</strong> Arequipa, Perú. Abierto a oportunidades remotas.</span>
+                         </li>
+                     </ul>
+                 </div>
+            </div>
+        </section>
+
+
+        <!-- Proyectos -->
+        <section id="projects" class="py-20 border-t border-slate-200">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Proyectos Destacados</h2>
+                <p class="text-lg text-slate-600 mt-4">Aquí puedes ver algunos de los proyectos que he construido.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta de Proyecto 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden group">
+                    <div class="relative">
+                        <div class="h-48 bg-indigo-200 flex items-center justify-center">
+                             <span class="text-3xl text-indigo-500">📱</span>
+                        </div>
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="https://github.com/dennys3mf" target="_blank" class="text-white border-2 border-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition">Ver en GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Proyecto CHANSA (App Móvil)</h3>
+                        <p class="text-slate-600 mb-4">Aplicación de bienestar emocional desarrollada con Flutter. Permite a los usuarios registrar su estado de ánimo y recibir consejos para mejorar su bienestar.</p>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-2.5 py-0.5 rounded">Flutter</span>
+                             <span class="bg-amber-100 text-amber-800 text-sm font-medium px-2.5 py-0.5 rounded">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta de Proyecto 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden group">
+                     <div class="relative">
+                        <div class="h-48 bg-slate-200 flex items-center justify-center">
+                             <span class="text-3xl text-slate-500">👷‍♂️</span>
+                        </div>
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT" target="_blank" class="text-white border-2 border-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition">Ver en GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Casco de Seguridad Inteligente</h3>
+                        <p class="text-slate-600 mb-4">Prototipo de IoT para la seguridad minera. Utiliza un giroscopio para detectar somnolencia en operadores y activar una alarma para prevenir accidentes.</p>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded">Python</span>
+                             <span class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded">Arduino</span>
+                             <span class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">IoT</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta de Proyecto 3 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden group">
+                     <div class="relative">
+                        <div class="h-48 bg-emerald-200 flex items-center justify-center">
+                             <span class="text-3xl text-emerald-500">⚖️</span>
+                        </div>
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <a href="https://github.com/dennys3mf" target="_blank" class="text-white border-2 border-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition">Ver en GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Software Legal (Pasantía)</h3>
+                        <p class="text-slate-600 mb-4">Durante mi pasantía en Servilex, contribuí al desarrollo de un software para el sector legal, trabajando en el backend y la creación de nuevas funciones.</p>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">Django</span>
+                             <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="skills" class="py-20 border-t border-slate-200">
+             <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Habilidades Técnicas</h2>
+                <p class="text-lg text-slate-600 mt-4">Estas son las herramientas y tecnologías con las que trabajo.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">Python</h3>
+                     <p class="text-sm text-slate-500">Intermedio</p>
+                 </div>
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">Flutter</h3>
+                     <p class="text-sm text-slate-500">Intermedio</p>
+                 </div>
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">Django</h3>
+                     <p class="text-sm text-slate-500">Básico</p>
+                 </div>
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">Git</h3>
+                     <p class="text-sm text-slate-500">Intermedio</p>
+                 </div>
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">HTML & CSS</h3>
+                     <p class="text-sm text-slate-500">Intermedio</p>
+                 </div>
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">JavaScript</h3>
+                     <p class="text-sm text-slate-500">Básico</p>
+                 </div>
+                  <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">React.js</h3>
+                     <p class="text-sm text-slate-500">Básico</p>
+                 </div>
+                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
+                     <h3 class="text-lg font-bold">Docker</h3>
+                     <p class="text-sm text-slate-500">Conocimientos</p>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contact" class="py-20 border-t border-slate-200">
+             <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Hablemos</h2>
+                <p class="text-lg text-slate-600 mt-4 max-w-xl mx-auto">Estoy buscando nuevas oportunidades y me encantaría saber cómo puedo aportar valor a tu equipo. ¡No dudes en contactarme!</p>
+                <div class="mt-8">
+                     <a href="mailto:dennys.marquez.dev@gmail.com" class="bg-indigo-600 text-white px-8 py-4 rounded-md text-xl font-semibold hover:bg-indigo-700 transition inline-block">Enviar un Correo</a>
+                </div>
+                 <div class="mt-10 flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/dennysmarquez/" target="_blank" class="text-slate-500 hover:text-indigo-600">LinkedIn</a>
+                    <a href="https://github.com/dennys3mf" target="_blank" class="text-slate-500 hover:text-indigo-600">GitHub</a>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-500">
+            <p>&copy; 2025 Dennys Marquez. Diseñado y construido con ❤️.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra el menú móvil al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
