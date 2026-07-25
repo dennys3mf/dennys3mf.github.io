@@ -3,7 +3,7 @@ import Link from "next/link";
 import ParticleNetwork from "../components/ParticleNetwork";
 import ScrollReveal from "../components/ScrollReveal";
 import SpotlightCard from "../components/SpotlightCard";
-import { BrainCircuit, AppWindow, BarChart3, Building2, Smartphone, ShieldCheck, Mail, Phone, Github, ExternalLink } from "lucide-react";
+import { BrainCircuit, AppWindow, BarChart3, Building2, Smartphone, ShieldCheck, Mail, Phone, GitBranch, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
@@ -162,7 +162,7 @@ export default function Home() {
               </div>
               <div>
                 <Link href="https://github.com/dennys3mf/App-Fiscalizacion-Joya" target="_blank" className={styles.minimalBtn}>
-                  <Github size={18} /> Ver Arquitectura (GitHub)
+                  <GitBranch size={18} /> Ver Arquitectura (GitHub)
                 </Link>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function Home() {
               </div>
               <div>
                 <Link href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT" target="_blank" className={styles.minimalBtn}>
-                  <Github size={18} /> Ver Arquitectura (GitHub)
+                  <GitBranch size={18} /> Ver Arquitectura (GitHub)
                 </Link>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function Home() {
           <div className={styles.contactLinks}>
             <a href="mailto:dennys.marquez.dev@gmail.com" className={styles.contactLink}><Mail size={20} /> dennys.marquez.dev@gmail.com</a>
             <a href="https://wa.me/51922466078" target="_blank" className={styles.contactLink}><Phone size={20} /> Llamada Directa: +51 922 466 078</a>
-            <a href="https://github.com/dennys3mf" target="_blank" className={styles.contactLink}><Github size={20} /> Perfil Técnico (GitHub)</a>
+            <a href="https://github.com/dennys3mf" target="_blank" className={styles.contactLink}><GitBranch size={20} /> Perfil Técnico (GitHub)</a>
           </div>
         </ScrollReveal>
       </section>
