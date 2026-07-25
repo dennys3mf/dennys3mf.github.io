@@ -29,6 +29,8 @@
   border-bottom: 1px solid var(--glass-border);
   background: var(--glass-bg);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
 }
 
 .navLinks {
@@ -90,7 +92,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem 5vw;
+  padding: 6rem 5vw 2rem 5vw;
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
@@ -109,7 +111,7 @@
 }
 
 .heroName {
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.1;
@@ -121,7 +123,7 @@
 }
 
 .heroSubtitle {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
   color: var(--foreground);
   opacity: 0.8;
   max-width: 750px;
@@ -132,8 +134,14 @@
 }
 
 /* Sections */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
 .sectionTitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: 600;
   letter-spacing: -0.01em;
   margin-bottom: 3rem;
@@ -145,7 +153,7 @@
 }
 
 .executiveContent {
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.1rem, 3vw, 2rem);
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.01em;
@@ -160,7 +168,7 @@
 /* Spotlight Glow Cards */
 .minimalGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -170,6 +178,7 @@
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
@@ -190,7 +199,7 @@
 }
 
 .minimalCardTitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 600;
   margin-bottom: 1rem;
   letter-spacing: -0.01em;
@@ -205,7 +214,7 @@
 .minimalCardDesc {
   color: var(--foreground);
   opacity: 0.8;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   position: relative;
@@ -222,12 +231,6 @@
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .projectMinimal {
-    grid-template-columns: 1fr;
-  }
-}
-
 .projectLeft {
   display: flex;
   flex-direction: column;
@@ -235,7 +238,7 @@
 }
 
 .projectTitle {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -247,10 +250,10 @@
 }
 
 .tag {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 999px;
   background: var(--foreground);
   color: var(--background);
@@ -277,7 +280,7 @@
 }
 
 .projectDesc {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
   font-weight: 400;
   color: var(--foreground);
   opacity: 0.85;
@@ -296,6 +299,7 @@
   color: #666;
   font-size: 0.9rem;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -317,18 +321,20 @@
 .minimalBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   padding: 1rem 2rem;
   border-radius: 999px;
   border: 2px solid var(--foreground);
   background: transparent;
   color: var(--foreground);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
+  text-align: center;
 }
 
 .minimalBtn:hover {
@@ -344,6 +350,7 @@
   background: var(--glass-bg);
   border-top: 1px solid var(--glass-border);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .contactTitle {
@@ -357,11 +364,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .contactLink {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 500;
   color: var(--foreground);
   text-decoration: none;
@@ -376,4 +383,56 @@
 .contactLink:hover {
   border-color: var(--primary);
   opacity: 0.8;
+}
+
+/* ==================================================
+   RESPONSIVE QUERIES (MÓVILES Y TABLETS)
+================================================== */
+@media (max-width: 900px) {
+  .projectMinimal {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .navLinks {
+    gap: 1rem;
+    font-size: 0.7rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navLinks a {
+    gap: 0.2rem;
+  }
+  
+  .section-container {
+    padding: 4rem 1.5rem;
+  }
+
+  .glowCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .hero {
+    padding-top: 8rem; /* Para que el navbar no lo tape */
+  }
+
+  .contactSection {
+    padding: 5rem 1.5rem;
+  }
+  
+  .contactLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 }
