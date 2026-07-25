@@ -135,7 +135,7 @@ export default function ParticleNetwork() {
     let animationFrameId: number;
     function animate() {
       if (!ctx) return;
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
       ctx.clearRect(0, 0, innerWidth, innerHeight);
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
