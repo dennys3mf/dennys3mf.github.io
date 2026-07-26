@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import styles from "../app/page.module.css";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("accessible");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
+    const savedTheme = localStorage.getItem("theme") || "accessible";
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
@@ -15,6 +15,7 @@ export default function ThemeToggle() {
     let nextTheme = "light";
     if (theme === "light") nextTheme = "dark";
     else if (theme === "dark") nextTheme = "accessible";
+    else if (theme === "accessible") nextTheme = "light";
     
     setTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
