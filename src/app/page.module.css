@@ -4,6 +4,8 @@
   min-height: 100vh;
   position: relative;
   background-color: var(--background);
+  overflow-x: hidden; /* Evitar scroll horizontal */
+  width: 100%;
 }
 
 /* Navbar Brutalist */
@@ -71,7 +73,7 @@
 }
 
 .heroName {
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: clamp(3rem, 10vw, 10rem);
   font-weight: 900;
   letter-spacing: -0.05em;
   line-height: 0.9;
@@ -79,6 +81,7 @@
   position: relative;
   z-index: 2;
   margin: 0;
+  word-break: break-word;
 }
 
 .heroName span {
@@ -86,7 +89,7 @@
 }
 
 .heroSubtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: var(--muted);
   max-width: 800px;
   font-weight: 400;
@@ -113,19 +116,21 @@
   margin: 0 auto;
   padding: 8rem 2rem;
   border-top: 2px solid var(--border);
+  width: 100%; /* Asegurar que no exceda la pantalla */
 }
 
 .sectionTitle {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.2rem, 6vw, 5rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   margin-bottom: 4rem;
   color: var(--foreground);
   line-height: 1;
+  word-break: break-word;
 }
 
 .executiveContent {
-  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  font-size: clamp(1.1rem, 3vw, 2.2rem);
   font-weight: 700;
   line-height: 1.5;
   color: var(--muted);
@@ -139,7 +144,7 @@
 /* Soluciones Grid */
 .minimalGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -161,14 +166,13 @@
 .spotlightEffect {
   position: absolute;
   pointer-events: none;
-  top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
   transition: opacity 0.3s ease;
-  opacity: 0.15; /* Luz sutil blanca */
+  opacity: 0.25; /* Aumentado sutilmente para ver el rectángulo */
 }
 
 .minimalCardTitle {
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 900;
   margin-bottom: 1.5rem;
   color: var(--foreground);
@@ -181,7 +185,7 @@
 
 .minimalCardDesc {
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   position: relative;

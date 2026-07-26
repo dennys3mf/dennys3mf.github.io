@@ -28,7 +28,12 @@ export default function SpotlightCard({ children, className = "" }: { children: 
         className={styles.spotlightEffect}
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+          background: `rgba(255, 255, 255, 0.1)`,
+          width: '250px',
+          height: '80px',
+          left: `${position.x - 125}px`,
+          top: `${position.y - 40}px`,
+          filter: 'blur(25px)',
         }}
       />
       {children}
