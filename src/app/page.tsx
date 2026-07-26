@@ -181,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className={`${styles.section-container} ${styles.contactSection}`}>
+      <section id="contacto" className={`section-container ${styles.contactSection}`}>
         <ScrollReveal>
           <h2 className={styles.sectionTitle}>CONTACTO</h2>
           
