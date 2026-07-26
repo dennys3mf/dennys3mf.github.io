@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import ParticleNetwork from "../components/ParticleNetwork";
 import ScrollReveal from "../components/ScrollReveal";
+import SpotlightCard from "../components/SpotlightCard";
 
 export default function Home() {
   return (
@@ -31,13 +32,13 @@ export default function Home() {
         
         <ScrollReveal delay={300}>
           <p className={styles.heroSubtitle}>
-            <span className={styles.crossIcon}>+</span> Desarrollador de Software <span className={styles.crossIcon}>X</span> Estudiante de Contabilidad <span className={styles.crossIcon}>+</span>
+            Desarrollador de Software <span style={{margin: "0 10px", opacity: 0.5}}>|</span> Estudiante de Contabilidad
           </p>
         </ScrollReveal>
       </section>
 
       {/* Visión */}
-      <section id="vision" className="section-container">
+      <section id="vision" className={`section-container ${styles['section-container']}`}>
         <ScrollReveal>
           <h2 className={styles.sectionTitle}>VISIÓN</h2>
           <p className={styles.executiveContent}>
@@ -47,47 +48,55 @@ export default function Home() {
       </section>
 
       {/* Soluciones Tecnológicas */}
-      <section id="soluciones" className="section-container">
+      <section id="soluciones" className={`section-container ${styles['section-container']}`}>
         <ScrollReveal>
-          <h2 className={styles.sectionTitle}>SOLUCIONES <span className={styles.crossIcon}>X</span></h2>
+          <h2 className={styles.sectionTitle}>SOLUCIONES</h2>
         </ScrollReveal>
         <div className={styles.minimalGrid}>
           
           <ScrollReveal delay={100}>
-            <div className={styles.rawBox}>
-              <h3 className={styles.minimalCardTitle}>+ IA & AUTOMATIZACIÓN</h3>
+            <SpotlightCard>
+              <h3 className={styles.minimalCardTitle}>
+                <span style={{color: "var(--muted)"}}>+</span> IA & AUTOMATIZACIÓN
+              </h3>
               <p className={styles.minimalCardDesc}>Desarrollo de algoritmos de inteligencia artificial para procesar datos masivos y eliminar tareas repetitivas.</p>
-            </div>
+            </SpotlightCard>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className={styles.rawBox}>
-              <h3 className={styles.minimalCardTitle}>+ PLATAFORMAS WEB</h3>
+            <SpotlightCard>
+              <h3 className={styles.minimalCardTitle}>
+                <span style={{color: "var(--muted)"}}>+</span> PLATAFORMAS WEB
+              </h3>
               <p className={styles.minimalCardDesc}>Sistemas integrales enfocados en rendimiento, escalabilidad y soportar alto volumen de tráfico.</p>
-            </div>
+            </SpotlightCard>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <div className={styles.rawBox}>
-              <h3 className={styles.minimalCardTitle}>+ ANÁLISIS DE DATOS</h3>
+            <SpotlightCard>
+              <h3 className={styles.minimalCardTitle}>
+                <span style={{color: "var(--muted)"}}>+</span> ANÁLISIS DE DATOS
+              </h3>
               <p className={styles.minimalCardDesc}>Extracción y visualización de datos estratégicos en tiempo real para respaldar decisiones operativas.</p>
-            </div>
+            </SpotlightCard>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <div className={styles.rawBox}>
-              <h3 className={styles.minimalCardTitle}>+ ARQUITECTURA IOT</h3>
+            <SpotlightCard>
+              <h3 className={styles.minimalCardTitle}>
+                <span style={{color: "var(--muted)"}}>X</span> ARQUITECTURA IOT
+              </h3>
               <p className={styles.minimalCardDesc}>Integración de sensores de hardware y procesamiento en tiempo real para la industria.</p>
-            </div>
+            </SpotlightCard>
           </ScrollReveal>
 
         </div>
       </section>
 
       {/* Casos de Éxito (Proyectos) */}
-      <section id="proyectos" className="section-container">
+      <section id="proyectos" className={`section-container ${styles['section-container']}`}>
         <ScrollReveal>
-          <h2 className={styles.sectionTitle}>PROYECTOS <span className={styles.crossIcon}>+</span></h2>
+          <h2 className={styles.sectionTitle}>PROYECTOS</h2>
         </ScrollReveal>
 
         {/* Proyecto Estrella: AhorraTiempo.pe */}
@@ -181,14 +190,14 @@ export default function Home() {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className={`section-container ${styles.contactSection}`}>
+      <section id="contacto" className={`section-container ${styles['section-container']} ${styles.contactSection}`}>
         <ScrollReveal>
           <h2 className={styles.sectionTitle}>CONTACTO</h2>
           
           <div className={styles.contactLinks}>
-            <a href="mailto:dennys.marquez.dev@gmail.com" className={styles.contactLink}>EMAIL <span className={styles.crossIcon}>X</span></a>
-            <a href="https://wa.me/51922466078" target="_blank" className={styles.contactLink}>WHATSAPP <span className={styles.crossIcon}>+</span></a>
-            <a href="https://github.com/dennys3mf" target="_blank" className={styles.contactLink}>GITHUB <span className={styles.crossIcon}>X</span></a>
+            <a href="mailto:dennys.marquez.dev@gmail.com" className={styles.contactLink}>EMAIL</a>
+            <a href="https://wa.me/51922466078" target="_blank" className={styles.contactLink}>WHATSAPP</a>
+            <a href="https://github.com/dennys3mf" target="_blank" className={styles.contactLink}>GITHUB</a>
           </div>
         </ScrollReveal>
       </section>

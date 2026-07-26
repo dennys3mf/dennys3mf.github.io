@@ -109,9 +109,9 @@
 
 /* Sections */
 .section-container {
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 10rem 3rem;
+  padding: 8rem 2rem;
   border-top: 2px solid var(--border);
 }
 
@@ -125,11 +125,10 @@
 }
 
 .executiveContent {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--muted);
-  max-width: 1000px;
   text-transform: uppercase;
 }
 
@@ -140,29 +139,44 @@
 /* Soluciones Grid */
 .minimalGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
 }
 
-.rawBox {
-  padding: 3rem 0;
-  border-top: 2px solid var(--border);
+/* Spotlight Glow Cards adaptado al Brutalismo */
+.glowCard {
+  padding: 3rem 2rem;
+  border: 1px solid var(--border);
   position: relative;
-  transition: border-color 0.3s ease;
+  overflow: hidden;
+  background: var(--background);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
 }
 
-.rawBox:hover {
-  border-color: var(--foreground);
+.glowCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.spotlightEffect {
+  position: absolute;
+  pointer-events: none;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0.15; /* Luz sutil blanca */
 }
 
 .minimalCardTitle {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 900;
   margin-bottom: 1.5rem;
   color: var(--foreground);
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .minimalCardDesc {
@@ -170,6 +184,8 @@
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 /* Projects */
