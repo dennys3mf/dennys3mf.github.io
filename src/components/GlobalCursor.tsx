@@ -72,8 +72,8 @@ export default function GlobalCursor() {
           key={point.id}
           className={styles.trailPoint}
           style={{
-            left: `${point.x - 25}px`, // Centrar el círculo de 50px
-            top: `${point.y - 25}px`,
+            left: `${point.x - 10}px`, // Centrar el círculo de 20px
+            top: `${point.y - 10}px`,
           }}
         />
       ))}

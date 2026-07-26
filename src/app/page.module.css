@@ -163,25 +163,25 @@
 
 .trailPoint {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  background: linear-gradient(45deg, #ff7eb3, #ff758c, #7367f0, #32ccbc);
+  background: linear-gradient(45deg, #ff007f, #7928ca, #00d4ff);
   background-size: 200% 200%;
-  filter: blur(15px);
-  animation: fadeOutTrail 0.5s ease-out forwards, unicornShimmer 2s infinite linear;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #7928ca;
+  animation: fadeOutTrail 0.5s ease-out forwards, colorCycle 1.5s infinite linear;
 }
 
 @keyframes fadeOutTrail {
-  0% { transform: scale(1); opacity: 0.7; }
-  100% { transform: scale(0.1); opacity: 0; }
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.2); opacity: 0; }
 }
 
-@keyframes unicornShimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+@keyframes colorCycle {
+  0% { filter: hue-rotate(0deg) blur(1px); background-position: 0% 50%; }
+  100% { filter: hue-rotate(360deg) blur(1px); background-position: 100% 50%; }
 }
 
 .touchFlash {
@@ -189,16 +189,16 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,126,179,0.8) 0%, rgba(115,103,240,0.5) 50%, rgba(50,204,188,0) 100%);
-  filter: blur(15px);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,127,0.8) 30%, rgba(0,212,255,0) 70%);
+  filter: blur(5px);
   pointer-events: none;
   z-index: 10000;
-  animation: flashAnim 0.6s ease-out forwards;
+  animation: flashAnim 0.6s ease-out forwards, colorCycle 1s infinite linear;
 }
 
 @keyframes flashAnim {
   0% { transform: scale(0.2); opacity: 1; }
-  100% { transform: scale(2); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 .minimalCardTitle {
