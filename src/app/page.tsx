@@ -11,7 +11,10 @@ export default function Home() {
       
       {/* Navbar Estilo Xiaomi / Temas */}
       <nav className={`${styles.navbar}`}>
-        <div className={styles.logo}>D. MARQUEZ</div>
+        <div className={styles.logo} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          D. MARQUEZ
+          <img src="https://flagcdn.com/pe.svg" alt="Perú" width="20" style={{ borderRadius: '2px' }} title="Desarrollador de Perú" />
+        </div>
         <div className={styles.navLinks}>
           <a href="#soluciones">Soluciones</a>
           <a href="#proyectos">Casos de Éxito</a>
@@ -30,7 +33,7 @@ export default function Home() {
         
         <ScrollReveal delay={300}>
           <p className={styles.heroSubtitle}>
-            Desarrollador de Software 🇵🇪 & Estudiante de Contabilidad
+            Desarrollador de Software & Estudiante de Contabilidad
           </p>
         </ScrollReveal>
       </section>
