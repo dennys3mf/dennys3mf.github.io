@@ -1,22 +1,30 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../app/page.module.css";
 
-interface Point {
-  id: number;
-  x: number;
-  y: number;
-}
-
 export default function GlobalCursor() {
-  const [trail, setTrail] = useState<Point[]>([]);
-  const [flashes, setFlashes] = useState<Point[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pointerPos = useRef({ x: -1000, y: -1000 });
+  const lastPos = useRef({ x: -1000, y: -1000 });
+  const isDrawing = useRef(false);
 
   useEffect(() => {
-    // Función para manejar el movimiento del ratón/dedo
-    const handleMouseMove = (e: MouseEvent | TouchEvent) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Ajustar tamaño del canvas
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Eventos de puntero
+    const updatePointer = (e: MouseEvent | TouchEvent) => {
       let clientX, clientY;
-      
       if ('touches' in e) {
         clientX = e.touches[0].clientX;
         clientY = e.touches[0].clientY;
@@ -24,69 +32,82 @@ export default function GlobalCursor() {
         clientX = (e as MouseEvent).clientX;
         clientY = (e as MouseEvent).clientY;
       }
-
-      const id = Date.now() + Math.random();
-      const point = { x: clientX, y: clientY, id };
       
-      setTrail(prev => [...prev, point]);
+      lastPos.current = { ...pointerPos.current };
+      pointerPos.current = { x: clientX, y: clientY };
       
-      // El rastro desaparece automáticamente después de 500ms
-      setTimeout(() => {
-        setTrail(prev => prev.filter(p => p.id !== id));
-      }, 500);
-    };
-
-    const handlePointerDown = (e: PointerEvent) => {
-      const newFlash = { id: Date.now() + Math.random(), x: e.clientX, y: e.clientY };
-      setFlashes(prev => [...prev, newFlash]);
-      
-      if (e.pointerType === 'touch') {
-        const id = Date.now() + Math.random();
-        setTrail(prev => [...prev, { x: e.clientX, y: e.clientY, id }]);
-        setTimeout(() => {
-          setTrail(prev => prev.filter(p => p.id !== id));
-        }, 500);
+      // Si el salto es muy grande (ej. acaba de entrar a la pantalla), no dibujamos línea
+      if (Math.abs(lastPos.current.x - pointerPos.current.x) > 100 || 
+          Math.abs(lastPos.current.y - pointerPos.current.y) > 100) {
+        lastPos.current = { ...pointerPos.current };
       }
-      
-      // Eliminar destello después de 600ms
-      setTimeout(() => {
-        setFlashes(prev => prev.filter(f => f.id !== newFlash.id));
-      }, 600);
+      isDrawing.current = true;
     };
 
-    window.addEventListener("mousemove", handleMouseMove as EventListener);
-    window.addEventListener("touchmove", handleMouseMove as EventListener, { passive: true });
-    window.addEventListener("pointerdown", handlePointerDown);
+    const stopDrawing = () => {
+      isDrawing.current = false;
+      // Reseteamos posición para que no haya un trazo fantasma al volver
+      pointerPos.current = { x: -1000, y: -1000 };
+      lastPos.current = { x: -1000, y: -1000 };
+    };
+
+    window.addEventListener("mousemove", updatePointer as EventListener);
+    window.addEventListener("touchmove", updatePointer as EventListener, { passive: true });
+    window.addEventListener("pointerdown", updatePointer as EventListener);
+    document.addEventListener("mouseleave", stopDrawing);
+    document.addEventListener("touchend", stopDrawing);
+
+    // Bucle de animación (Efecto Xiaomi Fluido)
+    let animationFrameId: number;
+    let hue = 200; // Iniciar en tonos azules estilo Xiaomi
+
+    const render = () => {
+      // Desteñir gradualmente dibujando encima el color de fondo con baja opacidad
+      // El color de fondo es #f7f8fa (247, 248, 250)
+      ctx.fillStyle = "rgba(247, 248, 250, 0.15)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      if (isDrawing.current && lastPos.current.x !== -1000) {
+        hue = (hue + 1) % 360; // Cambiar color sutilmente
+        
+        ctx.beginPath();
+        // Sombra de neón
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = `hsl(${hue}, 100%, 60%)`;
+        
+        // Propiedades de la línea
+        ctx.lineWidth = 12; // Línea gruesa y suave
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.strokeStyle = `hsl(${hue}, 100%, 70%)`; // Trazos de color suave/neón
+
+        ctx.moveTo(lastPos.current.x, lastPos.current.y);
+        ctx.lineTo(pointerPos.current.x, pointerPos.current.y);
+        ctx.stroke();
+
+        // Actualizar último punto al actual para el siguiente frame
+        lastPos.current = { ...pointerPos.current };
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+    render();
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove as EventListener);
-      window.removeEventListener("touchmove", handleMouseMove as EventListener);
-      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", updatePointer as EventListener);
+      window.removeEventListener("touchmove", updatePointer as EventListener);
+      window.removeEventListener("pointerdown", updatePointer as EventListener);
+      document.removeEventListener("mouseleave", stopDrawing);
+      document.removeEventListener("touchend", stopDrawing);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <>
-      {trail.map(point => (
-        <div
-          key={point.id}
-          className={styles.trailPoint}
-          style={{
-            left: `${point.x - 10}px`, // Centrar el círculo de 20px
-            top: `${point.y - 10}px`,
-          }}
-        />
-      ))}
-      {flashes.map(flash => (
-        <div 
-          key={flash.id}
-          className={styles.touchFlash}
-          style={{
-            left: `${flash.x - 75}px`, // Centrar el círculo de 150px
-            top: `${flash.y - 75}px`,
-          }}
-        />
-      ))}
-    </>
+    <canvas
+      ref={canvasRef}
+      className={styles.globalCanvas}
+    />
   );
 }

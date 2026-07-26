@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
-  /* Martin Garrix Monochrome Theme */
-  --background: #000000;
-  --foreground: #ffffff;
-  --primary: #ffffff;
-  --border: rgba(255, 255, 255, 0.15);
-  --muted: #888888;
+  /* Xiaomi / Clean Light Theme */
+  --background: #f7f8fa;
+  --foreground: #1d1d1f;
+  --primary: #4a6cfa; /* Xiaomi / HyperOS light blue */
+  --border: rgba(0, 0, 0, 0.06);
+  --card-bg: #ffffff;
+  --muted: #6e6e73;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -32,7 +34,6 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.02em;
 }

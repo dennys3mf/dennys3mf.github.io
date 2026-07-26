@@ -1,6 +1,5 @@
 import styles from "./page.module.css";
 import Link from "next/link";
-import ParticleNetwork from "../components/ParticleNetwork";
 import ScrollReveal from "../components/ScrollReveal";
 import GlobalCursor from "../components/GlobalCursor";
 
@@ -9,7 +8,7 @@ export default function Home() {
     <main className={styles.main}>
       <GlobalCursor />
       
-      {/* Navbar Minimalist/Brutalist */}
+      {/* Navbar Estilo Xiaomi */}
       <nav className={`${styles.navbar}`}>
         <div className={styles.logo}>D. MARQUEZ</div>
         <div className={styles.navLinks}>
@@ -19,22 +18,17 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Interactivo Monochrome */}
+      {/* Hero Claro */}
       <section className={styles.hero}>
-        <div className={styles.heroCanvas}>
-          <ParticleNetwork />
-        </div>
-        
         <ScrollReveal delay={100}>
           <h1 className={styles.heroName}>
-            <span>DENNYS</span>
-            <span>MARQUEZ</span>
+            Dennys Marquez
           </h1>
         </ScrollReveal>
         
         <ScrollReveal delay={300}>
           <p className={styles.heroSubtitle}>
-            Desarrollador de Software <span style={{margin: "0 10px", opacity: 0.5}}>|</span> Estudiante de Contabilidad
+            Desarrollador de Software & Estudiante de Contabilidad
           </p>
         </ScrollReveal>
       </section>
@@ -42,9 +36,9 @@ export default function Home() {
       {/* Visión */}
       <section id="vision" className={`section-container ${styles['section-container']}`}>
         <ScrollReveal>
-          <h2 className={styles.sectionTitle}>VISIÓN</h2>
+          <h2 className={styles.sectionTitle}>Visión Estratégica</h2>
           <p className={styles.executiveContent}>
-            La tecnología no es un obstáculo, es multiplicador de resultados. Utilizo matemáticas, ingeniería de software y análisis financiero para <strong>ahorrar recursos, transparentar procesos y escalar proyectos reales.</strong>
+            La tecnología no es un obstáculo, es multiplicador de resultados. Utilizo matemáticas, ingeniería de software y análisis financiero para <strong>ahorrar recursos, transparentar procesos y escalar proyectos.</strong>
           </p>
         </ScrollReveal>
       </section>
@@ -52,43 +46,43 @@ export default function Home() {
       {/* Soluciones Tecnológicas */}
       <section id="soluciones" className={`section-container ${styles['section-container']}`}>
         <ScrollReveal>
-          <h2 className={styles.sectionTitle}>SOLUCIONES</h2>
+          <h2 className={styles.sectionTitle}>Soluciones</h2>
         </ScrollReveal>
         <div className={styles.minimalGrid}>
           
           <ScrollReveal delay={100}>
             <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
-                <span style={{color: "var(--muted)"}}>+</span> IA & AUTOMATIZACIÓN
+                IA & Automatización
               </h3>
-              <p className={styles.minimalCardDesc}>Desarrollo de algoritmos de inteligencia artificial para procesar datos masivos y eliminar tareas repetitivas.</p>
+              <p className={styles.minimalCardDesc}>Desarrollo de algoritmos de inteligencia artificial para procesar datos masivos y eliminar tareas manuales y repetitivas.</p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
-                <span style={{color: "var(--muted)"}}>+</span> PLATAFORMAS WEB
+                Plataformas Web
               </h3>
-              <p className={styles.minimalCardDesc}>Sistemas integrales enfocados en rendimiento, escalabilidad y soportar alto volumen de tráfico.</p>
+              <p className={styles.minimalCardDesc}>Sistemas integrales enfocados en rendimiento, usabilidad y escalabilidad para soportar un alto volumen de tráfico.</p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
             <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
-                <span style={{color: "var(--muted)"}}>+</span> ANÁLISIS DE DATOS
+                Análisis Financiero
               </h3>
-              <p className={styles.minimalCardDesc}>Extracción y visualización de datos estratégicos en tiempo real para respaldar decisiones operativas.</p>
+              <p className={styles.minimalCardDesc}>Extracción y visualización de datos estratégicos en tiempo real para respaldar decisiones operativas y de presupuesto.</p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
             <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
-                <span style={{color: "var(--muted)"}}>X</span> ARQUITECTURA IOT
+                Arquitectura IoT
               </h3>
-              <p className={styles.minimalCardDesc}>Integración de sensores de hardware y procesamiento en tiempo real para la industria.</p>
+              <p className={styles.minimalCardDesc}>Integración de sensores de hardware y procesamiento en tiempo real para optimizar procesos en la industria y seguridad.</p>
             </div>
           </ScrollReveal>
 
@@ -98,24 +92,24 @@ export default function Home() {
       {/* Casos de Éxito (Proyectos) */}
       <section id="proyectos" className={`section-container ${styles['section-container']}`}>
         <ScrollReveal>
-          <h2 className={styles.sectionTitle}>PROYECTOS</h2>
+          <h2 className={styles.sectionTitle}>Proyectos</h2>
         </ScrollReveal>
 
         {/* Proyecto Estrella: AhorraTiempo.pe */}
         <ScrollReveal delay={100}>
           <div className={styles.projectMinimal}>
             <div className={styles.projectLeft}>
-              <h3 className={styles.projectTitle}>AHORRATIEMPO.PE</h3>
+              <h3 className={styles.projectTitle}>AhorraTiempo.pe</h3>
               <div className={styles.projectTags}>
                 <span className={styles.tag}>STARTUP PROPIA</span>
-                <span className={styles.tag}>IA</span>
+                <span className={styles.tag}>IA INTELIGENTE</span>
               </div>
               <p className={styles.projectDesc}>
-                Aplicación web diseñada para simplificar trámites en Perú. Integra un asistente virtual inteligente para guiar al usuario y centralizar servicios clave.
+                Aplicación web masiva diseñada para simplificar trámites en el Perú. Integra un asistente virtual inteligente para guiar al ciudadano de manera fluida y sin fricción.
               </p>
               <div>
                 <Link href="https://ahorratiempo.pe" target="_blank" className={styles.minimalBtn}>
-                  VISITAR
+                  Visitar Plataforma
                 </Link>
               </div>
             </div>
@@ -135,17 +129,17 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <div className={styles.projectMinimal}>
             <div className={styles.projectLeft}>
-              <h3 className={styles.projectTitle}>FISCALIZACIÓN</h3>
+              <h3 className={styles.projectTitle}>Fiscalización</h3>
               <div className={styles.projectTags}>
                 <span className={styles.tag}>APP MÓVIL</span>
                 <span className={styles.tag}>SECTOR PÚBLICO</span>
               </div>
               <p className={styles.projectDesc}>
-                Plataforma que digitaliza y agiliza auditorías. Valida datos al instante y eleva la transparencia operativa en la gestión de recursos.
+                Plataforma que digitaliza auditorías. Valida datos al instante, elimina el papel y eleva la transparencia operativa en la gestión de recursos del estado.
               </p>
               <div>
                 <Link href="https://github.com/dennys3mf/App-Fiscalizacion-Joya" target="_blank" className={styles.minimalBtn}>
-                  CÓDIGO
+                  Ver Código
                 </Link>
               </div>
             </div>
@@ -164,17 +158,17 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <div className={styles.projectMinimal}>
             <div className={styles.projectLeft}>
-              <h3 className={styles.projectTitle}>CASCO IOT</h3>
+              <h3 className={styles.projectTitle}>Casco de Seguridad IoT</h3>
               <div className={styles.projectTags}>
-                <span className={styles.tag}>HARDWARE</span>
-                <span className={styles.tag}>SEGURIDAD</span>
+                <span className={styles.tag}>HARDWARE IOT</span>
+                <span className={styles.tag}>PREVENCIÓN</span>
               </div>
               <p className={styles.projectDesc}>
-                Prototipo industrial con sensores en tiempo real diseñado para prevenir accidentes y monitorear trabajadores.
+                Prototipo industrial con sensores en tiempo real diseñado para prevenir accidentes, monitorear la salud y garantizar la seguridad de trabajadores en la mina.
               </p>
               <div>
                 <Link href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT" target="_blank" className={styles.minimalBtn}>
-                  CÓDIGO
+                  Ver Código
                 </Link>
               </div>
             </div>
@@ -194,12 +188,12 @@ export default function Home() {
       {/* Contacto */}
       <section id="contacto" className={`section-container ${styles['section-container']} ${styles.contactSection}`}>
         <ScrollReveal>
-          <h2 className={styles.sectionTitle}>CONTACTO</h2>
+          <h2 className={styles.sectionTitle}>Contacto</h2>
           
           <div className={styles.contactLinks}>
-            <a href="mailto:dennys.marquez.dev@gmail.com" className={styles.contactLink}>EMAIL</a>
-            <a href="https://wa.me/51922466078" target="_blank" className={styles.contactLink}>WHATSAPP</a>
-            <a href="https://github.com/dennys3mf" target="_blank" className={styles.contactLink}>GITHUB</a>
+            <a href="mailto:dennys.marquez.dev@gmail.com" className={styles.contactLink}>Correo</a>
+            <a href="https://wa.me/51922466078" target="_blank" className={styles.contactLink}>WhatsApp</a>
+            <a href="https://github.com/dennys3mf" target="_blank" className={styles.contactLink}>GitHub</a>
           </div>
         </ScrollReveal>
       </section>
