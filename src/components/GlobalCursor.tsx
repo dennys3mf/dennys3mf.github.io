@@ -2,34 +2,50 @@
 import React, { useEffect, useState } from "react";
 import styles from "../app/page.module.css";
 
-interface TouchFlash {
+interface Point {
   id: number;
   x: number;
   y: number;
 }
 
 export default function GlobalCursor() {
-  const [position, setPosition] = useState({ x: -1000, y: -1000 });
-  const [visible, setVisible] = useState(false);
-  const [flashes, setFlashes] = useState<TouchFlash[]>([]);
+  const [trail, setTrail] = useState<Point[]>([]);
+  const [flashes, setFlashes] = useState<Point[]>([]);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (!visible) setVisible(true);
+    // Función para manejar el movimiento del ratón/dedo
+    const handleMouseMove = (e: MouseEvent | TouchEvent) => {
+      let clientX, clientY;
+      
+      if ('touches' in e) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = (e as MouseEvent).clientX;
+        clientY = (e as MouseEvent).clientY;
+      }
+
+      const id = Date.now() + Math.random();
+      const point = { x: clientX, y: clientY, id };
+      
+      setTrail(prev => [...prev, point]);
+      
+      // El rastro desaparece automáticamente después de 500ms
+      setTimeout(() => {
+        setTrail(prev => prev.filter(p => p.id !== id));
+      }, 500);
     };
-    
-    const handleMouseLeave = () => setVisible(false);
-    const handleMouseEnter = () => setVisible(true);
 
     const handlePointerDown = (e: PointerEvent) => {
-      // Generar destello de luz
       const newFlash = { id: Date.now() + Math.random(), x: e.clientX, y: e.clientY };
       setFlashes(prev => [...prev, newFlash]);
       
       if (e.pointerType === 'touch') {
-         setPosition({ x: e.clientX, y: e.clientY });
-         setVisible(true);
+        const id = Date.now() + Math.random();
+        setTrail(prev => [...prev, { x: e.clientX, y: e.clientY, id }]);
+        setTimeout(() => {
+          setTrail(prev => prev.filter(p => p.id !== id));
+        }, 500);
       }
       
       // Eliminar destello después de 600ms
@@ -38,35 +54,35 @@ export default function GlobalCursor() {
       }, 600);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove as EventListener);
+    window.addEventListener("touchmove", handleMouseMove as EventListener, { passive: true });
     window.addEventListener("pointerdown", handlePointerDown);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove as EventListener);
+      window.removeEventListener("touchmove", handleMouseMove as EventListener);
       window.removeEventListener("pointerdown", handlePointerDown);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [visible]);
+  }, []);
 
   return (
     <>
-      <div
-        className={styles.globalCursorEffect}
-        style={{
-          opacity: visible ? 1 : 0,
-          left: `${position.x - 125}px`, 
-          top: `${position.y - 40}px`,  
-        }}
-      />
+      {trail.map(point => (
+        <div
+          key={point.id}
+          className={styles.trailPoint}
+          style={{
+            left: `${point.x - 25}px`, // Centrar el círculo de 50px
+            top: `${point.y - 25}px`,
+          }}
+        />
+      ))}
       {flashes.map(flash => (
         <div 
           key={flash.id}
           className={styles.touchFlash}
           style={{
-            left: `${flash.x - 75}px`, // centrar el div de 150px
+            left: `${flash.x - 75}px`, // Centrar el círculo de 150px
             top: `${flash.y - 75}px`,
           }}
         />
