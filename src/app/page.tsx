@@ -2,19 +2,21 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 import GlobalCursor from "../components/GlobalCursor";
+import ThemeToggle from "../components/ThemeToggle";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <GlobalCursor />
       
-      {/* Navbar Estilo Xiaomi */}
+      {/* Navbar Estilo Xiaomi / Temas */}
       <nav className={`${styles.navbar}`}>
         <div className={styles.logo}>D. MARQUEZ</div>
         <div className={styles.navLinks}>
           <a href="#soluciones">Soluciones</a>
           <a href="#proyectos">Casos de Éxito</a>
           <a href="#contacto">Contacto</a>
+          <ThemeToggle />
         </div>
       </nav>
 
@@ -28,7 +30,7 @@ export default function Home() {
         
         <ScrollReveal delay={300}>
           <p className={styles.heroSubtitle}>
-            Desarrollador de Software & Estudiante de Contabilidad
+            Desarrollador de Software 🇵🇪 & Estudiante de Contabilidad
           </p>
         </ScrollReveal>
       </section>

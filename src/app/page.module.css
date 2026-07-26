@@ -19,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px); /* Efecto cristal limpio */
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
@@ -48,7 +48,7 @@
 
 .navLinks a:hover {
   color: var(--foreground);
-  background: rgba(0, 0, 0, 0.04);
+  background: var(--btn-hover);
 }
 
 /* Hero Section */
@@ -207,7 +207,7 @@
   font-weight: 700;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  background: rgba(74, 108, 250, 0.1); /* Primary color con opacidad */
+  background: var(--tag-bg);
   color: var(--primary);
 }
 
