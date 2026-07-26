@@ -62,10 +62,14 @@ export default function GlobalCursor() {
     let hue = 200; // Iniciar en tonos azules estilo Xiaomi
 
     const render = () => {
-      // Desteñir gradualmente dibujando encima el color de fondo con baja opacidad
-      // El color de fondo es #f7f8fa (247, 248, 250)
-      ctx.fillStyle = "rgba(247, 248, 250, 0.15)";
+      // Desteñir gradualmente usando destination-out para no pintar encima de la web
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.shadowBlur = 0; // Desactivar sombra para el borrado
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Restaurar modo normal para dibujar el trazo
+      ctx.globalCompositeOperation = "source-over";
 
       if (isDrawing.current && lastPos.current.x !== -1000) {
         hue = (hue + 1) % 360; // Cambiar color sutilmente
