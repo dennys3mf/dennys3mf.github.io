@@ -105,7 +105,7 @@ export default function ParticleNetwork() {
         let y = Math.random() * (innerHeight - size * 2 - size * 2) + size * 2;
         let directionX = (Math.random() * 0.4) - 0.2;
         let directionY = (Math.random() * 0.4) - 0.2;
-        let color = "rgba(100, 150, 255, 0.5)"; // Azul tecnológico
+        let color = "rgba(255, 255, 255, 0.3)"; // Blanco monocromático
         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
       }
     }
@@ -121,7 +121,7 @@ export default function ParticleNetwork() {
             (particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y);
           if (distance < (w / 7) * (h / 7)) {
             opacityValue = 1 - distance / 20000;
-            ctx.strokeStyle = `rgba(100, 150, 255, ${opacityValue * 0.2})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue * 0.15})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);

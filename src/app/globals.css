@@ -1,37 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
 :root {
-  /* Discord Theme Colors */
-  --background: #313338;
-  --glass-bg: #2b2d31;
-  --glass-border: #1e1f22;
-  --foreground: #dbdee1;
-  --primary: #5865F2; /* Blurple */
-  --primary-foreground: #ffffff;
-  --aurora-1: #ff73fa; /* Nitro cotton candy accent */
-  --aurora-2: #5865F2;
-  --aurora-3: #00a8fc;
-  
-  /* Text specific */
-  --header-primary: #f2f3f5;
-  --header-secondary: #b5bac1;
-  --text-normal: #dbdee1;
-  --text-muted: #949ba4;
-  --interactive-normal: #b5bac1;
-  --interactive-hover: #dbdee1;
-  --interactive-active: #fff;
+  /* Martin Garrix Monochrome Theme */
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --border: rgba(255, 255, 255, 0.15);
+  --muted: #888888;
 }
 
 body {
-  color: var(--text-normal);
+  color: var(--foreground);
   background: var(--background);
-  font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 * {
@@ -43,4 +29,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.02em;
 }
