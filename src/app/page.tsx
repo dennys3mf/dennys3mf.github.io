@@ -2,11 +2,13 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import ParticleNetwork from "../components/ParticleNetwork";
 import ScrollReveal from "../components/ScrollReveal";
-import SpotlightCard from "../components/SpotlightCard";
+import GlobalCursor from "../components/GlobalCursor";
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <GlobalCursor />
+      
       {/* Navbar Minimalist/Brutalist */}
       <nav className={`${styles.navbar}`}>
         <div className={styles.logo}>D. MARQUEZ</div>
@@ -55,39 +57,39 @@ export default function Home() {
         <div className={styles.minimalGrid}>
           
           <ScrollReveal delay={100}>
-            <SpotlightCard>
+            <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
                 <span style={{color: "var(--muted)"}}>+</span> IA & AUTOMATIZACIÓN
               </h3>
               <p className={styles.minimalCardDesc}>Desarrollo de algoritmos de inteligencia artificial para procesar datos masivos y eliminar tareas repetitivas.</p>
-            </SpotlightCard>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <SpotlightCard>
+            <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
                 <span style={{color: "var(--muted)"}}>+</span> PLATAFORMAS WEB
               </h3>
               <p className={styles.minimalCardDesc}>Sistemas integrales enfocados en rendimiento, escalabilidad y soportar alto volumen de tráfico.</p>
-            </SpotlightCard>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <SpotlightCard>
+            <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
                 <span style={{color: "var(--muted)"}}>+</span> ANÁLISIS DE DATOS
               </h3>
               <p className={styles.minimalCardDesc}>Extracción y visualización de datos estratégicos en tiempo real para respaldar decisiones operativas.</p>
-            </SpotlightCard>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <SpotlightCard>
+            <div className={styles.rawBox}>
               <h3 className={styles.minimalCardTitle}>
                 <span style={{color: "var(--muted)"}}>X</span> ARQUITECTURA IOT
               </h3>
               <p className={styles.minimalCardDesc}>Integración de sensores de hardware y procesamiento en tiempo real para la industria.</p>
-            </SpotlightCard>
+            </div>
           </ScrollReveal>
 
         </div>

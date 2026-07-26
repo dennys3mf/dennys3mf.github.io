@@ -148,27 +148,28 @@
   gap: 2rem;
 }
 
-/* Spotlight Glow Cards adaptado al Brutalismo */
-.glowCard {
+.rawBox {
   padding: 3rem 2rem;
   border: 1px solid var(--border);
   position: relative;
-  overflow: hidden;
   background: var(--background);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
 }
 
-.glowCard:hover {
+.rawBox:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-.spotlightEffect {
-  position: absolute;
+.globalCursorEffect {
+  position: fixed; /* Fijo respecto a la ventana */
   pointer-events: none;
-  z-index: 0;
+  z-index: 9999;
   transition: opacity 0.3s ease;
-  opacity: 0.25; /* Aumentado sutilmente para ver el rectángulo */
+  background: rgba(255, 255, 255, 0.1);
+  width: 250px;
+  height: 80px;
+  filter: blur(25px);
 }
 
 .minimalCardTitle {
@@ -209,10 +210,12 @@
 }
 
 .projectTitle {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
   color: var(--foreground);
   line-height: 1;
+  word-break: break-word; /* Fix para pantallas pequeñas */
+  hyphens: auto;
 }
 
 .projectTags {
