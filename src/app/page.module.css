@@ -172,6 +172,23 @@
   filter: blur(25px);
 }
 
+.touchFlash {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 10000;
+  animation: flashAnim 0.6s ease-out forwards;
+}
+
+@keyframes flashAnim {
+  0% { transform: scale(0.2); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
 .minimalCardTitle {
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 900;
