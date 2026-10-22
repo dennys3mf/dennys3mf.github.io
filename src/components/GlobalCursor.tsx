@@ -14,7 +14,6 @@ export default function GlobalCursor() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Ajustar tamaño del canvas
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -22,23 +21,23 @@ export default function GlobalCursor() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Eventos de puntero
     const updatePointer = (e: MouseEvent | TouchEvent) => {
       let clientX, clientY;
-      if ('touches' in e) {
+      if ("touches" in e) {
         clientX = e.touches[0].clientX;
         clientY = e.touches[0].clientY;
       } else {
         clientX = (e as MouseEvent).clientX;
         clientY = (e as MouseEvent).clientY;
       }
-      
+
       lastPos.current = { ...pointerPos.current };
       pointerPos.current = { x: clientX, y: clientY };
-      
-      // Si el salto es muy grande (ej. acaba de entrar a la pantalla), no dibujamos línea
-      if (Math.abs(lastPos.current.x - pointerPos.current.x) > 100 || 
-          Math.abs(lastPos.current.y - pointerPos.current.y) > 100) {
+
+      if (
+        Math.abs(lastPos.current.x - pointerPos.current.x) > 100 ||
+        Math.abs(lastPos.current.y - pointerPos.current.y) > 100
+      ) {
         lastPos.current = { ...pointerPos.current };
       }
       isDrawing.current = true;
@@ -46,7 +45,6 @@ export default function GlobalCursor() {
 
     const stopDrawing = () => {
       isDrawing.current = false;
-      // Reseteamos posición para que no haya un trazo fantasma al volver
       pointerPos.current = { x: -1000, y: -1000 };
       lastPos.current = { x: -1000, y: -1000 };
     };
@@ -57,39 +55,40 @@ export default function GlobalCursor() {
     document.addEventListener("mouseleave", stopDrawing);
     document.addEventListener("touchend", stopDrawing);
 
-    // Bucle de animación (Efecto Xiaomi Fluido)
     let animationFrameId: number;
-    let hue = 200; // Iniciar en tonos azules estilo Xiaomi
+    const colors = [
+      { main: "rgba(39, 53, 206, 0.8)", glow: "rgba(39, 53, 206, 0.45)" }, // Cobalt
+      { main: "rgba(255, 0, 140, 0.8)", glow: "rgba(255, 0, 140, 0.45)" }, // Pink
+      { main: "rgba(245, 106, 0, 0.8)", glow: "rgba(245, 106, 0, 0.45)" }, // Orange
+      { main: "rgba(40, 155, 48, 0.8)", glow: "rgba(40, 155, 48, 0.45)" }, // Green
+      { main: "rgba(20, 98, 223, 0.8)", glow: "rgba(20, 98, 223, 0.45)" }, // Azure
+    ];
 
     const render = () => {
-      // Desteñir gradualmente usando destination-out para no pintar encima de la web
       ctx.globalCompositeOperation = "destination-out";
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-      ctx.shadowBlur = 0; // Desactivar sombra para el borrado
+      ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
+      ctx.shadowBlur = 0;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Restaurar modo normal para dibujar el trazo
+
       ctx.globalCompositeOperation = "source-over";
 
       if (isDrawing.current && lastPos.current.x !== -1000) {
-        hue = (hue + 1) % 360; // Cambiar color sutilmente
-        
+        const colorIndex = Math.floor((Date.now() / 350) % colors.length);
+        const { main, glow } = colors[colorIndex];
+
         ctx.beginPath();
-        // Sombra de neón
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = `hsl(${hue}, 100%, 60%)`;
-        
-        // Propiedades de la línea
-        ctx.lineWidth = 12; // Línea gruesa y suave
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = glow;
+
+        ctx.lineWidth = 6;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
-        ctx.strokeStyle = `hsl(${hue}, 100%, 70%)`; // Trazos de color suave/neón
+        ctx.strokeStyle = main;
 
         ctx.moveTo(lastPos.current.x, lastPos.current.y);
         ctx.lineTo(pointerPos.current.x, pointerPos.current.y);
         ctx.stroke();
 
-        // Actualizar último punto al actual para el siguiente frame
         lastPos.current = { ...pointerPos.current };
       }
 
@@ -108,10 +107,5 @@ export default function GlobalCursor() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className={styles.globalCanvas}
-    />
-  );
+  return <canvas ref={canvasRef} className={styles.globalCanvas} />;
 }

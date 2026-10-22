@@ -1,293 +1,16 @@
+/* ====================================================================
+   MODDO DESIGN SYSTEM - PAGE MODULE CSS
+   ==================================================================== */
+
 .main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   position: relative;
-  background-color: var(--background);
+  min-height: 100vh;
+  width: 100%;
   overflow-x: hidden;
-  width: 100%;
+  padding-bottom: 7rem; /* Extra space for floating bottom navbar */
+  z-index: 1;
 }
 
-/* Navbar HyperOS / Xiaomi */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 1.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--nav-bg);
-  backdrop-filter: blur(20px); /* Efecto cristal limpio */
-  border-bottom: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-
-.logo {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
-}
-
-.navLinks {
-  display: flex;
-  gap: 2rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.navLinks a {
-  color: var(--muted);
-  transition: color 0.2s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-}
-
-.navLinks a:hover {
-  color: var(--foreground);
-  background: var(--btn-hover);
-}
-
-/* Hero Section */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 6rem 5vw 2rem 5vw;
-  position: relative;
-  width: 100%;
-}
-
-.heroName {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: var(--foreground);
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  word-break: break-word;
-}
-
-.heroSubtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--muted);
-  max-width: 600px;
-  font-weight: 400;
-  line-height: 1.6;
-  position: relative;
-  z-index: 2;
-  margin-top: 1.5rem;
-  background: var(--card-bg);
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-/* Sections */
-.section-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 8rem 2rem;
-  width: 100%;
-}
-
-.sectionTitle {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 3rem;
-  color: var(--foreground);
-  line-height: 1.1;
-  word-break: break-word;
-  text-align: center;
-}
-
-.executiveContent {
-  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
-  font-weight: 600;
-  line-height: 1.6;
-  color: var(--muted);
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.executiveContent strong {
-  color: var(--foreground);
-}
-
-/* Soluciones Grid */
-.minimalGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.rawBox {
-  padding: 2.5rem 2rem;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  position: relative;
-  background: var(--card-bg);
-  box-shadow: var(--shadow);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-}
-
-.rawBox:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-}
-
-.minimalCardTitle {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  color: var(--foreground);
-}
-
-.minimalCardDesc {
-  color: var(--muted);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-/* Projects */
-.projectMinimal {
-  background: var(--card-bg);
-  border-radius: 32px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-  align-items: center;
-  margin-bottom: 3rem;
-  transition: transform 0.3s ease;
-}
-
-.projectMinimal:hover {
-  transform: translateY(-4px);
-}
-
-.projectLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.projectTitle {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: var(--foreground);
-  line-height: 1.1;
-  word-break: break-word;
-  hyphens: auto;
-}
-
-.projectTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.tag {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  background: var(--tag-bg);
-  color: var(--primary);
-}
-
-.projectDesc {
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.projectMedia {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #f0f0f0;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.projectMedia video, 
-.projectMedia img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Button Minimal */
-.minimalBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
-  background: var(--foreground);
-  color: var(--card-bg);
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.minimalBtn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
-
-/* Contact */
-.contactSection {
-  text-align: center;
-}
-
-.contactLinks {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.contactLink {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--foreground);
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 1.2rem 3rem;
-  border-radius: 40px;
-  transition: all 0.2s ease;
-}
-
-.contactLink:hover {
-  background: var(--foreground);
-  color: var(--card-bg);
-  transform: translateY(-3px);
-}
-
-/* Canvas para Rastro Fluido Global */
 .globalCanvas {
   position: fixed;
   top: 0;
@@ -295,42 +18,1173 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
 }
 
-/* ==================================================
-   RESPONSIVE QUERIES
-================================================== */
-@media (max-width: 900px) {
-  .projectMinimal {
+/* ====================================================================
+   FLOATING BOTTOM PILL NAVBAR (Signature Moddo Dock)
+   ==================================================================== */
+.navbarWrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+  max-width: calc(100vw - 2rem);
+  pointer-events: none;
+}
+
+.navbar {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--nav-border);
+  padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-floating);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  display: inline-block;
+}
+
+.peruFlag {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  list-style: none;
+}
+
+.navLink {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--text-main);
+  background: var(--theme-btn-bg);
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contactNavBtn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.contactNavBtn:hover {
+  transform: scale(1.04);
+  opacity: 0.95;
+}
+
+/* ====================================================================
+   HERO SECTION (Moddo Giant Typography & Tactile Stickers)
+   ==================================================================== */
+.hero {
+  min-height: 92vh;
+  padding: 2.5rem 2rem 4rem;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.heroMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  flex-wrap: wrap;
+}
+
+.heroMetaGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroMetaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.heroEmailLink {
+  color: var(--text-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+}
+
+.heroEmailLink:hover {
+  color: var(--accent-blue);
+}
+
+/* Giant Statement Display */
+.heroCenter {
+  position: relative;
+  padding: 3rem 0;
+  text-align: left;
+}
+
+.heroEyebrowTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  color: var(--text-main);
+  text-transform: lowercase;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  word-break: break-word;
+}
+
+.heroTitleAccent {
+  color: var(--accent-blue);
+}
+
+/* Tactile Floating Stickers */
+.heroStickers {
+  position: relative;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  z-index: 5;
+}
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.sticker:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+}
+
+.stickerPink {
+  background-color: var(--accent-pink);
+  transform: rotate(-3deg);
+}
+
+.stickerBlue {
+  background-color: var(--accent-blue);
+  transform: rotate(2.5deg);
+}
+
+.stickerOrange {
+  background-color: var(--accent-orange);
+  transform: rotate(-2deg);
+}
+
+.stickerGreen {
+  background-color: var(--accent-green);
+  transform: rotate(3deg);
+}
+
+.stickerLilac {
+  background-color: var(--accent-lilac);
+  color: #1a1b1c;
+  transform: rotate(-1.5deg);
+}
+
+/* Hero Bottom Narrative */
+.heroBottom {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.heroBadgeWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroNarrative {
+  max-width: 600px;
+}
+
+.heroTagline {
+  font-size: 1.18rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.heroTagline strong {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.heroDoodle {
+  font-family: var(--font-accent);
+  color: var(--accent-orange);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btnPrimary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btnSecondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btnSecondary:hover {
+  background: var(--theme-btn-bg);
+  transform: translateY(-2px);
+}
+
+/* ====================================================================
+   INFINITE MARQUEE TICKER (Moddo Brand Statement Strip)
+   ==================================================================== */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background: var(--text-main);
+  color: var(--bg-page);
+  padding: 1.1rem 0;
+  user-select: none;
+  display: flex;
+  margin: 3rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  animation: marquee 24s linear infinite;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.marqueeStar {
+  color: var(--accent-yellow);
+}
+
+/* ====================================================================
+   SECTIONS GENERAL WRAPPERS
+   ==================================================================== */
+.sectionContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.sectionHeader {
+  margin-bottom: 3.5rem;
+}
+
+.sectionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  background: rgba(39, 53, 206, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* ====================================================================
+   ABOUT SECTION (Asymmetric Grid & Handcrafted Notes)
+   ==================================================================== */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aboutHeadline {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+.aboutLead {
+  font-size: 1.12rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.aboutLead strong {
+  color: var(--text-main);
+}
+
+.aboutBadgesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.aboutBadgeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  box-shadow: var(--shadow-card);
+}
+
+.aboutCardVisual {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutImageWrap {
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  position: relative;
+}
+
+.aboutImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aboutCardVisual:hover .aboutImageWrap img {
+  transform: scale(1.05);
+}
+
+.aboutOverlayNote {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 2.2rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-accent);
+  color: #1a1b1c;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ====================================================================
+   SERVICES SECTION (Interactive Rows / Cards)
+   ==================================================================== */
+.servicesStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.serviceRow {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 80px 1.2fr 1.6fr auto;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceRow:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-hover);
+}
+
+.serviceNumber {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-subtle);
+}
+
+.serviceTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.serviceCategory {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+}
+
+.serviceName {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+.serviceDesc {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.serviceTechList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.serviceTechPill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card-subtle);
+  color: var(--text-muted);
+}
+
+.serviceArrowBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--text-main);
+  color: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.serviceRow:hover .serviceArrowBtn {
+  transform: scale(1.1) rotate(45deg);
+  background: var(--accent-blue);
+  color: #ffffff;
+}
+
+/* ====================================================================
+   CASES / WORK SECTION (Moddo Signature Work Cards)
+   ==================================================================== */
+.casesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.workCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3rem;
+  align-items: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-hover);
+}
+
+.workInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.workBadgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.workBadge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(39, 53, 206, 0.1);
+  color: var(--accent-blue);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.workBadgePink {
+  background: rgba(255, 0, 140, 0.1);
+  color: var(--accent-pink);
+}
+
+.workBadgeOrange {
+  background: rgba(245, 106, 0, 0.1);
+  color: var(--accent-orange);
+}
+
+.workTitle {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.workSubtitle {
+  font-family: var(--font-accent);
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  margin-top: -0.5rem;
+}
+
+.workDesc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.workHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.highlightIcon {
+  color: var(--accent-blue);
+}
+
+.workActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+/* Browser Video Container */
+.browserFrame {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.browserHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.browserDots {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot1 { background-color: #ef4444; }
+.dot2 { background-color: #f59e0b; }
+.dot3 { background-color: #10b981; }
+
+.browserUrl {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+}
+
+.mediaContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000000;
+  overflow: hidden;
+}
+
+.mediaContainer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ====================================================================
+   PROCESS SECTION (3D Step Cards with Moddo Assets)
+   ==================================================================== */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.processCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.processCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-hover);
+}
+
+.processCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.processStepNum {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+}
+
+.processStepTag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.processImageWrap {
+  width: 100%;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.processImageWrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.processCard:hover .processImageWrap img {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.processTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.processDesc {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* ====================================================================
+   STATS SECTION (Big Numbers)
+   ==================================================================== */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-l);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+}
+
+.statNumber {
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text-main);
+}
+
+.statLabel {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+.statDesc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* ====================================================================
+   CTA SECTION (High Impact Statement Card)
+   ==================================================================== */
+.ctaCard {
+  background: var(--text-main);
+  color: var(--bg-page);
+  border-radius: var(--radius-xl);
+  padding: 5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.ctaEyebrow {
+  font-family: var(--font-accent);
+  color: var(--accent-yellow);
+  font-size: 1.5rem;
+}
+
+.ctaTitle {
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  max-width: 850px;
+}
+
+.ctaDesc {
+  font-size: 1.2rem;
+  max-width: 620px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.ctaButtonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.ctaPrimaryBtn {
+  background: var(--accent-blue);
+  color: #ffffff;
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(39, 53, 206, 0.4);
+}
+
+.ctaPrimaryBtn:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #1f2ca8;
+}
+
+.ctaSecondaryBtn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.ctaSecondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ====================================================================
+   FOOTER (Moddo Clean Studio Bottom)
+   ==================================================================== */
+.footer {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footerBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.footerTagline {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.footerMeta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.backToTopBtn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: all 0.2s;
+}
+
+.backToTopBtn:hover {
+  background: var(--text-main);
+  color: var(--bg-page);
+}
+
+/* ====================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile Devices)
+   ==================================================================== */
+@media (max-width: 1024px) {
+  .heroBottom {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2rem;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceRow {
+    grid-template-columns: 50px 1fr;
+    gap: 1.25rem;
+  }
+
+  .serviceRow > div:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .serviceArrowBtn {
+    display: none;
+  }
+
+  .workCard {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .processGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .sectionContainer {
+    padding: 3.5rem 1.25rem;
+  }
+
   .navbar {
-    padding: 1rem 1.5rem;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .navLinks {
-    gap: 1rem;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .section-container {
-    padding: 6rem 1.5rem;
+    padding: 0.4rem 0.5rem 0.4rem 0.8rem;
+    gap: 0.4rem;
   }
 
-  .minimalBtn {
-    width: 100%;
+  .navLinks a:nth-child(n+4) {
+    display: none; /* Hide secondary links on small mobile to fit capsule */
   }
 
-  .contactLink {
-    width: 100%;
+  .navLink {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .ctaCard {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
   }
 }

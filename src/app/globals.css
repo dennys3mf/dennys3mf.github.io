@@ -1,74 +1,180 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=JetBrains+Mono:wght@400;500;700&family=Parkinsans:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Tema Claro (Xiaomi / Default) */
-  --background: #f7f8fa;
-  --foreground: #1d1d1f;
-  --primary: #4a6cfa;
-  --border: rgba(0, 0, 0, 0.06);
-  --card-bg: #ffffff;
-  --muted: #6e6e73;
-  --shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-  --nav-bg: rgba(255, 255, 255, 0.7);
-  --btn-hover: rgba(0, 0, 0, 0.04);
-  --tag-bg: rgba(74, 108, 250, 0.1);
+  /* Moddo Brand Signature Color Palette */
+  --accent-blue: #2735ce;
+  --accent-pink: #ff008c;
+  --accent-azure: #1462df;
+  --accent-orange: #f56a00;
+  --accent-green: #289b30;
+  --accent-mint: #43d791;
+  --accent-yellow: #f7c800;
+  --accent-lilac: #e8a9fb;
+  --accent-cyan: #80e8fa;
+
+  /* Fonts */
+  --font-heading: 'Parkinsans', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-body: 'Parkinsans', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-accent: 'Architects Daughter', cursive, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Global Radius & Grid */
+  --radius-pill: 999px;
+  --radius-xl: 32px;
+  --radius-l: 24px;
+  --radius-m: 16px;
+  --radius-s: 10px;
 }
 
+/* ====================================================================
+   TEMA CLARO (Default / Moddo Signature Warm Paper)
+   ==================================================================== */
+:root,
+[data-theme='light'] {
+  --bg-page: #f7f5f2;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f0eee9;
+  --bg-input: #ffffff;
+
+  --text-main: #1a1b1c;
+  --text-muted: #5d6069;
+  --text-subtle: #8e919a;
+
+  --border-color: rgba(26, 27, 28, 0.08);
+  --border-strong: rgba(26, 27, 28, 0.16);
+  --border-hover: rgba(26, 27, 28, 0.3);
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-border: rgba(26, 27, 28, 0.08);
+
+  --shadow-card: 0 10px 32px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 18px 45px rgba(0, 0, 0, 0.09);
+  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.1);
+
+  --btn-primary-bg: #1a1b1c;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-text: #1a1b1c;
+
+  --theme-btn-bg: rgba(0, 0, 0, 0.04);
+  --grid-line: rgba(26, 27, 28, 0.035);
+}
+
+/* ====================================================================
+   TEMA OSCURO (Moddo Dark Edition)
+   ==================================================================== */
 [data-theme='dark'] {
-  --background: #121212;
-  --foreground: #f0f0f0;
-  --primary: #5c7cfa;
-  --border: rgba(255, 255, 255, 0.08);
-  --card-bg: #1e1e1e;
-  --muted: #a0a0a0;
-  --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  --nav-bg: rgba(18, 18, 18, 0.8);
-  --btn-hover: rgba(255, 255, 255, 0.08);
-  --tag-bg: rgba(92, 124, 250, 0.15);
+  --bg-page: #101114;
+  --bg-card: #18191f;
+  --bg-card-subtle: #22242c;
+  --bg-input: #15161b;
+
+  --text-main: #f5f6f9;
+  --text-muted: #a2a5b0;
+  --text-subtle: #646773;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-hover: rgba(255, 255, 255, 0.35);
+
+  --nav-bg: rgba(24, 25, 31, 0.88);
+  --nav-border: rgba(255, 255, 255, 0.1);
+
+  --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --shadow-floating: 0 18px 45px rgba(0, 0, 0, 0.65);
+
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #101114;
+  --btn-secondary-bg: #22242c;
+  --btn-secondary-text: #f5f6f9;
+
+  --theme-btn-bg: rgba(255, 255, 255, 0.08);
+  --grid-line: rgba(255, 255, 255, 0.03);
 }
 
+/* ====================================================================
+   TEMA ACCESIBLE (Anti-Fatiga / Miopía & Astigmatismo)
+   ==================================================================== */
 [data-theme='accessible'] {
-  /* Tema Astigmatismo/Miopía */
-  --background: #1e1e24; /* Gris carbón para evitar halación */
-  --foreground: #f4ebd0; /* Ámbar/crema suave para alto contraste sin dolor ocular */
-  --primary: #f2c94c; /* Amarillo suave */
-  --border: rgba(244, 235, 208, 0.15);
-  --card-bg: #2b2b36;
-  --muted: #c9c3b1;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  --nav-bg: rgba(30, 30, 36, 0.9);
-  --btn-hover: rgba(244, 235, 208, 0.1);
-  --tag-bg: rgba(242, 201, 76, 0.15);
+  --bg-page: #191a22;
+  --bg-card: #242632;
+  --bg-card-subtle: #2d303f;
+  --bg-input: #20222c;
+
+  --text-main: #f8f3e5;
+  --text-muted: #d5d0bf;
+  --text-subtle: #a8a395;
+
+  --border-color: rgba(248, 243, 229, 0.22);
+  --border-strong: rgba(248, 243, 229, 0.4);
+  --border-hover: rgba(248, 243, 229, 0.7);
+
+  --nav-bg: rgba(36, 38, 50, 0.94);
+  --nav-border: rgba(248, 243, 229, 0.25);
+
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 14px 35px rgba(0, 0, 0, 0.7);
+  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.7);
+
+  --btn-primary-bg: #f8f3e5;
+  --btn-primary-text: #191a22;
+  --btn-secondary-bg: #2d303f;
+  --btn-secondary-text: #f8f3e5;
+
+  --theme-btn-bg: rgba(248, 243, 229, 0.12);
+  --grid-line: rgba(248, 243, 229, 0.06);
 }
 
 [data-theme='accessible'] body {
-  font-size: 110%; /* Escala todo para miopía */
-  font-weight: 600; /* Mayor peso de fuente base */
-  letter-spacing: 0.02em;
+  font-size: 108%;
+  font-weight: 500;
+  letter-spacing: 0.015em;
 }
 
-[data-theme='accessible'] h1, 
-[data-theme='accessible'] h2, 
-[data-theme='accessible'] h3 {
-  font-weight: 800;
-  letter-spacing: 0;
+/* ====================================================================
+   BASE RESETS & STYLING
+   ==================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  position: relative;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Subtle architectural grid pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background: var(--accent-pink);
+  color: #ffffff;
 }
 
 a {
@@ -76,7 +182,19 @@ a {
   text-decoration: none;
 }
 
+button {
+  font-family: inherit;
+}
+
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+/* Utility classes */
+.handwritten {
+  font-family: var(--font-accent);
 }
