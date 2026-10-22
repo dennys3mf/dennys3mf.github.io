@@ -31,7 +31,7 @@ export function BadgeMove({ className = "" }: { className?: string }) {
           position: "absolute",
           fontFamily: "var(--font-heading)",
           fontWeight: 900,
-          fontSize: "0.75rem",
+          fontSize: "0.72rem",
           color: "#18191b",
           textAlign: "center",
           lineHeight: 1.1,
@@ -39,9 +39,9 @@ export function BadgeMove({ className = "" }: { className?: string }) {
           transform: "rotate(6deg)",
         }}
       >
-        MAKE IT
+        HACERLO
         <br />
-        MOVE
+        REAL
       </span>
     </div>
   );
@@ -77,14 +77,14 @@ export function BadgeBold({ className = "" }: { className?: string }) {
           position: "absolute",
           fontFamily: "var(--font-heading)",
           fontWeight: 900,
-          fontSize: "0.82rem",
+          fontSize: "0.76rem",
           color: "#18191b",
           textAlign: "center",
           letterSpacing: "-0.01em",
           transform: "rotate(6deg)",
         }}
       >
-        THINK BOLD
+        PIENSA EN GRANDE
       </span>
     </div>
   );
@@ -120,14 +120,14 @@ export function BadgeNoise({ className = "" }: { className?: string }) {
           position: "absolute",
           fontFamily: "var(--font-heading)",
           fontWeight: 900,
-          fontSize: "0.85rem",
+          fontSize: "0.82rem",
           color: "#18191b",
           textAlign: "center",
           letterSpacing: "-0.01em",
           transform: "rotate(3deg)",
         }}
       >
-        MAKE NOISE
+        IMPACTO REAL
       </span>
     </div>
   );
@@ -163,7 +163,7 @@ export function BadgeCurious({ className = "" }: { className?: string }) {
           position: "absolute",
           fontFamily: "var(--font-heading)",
           fontWeight: 900,
-          fontSize: "0.72rem",
+          fontSize: "0.70rem",
           color: "#18191b",
           textAlign: "center",
           lineHeight: 1.15,
@@ -171,9 +171,9 @@ export function BadgeCurious({ className = "" }: { className?: string }) {
           transform: "translateY(22%) rotate(26deg)",
         }}
       >
-        STAY
+        SIEMPRE
         <br />
-        CURIOUS
+        CURIOSO
       </span>
     </div>
   );
@@ -209,14 +209,14 @@ export function BadgePlay({ className = "" }: { className?: string }) {
           position: "absolute",
           fontFamily: "var(--font-heading)",
           fontWeight: 900,
-          fontSize: "0.82rem",
+          fontSize: "0.78rem",
           color: "#ffffff",
           textAlign: "center",
           letterSpacing: "-0.01em",
           transform: "rotate(8.5deg)",
         }}
       >
-        PLAY SMART
+        CÓDIGO ÁGIL
       </span>
     </div>
   );
@@ -260,14 +260,14 @@ export function BadgeBuild({ className = "" }: { className?: string }) {
           position: "absolute",
           fontFamily: "var(--font-heading)",
           fontWeight: 900,
-          fontSize: "0.82rem",
+          fontSize: "0.78rem",
           color: "#ffffff",
           textAlign: "center",
           letterSpacing: "-0.01em",
           transform: "rotate(-2.5deg)",
         }}
       >
-        BUILD BETTER
+        CONSTRUIR MEJOR
       </span>
     </div>
   );

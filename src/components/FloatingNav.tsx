@@ -9,14 +9,14 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "#home", sectionIds: ["home"] },
-  { label: "Services", href: "#servicios", sectionIds: ["about", "servicios"] },
-  { label: "Cases", href: "#casos", sectionIds: ["casos", "proceso", "stats", "whyus"] },
-  { label: "Contact", href: "#contacto", sectionIds: ["contacto", "footer"] },
+  { label: "Inicio", href: "#home", sectionIds: ["home"] },
+  { label: "Servicios", href: "#servicios", sectionIds: ["about", "servicios"] },
+  { label: "Proyectos", href: "#casos", sectionIds: ["casos", "proceso", "stats", "whyus"] },
+  { label: "Contacto", href: "#contacto", sectionIds: ["contacto", "footer"] },
 ];
 
 export default function FloatingNav() {
-  const [activeItem, setActiveItem] = useState<string>("home");
+  const [activeItem, setActiveItem] = useState<string>("Inicio");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,9 +38,9 @@ export default function FloatingNav() {
         }
       }
 
-      // Default to Home if near top
+      // Default to Inicio if near top
       if (window.scrollY < 200) {
-        setActiveItem("Home");
+        setActiveItem("Inicio");
       }
     };
 

@@ -9,7 +9,7 @@ interface RotatingBadgeProps {
 export default function RotatingBadge({
   size = 130,
   className = "",
-  text = "✦ PARTNER WITH • DENNYS MARQUEZ • SOFTWARE & AI",
+  text = "✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • IA & CLOUD",
 }: RotatingBadgeProps) {
   return (
     <div

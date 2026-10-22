@@ -92,7 +92,7 @@ export default function Home() {
         <div className={styles.heroBottomWrap}>
           <div className={styles.heroTitleWrap}>
             <span className={styles.heroBrandSignature}>d marquez</span>
-            <span className={styles.heroEyebrowStudio}>SOFTWARE &amp; AI STUDIO</span>
+            <span className={styles.heroEyebrowStudio}>FULL STACK DEVELOPER &amp; IA</span>
             <CartoonEyes className={styles.heroEyeGraphic} />
           </div>
         </div>
@@ -106,15 +106,17 @@ export default function Home() {
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
               <h2 className={styles.aboutModdoHeading}>
-                Construyo software y sistemas que marcan la diferencia.
+                Construyo aplicaciones web, móviles y sistemas con Inteligencia Artificial.
               </h2>
-              <p className={styles.aboutModdoEyebrow}>About</p>
+              <p className={styles.aboutModdoEyebrow}>Sobre Mí</p>
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
-                Combino código limpio, arquitectura cloud moderna y soluciones prácticas con
-                Inteligencia Artificial para ayudar a negocios, startups y entidades a digitalizarse
-                sin fricción y escalar con confianza.
+                Full Stack Developer titulado en Diseño y Desarrollo de Software por TECSUP (tercio
+                superior, promedio 18/20). Cuento con experiencia construyendo aplicaciones web y
+                móviles de alto impacto, integrando APIs, servicios cloud serverless y funcionalidades
+                avanzadas con IA. Me enfoco en soluciones de producto sólidas, arquitectura mantenible y
+                una experiencia de usuario impecable.
               </p>
             </div>
           </div>
@@ -215,8 +217,8 @@ export default function Home() {
       <section id="servicios" className={styles.servicesModdoSection}>
         <div className={styles.servicesModdoContainer}>
           <div className={styles.servicesModdoHeader}>
-            <h2 className={styles.servicesModdoTitle}>Designing just for you</h2>
-            <p className={styles.servicesModdoEyebrow}>Services</p>
+            <h2 className={styles.servicesModdoTitle}>Soluciones de Software &amp; Desarrollo Full Stack</h2>
+            <p className={styles.servicesModdoEyebrow}>Servicios</p>
           </div>
 
           <div className={styles.servicesModdoStage}>
@@ -231,7 +233,7 @@ export default function Home() {
               />
               <img
                 src="/images/moddo/mascot-walking.webp"
-                alt="Dennys Marquez Mascot"
+                alt="Mascota de Dennys Marquez"
                 className={styles.serviceMascot}
                 loading="lazy"
               />
@@ -241,23 +243,23 @@ export default function Home() {
             <div className={styles.servicesPillStack}>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillPink}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Full-Stack Web Moderno</span>
+                <span>Desarrollo Web (React 18 &amp; TypeScript)</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillBlue}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Automatizaciones &amp; Agentes IA</span>
+                <span>Integración de IA &amp; Asistentes de Voz</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillOrange}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Arquitectura Cloud &amp; APIs</span>
+                <span>Servicios Cloud &amp; Serverless (Cloudflare)</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillGreen}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Hardware IoT &amp; Telemetría</span>
+                <span>Aplicaciones Móviles (Flutter &amp; Dart)</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillRed}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Consultoría Técnica &amp; Auditoría</span>
+                <span>Pagos Digitales &amp; Comprobantes (Culqi)</span>
               </a>
             </div>
           </div>
@@ -270,9 +272,9 @@ export default function Home() {
       <section id="casos" className={styles.casesModdoSection}>
         <div className={styles.casesModdoContainer}>
           <div className={styles.casesModdoHeader}>
-            <p className={styles.casesModdoEyebrow}>Cases</p>
+            <p className={styles.casesModdoEyebrow}>Proyectos &amp; Experiencia</p>
             <h2 className={styles.casesModdoTitle}>
-              Our passion is crafting designs that are as unique as you are.
+              Software probado en producción y proyectos con impacto real.
             </h2>
           </div>
 
@@ -294,7 +296,7 @@ export default function Home() {
               <div className={styles.caseMetaRow}>
                 <div className={styles.caseMetaText}>
                   <h3 className={styles.caseItemTitle}>AhorraTiempo.pe</h3>
-                  <p className={styles.caseItemSub}>Plataforma Ciudadana con IA &amp; RAG</p>
+                  <p className={styles.caseItemSub}>Lead Software Engineer · SPA React 18, IA por Voz &amp; Cloudflare Workers</p>
                 </div>
                 <div className={styles.caseArrowBtn}>
                   <ArrowUpRight size={22} />
@@ -304,7 +306,7 @@ export default function Home() {
 
             {/* Project 02 */}
             <a
-              href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
+              href="https://github.com/dennys3mf"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.caseCardModdo}
@@ -312,14 +314,14 @@ export default function Home() {
               <div className={styles.caseImageFrame}>
                 <img
                   src="/images/moddo/case-chip.webp"
-                  alt="App Fiscalización Digital"
+                  alt="CONTROLA SERVILEX Legal IT"
                   loading="lazy"
                 />
               </div>
               <div className={styles.caseMetaRow}>
                 <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>App Fiscalización Digital</h3>
-                  <p className={styles.caseItemSub}>Inspección Municipal In Situ &amp; Cero Papel</p>
+                  <h3 className={styles.caseItemTitle}>CONTROLA — SERVILEX Legal IT</h3>
+                  <p className={styles.caseItemSub}>Software Developer · Automatización Legal &amp; Gestión SG-SST</p>
                 </div>
                 <div className={styles.caseArrowBtn}>
                   <ArrowUpRight size={22} />
@@ -329,7 +331,7 @@ export default function Home() {
 
             {/* Project 03 */}
             <a
-              href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
+              href="https://github.com/dennys3mf"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.caseCardModdo}
@@ -337,14 +339,14 @@ export default function Home() {
               <div className={styles.caseImageFrame}>
                 <img
                   src="/images/moddo/case-workspace.webp"
-                  alt="Casco Inteligente IoT"
+                  alt="CHANSA App Móvil"
                   loading="lazy"
                 />
               </div>
               <div className={styles.caseMetaRow}>
                 <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>Casco Inteligente IoT</h3>
-                  <p className={styles.caseItemSub}>Telemetría Minera, Sensores &amp; MQTT</p>
+                  <h3 className={styles.caseItemTitle}>CHANSA App Móvil</h3>
+                  <p className={styles.caseItemSub}>Mobile Application Developer · Flutter, Dart &amp; Firebase</p>
                 </div>
                 <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
                   <ArrowUpRight size={22} />
@@ -354,7 +356,7 @@ export default function Home() {
 
             {/* Project 04 */}
             <a
-              href="https://github.com/dennys3mf"
+              href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.caseCardModdo}
@@ -362,14 +364,14 @@ export default function Home() {
               <div className={styles.caseImageFrame}>
                 <img
                   src="/images/moddo/case-cup.webp"
-                  alt="Fintech &amp; Sunat Flow Engine"
+                  alt="Safety Helmet IoT"
                   loading="lazy"
                 />
               </div>
               <div className={styles.caseMetaRow}>
                 <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>Fintech &amp; Sunat Flow Engine</h3>
-                  <p className={styles.caseItemSub}>Conciliación Bancaria y Comprobantes</p>
+                  <h3 className={styles.caseItemTitle}>Safety Helmet IoT</h3>
+                  <p className={styles.caseItemSub}>IoT Developer · Prototipo de Seguridad con Arduino &amp; Python</p>
                 </div>
                 <div className={styles.caseArrowBtn}>
                   <ArrowUpRight size={22} />
@@ -387,14 +389,14 @@ export default function Home() {
               <div className={styles.caseImageFrame}>
                 <img
                   src="/images/moddo/case-car.webp"
-                  alt="AI Knowledge Assistant"
+                  alt="Fintech &amp; Sunat Flow Engine"
                   loading="lazy"
                 />
               </div>
               <div className={styles.caseMetaRow}>
                 <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>AI Knowledge Assistant</h3>
-                  <p className={styles.caseItemSub}>Auditoría Normativa con Modelos LLM</p>
+                  <h3 className={styles.caseItemTitle}>Fintech &amp; Sunat Flow Engine</h3>
+                  <p className={styles.caseItemSub}>Pasarela Culqi, Suscripciones &amp; Comprobantes Electrónicos</p>
                 </div>
                 <div className={styles.caseArrowBtn}>
                   <ArrowUpRight size={22} />
@@ -404,7 +406,7 @@ export default function Home() {
 
             {/* Project 06 */}
             <a
-              href="https://github.com/dennys3mf"
+              href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.caseCardModdo}
@@ -412,14 +414,14 @@ export default function Home() {
               <div className={styles.caseImageFrame}>
                 <img
                   src="/images/moddo/case-portrait.webp"
-                  alt="Cloud High-Throughput API"
+                  alt="App Fiscalización Digital Joya"
                   loading="lazy"
                 />
               </div>
               <div className={styles.caseMetaRow}>
                 <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>Cloud High-Throughput API</h3>
-                  <p className={styles.caseItemSub}>Microservicios Distribuidos en Go / Node.js</p>
+                  <h3 className={styles.caseItemTitle}>App Fiscalización Digital Joya</h3>
+                  <p className={styles.caseItemSub}>Inspección Municipal In Situ, Modo Offline &amp; Cero Papel</p>
                 </div>
                 <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
                   <ArrowUpRight size={22} />
@@ -437,7 +439,7 @@ export default function Home() {
               className={styles.seeAllWorkBtn}
             >
               <ArrowUpRight size={20} />
-              <span>See All Work</span>
+              <span>Ver Más Proyectos en GitHub</span>
             </a>
           </div>
         </div>
@@ -555,23 +557,23 @@ export default function Home() {
         <div className={styles.statsModdoContainer}>
           <div className={styles.statsGridModdo}>
             <div className={styles.statsLeft}>
-              <p className={styles.statsEyebrow}>Stats</p>
-              <h2 className={styles.statsHeadingColossal}>Different</h2>
+              <p className={styles.statsEyebrow}>Trayectoria &amp; Logros</p>
+              <h2 className={styles.statsHeadingColossal}>Excelencia</h2>
               <div className={styles.statsSubheading}>
-                industries, perspectives,
+                Titulado en TECSUP con tercio superior (18/20),
                 <br />
-                and problems to solve
+                arquitectura cloud y sistemas en producción.
               </div>
             </div>
 
             <div className={styles.statsPillsCol}>
               <div className={styles.statStadiumPill}>
-                <span className={styles.statGiantNum}>390%</span>
-                <span className={styles.statDarkLabel}>Avg. Engagement</span>
+                <span className={styles.statGiantNum}>18/20</span>
+                <span className={styles.statDarkLabel}>Promedio Ponderado TECSUP</span>
               </div>
               <div className={styles.statStadiumPill}>
-                <span className={styles.statGiantNum}>685x</span>
-                <span className={styles.statDarkLabel}>ROI On Paid ADS</span>
+                <span className={styles.statGiantNum}>+2 Años</span>
+                <span className={styles.statDarkLabel}>Software en Producción</span>
               </div>
             </div>
           </div>
@@ -615,69 +617,69 @@ export default function Home() {
       <section id="whyus" className={styles.whyUsSection}>
         <div className={styles.whyUsContainer}>
           <div className={styles.whyUsHeader}>
-            <h2 className={styles.whyUsTitle}>Why us?</h2>
-            <p className={styles.whyUsEyebrow}>Simple by choice</p>
+            <h2 className={styles.whyUsTitle}>¿Por qué trabajar conmigo?</h2>
+            <p className={styles.whyUsEyebrow}>Sencillez, solidez y honestidad técnica</p>
           </div>
 
           <div className={styles.whyUsRows}>
-            {/* Row 1: Flexible (Blueprint Roll + Cobalt Blue Card) */}
+            {/* Row 1: Versatilidad Full Stack (Blueprint Roll + Cobalt Blue Card) */}
             <ScrollReveal delay={100}>
               <div className={styles.whyUsRow}>
                 <div className={styles.whyUsMediaCol}>
                   <img
                     src="/images/moddo/whyus-ch1.webp"
-                    alt="Blueprint roll character with peace sign"
+                    alt="Personaje blueprint con señal de paz"
                     className={styles.whyUsCharacter}
                     loading="lazy"
                   />
                   <div className={styles.charShadow} />
                 </div>
                 <div className={`${styles.whyUsCardContent} ${styles.whyUsCardFlexible}`}>
-                  <h3 className={styles.whyUsCardTitle}>Flexible</h3>
+                  <h3 className={styles.whyUsCardTitle}>Versatilidad Full Stack</h3>
                   <p className={styles.whyUsCardDesc}>
-                    Adaptabilidad total a tu modelo de negocio y requerimientos técnicos: desde prototipos rápidos y MVP hasta arquitecturas escalables y de alta disponibilidad.
+                    Titulado en TECSUP. Construyo desde interfaces modernas en React y Flutter hasta backends serverless en Cloudflare Workers y APIs en Node.js sin atajos ni fricción.
                   </p>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Row 2: Data-Driven Creativity (Walking Pencil + Hot Pink Card) */}
+            {/* Row 2: Ingeniería Aplicada con IA (Walking Pencil + Hot Pink Card) */}
             <ScrollReveal delay={200}>
               <div className={styles.whyUsRow}>
                 <div className={styles.whyUsMediaCol}>
                   <img
                     src="/images/moddo/whyus-ch2.webp"
-                    alt="Pencil character walking with sneakers"
+                    alt="Personaje lápiz caminando con energía"
                     className={styles.whyUsCharacter}
                     loading="lazy"
                   />
                   <div className={styles.charShadow} />
                 </div>
                 <div className={`${styles.whyUsCardContent} ${styles.whyUsCardCreativity}`}>
-                  <h3 className={styles.whyUsCardTitle}>Data-Driven Creativity</h3>
+                  <h3 className={styles.whyUsCardTitle}>Ingeniería Aplicada con IA</h3>
                   <p className={styles.whyUsCardDesc}>
-                    Estrategia e ingeniería guiadas por métricas reales, análisis de datos riguroso y visión de negocio sin perder la chispa creativa.
+                    Experiencia comprobada integrando modelos de lenguaje (LLM APIs), interfaces de voz interactivas (Web Speech API) y caché LRU para productos con usuarios reales.
                   </p>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Row 3: Aligned with Core Values (Smiling Star + Emerald Green Card) */}
+            {/* Row 3: Criterio de Negocio y Finanzas (Smiling Star + Emerald Green Card) */}
             <ScrollReveal delay={300}>
               <div className={styles.whyUsRow}>
                 <div className={styles.whyUsMediaCol}>
                   <img
                     src="/images/moddo/whyus-ch3.webp"
-                    alt="Smiling star character with sparkling eyes"
+                    alt="Personaje estrella sonriente"
                     className={styles.whyUsCharacter}
                     loading="lazy"
                   />
                   <div className={styles.charShadow} />
                 </div>
                 <div className={`${styles.whyUsCardContent} ${styles.whyUsCardValues}`}>
-                  <h3 className={styles.whyUsCardTitle}>Aligned with Core Values</h3>
+                  <h3 className={styles.whyUsCardTitle}>Criterio de Negocio y Finanzas</h3>
                   <p className={styles.whyUsCardDesc}>
-                    Desarrollo de software con honestidad técnica, trazabilidad contable y código limpio que resuelve problemas concretos sin adornos innecesarios.
+                    Mi formación en Contabilidad me permite entender la rentabilidad de cada requerimiento, optimizar costos en la nube y asegurar trazabilidad para auditorías y SUNAT.
                   </p>
                 </div>
               </div>
@@ -706,9 +708,9 @@ export default function Home() {
             {/* Left: Electric Yellow Stadium Card */}
             <div className={styles.ctaStadiumCard}>
               <div>
-                <h2 className={styles.ctaStadiumTitle}>Have a project in mind?</h2>
+                <h2 className={styles.ctaStadiumTitle}>¿Tienes un proyecto o vacante en mente?</h2>
                 <p className={styles.ctaStadiumDesc}>
-                  Partner with Dennys Marquez to transform your business or startup into a memorable digital experience.
+                  Disponible para roles Full Stack, desarrollo de producto o consultoría técnica. Conversemos sobre tus objetivos y cómo puedo aportar valor a tu equipo.
                 </p>
               </div>
 
@@ -720,7 +722,7 @@ export default function Home() {
                   className={styles.ctaPillBtn}
                 >
                   <span>↗</span>
-                  <span>Book a Call</span>
+                  <span>Conversar por WhatsApp</span>
                 </a>
 
                 <div className={styles.ctaAltLinks}>
@@ -740,6 +742,15 @@ export default function Home() {
                     <GithubIcon size={16} />
                     <span>github.com/dennys3mf</span>
                   </a>
+                  <a
+                    href="https://www.linkedin.com/in/dennys-gabriel-marquez-flores"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.ctaAltLink}
+                  >
+                    <ArrowUpRight size={16} />
+                    <span>LinkedIn</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -749,13 +760,13 @@ export default function Home() {
               <div className={styles.ctaPhotoFrame}>
                 <img
                   src="/images/moddo/about-team.webp"
-                  alt="Dennys Marquez Studio"
+                  alt="Dennys Gabriel Marquez Flores - Full Stack Developer"
                   loading="lazy"
                 />
               </div>
 
               <div className={styles.ctaBadgeWrap}>
-                <RotatingBadge size={145} text="✦ PARTNER WITH • DENNYS MARQUEZ •" />
+                <RotatingBadge size={145} text="✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • IA & CLOUD •" />
               </div>
             </div>
           </div>
@@ -772,7 +783,7 @@ export default function Home() {
             <div className={styles.footerBrandCol}>
               <h3 className={styles.footerBrandHeading}>dennys marquez</h3>
               <p className={styles.footerBrandTagline}>
-                Software &amp; AI Studio — Lima, Perú
+                Full Stack Developer — Titulado en TECSUP — Arequipa / Lima, Perú
                 <svg
                   width="18"
                   height="12"
@@ -810,17 +821,25 @@ export default function Home() {
 
             {/* Nav Links */}
             <div className={styles.footerNavCol}>
-              <span className={styles.footerNavColTitle}>Navigation</span>
-              <a href="#home" className={styles.footerNavLink}>Home</a>
-              <a href="#servicios" className={styles.footerNavLink}>Services</a>
-              <a href="#casos" className={styles.footerNavLink}>Cases</a>
-              <a href="#whyus" className={styles.footerNavLink}>Why Us</a>
-              <a href="#contacto" className={styles.footerNavLink}>Contact</a>
+              <span className={styles.footerNavColTitle}>Navegación</span>
+              <a href="#home" className={styles.footerNavLink}>Inicio</a>
+              <a href="#servicios" className={styles.footerNavLink}>Servicios</a>
+              <a href="#casos" className={styles.footerNavLink}>Proyectos</a>
+              <a href="#whyus" className={styles.footerNavLink}>¿Por qué yo?</a>
+              <a href="#contacto" className={styles.footerNavLink}>Contacto</a>
             </div>
 
             {/* Social Links */}
             <div className={styles.footerNavCol}>
-              <span className={styles.footerNavColTitle}>Connect</span>
+              <span className={styles.footerNavColTitle}>Conectar</span>
+              <a
+                href="https://www.linkedin.com/in/dennys-gabriel-marquez-flores"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerNavLink}
+              >
+                LinkedIn ↗
+              </a>
               <a
                 href="https://github.com/dennys3mf"
                 target="_blank"
@@ -837,14 +856,6 @@ export default function Home() {
               >
                 WhatsApp ↗
               </a>
-              <a
-                href="https://www.linkedin.com/in/dennys-marquez/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerNavLink}
-              >
-                LinkedIn ↗
-              </a>
             </div>
           </div>
 
@@ -860,8 +871,8 @@ export default function Home() {
 
           {/* Bottom Row */}
           <div className={styles.footerBottomRow}>
-            <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. All rights reserved.</span>
-            <span>Moddo HD Architecture • Next.js 16 &amp; React 19</span>
+            <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. Todos los derechos reservados.</span>
+            <span>Portafolio Profesional • Next.js 16 &amp; React 19</span>
             <a href="#home" className={styles.footerNavLink} style={{ fontSize: "0.92rem" }}>
               Volver Arriba ↑
             </a>
