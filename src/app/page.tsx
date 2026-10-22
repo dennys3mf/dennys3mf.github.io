@@ -37,49 +37,22 @@ export default function Home() {
       <GlobalCursor />
 
       {/* ====================================================================
-          FLOATING BOTTOM PILL NAVBAR (Moddo Signature Dock)
+          FLOATING BOTTOM PILL NAVBAR (Exact Moddo White Capsule)
          ==================================================================== */}
       <header className={styles.navbarWrapper}>
         <nav className={styles.navbar}>
-          <a href="#home" className={styles.brand} aria-label="Dennys Marquez Inicio">
-            <span className={styles.brandDot} />
-            <span>DENNYS</span>
-            <svg
-              width="20"
-              height="14"
-              viewBox="0 0 20 14"
-              className={styles.peruFlag}
-              aria-label="Bandera de Perú"
-              role="img"
-            >
-              <rect width="6.67" height="14" fill="#D91023" />
-              <rect x="6.67" width="6.66" height="14" fill="#FFFFFF" />
-              <rect x="13.33" width="6.67" height="14" fill="#D91023" />
-            </svg>
+          <a href="#home" className={styles.navLink}>
+            Home
           </a>
-
-          <div className={styles.navLinks}>
-            <a href="#about" className={styles.navLink}>
-              Sobre mí
-            </a>
-            <a href="#servicios" className={styles.navLink}>
-              Servicios
-            </a>
-            <a href="#casos" className={styles.navLink}>
-              Proyectos
-            </a>
-            <a href="#proceso" className={styles.navLink}>
-              Cómo trabajo
-            </a>
-          </div>
-
-          <div className={styles.navActions}>
-            <ThemeToggle />
-            <a href="#contacto" className={styles.contactNavBtn}>
-              <span>Hablemos</span>
-              <ArrowUpRight size={14} />
-            </a>
-          </div>
+          <a href="#servicios" className={styles.navLink}>
+            Services
+          </a>
+          <a href="#casos" className={styles.navLink}>
+            Cases
+          </a>
+          <a href="#contacto" className={styles.navLink}>
+            Contact
+          </a>
         </nav>
       </header>
 
@@ -93,16 +66,34 @@ export default function Home() {
             <div className={styles.heroLocalTime}>
               <LiveClock />
             </div>
-            <div className={styles.heroTimezone}>America / Lima</div>
+            <div className={styles.heroTimezone}>
+              America / Lima
+              <svg
+                width="18"
+                height="12"
+                viewBox="0 0 18 12"
+                className={styles.peruFlag}
+                aria-label="Bandera de Perú"
+                role="img"
+                style={{ marginLeft: "0.5rem", verticalAlign: "-1px", display: "inline-block" }}
+              >
+                <rect width="6" height="12" fill="#D91023" />
+                <rect x="6" width="6" height="12" fill="#FFFFFF" />
+                <rect x="12" width="6" height="12" fill="#D91023" />
+              </svg>
+            </div>
           </div>
 
-          <a
-            href="mailto:dennys.marquez.dev@gmail.com"
-            className={styles.heroContactLink}
-          >
-            <Mail size={16} />
-            <span>dennys.marquez.dev@gmail.com</span>
-          </a>
+          <div className={styles.heroMetaActions}>
+            <ThemeToggle />
+            <a
+              href="mailto:dennys.marquez.dev@gmail.com"
+              className={styles.heroContactLink}
+            >
+              <Mail size={16} />
+              <span>dennys.marquez.dev@gmail.com</span>
+            </a>
+          </div>
         </div>
 
         {/* Center Colossal Statement */}
@@ -113,7 +104,7 @@ export default function Home() {
         {/* Bottom Wrap: Left Brand Signature/Eyebrow/Eyes & Right Cobalt Blue Service Card with Stickers */}
         <div className={styles.heroBottomWrap}>
           <div className={styles.heroTitleWrap}>
-            <span className={styles.heroBrandSignature}>d.marquez</span>
+            <span className={styles.heroBrandSignature}>d marquez</span>
             <span className={styles.heroEyebrowStudio}>SOFTWARE &amp; AI STUDIO</span>
             <CartoonEyes className={styles.heroEyeGraphic} />
           </div>
@@ -137,42 +128,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ====================================================================
-          INFINITE MARQUEE TICKER (Moddo Brand Strip)
-         ==================================================================== */}
-      <div className={styles.marqueeContainer} aria-hidden="true">
-        <div className={styles.marqueeTrack}>
-          <div className={styles.marqueeItem}>
-            <span>CÓDIGO CON CRITERIO</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>INTELIGENCIA ARTIFICIAL PRÁCTICA</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>ARQUITECTURA CLOUD ESCALABLE</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>INTERFACES HUMANAS</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>NEXT.JS 16 &amp; REACT 19</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>HECHO EN LIMA, PERÚ</span>
-            <span className={styles.marqueeStar}>✦</span>
-          </div>
-          <div className={styles.marqueeItem}>
-            <span>CÓDIGO CON CRITERIO</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>INTELIGENCIA ARTIFICIAL PRÁCTICA</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>ARQUITECTURA CLOUD ESCALABLE</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>INTERFACES HUMANAS</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>NEXT.JS 16 &amp; REACT 19</span>
-            <span className={styles.marqueeStar}>✦</span>
-            <span>HECHO EN LIMA, PERÚ</span>
-            <span className={styles.marqueeStar}>✦</span>
-          </div>
-        </div>
-      </div>
 
       {/* ====================================================================
           ABOUT SECTION (Moddo Blue Canvas + Photo with Tactile Badges + Accounting)
@@ -217,11 +172,8 @@ export default function Home() {
           <ScrollReveal delay={150}>
             <div className={styles.accountingCard}>
               <div className={styles.accountingHeader}>
-                <span className={styles.accountingTag}>
-                  <Calculator size={14} /> [ MÁS SOBRE MÍ // MI FORMACIÓN EN CONTABILIDAD ]
-                </span>
                 <h3 className={styles.accountingTitle}>
-                  El puente entre el código y los números reales de tu empresa.
+                  El puente entre el código y los números reales de tu empresa
                 </h3>
                 <p className={styles.accountingLead}>
                   Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
@@ -535,9 +487,8 @@ export default function Home() {
       <section id="proceso" className={styles.sectionContainer}>
         <ScrollReveal>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>[ 04 // CÓMO TRABAJO ]</span>
             <h2 className={styles.sectionTitle}>
-              Cero magia negra: un proceso transparente y honesto.
+              Cero magia negra: un proceso transparente y honesto
             </h2>
             <p className={styles.sectionSubtitle}>
               Me gusta que las cosas sean claras desde el primer día: qué vamos a construir, por qué
@@ -562,7 +513,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h3 className={styles.processTitle}>1. Escuchar y Modelar</h3>
+                <h3 className={styles.processTitle}>1 Escuchar y Modelar</h3>
                 <p className={styles.processDesc}>
                   Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio.
                   No toco una línea de código hasta tener clara la arquitectura y la meta.
@@ -586,7 +537,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h3 className={styles.processTitle}>2. Construir &amp; Validar</h3>
+                <h3 className={styles.processTitle}>2 Construir &amp; Validar</h3>
                 <p className={styles.processDesc}>
                   Desarrollo con entregas continuas para que puedas probar el sistema desde la
                   primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos
@@ -611,7 +562,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h3 className={styles.processTitle}>3. Poner en Marcha &amp; Medir</h3>
+                <h3 className={styles.processTitle}>3 Poner en Marcha &amp; Medir</h3>
                 <p className={styles.processDesc}>
                   Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego
                   documentación y te acompaño para que tu equipo opere con total tranquilidad.
@@ -737,7 +688,6 @@ export default function Home() {
         <div className={styles.footerInner}>
           <div>
             <div className={styles.footerBrand}>
-              <span className={styles.brandDot} />
               <span>DENNYS GABRIEL MARQUEZ FLORES</span>
               <svg
                 width="20"
@@ -753,7 +703,7 @@ export default function Home() {
               </svg>
             </div>
             <p className={styles.footerTagline}>
-              Software &amp; AI Engineer · Lima, Perú
+              Software &amp; AI Engineer — Lima, Perú
             </p>
           </div>
 
