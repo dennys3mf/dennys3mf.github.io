@@ -1417,3 +1417,713 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ====================================================================
+   MODDO ABOUT SECTION (Cobalt Blue Canvas & Tactile Pop Badges)
+   ==================================================================== */
+.aboutModdoSection {
+  background-color: #2735ce;
+  color: #ffffff;
+  padding: 6.5rem 3.5vw 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='accessible'] .aboutModdoSection {
+  background-color: #1e2cb8;
+  color: #f9f5e8;
+}
+
+.aboutModdoContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.aboutModdoHeader {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+.aboutModdoLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.aboutModdoHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.aboutModdoEyebrow {
+  font-family: var(--font-accent);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.aboutModdoParagraph {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  padding-top: 0.75rem;
+}
+
+/* Photo Card & 4 Pop Badges */
+.aboutStageWrap {
+  position: relative;
+  width: 100%;
+  max-width: 1060px;
+  margin: 1.5rem auto 0;
+}
+
+.aboutMainImgCard {
+  width: 100%;
+  height: clamp(340px, 42vw, 560px);
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.35);
+  position: relative;
+  background-color: #1a2266;
+}
+
+.aboutMainImgCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Badges positioned around photo */
+.badgePosMove {
+  position: absolute;
+  top: 18%;
+  left: -48px;
+  width: clamp(105px, 11vw, 145px);
+  height: clamp(105px, 11vw, 145px);
+  z-index: 10;
+  cursor: grab;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.badgePosMove:hover {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.badgePosBold {
+  position: absolute;
+  bottom: 8%;
+  left: -32px;
+  width: clamp(120px, 13vw, 175px);
+  height: clamp(75px, 8vw, 105px);
+  z-index: 10;
+  cursor: grab;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.badgePosBold:hover {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.badgePosNoise {
+  position: absolute;
+  top: -36px;
+  right: 20px;
+  width: clamp(140px, 15vw, 210px);
+  height: clamp(80px, 9vw, 120px);
+  z-index: 10;
+  cursor: grab;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.badgePosNoise:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.badgePosCurious {
+  position: absolute;
+  bottom: -32px;
+  right: -24px;
+  width: clamp(95px, 10vw, 135px);
+  height: clamp(110px, 12vw, 155px);
+  z-index: 10;
+  cursor: grab;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.badgePosCurious:hover {
+  transform: scale(1.1) rotate(-8deg);
+}
+
+/* ====================================================================
+   MODDO SERVICES SECTION (Walking Mascot, Curved Blue Track, Pill Stack)
+   ==================================================================== */
+.servicesModdoSection {
+  background-color: var(--bg-page);
+  padding: 6.5rem 3.5vw 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.servicesModdoContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.servicesModdoHeader {
+  margin-bottom: 3.5rem;
+}
+
+.servicesModdoTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.servicesModdoEyebrow {
+  font-family: var(--font-accent);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--text-subtle);
+  margin: 0;
+}
+
+.servicesModdoStage {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  min-height: 480px;
+}
+
+.serviceTrackCol {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceRibbonSvg {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  color: #2735ce;
+  overflow: visible;
+}
+
+.serviceMascot {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: clamp(140px, 16vw, 220px);
+  height: auto;
+  user-select: none;
+  animation: mascotBounce 2.4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes mascotBounce {
+  0% { transform: translate(-50%, -50%) rotate(-2deg); }
+  100% { transform: translate(-50%, -54%) rotate(2deg); }
+}
+
+.servicesPillStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 480px;
+  justify-self: end;
+}
+
+.servicePillBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.servicePillBtn:hover {
+  transform: translateX(10px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.servicePillIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.servicePillBtn:hover .servicePillIcon {
+  transform: translate(2px, -2px);
+}
+
+.pillPink { background-color: #ff008c; }
+.pillBlue { background-color: #1462df; }
+.pillOrange { background-color: #f56a00; }
+.pillGreen { background-color: #1da342; }
+.pillRed { background-color: #f01e46; }
+
+/* ====================================================================
+   MODDO CASES SECTION (Cobalt Blue Background & 3-Column White Cards)
+   ==================================================================== */
+.casesModdoSection {
+  background-color: #2735ce;
+  color: #ffffff;
+  padding: 6.5rem 3.5vw 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='accessible'] .casesModdoSection {
+  background-color: #1e2cb8;
+  color: #f9f5e8;
+}
+
+.casesModdoContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.casesModdoHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 900px;
+}
+
+.casesModdoEyebrow {
+  font-family: var(--font-accent);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.casesModdoTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.casesGridModdo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.caseCardModdo {
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 1.15rem 1.15rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: #18191b;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.caseCardModdo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+}
+
+.caseImageFrame {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #f2efe9;
+}
+
+.caseImageFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.caseCardModdo:hover .caseImageFrame img {
+  transform: scale(1.05);
+}
+
+.caseMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0.4rem;
+}
+
+.caseMetaText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.caseItemTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #18191b;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.caseItemSub {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #535661;
+  margin: 0;
+}
+
+.caseArrowBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2735ce;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.caseArrowYellow {
+  background-color: #f7c800;
+  color: #18191b;
+}
+
+.caseCardModdo:hover .caseArrowBtn {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+.casesSeeAllWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.seeAllWorkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.2rem;
+  background-color: #18191b;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.seeAllWorkBtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  opacity: 0.95;
+}
+
+/* ====================================================================
+   MODDO STATS SECTION (Hot Pink Background, Yellow Stadium Pills)
+   ==================================================================== */
+.statsModdoSection {
+  background-color: #ff008c;
+  color: #ffffff;
+  padding: 6.5rem 3.5vw 4.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='accessible'] .statsModdoSection {
+  background-color: #e6007e;
+  color: #f9f5e8;
+}
+
+.statsModdoContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.statsGridModdo {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.statsLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statsEyebrow {
+  font-family: var(--font-accent);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.statsHeadingColossal {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.statsSubheading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 0.25rem;
+}
+
+.statsPillsCol {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.statStadiumPill {
+  flex: 1;
+  background-color: #f7fa40;
+  color: #18191b;
+  border-radius: 9999px;
+  padding: 2.2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  min-height: 160px;
+  transition: transform 0.25s ease;
+}
+
+.statStadiumPill:hover {
+  transform: scale(1.04);
+}
+
+.statGiantNum {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: #2735ce;
+}
+
+.statDarkLabel {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #18191b;
+  margin-top: 0.45rem;
+  letter-spacing: -0.01em;
+}
+
+/* Logos Marquee */
+.statsLogoMarquee {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.statsLogoTrack {
+  display: flex;
+  gap: 4.5rem;
+  align-items: center;
+  animation: logoScroll 22s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logoItemWrap {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+  transition: opacity 0.2s;
+}
+
+.logoItemWrap:hover {
+  opacity: 1;
+}
+
+.logoItemWrap img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ====================================================================
+   RESPONSIVE OVERRIDES FOR MODDO SECTIONS
+   ==================================================================== */
+@media (max-width: 1024px) {
+  .aboutModdoHeader {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .badgePosMove {
+    left: -16px;
+  }
+
+  .badgePosBold {
+    left: -12px;
+  }
+
+  .badgePosNoise {
+    right: 0px;
+  }
+
+  .badgePosCurious {
+    right: -10px;
+  }
+
+  .servicesModdoStage {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .servicesPillStack {
+    justify-self: center;
+    max-width: 100%;
+  }
+
+  .casesGridModdo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statsGridModdo {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutModdoSection {
+    padding: 4.5rem 1.25rem 4rem;
+  }
+
+  .aboutMainImgCard {
+    height: 300px;
+    border-radius: 24px;
+  }
+
+  .badgePosMove {
+    top: 5%;
+    left: -10px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .badgePosBold {
+    bottom: -15px;
+    left: -8px;
+    width: 110px;
+    height: 70px;
+  }
+
+  .badgePosNoise {
+    top: -24px;
+    right: -8px;
+    width: 120px;
+    height: 70px;
+  }
+
+  .badgePosCurious {
+    bottom: -24px;
+    right: -8px;
+    width: 80px;
+    height: 95px;
+  }
+
+  .serviceTrackCol {
+    min-height: 280px;
+  }
+
+  .serviceMascot {
+    width: 130px;
+  }
+
+  .casesGridModdo {
+    grid-template-columns: 1fr;
+  }
+
+  .statsPillsCol {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .statStadiumPill {
+    width: 100%;
+    min-height: 120px;
+    padding: 1.5rem 1rem;
+  }
+}

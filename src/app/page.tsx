@@ -5,6 +5,12 @@ import GlobalCursor from "../components/GlobalCursor";
 import ThemeToggle from "../components/ThemeToggle";
 import LiveClock from "../components/LiveClock";
 import CartoonEyes from "../components/CartoonEyes";
+import {
+  BadgeMove,
+  BadgeBold,
+  BadgeNoise,
+  BadgeCurious,
+} from "../components/TactileBadges";
 import RotatingBadge from "../components/RotatingBadge";
 import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
@@ -169,455 +175,357 @@ export default function Home() {
       </div>
 
       {/* ====================================================================
-          ABOUT SECTION (Asymmetric Moddo Grid + Dedicated Accounting Block)
+          ABOUT SECTION (Moddo Blue Canvas + Photo with Tactile Badges + Accounting)
          ==================================================================== */}
-      <section id="about" className={styles.sectionContainer}>
-        <div className={styles.aboutGrid}>
-          <ScrollReveal>
-            <div className={styles.aboutContent}>
-              <span className={styles.sectionTag}>[ 01 // QUIÉN SOY ]</span>
-              <h2 className={styles.aboutHeadline}>
-                Desarrollador apasionado por crear software que funciona y resuelve problemas reales.
+      <section id="about" className={styles.aboutModdoSection}>
+        <div className={styles.aboutModdoContainer}>
+          <div className={styles.aboutModdoHeader}>
+            <div className={styles.aboutModdoLeft}>
+              <h2 className={styles.aboutModdoHeading}>
+                Construyo software y sistemas que marcan la diferencia.
               </h2>
-              <p className={styles.aboutLead}>
-                Soy <strong>Dennys Gabriel Marquez Flores</strong>, desarrollador de software radicado en
-                Lima, Perú. Me dedico a la arquitectura web full-stack moderna, la integración práctica de
-                modelos de inteligencia artificial y la automatización de procesos.
+              <p className={styles.aboutModdoEyebrow}>About</p>
+            </div>
+            <div>
+              <p className={styles.aboutModdoParagraph}>
+                Combino código limpio, arquitectura cloud moderna y soluciones prácticas con
+                Inteligencia Artificial para ayudar a negocios, startups y entidades a digitalizarse
+                sin fricción y escalar con confianza.
               </p>
-              <p className={styles.aboutLead}>
-                Construyo con un principio muy claro: el mejor software es aquel que no te hace perder tiempo.
-                Interfaces rápidas, código tipado que cualquier colega puede mantener y sistemas que escalan
-                sin caerse ante tráfico real.
-              </p>
+            </div>
+          </div>
 
-              <div className={styles.aboutBadgesList}>
-                <div className={styles.aboutBadgeItem}>
-                  <CheckCircle2 size={16} color="var(--accent-blue)" />
-                  <span>Arquitectura Web Limpia &amp; Sin Sorpresas</span>
+          {/* Photo stage with the 4 Moddo tactile badges */}
+          <div className={styles.aboutStageWrap}>
+            <div className={styles.aboutMainImgCard}>
+              <img
+                src="/images/moddo/about-team.webp"
+                alt="Equipo colaborando y diseñando en el estudio"
+                loading="lazy"
+              />
+            </div>
+
+            <BadgeMove className={styles.badgePosMove} />
+            <BadgeBold className={styles.badgePosBold} />
+            <BadgeNoise className={styles.badgePosNoise} />
+            <BadgeCurious className={styles.badgePosCurious} />
+          </div>
+
+          {/* ====================================================================
+              BLOQUE DESTACADO: MÁS SOBRE MÍ - MI FORMACIÓN EN CONTABILIDAD
+             ==================================================================== */}
+          <ScrollReveal delay={150}>
+            <div className={styles.accountingCard}>
+              <div className={styles.accountingHeader}>
+                <span className={styles.accountingTag}>
+                  <Calculator size={14} /> [ MÁS SOBRE MÍ // MI FORMACIÓN EN CONTABILIDAD ]
+                </span>
+                <h3 className={styles.accountingTitle}>
+                  El puente entre el código y los números reales de tu empresa.
+                </h3>
+                <p className={styles.accountingLead}>
+                  Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
+                  financieros sufren con hojas de cálculo eternas que nadie sabe automatizar. En
+                  paralelo al desarrollo de software, estudio <strong>Contabilidad</strong>. Esta
+                  formación me da una perspectiva única: entiendo el plan contable, los costos
+                  operativos, los impuestos, las conciliaciones bancarias y el valor del flujo de caja.
+                </p>
+                <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
+                  Esto significa que cuando diseño una base de datos o un flujo de facturación, no solo
+                  pienso en la velocidad de la consulta: pienso en la trazabilidad para auditorías, el
+                  cumplimiento normativo (SUNAT) y que cada centavo invertido en infraestructura cloud
+                  tenga un retorno medible.
+                </p>
+              </div>
+
+              <div className={styles.accountingGrid}>
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <BarChart3 size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Comprensión del Negocio y ROI</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Hablo con la misma fluidez con tu contador o director financiero que con tu equipo
+                    técnico. Cada funcionalidad se diseña pensando en su retorno de inversión.
+                  </p>
                 </div>
-                <div className={styles.aboutBadgeItem}>
-                  <CheckCircle2 size={16} color="var(--accent-pink)" />
-                  <span>Automatizaciones con IA que Ahorran Horas</span>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <ShieldCheck size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Auditoría y Trazabilidad Forense</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Sistemas donde ningún registro se pierde. Sellos de tiempo, logs inalterables y
+                    estructuras de datos preparadas para revisiones y auditorías fiscales.
+                  </p>
                 </div>
-                <div className={styles.aboutBadgeItem}>
-                  <CheckCircle2 size={16} color="var(--accent-green)" />
-                  <span>Sistemas de Alta Disponibilidad &amp; Cloud</span>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <Scale size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Control Real de Costos Cloud</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Diseño arquitecturas serverless y bases de datos eficientes para evitar facturas
+                    sorpresa a fin de mes en proveedores cloud como AWS o Vercel.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <FileText size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Automatización de Comprobantes &amp; SUNAT</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Experiencia práctica en lógica tributaria peruana, validación de comprobantes
+                    electrónicos y flujos de conciliación bancaria sin fricción.
+                  </p>
                 </div>
               </div>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
 
-          <ScrollReveal delay={200}>
-            <div className={styles.aboutCardVisual}>
-              <div className={styles.aboutImageWrap}>
+      {/* ====================================================================
+          SERVICES SECTION (Moddo Walking Mascot & Tactile Pill Stack)
+         ==================================================================== */}
+      <section id="servicios" className={styles.servicesModdoSection}>
+        <div className={styles.servicesModdoContainer}>
+          <div className={styles.servicesModdoHeader}>
+            <h2 className={styles.servicesModdoTitle}>Designing just for you</h2>
+            <p className={styles.servicesModdoEyebrow}>Services</p>
+          </div>
+
+          <div className={styles.servicesModdoStage}>
+            {/* Left: Walking Mascot on the Thick Blue Curved Track */}
+            <div className={styles.serviceTrackCol}>
+              <svg
+                className={styles.serviceRibbonSvg}
+                viewBox="0 0 913 672"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.8359 35.5234C242.336 130.523 221.739 210.908 233.336 321.523C246.336 445.523 355.336 524.023 663.836 391.023C869.652 302.292 1000.53 540.523 683.836 540.523C543.336 540.523 446.336 593.523 433.836 664.523"
+                  stroke="#2735ce"
+                  strokeWidth="77"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <img
+                src="/images/moddo/mascot-walking.webp"
+                alt="Dennys Marquez Mascot"
+                className={styles.serviceMascot}
+                loading="lazy"
+              />
+            </div>
+
+            {/* Right: Stack of 5 Moddo Pill Service Buttons */}
+            <div className={styles.servicesPillStack}>
+              <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillPink}`}>
+                <span className={styles.servicePillIcon}>↗</span>
+                <span>Full-Stack Web Moderno</span>
+              </a>
+              <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillBlue}`}>
+                <span className={styles.servicePillIcon}>↗</span>
+                <span>Automatizaciones &amp; Agentes IA</span>
+              </a>
+              <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillOrange}`}>
+                <span className={styles.servicePillIcon}>↗</span>
+                <span>Arquitectura Cloud &amp; APIs</span>
+              </a>
+              <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillGreen}`}>
+                <span className={styles.servicePillIcon}>↗</span>
+                <span>Hardware IoT &amp; Telemetría</span>
+              </a>
+              <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillRed}`}>
+                <span className={styles.servicePillIcon}>↗</span>
+                <span>Consultoría Técnica &amp; Auditoría</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          CASES / WORK SECTION (Moddo 3-Column Visual Grid)
+         ==================================================================== */}
+      <section id="casos" className={styles.casesModdoSection}>
+        <div className={styles.casesModdoContainer}>
+          <div className={styles.casesModdoHeader}>
+            <p className={styles.casesModdoEyebrow}>Cases</p>
+            <h2 className={styles.casesModdoTitle}>
+              Our passion is crafting designs that are as unique as you are.
+            </h2>
+          </div>
+
+          <div className={styles.casesGridModdo}>
+            {/* Project 01 */}
+            <a
+              href="https://ahorratiempo.pe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.caseCardModdo}
+            >
+              <div className={styles.caseImageFrame}>
                 <img
-                  src="/images/moddo/6ab49b9cb496908db1a9b6f6_6ab1e79bcbe672135c7aecc0_Modern-Minimalist-Creative-Workspace-with-Retro-Pop-Accents.webp"
-                  alt="Espacio de trabajo moderno en Lima"
+                  src="/images/moddo/case-pencils.webp"
+                  alt="AhorraTiempo.pe"
                   loading="lazy"
                 />
               </div>
-              <div className={styles.aboutOverlayNote}>
-                <span>THINK BOLD ✦ BUILD BETTER</span>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* ====================================================================
-            BLOQUE DESTACADO: MÁS SOBRE MÍ - MI FORMACIÓN EN CONTABILIDAD
-           ==================================================================== */}
-        <ScrollReveal delay={200}>
-          <div className={styles.accountingCard}>
-            <div className={styles.accountingHeader}>
-              <span className={styles.accountingTag}>
-                <Calculator size={14} /> [ MÁS SOBRE MÍ // MI FORMACIÓN EN CONTABILIDAD ]
-              </span>
-              <h3 className={styles.accountingTitle}>
-                El puente entre el código y los números reales de tu empresa.
-              </h3>
-              <p className={styles.accountingLead}>
-                Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
-                financieros sufren con hojas de cálculo eternas que nadie sabe automatizar. En
-                paralelo al desarrollo de software, estudio <strong>Contabilidad</strong>. Esta
-                formación me da una perspectiva única: entiendo el plan contable, los costos
-                operativos, los impuestos, las conciliaciones bancarias y el valor del flujo de caja.
-              </p>
-              <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
-                Esto significa que cuando diseño una base de datos o un flujo de facturación, no solo
-                pienso en la velocidad de la consulta: pienso en la trazabilidad para auditorías, el
-                cumplimiento normativo (SUNAT) y que cada centavo invertido en infraestructura cloud
-                tenga un retorno medible.
-              </p>
-            </div>
-
-            <div className={styles.accountingGrid}>
-              <div className={styles.accountingItem}>
-                <div className={styles.accountingItemIcon}>
-                  <BarChart3 size={22} />
+              <div className={styles.caseMetaRow}>
+                <div className={styles.caseMetaText}>
+                  <h3 className={styles.caseItemTitle}>AhorraTiempo.pe</h3>
+                  <p className={styles.caseItemSub}>Plataforma Ciudadana con IA &amp; RAG</p>
                 </div>
-                <h4 className={styles.accountingItemTitle}>Comprensión del Negocio y ROI</h4>
-                <p className={styles.accountingItemDesc}>
-                  Hablo con la misma fluidez con tu contador o director financiero que con tu equipo
-                  técnico. Cada funcionalidad se diseña pensando en su retorno de inversión.
-                </p>
-              </div>
-
-              <div className={styles.accountingItem}>
-                <div className={styles.accountingItemIcon}>
-                  <ShieldCheck size={22} />
+                <div className={styles.caseArrowBtn}>
+                  <ArrowUpRight size={22} />
                 </div>
-                <h4 className={styles.accountingItemTitle}>Auditoría y Trazabilidad Forense</h4>
-                <p className={styles.accountingItemDesc}>
-                  Sistemas donde ningún registro se pierde. Sellos de tiempo, logs inalterables y
-                  estructuras de datos preparadas para revisiones y auditorías fiscales.
-                </p>
               </div>
+            </a>
 
-              <div className={styles.accountingItem}>
-                <div className={styles.accountingItemIcon}>
-                  <Scale size={22} />
-                </div>
-                <h4 className={styles.accountingItemTitle}>Control Real de Costos Cloud</h4>
-                <p className={styles.accountingItemDesc}>
-                  Diseño arquitecturas serverless y bases de datos eficientes para evitar facturas
-                  sorpresa a fin de mes en proveedores cloud como AWS o Vercel.
-                </p>
+            {/* Project 02 */}
+            <a
+              href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.caseCardModdo}
+            >
+              <div className={styles.caseImageFrame}>
+                <img
+                  src="/images/moddo/case-chip.webp"
+                  alt="App Fiscalización Digital"
+                  loading="lazy"
+                />
               </div>
+              <div className={styles.caseMetaRow}>
+                <div className={styles.caseMetaText}>
+                  <h3 className={styles.caseItemTitle}>App Fiscalización Digital</h3>
+                  <p className={styles.caseItemSub}>Inspección Municipal In Situ &amp; Cero Papel</p>
+                </div>
+                <div className={styles.caseArrowBtn}>
+                  <ArrowUpRight size={22} />
+                </div>
+              </div>
+            </a>
 
-              <div className={styles.accountingItem}>
-                <div className={styles.accountingItemIcon}>
-                  <FileText size={22} />
-                </div>
-                <h4 className={styles.accountingItemTitle}>Automatización de Comprobantes &amp; SUNAT</h4>
-                <p className={styles.accountingItemDesc}>
-                  Experiencia práctica en lógica tributaria peruana, validación de comprobantes
-                  electrónicos y flujos de conciliación bancaria sin fricción.
-                </p>
+            {/* Project 03 */}
+            <a
+              href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.caseCardModdo}
+            >
+              <div className={styles.caseImageFrame}>
+                <img
+                  src="/images/moddo/case-workspace.webp"
+                  alt="Casco Inteligente IoT"
+                  loading="lazy"
+                />
               </div>
-            </div>
+              <div className={styles.caseMetaRow}>
+                <div className={styles.caseMetaText}>
+                  <h3 className={styles.caseItemTitle}>Casco Inteligente IoT</h3>
+                  <p className={styles.caseItemSub}>Telemetría Minera, Sensores &amp; MQTT</p>
+                </div>
+                <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
+                  <ArrowUpRight size={22} />
+                </div>
+              </div>
+            </a>
+
+            {/* Project 04 */}
+            <a
+              href="https://github.com/dennys3mf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.caseCardModdo}
+            >
+              <div className={styles.caseImageFrame}>
+                <img
+                  src="/images/moddo/case-cup.webp"
+                  alt="Fintech &amp; Sunat Flow Engine"
+                  loading="lazy"
+                />
+              </div>
+              <div className={styles.caseMetaRow}>
+                <div className={styles.caseMetaText}>
+                  <h3 className={styles.caseItemTitle}>Fintech &amp; Sunat Flow Engine</h3>
+                  <p className={styles.caseItemSub}>Conciliación Bancaria y Comprobantes</p>
+                </div>
+                <div className={styles.caseArrowBtn}>
+                  <ArrowUpRight size={22} />
+                </div>
+              </div>
+            </a>
+
+            {/* Project 05 */}
+            <a
+              href="https://github.com/dennys3mf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.caseCardModdo}
+            >
+              <div className={styles.caseImageFrame}>
+                <img
+                  src="/images/moddo/case-car.webp"
+                  alt="AI Knowledge Assistant"
+                  loading="lazy"
+                />
+              </div>
+              <div className={styles.caseMetaRow}>
+                <div className={styles.caseMetaText}>
+                  <h3 className={styles.caseItemTitle}>AI Knowledge Assistant</h3>
+                  <p className={styles.caseItemSub}>Auditoría Normativa con Modelos LLM</p>
+                </div>
+                <div className={styles.caseArrowBtn}>
+                  <ArrowUpRight size={22} />
+                </div>
+              </div>
+            </a>
+
+            {/* Project 06 */}
+            <a
+              href="https://github.com/dennys3mf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.caseCardModdo}
+            >
+              <div className={styles.caseImageFrame}>
+                <img
+                  src="/images/moddo/case-portrait.webp"
+                  alt="Cloud High-Throughput API"
+                  loading="lazy"
+                />
+              </div>
+              <div className={styles.caseMetaRow}>
+                <div className={styles.caseMetaText}>
+                  <h3 className={styles.caseItemTitle}>Cloud High-Throughput API</h3>
+                  <p className={styles.caseItemSub}>Microservicios Distribuidos en Go / Node.js</p>
+                </div>
+                <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
+                  <ArrowUpRight size={22} />
+                </div>
+              </div>
+            </a>
           </div>
-        </ScrollReveal>
-      </section>
 
-      {/* ====================================================================
-          SERVICES SECTION (Moddo Interactive Rows)
-         ==================================================================== */}
-      <section id="servicios" className={styles.sectionContainer}>
-        <ScrollReveal>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>[ 02 // LO QUE PUEDO CONSTRUIR ]</span>
-            <h2 className={styles.sectionTitle}>De la idea al sistema funcionando en producción</h2>
-            <p className={styles.sectionSubtitle}>
-              Soluciones diseñadas para resolver cuellos de botella reales, con código mantenible y
-              tecnología moderna probada en batalla.
-            </p>
+          {/* See All Work CTA Button */}
+          <div className={styles.casesSeeAllWrap}>
+            <a
+              href="https://github.com/dennys3mf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.seeAllWorkBtn}
+            >
+              <ArrowUpRight size={20} />
+              <span>See All Work</span>
+            </a>
           </div>
-        </ScrollReveal>
-
-        <div className={styles.servicesStack}>
-          {/* Servicio 01 */}
-          <ScrollReveal delay={100}>
-            <div className={styles.serviceRow}>
-              <div className={styles.serviceNumber}>01</div>
-              <div className={styles.serviceTitleGroup}>
-                <span className={styles.serviceCategory}>WEB &amp; CLOUD DE ALTO NIVEL</span>
-                <h3 className={styles.serviceName}>Plataformas Web que Vuelan</h3>
-              </div>
-              <div>
-                <p className={styles.serviceDesc}>
-                  Nada de plantillas pesadas ni páginas que tardan segundos en cargar. Construyo
-                  aplicaciones web a medida con Next.js y React 19: ultra-rápidas, accesibles y
-                  optimizadas para que tus usuarios no abandonen la pantalla.
-                </p>
-                <div className={styles.serviceTechList}>
-                  <span className={styles.serviceTechPill}>Next.js 16</span>
-                  <span className={styles.serviceTechPill}>React 19</span>
-                  <span className={styles.serviceTechPill}>TypeScript</span>
-                  <span className={styles.serviceTechPill}>Node.js</span>
-                </div>
-              </div>
-              <div className={styles.serviceArrowBtn}>
-                <ArrowUpRight size={22} />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Servicio 02 */}
-          <ScrollReveal delay={200}>
-            <div className={styles.serviceRow}>
-              <div className={styles.serviceNumber}>02</div>
-              <div className={styles.serviceTitleGroup}>
-                <span className={styles.serviceCategory} style={{ color: "var(--accent-pink)" }}>
-                  INTELIGENCIA ARTIFICIAL APLICADA
-                </span>
-                <h3 className={styles.serviceName}>Asistentes &amp; Flujos con IA</h3>
-              </div>
-              <div>
-                <p className={styles.serviceDesc}>
-                  Menos promesas vacías y más resultados prácticos. Integro modelos de lenguaje y
-                  agentes que atienden consultas de clientes 24/7, extraen datos de documentos y
-                  automatizan las tareas repetitivas que le quitan tiempo a tu equipo.
-                </p>
-                <div className={styles.serviceTechList}>
-                  <span className={styles.serviceTechPill}>Python</span>
-                  <span className={styles.serviceTechPill}>FastAPI</span>
-                  <span className={styles.serviceTechPill}>OpenAI / Claude API</span>
-                  <span className={styles.serviceTechPill}>RAG Pipelines</span>
-                </div>
-              </div>
-              <div className={styles.serviceArrowBtn}>
-                <ArrowUpRight size={22} />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Servicio 03 */}
-          <ScrollReveal delay={300}>
-            <div className={styles.serviceRow}>
-              <div className={styles.serviceNumber}>03</div>
-              <div className={styles.serviceTitleGroup}>
-                <span className={styles.serviceCategory} style={{ color: "var(--accent-orange)" }}>
-                  BACKEND &amp; ARQUITECTURA CLOUD
-                </span>
-                <h3 className={styles.serviceName}>APIs, Backend &amp; Datos</h3>
-              </div>
-              <div>
-                <p className={styles.serviceDesc}>
-                  Diseño de APIs seguras, bases de datos relacionales y microservicios escalables.
-                  Estructuras preparadas para alta concurrencia, autenticación robusta y
-                  sincronización de datos en tiempo real.
-                </p>
-                <div className={styles.serviceTechList}>
-                  <span className={styles.serviceTechPill}>PostgreSQL</span>
-                  <span className={styles.serviceTechPill}>FastAPI / Python</span>
-                  <span className={styles.serviceTechPill}>Node.js</span>
-                  <span className={styles.serviceTechPill}>Docker &amp; Prisma</span>
-                </div>
-              </div>
-              <div className={styles.serviceArrowBtn}>
-                <ArrowUpRight size={22} />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Servicio 04 */}
-          <ScrollReveal delay={400}>
-            <div className={styles.serviceRow}>
-              <div className={styles.serviceNumber}>04</div>
-              <div className={styles.serviceTitleGroup}>
-                <span className={styles.serviceCategory} style={{ color: "var(--accent-green)" }}>
-                  HARDWARE &amp; SENSORES FÍSICOS
-                </span>
-                <h3 className={styles.serviceName}>Hardware IoT &amp; Telemetría</h3>
-              </div>
-              <div>
-                <p className={styles.serviceDesc}>
-                  Conectar el mundo físico con la nube. Prototipado y programación de
-                  microcontroladores ESP32 con sensores ambientales y de impacto para prevención de
-                  accidentes, monitoreo industrial y telemetría en tiempo real sobre MQTT.
-                </p>
-                <div className={styles.serviceTechList}>
-                  <span className={styles.serviceTechPill}>ESP32</span>
-                  <span className={styles.serviceTechPill}>MQTT</span>
-                  <span className={styles.serviceTechPill}>C++ Embebido</span>
-                  <span className={styles.serviceTechPill}>Sensores Industriales</span>
-                </div>
-              </div>
-              <div className={styles.serviceArrowBtn}>
-                <ArrowUpRight size={22} />
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ====================================================================
-          CASES / WORK SECTION (HD Realism Showcase Cards)
-         ==================================================================== */}
-      <section id="casos" className={styles.sectionContainer}>
-        <ScrollReveal>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>[ 03 // CASOS DE ÉXITO ]</span>
-            <h2 className={styles.sectionTitle}>
-              Proyectos reales nacidos de problemas reales.
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Soluciones construidas con propósito: desde una startup propia de impacto ciudadano
-              hasta digitalización municipal y hardware para minería.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className={styles.casesGrid}>
-          {/* Caso 01: AhorraTiempo.pe */}
-          <ScrollReveal delay={100}>
-            <article className={styles.workCard}>
-              <div className={styles.workInfo}>
-                <div className={styles.workBadgeRow}>
-                  <span className={styles.workBadge}>STARTUP PROPIA</span>
-                  <span className={`${styles.workBadge} ${styles.workBadgePink}`}>
-                    IA CIUDADANA
-                  </span>
-                </div>
-
-                <h3 className={styles.workTitle}>AhorraTiempo.pe</h3>
-                <p className={styles.workSubtitle}>
-                  Simplificando la burocracia peruana con Inteligencia Artificial
-                </p>
-
-                <p className={styles.workDesc}>
-                  Nació de una frustración real: hacer trámites en Perú suele ser confuso y
-                  agotador. Creé AhorraTiempo para que cualquier ciudadano consulte requisitos y
-                  pasos en segundos con un asistente de IA que responde en lenguaje sencillo, sin
-                  términos legales oscuros.
-                </p>
-
-                <div className={styles.workHighlights}>
-                  <div className={styles.highlightItem}>
-                    <ShieldCheck size={16} className={styles.highlightIcon} />
-                    <span>Asistente guiado por IA disponible 24/7</span>
-                  </div>
-                  <div className={styles.highlightItem}>
-                    <Zap size={16} className={styles.highlightIcon} />
-                    <span>Ahorro tangible de horas y colas innecesarias</span>
-                  </div>
-                </div>
-
-                <div className={styles.workActions}>
-                  <Link
-                    href="https://ahorratiempo.pe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.btnPrimary}
-                  >
-                    <span>Probar la Plataforma</span>
-                    <ArrowUpRight size={18} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Video Mockup Frame con ProjectVideo HD */}
-              <ProjectVideo
-                src="/videos/ahorratiempo.mp4"
-                url="https://ahorratiempo.pe"
-                title="AhorraTiempo.pe"
-              />
-            </article>
-          </ScrollReveal>
-
-          {/* Caso 02: App Fiscalización */}
-          <ScrollReveal delay={200}>
-            <article className={styles.workCard}>
-              <div className={styles.workInfo}>
-                <div className={styles.workBadgeRow}>
-                  <span className={styles.workBadge}>SECTOR PÚBLICO</span>
-                  <span className={`${styles.workBadge} ${styles.workBadgeOrange}`}>
-                    AUDITORÍA CERO PAPEL
-                  </span>
-                </div>
-
-                <h3 className={styles.workTitle}>App Fiscalización Digital</h3>
-                <p className={styles.workSubtitle}>
-                  Inspección municipal en campo y validación de identidad in situ
-                </p>
-
-                <p className={styles.workDesc}>
-                  Ver a los inspectores municipales cargar carpetas llenas de actas de papel bajo el
-                  sol me llevó a diseñar esta herramienta. Permite levantar actas desde el móvil,
-                  tomar fotos geolocalizadas, validar identidades al instante y generar expedientes
-                  digitales inalterables.
-                </p>
-
-                <div className={styles.workHighlights}>
-                  <div className={styles.highlightItem}>
-                    <ShieldCheck size={16} className={styles.highlightIcon} />
-                    <span>Cero actas extraviadas y 100% trazabilidad digital</span>
-                  </div>
-                  <div className={styles.highlightItem}>
-                    <Zap size={16} className={styles.highlightIcon} />
-                    <span>Verificación instantánea y firma en pantalla</span>
-                  </div>
-                </div>
-
-                <div className={styles.workActions}>
-                  <Link
-                    href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.btnSecondary}
-                  >
-                    <GithubIcon size={16} />
-                    <span>Ver Repositorio en GitHub</span>
-                    <ArrowUpRight size={16} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Video Mockup Frame con ProjectVideo HD */}
-              <ProjectVideo
-                src="/videos/app-fiscalizacion.mp4"
-                url="github.com/dennys3mf/App-Fiscalizacion-Joya"
-                title="App Fiscalización Digital"
-              />
-            </article>
-          </ScrollReveal>
-
-          {/* Caso 03: Casco IoT */}
-          <ScrollReveal delay={300}>
-            <article className={styles.workCard}>
-              <div className={styles.workInfo}>
-                <div className={styles.workBadgeRow}>
-                  <span className={styles.workBadge}>HARDWARE EMBEBIDO</span>
-                  <span className={`${styles.workBadge} ${styles.workBadgePink}`}>
-                    SEGURIDAD MINERA
-                  </span>
-                </div>
-
-                <h3 className={styles.workTitle}>Casco Inteligente IoT</h3>
-                <p className={styles.workSubtitle}>
-                  Telemetría y alerta temprana para proteger vidas en minería
-                </p>
-
-                <p className={styles.workDesc}>
-                  En socavones y obras industriales, un accidente no avisa. Integramos sensores de
-                  gases tóxicos, acelerómetros para caídas e impactos en un casco físico conectado a
-                  un ESP32. Si ocurre un siniestro, emite alarma sonora local y transmite la alerta
-                  por MQTT a la central en milisegundos.
-                </p>
-
-                <div className={styles.workHighlights}>
-                  <div className={styles.highlightItem}>
-                    <ShieldCheck size={16} className={styles.highlightIcon} />
-                    <span>Detección automática de caídas y gases letales</span>
-                  </div>
-                  <div className={styles.highlightItem}>
-                    <Zap size={16} className={styles.highlightIcon} />
-                    <span>Transmisión en tiempo real de bajo consumo</span>
-                  </div>
-                </div>
-
-                <div className={styles.workActions}>
-                  <Link
-                    href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.btnSecondary}
-                  >
-                    <GithubIcon size={16} />
-                    <span>Ver Repositorio en GitHub</span>
-                    <ArrowUpRight size={16} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Video Mockup Frame con ProjectVideo HD */}
-              <ProjectVideo
-                src="/videos/casco-inteligente.mp4"
-                url="github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
-                title="Casco Inteligente IoT"
-              />
-            </article>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -715,44 +623,64 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          STATS SECTION (Big Numbers & Real Impact)
+          STATS SECTION (Moddo Hot Pink Canvas, Yellow Stadium Pills & Logos)
          ==================================================================== */}
-      <section className={styles.sectionContainer}>
-        <ScrollReveal>
-          <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>100%</span>
-              <span className={styles.statLabel}>Código Tipado</span>
-              <span className={styles.statDesc}>
-                TypeScript y Python estricto: adiós a los errores tontos en producción.
-              </span>
+      <section id="stats" className={styles.statsModdoSection}>
+        <div className={styles.statsModdoContainer}>
+          <div className={styles.statsGridModdo}>
+            <div className={styles.statsLeft}>
+              <p className={styles.statsEyebrow}>Stats</p>
+              <h2 className={styles.statsHeadingColossal}>Different</h2>
+              <div className={styles.statsSubheading}>
+                industries, perspectives,
+                <br />
+                and problems to solve
+              </div>
             </div>
 
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>3x</span>
-              <span className={styles.statLabel}>Menos Tiempo Manual</span>
-              <span className={styles.statDesc}>
-                Automatizaciones con IA que liberan a tu equipo de tareas repetitivas.
-              </span>
-            </div>
-
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>24/7</span>
-              <span className={styles.statLabel}>Disponibilidad Real</span>
-              <span className={styles.statDesc}>
-                Infraestructura cloud serverless rápida y de bajísima latencia.
-              </span>
-            </div>
-
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>Full-Stack</span>
-              <span className={styles.statLabel}>De Punta a Punta</span>
-              <span className={styles.statDesc}>
-                Desde la experiencia visual en pantalla hasta la base de datos y la nube.
-              </span>
+            <div className={styles.statsPillsCol}>
+              <div className={styles.statStadiumPill}>
+                <span className={styles.statGiantNum}>390%</span>
+                <span className={styles.statDarkLabel}>Avg. Engagement</span>
+              </div>
+              <div className={styles.statStadiumPill}>
+                <span className={styles.statGiantNum}>685x</span>
+                <span className={styles.statDarkLabel}>ROI On Paid ADS</span>
+              </div>
             </div>
           </div>
-        </ScrollReveal>
+
+          {/* Partner & Tech Logos Marquee Strip */}
+          <div className={styles.statsLogoMarquee} aria-hidden="true">
+            <div className={styles.statsLogoTrack}>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-philadelphia.avif" alt="Philadelphia" loading="lazy" />
+              </div>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-greenish.avif" alt="Greenish" loading="lazy" />
+              </div>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-network.avif" alt="Network" loading="lazy" />
+              </div>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-amsterdam.avif" alt="Amsterdam" loading="lazy" />
+              </div>
+              {/* Duplicate track for seamless infinite loop */}
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-philadelphia.avif" alt="Philadelphia" loading="lazy" />
+              </div>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-greenish.avif" alt="Greenish" loading="lazy" />
+              </div>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-network.avif" alt="Network" loading="lazy" />
+              </div>
+              <div className={styles.logoItemWrap}>
+                <img src="/images/moddo/logo-amsterdam.avif" alt="Amsterdam" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ====================================================================
@@ -811,16 +739,21 @@ export default function Home() {
             <div className={styles.footerBrand}>
               <span className={styles.brandDot} />
               <span>DENNYS GABRIEL MARQUEZ FLORES</span>
-              <img
-                src="https://flagcdn.com/pe.svg"
-                alt="Perú"
-                width="18"
-                height="12"
+              <svg
+                width="20"
+                height="14"
+                viewBox="0 0 20 14"
                 className={styles.peruFlag}
-              />
+                aria-label="Bandera de Perú"
+                role="img"
+              >
+                <rect width="6.67" height="14" fill="#D91023" />
+                <rect x="6.67" width="6.66" height="14" fill="#FFFFFF" />
+                <rect x="13.33" width="6.67" height="14" fill="#D91023" />
+              </svg>
             </div>
             <p className={styles.footerTagline}>
-              Software &amp; AI Engineer · Lima, Perú 🇵🇪
+              Software &amp; AI Engineer · Lima, Perú
             </p>
           </div>
 
