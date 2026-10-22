@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=JetBrains+Mono:wght@400;500;700&family=Parkinsans:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Moddo Brand Signature Color Palette */
+  /* Moddo Brand Signature Color Palette - HD Vibrance */
   --accent-blue: #2735ce;
   --accent-pink: #ff008c;
   --accent-azure: #1462df;
   --accent-orange: #f56a00;
-  --accent-green: #289b30;
-  --accent-mint: #43d791;
+  --accent-green: #1da342;
+  --accent-mint: #3ecf8e;
   --accent-yellow: #f7c800;
-  --accent-lilac: #e8a9fb;
-  --accent-cyan: #80e8fa;
+  --accent-lilac: #d994f8;
+  --accent-cyan: #7fe4f8;
 
   /* Fonts */
   --font-heading: 'Parkinsans', 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -19,7 +19,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Global Radius & Grid */
-  --radius-pill: 999px;
+  --radius-pill: 9999px;
   --radius-xl: 32px;
   --radius-l: 24px;
   --radius-m: 16px;
@@ -27,103 +27,109 @@
 }
 
 /* ====================================================================
-   TEMA CLARO (Default / Moddo Signature Warm Paper)
+   TEMA CLARO (Default / Moddo Signature Warm Tactile Paper)
    ==================================================================== */
 :root,
 [data-theme='light'] {
-  --bg-page: #f7f5f2;
+  --bg-page: #f8f6f2;
   --bg-card: #ffffff;
-  --bg-card-subtle: #f0eee9;
+  --bg-card-subtle: #f2efe9;
   --bg-input: #ffffff;
 
-  --text-main: #1a1b1c;
-  --text-muted: #5d6069;
-  --text-subtle: #8e919a;
+  --text-main: #18191b;
+  --text-muted: #535661;
+  --text-subtle: #848794;
 
-  --border-color: rgba(26, 27, 28, 0.08);
-  --border-strong: rgba(26, 27, 28, 0.16);
-  --border-hover: rgba(26, 27, 28, 0.3);
+  --border-color: rgba(24, 25, 27, 0.08);
+  --border-strong: rgba(24, 25, 27, 0.16);
+  --border-hover: rgba(24, 25, 27, 0.28);
+  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
-  --nav-bg: rgba(255, 255, 255, 0.88);
-  --nav-border: rgba(26, 27, 28, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-border: rgba(24, 25, 27, 0.08);
 
-  --shadow-card: 0 10px 32px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 18px 45px rgba(0, 0, 0, 0.09);
-  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.02), 0 12px 32px -4px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.03), 0 24px 50px -6px rgba(0, 0, 0, 0.09);
+  --shadow-floating: 0 20px 48px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
 
-  --btn-primary-bg: #1a1b1c;
+  --btn-primary-bg: #18191b;
   --btn-primary-text: #ffffff;
   --btn-secondary-bg: #ffffff;
-  --btn-secondary-text: #1a1b1c;
+  --btn-secondary-text: #18191b;
 
   --theme-btn-bg: rgba(0, 0, 0, 0.04);
-  --grid-line: rgba(26, 27, 28, 0.035);
+  --grid-line: rgba(24, 25, 27, 0.035);
+  --paper-grain-opacity: 0.035;
 }
 
 /* ====================================================================
    TEMA OSCURO (Moddo Dark Edition)
    ==================================================================== */
 [data-theme='dark'] {
-  --bg-page: #101114;
-  --bg-card: #18191f;
-  --bg-card-subtle: #22242c;
-  --bg-input: #15161b;
+  --bg-page: #0f1013;
+  --bg-card: #17181e;
+  --bg-card-subtle: #21222b;
+  --bg-input: #14151a;
 
-  --text-main: #f5f6f9;
-  --text-muted: #a2a5b0;
-  --text-subtle: #646773;
+  --text-main: #f6f7fb;
+  --text-muted: #a3a6b3;
+  --text-subtle: #676a78;
 
   --border-color: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.18);
   --border-hover: rgba(255, 255, 255, 0.35);
+  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-  --nav-bg: rgba(24, 25, 31, 0.88);
+  --nav-bg: rgba(23, 24, 30, 0.9);
   --nav-border: rgba(255, 255, 255, 0.1);
 
-  --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 20px 50px rgba(0, 0, 0, 0.6);
-  --shadow-floating: 0 18px 45px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 40px -4px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.5), 0 28px 60px -6px rgba(0, 0, 0, 0.7);
+  --shadow-floating: 0 24px 50px -6px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
 
-  --btn-primary-bg: #ffffff;
-  --btn-primary-text: #101114;
-  --btn-secondary-bg: #22242c;
-  --btn-secondary-text: #f5f6f9;
+  --btn-primary-bg: #f6f7fb;
+  --btn-primary-text: #0f1013;
+  --btn-secondary-bg: #21222b;
+  --btn-secondary-text: #f6f7fb;
 
   --theme-btn-bg: rgba(255, 255, 255, 0.08);
   --grid-line: rgba(255, 255, 255, 0.03);
+  --paper-grain-opacity: 0.025;
 }
 
 /* ====================================================================
    TEMA ACCESIBLE (Anti-Fatiga / Miopía & Astigmatismo)
    ==================================================================== */
 [data-theme='accessible'] {
-  --bg-page: #191a22;
-  --bg-card: #242632;
-  --bg-card-subtle: #2d303f;
-  --bg-input: #20222c;
+  --bg-page: #181921;
+  --bg-card: #232532;
+  --bg-card-subtle: #2d3040;
+  --bg-input: #1f212c;
 
-  --text-main: #f8f3e5;
-  --text-muted: #d5d0bf;
-  --text-subtle: #a8a395;
+  --text-main: #f9f5e8;
+  --text-muted: #d8d3c2;
+  --text-subtle: #aca695;
 
-  --border-color: rgba(248, 243, 229, 0.22);
-  --border-strong: rgba(248, 243, 229, 0.4);
-  --border-hover: rgba(248, 243, 229, 0.7);
+  --border-color: rgba(249, 245, 232, 0.2);
+  --border-strong: rgba(249, 245, 232, 0.4);
+  --border-hover: rgba(249, 245, 232, 0.75);
+  --card-highlight: inset 0 1px 0 rgba(249, 245, 232, 0.15);
 
-  --nav-bg: rgba(36, 38, 50, 0.94);
-  --nav-border: rgba(248, 243, 229, 0.25);
+  --nav-bg: rgba(35, 37, 50, 0.95);
+  --nav-border: rgba(249, 245, 232, 0.25);
 
-  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 14px 35px rgba(0, 0, 0, 0.7);
-  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.7);
+  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.75);
 
-  --btn-primary-bg: #f8f3e5;
-  --btn-primary-text: #191a22;
-  --btn-secondary-bg: #2d303f;
-  --btn-secondary-text: #f8f3e5;
+  --btn-primary-bg: #f9f5e8;
+  --btn-primary-text: #181921;
+  --btn-secondary-bg: #2d3040;
+  --btn-secondary-text: #f9f5e8;
 
-  --theme-btn-bg: rgba(248, 243, 229, 0.12);
-  --grid-line: rgba(248, 243, 229, 0.06);
+  --theme-btn-bg: rgba(249, 245, 232, 0.12);
+  --grid-line: rgba(249, 245, 232, 0.06);
+  --paper-grain-opacity: 0.02;
 }
 
 [data-theme='accessible'] body {
@@ -133,7 +139,7 @@
 }
 
 /* ====================================================================
-   BASE RESETS & STYLING
+   BASE RESETS & HD REALISM STYLING
    ==================================================================== */
 * {
   box-sizing: border-box;
@@ -144,6 +150,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -159,7 +166,20 @@ body {
   position: relative;
 }
 
-/* Subtle architectural grid pattern */
+/* HD Realism: Tactile Studio Paper Texture Grain */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: var(--paper-grain-opacity);
+  pointer-events: none;
+  z-index: 99998;
+}
+
+/* Subtle architectural coordinate grid */
 body::before {
   content: '';
   position: fixed;
@@ -175,6 +195,11 @@ body::before {
 ::selection {
   background: var(--accent-pink);
   color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
 }
 
 a {
@@ -194,7 +219,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
 }
 
-/* Utility classes */
 .handwritten {
   font-family: var(--font-accent);
 }

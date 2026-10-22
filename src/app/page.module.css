@@ -1,5 +1,5 @@
 /* ====================================================================
-   MODDO DESIGN SYSTEM - PAGE MODULE CSS
+   MODDO DESIGN SYSTEM - HD REALISM & OPTIMIZED CSS
    ==================================================================== */
 
 .main {
@@ -7,7 +7,7 @@
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
-  padding-bottom: 7rem; /* Extra space for floating bottom navbar */
+  padding-bottom: 7.5rem; /* Space for bottom floating dock */
   z-index: 1;
 }
 
@@ -18,11 +18,11 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 99997;
 }
 
 /* ====================================================================
-   FLOATING BOTTOM PILL NAVBAR (Signature Moddo Dock)
+   FLOATING BOTTOM PILL NAVBAR (Moddo Signature Dock)
    ==================================================================== */
 .navbarWrapper {
   position: fixed;
@@ -41,10 +41,10 @@
   align-items: center;
   gap: 0.8rem;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--nav-border);
-  padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+  padding: 0.5rem 0.6rem 0.5rem 1.15rem;
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-floating);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -108,7 +108,7 @@
 .contactNavBtn {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-text);
-  padding: 0.45rem 1rem;
+  padding: 0.45rem 1.05rem;
   border-radius: var(--radius-pill);
   font-size: 0.82rem;
   font-weight: 700;
@@ -117,19 +117,20 @@
   gap: 0.35rem;
   transition: transform 0.2s ease, opacity 0.2s ease;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contactNavBtn:hover {
-  transform: scale(1.04);
+  transform: translateY(-1px) scale(1.03);
   opacity: 0.95;
 }
 
 /* ====================================================================
-   HERO SECTION (Moddo Giant Typography & Tactile Stickers)
+   HERO SECTION (Giant Typography, Tactile Stickers & Rotating Badge)
    ==================================================================== */
 .hero {
-  min-height: 92vh;
-  padding: 2.5rem 2rem 4rem;
+  min-height: 90vh;
+  padding: 2.5rem 2rem 3.5rem;
   max-width: 1360px;
   margin: 0 auto;
   display: flex;
@@ -154,20 +155,20 @@
 .heroMetaGroup {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
 }
 
 .heroMetaPill {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.85rem;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-pill);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  font-size: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), var(--card-highlight);
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
@@ -182,7 +183,7 @@
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 0.35; transform: scale(0.85); }
 }
 
 .heroEmailLink {
@@ -190,37 +191,43 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   transition: color 0.2s;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
 }
 
 .heroEmailLink:hover {
   color: var(--accent-blue);
+  background: var(--theme-btn-bg);
 }
 
 /* Giant Statement Display */
 .heroCenter {
   position: relative;
-  padding: 3rem 0;
+  padding: 2.8rem 0;
   text-align: left;
 }
 
 .heroEyebrowTag {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: var(--accent-blue);
+  background: rgba(39, 53, 206, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 1rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
 }
 
 .heroTitle {
   font-family: var(--font-heading);
-  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  font-size: clamp(2.8rem, 10.5vw, 9rem);
   font-weight: 800;
   line-height: 0.92;
   letter-spacing: -0.055em;
@@ -229,66 +236,72 @@
   margin: 0;
   position: relative;
   z-index: 2;
-  word-break: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
 .heroTitleAccent {
   color: var(--accent-blue);
 }
 
-/* Tactile Floating Stickers */
+/* HD Realism: Tactile Physical Stickers */
 .heroStickers {
   position: relative;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.85rem;
   z-index: 5;
 }
 
 .sticker {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.25rem;
+  gap: 0.45rem;
+  padding: 0.65rem 1.35rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.92rem;
   color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px -3px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   cursor: grab;
   user-select: none;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  transition: transform 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  position: relative;
 }
 
 .sticker:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) scale(1.06) !important;
+  box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.sticker:active {
+  transform: scale(0.97) !important;
 }
 
 .stickerPink {
-  background-color: var(--accent-pink);
+  background: linear-gradient(135deg, #ff1a9b 0%, #e6007e 100%);
   transform: rotate(-3deg);
 }
 
 .stickerBlue {
-  background-color: var(--accent-blue);
+  background: linear-gradient(135deg, #3344ea 0%, #1e2bb8 100%);
   transform: rotate(2.5deg);
 }
 
 .stickerOrange {
-  background-color: var(--accent-orange);
+  background: linear-gradient(135deg, #ff7a1a 0%, #e05e00 100%);
   transform: rotate(-2deg);
 }
 
 .stickerGreen {
-  background-color: var(--accent-green);
+  background: linear-gradient(135deg, #24b84b 0%, #1b8a38 100%);
   transform: rotate(3deg);
 }
 
 .stickerLilac {
-  background-color: var(--accent-lilac);
+  background: linear-gradient(135deg, #f0b5ff 0%, #dc8eff 100%);
   color: #1a1b1c;
   transform: rotate(-1.5deg);
 }
@@ -310,12 +323,12 @@
 }
 
 .heroNarrative {
-  max-width: 600px;
+  max-width: 620px;
 }
 
 .heroTagline {
   font-size: 1.18rem;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--text-muted);
   font-weight: 500;
 }
@@ -328,11 +341,11 @@
 .heroDoodle {
   font-family: var(--font-accent);
   color: var(--accent-orange);
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  margin-top: 0.6rem;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .heroActions {
@@ -344,9 +357,9 @@
 .btnPrimary {
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-text);
-  padding: 0.85rem 1.75rem;
+  padding: 0.9rem 1.85rem;
   border-radius: var(--radius-pill);
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -355,21 +368,21 @@
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
 }
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
 }
 
 .btnSecondary {
   background-color: var(--btn-secondary-bg);
   color: var(--btn-secondary-text);
-  padding: 0.85rem 1.75rem;
+  padding: 0.9rem 1.85rem;
   border-radius: var(--radius-pill);
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -379,27 +392,30 @@
   cursor: pointer;
   transition: all 0.25s ease;
   white-space: nowrap;
+  box-shadow: var(--shadow-card);
 }
 
 .btnSecondary:hover {
   background: var(--theme-btn-bg);
   transform: translateY(-2px);
+  border-color: var(--border-hover);
 }
 
 /* ====================================================================
-   INFINITE MARQUEE TICKER (Moddo Brand Statement Strip)
+   INFINITE MARQUEE TICKER (Moddo Brand Strip)
    ==================================================================== */
 .marqueeContainer {
   width: 100%;
   overflow: hidden;
   background: var(--text-main);
   color: var(--bg-page);
-  padding: 1.1rem 0;
+  padding: 1.15rem 0;
   user-select: none;
   display: flex;
-  margin: 3rem 0;
+  margin: 3.5rem 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .marqueeTrack {
@@ -435,7 +451,7 @@
 .sectionContainer {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 5.5rem 2rem;
 }
 
 .sectionHeader {
@@ -445,10 +461,10 @@
 .sectionTag {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent-blue);
   background: rgba(39, 53, 206, 0.08);
   padding: 0.35rem 0.85rem;
@@ -458,7 +474,7 @@
 }
 
 .sectionTitle {
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.3rem, 4.8vw, 3.8rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.04em;
@@ -467,7 +483,7 @@
 }
 
 .sectionSubtitle {
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   color: var(--text-muted);
   max-width: 680px;
   line-height: 1.6;
@@ -478,7 +494,7 @@
    ==================================================================== */
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -500,7 +516,7 @@
 .aboutLead {
   font-size: 1.12rem;
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
 .aboutLead strong {
@@ -511,36 +527,36 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 .aboutBadgeItem {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.55rem;
+  padding: 0.55rem 1.05rem;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-pill);
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-main);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card), var(--card-highlight);
 }
 
 .aboutCardVisual {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-card), var(--card-highlight);
   position: relative;
   overflow: hidden;
 }
 
 .aboutImageWrap {
   width: 100%;
-  height: 380px;
+  height: 400px;
   border-radius: var(--radius-l);
   overflow: hidden;
   position: relative;
@@ -554,22 +570,22 @@
 }
 
 .aboutCardVisual:hover .aboutImageWrap img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .aboutOverlayNote {
   position: absolute;
-  bottom: 2.2rem;
-  left: 2.2rem;
+  bottom: 2rem;
+  left: 2rem;
   background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  padding: 0.75rem 1.25rem;
+  backdrop-filter: blur(14px);
+  padding: 0.8rem 1.35rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-accent);
   color: #1a1b1c;
-  font-size: 1.15rem;
-  font-weight: 600;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-size: 1.18rem;
+  font-weight: 700;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -588,26 +604,26 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 2.5rem 2.5rem;
+  padding: 2.4rem 2.6rem;
   display: grid;
-  grid-template-columns: 80px 1.2fr 1.6fr auto;
+  grid-template-columns: 80px 1.25fr 1.6fr auto;
   align-items: center;
   gap: 2rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card), var(--card-highlight);
   position: relative;
   overflow: hidden;
 }
 
 .serviceRow:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover), var(--card-highlight);
   border-color: var(--border-hover);
 }
 
 .serviceNumber {
   font-family: var(--font-mono);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 800;
   color: var(--text-subtle);
 }
@@ -628,7 +644,7 @@
 }
 
 .serviceName {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text-main);
@@ -644,17 +660,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-top: 0.6rem;
+  margin-top: 0.65rem;
 }
 
 .serviceTechPill {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   border-radius: var(--radius-pill);
   background: var(--bg-card-subtle);
   color: var(--text-muted);
+  border: 1px solid var(--border-color);
 }
 
 .serviceArrowBtn {
@@ -666,47 +683,49 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .serviceRow:hover .serviceArrowBtn {
   transform: scale(1.1) rotate(45deg);
   background: var(--accent-blue);
   color: #ffffff;
+  box-shadow: 0 8px 20px rgba(39, 53, 206, 0.4);
 }
 
 /* ====================================================================
-   CASES / WORK SECTION (Moddo Signature Work Cards)
+   CASES / WORK SECTION (HD Realism Showcase Cards)
    ==================================================================== */
 .casesGrid {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 4.5rem;
 }
 
 .workCard {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-card);
+  padding: 2.8rem;
+  box-shadow: var(--shadow-card), var(--card-highlight);
   display: grid;
   grid-template-columns: 1fr 1.25fr;
-  gap: 3rem;
+  gap: 3.5rem;
   align-items: center;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .workCard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover), var(--card-highlight);
   border-color: var(--border-hover);
 }
 
 .workInfo {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .workBadgeRow {
@@ -719,7 +738,7 @@
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  padding: 0.3rem 0.75rem;
+  padding: 0.32rem 0.8rem;
   border-radius: var(--radius-pill);
   background: rgba(39, 53, 206, 0.1);
   color: var(--accent-blue);
@@ -747,27 +766,27 @@
 .workSubtitle {
   font-family: var(--font-accent);
   color: var(--text-muted);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   margin-top: -0.5rem;
 }
 
 .workDesc {
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.02rem;
+  line-height: 1.68;
 }
 
 .workHighlights {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
 .highlightItem {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.9rem;
+  gap: 0.65rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-main);
 }
@@ -783,20 +802,22 @@
   margin-top: 0.5rem;
 }
 
-/* Browser Video Container */
+/* HD Realism: Browser Video Container */
 .browserFrame {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-l);
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  position: relative;
 }
 
 .browserHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 1rem;
+  gap: 0.75rem;
+  padding: 0.7rem 1.1rem;
   background: var(--bg-card);
   border-bottom: 1px solid var(--border-color);
 }
@@ -804,23 +825,62 @@
 .browserDots {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .dot {
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .dot1 { background-color: #ef4444; }
 .dot2 { background-color: #f59e0b; }
 .dot3 { background-color: #10b981; }
 
+.browserUrlPill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card-subtle);
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  max-width: 70%;
+  overflow: hidden;
+}
+
+.browserLockIcon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
 .browserUrl {
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.browserReloadBtn {
+  background: transparent;
+  border: none;
   color: var(--text-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.browserReloadBtn:hover {
+  color: var(--text-main);
+  transform: rotate(90deg);
 }
 
 .mediaContainer {
@@ -831,11 +891,63 @@
   overflow: hidden;
 }
 
-.mediaContainer video {
+.projectVideoElement {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Glass Sheen Reflection */
+.videoGlassSheen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Interactive Floating Controls */
+.videoControlsOverlay {
+  position: absolute;
+  bottom: 0.85rem;
+  right: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 4;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.mediaContainer:hover .videoControlsOverlay {
+  opacity: 1;
+}
+
+.videoControlBtn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+
+.videoControlBtn:hover {
+  transform: scale(1.15);
 }
 
 /* ====================================================================
@@ -851,8 +963,8 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 2.2rem;
-  box-shadow: var(--shadow-card);
+  padding: 2.4rem;
+  box-shadow: var(--shadow-card), var(--card-highlight);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -862,7 +974,7 @@
 
 .processCard:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover), var(--card-highlight);
   border-color: var(--border-hover);
 }
 
@@ -874,7 +986,7 @@
 
 .processStepNum {
   font-family: var(--font-mono);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--accent-blue);
 }
@@ -889,7 +1001,7 @@
 
 .processImageWrap {
   width: 100%;
-  height: 190px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -901,6 +1013,7 @@
   max-height: 100%;
   object-fit: contain;
   transition: transform 0.4s ease;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.08));
 }
 
 .processCard:hover .processImageWrap img {
@@ -916,8 +1029,8 @@
 
 .processDesc {
   color: var(--text-muted);
-  font-size: 0.94rem;
-  line-height: 1.55;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* ====================================================================
@@ -934,7 +1047,7 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-l);
   padding: 2.2rem 1.8rem;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card), var(--card-highlight);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -961,8 +1074,8 @@
 
 .statDesc {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.48;
 }
 
 /* ====================================================================
@@ -972,7 +1085,7 @@
   background: var(--text-main);
   color: var(--bg-page);
   border-radius: var(--radius-xl);
-  padding: 5rem 3.5rem;
+  padding: 5.5rem 3.5rem;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -980,29 +1093,29 @@
   align-items: center;
   text-align: center;
   gap: 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
 }
 
 .ctaEyebrow {
   font-family: var(--font-accent);
   color: var(--accent-yellow);
-  font-size: 1.5rem;
+  font-size: 1.55rem;
 }
 
 .ctaTitle {
   font-size: clamp(2.4rem, 5.5vw, 4.5rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.06;
   letter-spacing: -0.04em;
   color: #ffffff;
-  max-width: 850px;
+  max-width: 860px;
 }
 
 .ctaDesc {
-  font-size: 1.2rem;
-  max-width: 620px;
-  line-height: 1.6;
-  opacity: 0.85;
+  font-size: 1.22rem;
+  max-width: 640px;
+  line-height: 1.62;
+  opacity: 0.88;
 }
 
 .ctaButtonGroup {
@@ -1016,15 +1129,15 @@
 .ctaPrimaryBtn {
   background: var(--accent-blue);
   color: #ffffff;
-  padding: 1rem 2.2rem;
+  padding: 1.05rem 2.25rem;
   border-radius: var(--radius-pill);
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   transition: all 0.25s ease;
-  box-shadow: 0 8px 24px rgba(39, 53, 206, 0.4);
+  box-shadow: 0 8px 24px rgba(39, 53, 206, 0.45);
 }
 
 .ctaPrimaryBtn:hover {
@@ -1035,9 +1148,9 @@
 .ctaSecondaryBtn {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  padding: 1rem 2.2rem;
+  padding: 1.05rem 2.25rem;
   border-radius: var(--radius-pill);
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -1048,7 +1161,7 @@
 }
 
 .ctaSecondaryBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.22);
   transform: translateY(-3px);
 }
 
@@ -1082,7 +1195,7 @@
 
 .footerTagline {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   margin-top: 0.35rem;
 }
 
@@ -1099,13 +1212,14 @@
 .backToTopBtn {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
   color: var(--text-main);
   transition: all 0.2s;
+  box-shadow: var(--shadow-card);
 }
 
 .backToTopBtn:hover {
@@ -1141,7 +1255,7 @@
 
   .workCard {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.25rem;
   }
 
   .processGrid {
@@ -1163,21 +1277,21 @@
   }
 
   .navbar {
-    padding: 0.4rem 0.5rem 0.4rem 0.8rem;
+    padding: 0.4rem 0.5rem 0.4rem 0.85rem;
     gap: 0.4rem;
   }
 
-  .navLinks a:nth-child(n+4) {
-    display: none; /* Hide secondary links on small mobile to fit capsule */
+  .navLinks a:nth-child(n+3) {
+    display: none; /* Keep essential links on small phones */
   }
 
   .navLink {
     padding: 0.35rem 0.6rem;
-    font-size: 0.75rem;
+    font-size: 0.76rem;
   }
 
   .heroTitle {
-    font-size: clamp(3rem, 14vw, 5rem);
+    font-size: clamp(2.8rem, 13vw, 4.8rem);
   }
 
   .ctaCard {

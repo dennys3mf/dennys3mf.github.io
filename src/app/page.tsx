@@ -5,6 +5,7 @@ import GlobalCursor from "../components/GlobalCursor";
 import ThemeToggle from "../components/ThemeToggle";
 import LiveClock from "../components/LiveClock";
 import RotatingBadge from "../components/RotatingBadge";
+import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
 import {
   ArrowUpRight,
@@ -12,13 +13,10 @@ import {
   MessageCircle,
   ShieldCheck,
   Zap,
-  Bot,
-  Globe,
-  TrendingUp,
-  Cpu,
-  Layers,
   Sparkles,
   CheckCircle2,
+  Coffee,
+  HeartHandshake,
 } from "lucide-react";
 
 export default function Home() {
@@ -52,10 +50,10 @@ export default function Home() {
               Servicios
             </a>
             <a href="#casos" className={styles.navLink}>
-              Casos
+              Proyectos
             </a>
             <a href="#proceso" className={styles.navLink}>
-              Proceso
+              Cómo trabajo
             </a>
           </div>
 
@@ -79,11 +77,11 @@ export default function Home() {
             <div className={styles.heroMetaPill}>
               <span className={styles.liveDot} />
               <span>
-                Lima, PE: <LiveClock /> (UTC-5)
+                Lima, Perú: <LiveClock /> (UTC-5)
               </span>
             </div>
             <div className={styles.heroMetaPill}>
-              <span>🟢 Disponible para Proyectos &amp; Tech</span>
+              <span>🟢 Disponible para proyectos &amp; consultoría</span>
             </div>
           </div>
 
@@ -101,7 +99,7 @@ export default function Home() {
           <ScrollReveal delay={100}>
             <div className={styles.heroEyebrowTag}>
               <Sparkles size={14} />
-              <span>Software &amp; AI Engineering Studio</span>
+              <span>Software &amp; AI Engineer · Estudiante de Contabilidad</span>
             </div>
           </ScrollReveal>
 
@@ -115,16 +113,16 @@ export default function Home() {
           <ScrollReveal delay={300}>
             <div className={styles.heroStickers}>
               <div className={`${styles.sticker} ${styles.stickerPink}`}>
-                <span>Full-Stack Architecture ⚡</span>
+                <span>Full-Stack Moderno ⚡</span>
               </div>
               <div className={`${styles.sticker} ${styles.stickerBlue}`}>
-                <span>IA &amp; Modelos Predictivos 🤖</span>
+                <span>IA &amp; Automatización Práctica 🤖</span>
               </div>
               <div className={`${styles.sticker} ${styles.stickerOrange}`}>
-                <span>Fintech &amp; Auditoría 📊</span>
+                <span>Criterio Contable &amp; ROI 📊</span>
               </div>
               <div className={`${styles.sticker} ${styles.stickerGreen}`}>
-                <span>Telemetría IoT Industrial 📡</span>
+                <span>Hardware IoT &amp; Telemetría 📡</span>
               </div>
               <div className={`${styles.sticker} ${styles.stickerLilac}`}>
                 <span>Hecho en Perú 🇵🇪</span>
@@ -141,23 +139,28 @@ export default function Home() {
 
           <div className={styles.heroNarrative}>
             <p className={styles.heroTagline}>
-              Fusiono <strong>ingeniería de software de alto rendimiento</strong> con{" "}
-              <strong>criterio contable y financiero</strong>. Construyo plataformas escalables,
-              automatizaciones con IA y arquitecturas que generan impacto medible.
+              ¡Hola! Soy <strong>Dennys</strong> 👋. Construyo software que resuelve problemas
+              reales: desde eliminar trámites burocráticos con Inteligencia Artificial hasta
+              diseñar plataformas web veloces pensadas para cuidar los números de tu negocio.
             </p>
             <div className={styles.heroDoodle}>
-              <span>✦ 100% código limpio, tipado y optimizado para el mundo real</span>
+              <span>✦ Código limpio, interfaces humanas y soluciones que funcionan de verdad.</span>
             </div>
           </div>
 
           <div className={styles.heroActions}>
             <a href="#casos" className={styles.btnPrimary}>
-              <span>Ver Proyectos</span>
+              <span>Ver lo que he construido</span>
               <ArrowUpRight size={18} />
             </a>
-            <a href="#contacto" className={styles.btnSecondary}>
+            <a
+              href="https://wa.me/51922466078"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnSecondary}
+            >
               <MessageCircle size={17} />
-              <span>Iniciar Conversación</span>
+              <span>Escríbeme por WhatsApp</span>
             </a>
           </div>
         </div>
@@ -169,31 +172,31 @@ export default function Home() {
       <div className={styles.marqueeContainer} aria-hidden="true">
         <div className={styles.marqueeTrack}>
           <div className={styles.marqueeItem}>
-            <span>INGENIERÍA ROBUSTA</span>
+            <span>CÓDIGO CON CRITERIO</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>INTELIGENCIA ARTIFICIAL</span>
+            <span>INTELIGENCIA ARTIFICIAL PRÁCTICA</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>CRITERIO FINANCIERO &amp; ROI</span>
+            <span>VISIÓN CONTABLE &amp; FINANCIERA</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>ZERO FRICTION</span>
+            <span>INTERFACES HUMANAS</span>
             <span className={styles.marqueeStar}>✦</span>
             <span>NEXT.JS 16 &amp; REACT 19</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>PERÚ 🇵🇪 PARA EL MUNDO</span>
+            <span>HECHO EN LIMA, PERÚ 🇵🇪</span>
             <span className={styles.marqueeStar}>✦</span>
           </div>
           <div className={styles.marqueeItem}>
-            <span>INGENIERÍA ROBUSTA</span>
+            <span>CÓDIGO CON CRITERIO</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>INTELIGENCIA ARTIFICIAL</span>
+            <span>INTELIGENCIA ARTIFICIAL PRÁCTICA</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>CRITERIO FINANCIERO &amp; ROI</span>
+            <span>VISIÓN CONTABLE &amp; FINANCIERA</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>ZERO FRICTION</span>
+            <span>INTERFACES HUMANAS</span>
             <span className={styles.marqueeStar}>✦</span>
             <span>NEXT.JS 16 &amp; REACT 19</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>PERÚ 🇵🇪 PARA EL MUNDO</span>
+            <span>HECHO EN LIMA, PERÚ 🇵🇪</span>
             <span className={styles.marqueeStar}>✦</span>
           </div>
         </div>
@@ -206,34 +209,35 @@ export default function Home() {
         <div className={styles.aboutGrid}>
           <ScrollReveal>
             <div className={styles.aboutContent}>
-              <span className={styles.sectionTag}>[ 01 // SOBRE MÍ ]</span>
+              <span className={styles.sectionTag}>[ 01 // QUIÉN SOY ]</span>
               <h2 className={styles.aboutHeadline}>
-                Diseñamos y desarrollamos soluciones que transforman negocios.
+                No solo escribo código: entiendo el negocio detrás de cada pantalla.
               </h2>
               <p className={styles.aboutLead}>
-                Soy <strong>Dennys Gabriel Marquez Flores</strong>, desarrollador de software y
-                estudiante de Contabilidad en Lima, Perú. Mi propuesta de valor radica en una
-                combinación poco común: <strong>precisión matemática y rigor contable</strong>{" "}
-                unidos a la <strong>ingeniería de software moderna</strong>.
+                Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
+                financieros sufren con hojas de cálculo eternas que nadie sabe automatizar. Mi
+                propuesta une ambos mundos: <strong>estudio Contabilidad</strong> y{" "}
+                <strong>desarrollo software full-stack con IA</strong>.
               </p>
               <p className={styles.aboutLead}>
-                No concibo el código en aislamiento: cada arquitectura, base de datos y modelo de
-                inteligencia artificial está pensado para reducir costos operacionales, acelerar la
-                velocidad del negocio y maximizar el retorno de inversión.
+                Esto me permite sentarme a hablar contigo sobre costos, márgenes e impuestos, y luego
+                abrir el editor para programar la solución exacta en TypeScript y Python. Me
+                apasiona el software que le ahorra tiempo a la gente y le da tranquilidad a las
+                empresas.
               </p>
 
               <div className={styles.aboutBadgesList}>
                 <div className={styles.aboutBadgeItem}>
                   <CheckCircle2 size={16} color="var(--accent-blue)" />
-                  <span>Arquitectura Full-Stack de Alto Nivel</span>
+                  <span>Arquitectura Web Limpia &amp; Sin Sorpresas</span>
                 </div>
                 <div className={styles.aboutBadgeItem}>
                   <CheckCircle2 size={16} color="var(--accent-pink)" />
-                  <span>Automatización con IA &amp; NLP</span>
+                  <span>Automatizaciones con IA que Ahorran Horas</span>
                 </div>
                 <div className={styles.aboutBadgeItem}>
                   <CheckCircle2 size={16} color="var(--accent-orange)" />
-                  <span>Auditoría &amp; Inteligencia Contable</span>
+                  <span>Criterio Contable y Financiero Real</span>
                 </div>
               </div>
             </div>
@@ -244,7 +248,7 @@ export default function Home() {
               <div className={styles.aboutImageWrap}>
                 <img
                   src="/images/moddo/6ab49b9cb496908db1a9b6f6_6ab1e79bcbe672135c7aecc0_Modern-Minimalist-Creative-Workspace-with-Retro-Pop-Accents.webp"
-                  alt="Modern creative workspace"
+                  alt="Espacio de trabajo moderno en Lima"
                   loading="lazy"
                 />
               </div>
@@ -262,11 +266,11 @@ export default function Home() {
       <section id="servicios" className={styles.sectionContainer}>
         <ScrollReveal>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>[ 02 // CAPACIDADES ]</span>
-            <h2 className={styles.sectionTitle}>Diseñado e implementado a tu medida</h2>
+            <span className={styles.sectionTag}>[ 02 // LO QUE PUEDO CONSTRUIR ]</span>
+            <h2 className={styles.sectionTitle}>De la idea al sistema funcionando en producción</h2>
             <p className={styles.sectionSubtitle}>
-              Soluciones técnicas de punta a punta creadas con foco en velocidad, estabilidad y
-              resultados tangibles.
+              Soluciones diseñadas para resolver cuellos de botella reales, con código mantenible y
+              tecnología moderna probada en batalla.
             </p>
           </div>
         </ScrollReveal>
@@ -277,13 +281,14 @@ export default function Home() {
             <div className={styles.serviceRow}>
               <div className={styles.serviceNumber}>01</div>
               <div className={styles.serviceTitleGroup}>
-                <span className={styles.serviceCategory}>WEB &amp; CLOUD ARCHITECTURE</span>
-                <h3 className={styles.serviceName}>Plataformas Web</h3>
+                <span className={styles.serviceCategory}>WEB &amp; CLOUD DE ALTO NIVEL</span>
+                <h3 className={styles.serviceName}>Plataformas Web que Vuelan</h3>
               </div>
               <div>
                 <p className={styles.serviceDesc}>
-                  Desarrollo de aplicaciones web modernas preparadas para alto tráfico. Interfaces
-                  ultra-rápidas, modulares, accesibles y optimizadas para conversión.
+                  Nada de plantillas pesadas ni páginas que tardan segundos en cargar. Construyo
+                  aplicaciones web a medida con Next.js y React 19: ultra-rápidas, accesibles y
+                  optimizadas para que tus usuarios no abandonen la pantalla.
                 </p>
                 <div className={styles.serviceTechList}>
                   <span className={styles.serviceTechPill}>Next.js 16</span>
@@ -304,14 +309,15 @@ export default function Home() {
               <div className={styles.serviceNumber}>02</div>
               <div className={styles.serviceTitleGroup}>
                 <span className={styles.serviceCategory} style={{ color: "var(--accent-pink)" }}>
-                  MACHINE LEARNING &amp; NLP
+                  INTELIGENCIA ARTIFICIAL APLICADA
                 </span>
-                <h3 className={styles.serviceName}>IA &amp; Automatización</h3>
+                <h3 className={styles.serviceName}>Asistentes &amp; Flujos con IA</h3>
               </div>
               <div>
                 <p className={styles.serviceDesc}>
-                  Implementación de agentes autónomos, modelos de lenguaje (LLMs) y flujos de
-                  procesamiento automático para eliminar cuellos de botella operativos.
+                  Menos promesas vacías y más resultados prácticos. Integro modelos de lenguaje y
+                  agentes que atienden consultas de clientes 24/7, extraen datos de documentos y
+                  automatizan las tareas repetitivas que le quitan tiempo a tu equipo.
                 </p>
                 <div className={styles.serviceTechList}>
                   <span className={styles.serviceTechPill}>Python</span>
@@ -332,20 +338,21 @@ export default function Home() {
               <div className={styles.serviceNumber}>03</div>
               <div className={styles.serviceTitleGroup}>
                 <span className={styles.serviceCategory} style={{ color: "var(--accent-orange)" }}>
-                  FINANCIAL INTELLIGENCE
+                  VISIÓN CONTABLE &amp; NEGOCIOS
                 </span>
-                <h3 className={styles.serviceName}>Análisis Financiero</h3>
+                <h3 className={styles.serviceName}>Sistemas Financieros &amp; BI</h3>
               </div>
               <div>
                 <p className={styles.serviceDesc}>
-                  Modelado y consolidación de datos contables en tiempo real. Dashboards ejecutivos,
-                  auditoría digital de comprobantes y proyecciones presupuestarias cuantitativas.
+                  Diseñado desde la perspectiva de quien conoce el plan contable y los balances.
+                  Automatización de conciliaciones, auditoría digital de comprobantes y dashboards
+                  ejecutivos que te dicen con exactitud dónde ganas y dónde pierdes dinero.
                 </p>
                 <div className={styles.serviceTechList}>
-                  <span className={styles.serviceTechPill}>Data Modeling</span>
+                  <span className={styles.serviceTechPill}>Conciliación Contable</span>
                   <span className={styles.serviceTechPill}>Auditoría Digital</span>
                   <span className={styles.serviceTechPill}>Dashboards BI</span>
-                  <span className={styles.serviceTechPill}>Cost Optimization</span>
+                  <span className={styles.serviceTechPill}>Análisis de Costos</span>
                 </div>
               </div>
               <div className={styles.serviceArrowBtn}>
@@ -360,20 +367,21 @@ export default function Home() {
               <div className={styles.serviceNumber}>04</div>
               <div className={styles.serviceTitleGroup}>
                 <span className={styles.serviceCategory} style={{ color: "var(--accent-green)" }}>
-                  HARDWARE &amp; SENSORS
+                  HARDWARE &amp; SENSORES FÍSICOS
                 </span>
-                <h3 className={styles.serviceName}>Arquitectura IoT</h3>
+                <h3 className={styles.serviceName}>Hardware IoT &amp; Telemetría</h3>
               </div>
               <div>
                 <p className={styles.serviceDesc}>
-                  Sistemas embebidos con sensores para monitoreo de telemetría, seguridad de
-                  operarios y captura de variables en tiempo real en entornos industriales.
+                  Conectar el mundo físico con la nube. Prototipado y programación de
+                  microcontroladores ESP32 con sensores ambientales y de impacto para prevención de
+                  accidentes, monitoreo industrial y telemetría en tiempo real sobre MQTT.
                 </p>
                 <div className={styles.serviceTechList}>
                   <span className={styles.serviceTechPill}>ESP32</span>
                   <span className={styles.serviceTechPill}>MQTT</span>
                   <span className={styles.serviceTechPill}>C++ Embebido</span>
-                  <span className={styles.serviceTechPill}>Telemetría Industrial</span>
+                  <span className={styles.serviceTechPill}>Sensores Industriales</span>
                 </div>
               </div>
               <div className={styles.serviceArrowBtn}>
@@ -385,53 +393,54 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          CASES / WORK SECTION (Moddo Showcase Cards)
+          CASES / WORK SECTION (HD Realism Showcase Cards)
          ==================================================================== */}
       <section id="casos" className={styles.sectionContainer}>
         <ScrollReveal>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionTag}>[ 03 // CASOS DE ÉXITO ]</span>
             <h2 className={styles.sectionTitle}>
-              Nuestra pasión es crear proyectos con impacto real.
+              Proyectos reales nacidos de problemas reales.
             </h2>
             <p className={styles.sectionSubtitle}>
-              Soluciones construidas con propósito: desde startups masivas hasta herramientas de
-              auditoría estatal y hardware de seguridad minera.
+              Soluciones construidas con propósito: desde una startup propia de impacto ciudadano
+              hasta digitalización municipal y hardware para minería.
             </p>
           </div>
         </ScrollReveal>
 
         <div className={styles.casesGrid}>
-          {/* Case 01: AhorraTiempo.pe */}
+          {/* Caso 01: AhorraTiempo.pe */}
           <ScrollReveal delay={100}>
             <article className={styles.workCard}>
               <div className={styles.workInfo}>
                 <div className={styles.workBadgeRow}>
                   <span className={styles.workBadge}>STARTUP PROPIA</span>
                   <span className={`${styles.workBadge} ${styles.workBadgePink}`}>
-                    IA CONVERSACIONAL
+                    IA CIUDADANA
                   </span>
                 </div>
 
                 <h3 className={styles.workTitle}>AhorraTiempo.pe</h3>
                 <p className={styles.workSubtitle}>
-                  Plataforma ciudadana masiva de simplificación de trámites
+                  Simplificando la burocracia peruana con Inteligencia Artificial
                 </p>
 
                 <p className={styles.workDesc}>
-                  Plataforma diseñada para democratizar y simplificar trámites y gestiones en el
-                  Perú. Integra un asistente virtual con IA capaz de guiar al ciudadano paso a paso,
-                  reduciendo tiempos de espera y eliminando la burocracia.
+                  Nació de una frustración real: hacer trámites en Perú suele ser confuso y
+                  agotador. Creé AhorraTiempo para que cualquier ciudadano consulte requisitos y
+                  pasos en segundos con un asistente de IA que responde en lenguaje sencillo, sin
+                  términos legales oscuros.
                 </p>
 
                 <div className={styles.workHighlights}>
                   <div className={styles.highlightItem}>
                     <ShieldCheck size={16} className={styles.highlightIcon} />
-                    <span>Asistente Inteligente con IA 24/7</span>
+                    <span>Asistente guiado por IA disponible 24/7</span>
                   </div>
                   <div className={styles.highlightItem}>
                     <Zap size={16} className={styles.highlightIcon} />
-                    <span>Reducción dramática de fricción ciudadana</span>
+                    <span>Ahorro tangible de horas y colas innecesarias</span>
                   </div>
                 </div>
 
@@ -442,32 +451,22 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className={styles.btnPrimary}
                   >
-                    <span>Visitar Plataforma</span>
+                    <span>Probar la Plataforma</span>
                     <ArrowUpRight size={18} />
                   </Link>
                 </div>
               </div>
 
-              {/* Video Mockup Frame */}
-              <div className={styles.browserFrame}>
-                <div className={styles.browserHeader}>
-                  <div className={styles.browserDots}>
-                    <span className={`${styles.dot} ${styles.dot1}`} />
-                    <span className={`${styles.dot} ${styles.dot2}`} />
-                    <span className={`${styles.dot} ${styles.dot3}`} />
-                  </div>
-                  <span className={styles.browserUrl}>https://ahorratiempo.pe</span>
-                </div>
-                <div className={styles.mediaContainer}>
-                  <video autoPlay loop muted playsInline preload="metadata">
-                    <source src="/videos/ahorratiempo.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
+              {/* Video Mockup Frame con ProjectVideo HD */}
+              <ProjectVideo
+                src="/videos/ahorratiempo.mp4"
+                url="https://ahorratiempo.pe"
+                title="AhorraTiempo.pe"
+              />
             </article>
           </ScrollReveal>
 
-          {/* Case 02: App Fiscalización */}
+          {/* Caso 02: App Fiscalización */}
           <ScrollReveal delay={200}>
             <article className={styles.workCard}>
               <div className={styles.workInfo}>
@@ -480,23 +479,24 @@ export default function Home() {
 
                 <h3 className={styles.workTitle}>App Fiscalización Digital</h3>
                 <p className={styles.workSubtitle}>
-                  Auditoría en campo y validación de identidad en tiempo real
+                  Inspección municipal en campo y validación de identidad in situ
                 </p>
 
                 <p className={styles.workDesc}>
-                  Sistema integral que digitaliza las auditorías e inspecciones municipales en
-                  campo. Valida identidad y procedencia de datos en el acto, erradica el uso de papel
-                  y eleva la transparencia en la gestión de recursos públicos.
+                  Ver a los inspectores municipales cargar carpetas llenas de actas de papel bajo el
+                  sol me llevó a diseñar esta herramienta. Permite levantar actas desde el móvil,
+                  tomar fotos geolocalizadas, validar identidades al instante y generar expedientes
+                  digitales inalterables.
                 </p>
 
                 <div className={styles.workHighlights}>
                   <div className={styles.highlightItem}>
                     <ShieldCheck size={16} className={styles.highlightIcon} />
-                    <span>Trazabilidad 100% digital e inalterable</span>
+                    <span>Cero actas extraviadas y 100% trazabilidad digital</span>
                   </div>
                   <div className={styles.highlightItem}>
                     <Zap size={16} className={styles.highlightIcon} />
-                    <span>Verificación instantánea in situ</span>
+                    <span>Verificación instantánea y firma en pantalla</span>
                   </div>
                 </div>
 
@@ -508,39 +508,27 @@ export default function Home() {
                     className={styles.btnSecondary}
                   >
                     <GithubIcon size={16} />
-                    <span>Ver Repositorio</span>
+                    <span>Ver Repositorio en GitHub</span>
                     <ArrowUpRight size={16} />
                   </Link>
                 </div>
               </div>
 
-              {/* Video Mockup Frame */}
-              <div className={styles.browserFrame}>
-                <div className={styles.browserHeader}>
-                  <div className={styles.browserDots}>
-                    <span className={`${styles.dot} ${styles.dot1}`} />
-                    <span className={`${styles.dot} ${styles.dot2}`} />
-                    <span className={`${styles.dot} ${styles.dot3}`} />
-                  </div>
-                  <span className={styles.browserUrl}>
-                    github.com/dennys3mf/App-Fiscalizacion-Joya
-                  </span>
-                </div>
-                <div className={styles.mediaContainer}>
-                  <video autoPlay loop muted playsInline preload="metadata">
-                    <source src="/videos/app-fiscalizacion.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
+              {/* Video Mockup Frame con ProjectVideo HD */}
+              <ProjectVideo
+                src="/videos/app-fiscalizacion.mp4"
+                url="github.com/dennys3mf/App-Fiscalizacion-Joya"
+                title="App Fiscalización Digital"
+              />
             </article>
           </ScrollReveal>
 
-          {/* Case 03: Casco IoT */}
+          {/* Caso 03: Casco IoT */}
           <ScrollReveal delay={300}>
             <article className={styles.workCard}>
               <div className={styles.workInfo}>
                 <div className={styles.workBadgeRow}>
-                  <span className={styles.workBadge}>HARDWARE IOT</span>
+                  <span className={styles.workBadge}>HARDWARE EMBEBIDO</span>
                   <span className={`${styles.workBadge} ${styles.workBadgePink}`}>
                     SEGURIDAD MINERA
                   </span>
@@ -548,23 +536,24 @@ export default function Home() {
 
                 <h3 className={styles.workTitle}>Casco Inteligente IoT</h3>
                 <p className={styles.workSubtitle}>
-                  Telemetría y prevención de accidentes en operaciones críticas
+                  Telemetría y alerta temprana para proteger vidas en minería
                 </p>
 
                 <p className={styles.workDesc}>
-                  Prototipo industrial embebido con sensores de gases tóxicos, acelerómetros para
-                  detección de caídas e impactos en tiempo real. Creado para prevenir siniestros y
-                  emitir alertas de socorro inmediatas en minería.
+                  En socavones y obras industriales, un accidente no avisa. Integramos sensores de
+                  gases tóxicos, acelerómetros para caídas e impactos en un casco físico conectado a
+                  un ESP32. Si ocurre un siniestro, emite alarma sonora local y transmite la alerta
+                  por MQTT a la central en milisegundos.
                 </p>
 
                 <div className={styles.workHighlights}>
                   <div className={styles.highlightItem}>
                     <ShieldCheck size={16} className={styles.highlightIcon} />
-                    <span>Detección de impactos y caídas bruscas</span>
+                    <span>Detección automática de caídas y gases letales</span>
                   </div>
                   <div className={styles.highlightItem}>
                     <Zap size={16} className={styles.highlightIcon} />
-                    <span>Telemetría en tiempo real sobre MQTT</span>
+                    <span>Transmisión en tiempo real de bajo consumo</span>
                   </div>
                 </div>
 
@@ -576,30 +565,18 @@ export default function Home() {
                     className={styles.btnSecondary}
                   >
                     <GithubIcon size={16} />
-                    <span>Ver Repositorio</span>
+                    <span>Ver Repositorio en GitHub</span>
                     <ArrowUpRight size={16} />
                   </Link>
                 </div>
               </div>
 
-              {/* Video Mockup Frame */}
-              <div className={styles.browserFrame}>
-                <div className={styles.browserHeader}>
-                  <div className={styles.browserDots}>
-                    <span className={`${styles.dot} ${styles.dot1}`} />
-                    <span className={`${styles.dot} ${styles.dot2}`} />
-                    <span className={`${styles.dot} ${styles.dot3}`} />
-                  </div>
-                  <span className={styles.browserUrl}>
-                    github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT
-                  </span>
-                </div>
-                <div className={styles.mediaContainer}>
-                  <video autoPlay loop muted playsInline preload="metadata">
-                    <source src="/videos/casco-inteligente.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
+              {/* Video Mockup Frame con ProjectVideo HD */}
+              <ProjectVideo
+                src="/videos/casco-inteligente.mp4"
+                url="github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
+                title="Casco Inteligente IoT"
+              />
             </article>
           </ScrollReveal>
         </div>
@@ -611,12 +588,13 @@ export default function Home() {
       <section id="proceso" className={styles.sectionContainer}>
         <ScrollReveal>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>[ 04 // METODOLOGÍA ]</span>
+            <span className={styles.sectionTag}>[ 04 // CÓMO TRABAJO ]</span>
             <h2 className={styles.sectionTitle}>
-              Cultura de Ingeniería &amp; Proceso Estructurado
+              Cero magia negra: un proceso transparente y honesto.
             </h2>
             <p className={styles.sectionSubtitle}>
-              Una ruta predecible y rigurosa desde la primera idea hasta la puesta en producción.
+              Me gusta que las cosas sean claras desde el primer día: qué vamos a construir, por qué
+              y cuándo estará listo.
             </p>
           </div>
         </ScrollReveal>
@@ -627,20 +605,20 @@ export default function Home() {
             <div className={styles.processCard}>
               <div className={styles.processCardTop}>
                 <span className={styles.processStepNum}>01</span>
-                <span className={styles.processStepTag}>ANÁLISIS</span>
+                <span className={styles.processStepTag}>ENTENDER</span>
               </div>
               <div className={styles.processImageWrap}>
                 <img
                   src="/images/moddo/6ab21fb86bf7e13ace189013_blueprint.webp"
-                  alt="Blueprint phase"
+                  alt="Etapa de entendimiento y modelado"
                   loading="lazy"
                 />
               </div>
               <div>
-                <h3 className={styles.processTitle}>Blueprint &amp; Modelado</h3>
+                <h3 className={styles.processTitle}>1. Escuchar y Modelar</h3>
                 <p className={styles.processDesc}>
-                  Descubrimiento profundo de las reglas de negocio, requerimientos contables y
-                  diseño de arquitectura antes de redactar una sola línea de código.
+                  Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio.
+                  No toco una línea de código hasta tener clara la arquitectura y la meta.
                 </p>
               </div>
             </div>
@@ -651,20 +629,21 @@ export default function Home() {
             <div className={styles.processCard}>
               <div className={styles.processCardTop}>
                 <span className={styles.processStepNum}>02</span>
-                <span className={styles.processStepTag}>CONSTRUCCIÓN</span>
+                <span className={styles.processStepTag}>CONSTRUIR</span>
               </div>
               <div className={styles.processImageWrap}>
                 <img
                   src="/images/moddo/6ab21fb70137b2b01251c68d_design.webp"
-                  alt="Design & code phase"
+                  alt="Etapa de desarrollo y diseño"
                   loading="lazy"
                 />
               </div>
               <div>
-                <h3 className={styles.processTitle}>Desarrollo &amp; Código</h3>
+                <h3 className={styles.processTitle}>2. Construir &amp; Validar</h3>
                 <p className={styles.processDesc}>
-                  Ingeniería limpia y fuertemente tipada. Next.js, React 19 y Python con pruebas
-                  continuas, componentes accesibles y estándares de seguridad.
+                  Desarrollo con entregas continuas para que puedas probar el sistema desde la
+                  primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos
+                  raros.
                 </p>
               </div>
             </div>
@@ -675,20 +654,20 @@ export default function Home() {
             <div className={styles.processCard}>
               <div className={styles.processCardTop}>
                 <span className={styles.processStepNum}>03</span>
-                <span className={styles.processStepTag}>ESCALABILIDAD</span>
+                <span className={styles.processStepTag}>LANZAR</span>
               </div>
               <div className={styles.processImageWrap}>
                 <img
                   src="/images/moddo/6ab21fb76bf7e13ace188ff7_enhance.webp"
-                  alt="Enhance & optimize phase"
+                  alt="Etapa de optimización y despliegue"
                   loading="lazy"
                 />
               </div>
               <div>
-                <h3 className={styles.processTitle}>IA &amp; Optimización</h3>
+                <h3 className={styles.processTitle}>3. Poner en Marcha &amp; Medir</h3>
                 <p className={styles.processDesc}>
-                  Aceleración mediante inteligencia artificial, reducción de latencia, despliegue
-                  en la nube con alta disponibilidad y monitoreo en vivo.
+                  Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego
+                  documentación y te acompaño para que tu equipo opere con total tranquilidad.
                 </p>
               </div>
             </div>
@@ -706,23 +685,23 @@ export default function Home() {
               <span className={styles.statNumber}>100%</span>
               <span className={styles.statLabel}>Código Tipado</span>
               <span className={styles.statDesc}>
-                Arquitecturas estrictamente tipadas con TypeScript y Python moderno.
+                TypeScript y Python estricto: adiós a los errores tontos en producción.
               </span>
             </div>
 
             <div className={styles.statCard}>
               <span className={styles.statNumber}>3x</span>
-              <span className={styles.statLabel}>Aceleración con IA</span>
+              <span className={styles.statLabel}>Menos Tiempo Manual</span>
               <span className={styles.statDesc}>
-                Reducción de tiempos manuales mediante automatizaciones inteligentes.
+                Automatizaciones con IA que liberan a tu equipo de tareas repetitivas.
               </span>
             </div>
 
             <div className={styles.statCard}>
               <span className={styles.statNumber}>24/7</span>
-              <span className={styles.statLabel}>Disponibilidad</span>
+              <span className={styles.statLabel}>Disponibilidad Real</span>
               <span className={styles.statDesc}>
-                Infraestructuras serverless y cloud de baja latencia.
+                Infraestructura cloud serverless rápida y de bajísima latencia.
               </span>
             </div>
 
@@ -730,7 +709,7 @@ export default function Home() {
               <span className={styles.statNumber}>Fin+Tech</span>
               <span className={styles.statLabel}>Sinergia Única</span>
               <span className={styles.statDesc}>
-                Comprensión integral de costos, balances y valor financiero real.
+                Hablo con la misma fluidez con tu contador que con tu líder técnico.
               </span>
             </div>
           </div>
@@ -744,10 +723,10 @@ export default function Home() {
         <ScrollReveal>
           <div className={styles.ctaCard}>
             <span className={styles.ctaEyebrow}>Hagamos que suceda</span>
-            <h2 className={styles.ctaTitle}>¿Tienes un proyecto o desafío en mente?</h2>
+            <h2 className={styles.ctaTitle}>¿Tienes un proyecto o problema que quieras resolver?</h2>
             <p className={styles.ctaDesc}>
-              Transformemos tus cuellos de botella operativos en software rápido, elegante y con
-              retorno de inversión medible. Conversemos hoy mismo.
+              Escríbeme con total confianza. Me encanta conversar sobre tecnología, automatización y
+              desafíos de negocio. Te responderé directamente y sin rodeos.
             </p>
 
             <div className={styles.ctaButtonGroup}>
@@ -758,7 +737,7 @@ export default function Home() {
                 className={styles.ctaPrimaryBtn}
               >
                 <MessageCircle size={18} />
-                <span>Escríbeme por WhatsApp (+51 922 466 078)</span>
+                <span>Conversar por WhatsApp (+51 922 466 078)</span>
                 <ArrowUpRight size={18} />
               </a>
 
@@ -777,7 +756,7 @@ export default function Home() {
                 className={styles.ctaSecondaryBtn}
               >
                 <GithubIcon size={18} />
-                <span>Explorar mi GitHub</span>
+                <span>Ver Código en GitHub</span>
               </a>
             </div>
           </div>
@@ -807,7 +786,7 @@ export default function Home() {
           </div>
 
           <div className={styles.footerMeta}>
-            <span>MODDO ARCHITECTURE</span>
+            <span>MODDO HD ARCHITECTURE</span>
             <span>NEXT.JS 16 &amp; REACT 19</span>
             <span>© {new Date().getFullYear()}</span>
             <a href="#home" className={styles.backToTopBtn}>
