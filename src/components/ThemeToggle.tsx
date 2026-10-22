@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { Sun, Moon, Eye } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("accessible");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme") || "light";
+    const savedTheme = localStorage.getItem("theme") || "accessible";
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);

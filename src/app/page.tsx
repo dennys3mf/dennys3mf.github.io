@@ -4,6 +4,7 @@ import ScrollReveal from "../components/ScrollReveal";
 import GlobalCursor from "../components/GlobalCursor";
 import ThemeToggle from "../components/ThemeToggle";
 import LiveClock from "../components/LiveClock";
+import CartoonEyes from "../components/CartoonEyes";
 import RotatingBadge from "../components/RotatingBadge";
 import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
@@ -37,14 +38,18 @@ export default function Home() {
           <a href="#home" className={styles.brand} aria-label="Dennys Marquez Inicio">
             <span className={styles.brandDot} />
             <span>DENNYS</span>
-            <img
-              src="https://flagcdn.com/pe.svg"
-              alt="Perú"
-              width="18"
-              height="12"
+            <svg
+              width="20"
+              height="14"
+              viewBox="0 0 20 14"
               className={styles.peruFlag}
-              title="Basado en Lima, Perú"
-            />
+              aria-label="Bandera de Perú"
+              role="img"
+            >
+              <rect width="6.67" height="14" fill="#D91023" />
+              <rect x="6.67" width="6.66" height="14" fill="#FFFFFF" />
+              <rect x="13.33" width="6.67" height="14" fill="#D91023" />
+            </svg>
           </a>
 
           <div className={styles.navLinks}>
@@ -73,100 +78,56 @@ export default function Home() {
       </header>
 
       {/* ====================================================================
-          HERO SECTION (Giant Typography, Tactile Stickers & Rotating Badge)
+          HERO SECTION - EXACT MODDO SPECIFICATION
          ==================================================================== */}
       <section id="home" className={styles.hero}>
         {/* Top Meta Bar */}
         <div className={styles.heroMeta}>
           <div className={styles.heroMetaGroup}>
-            <div className={styles.heroMetaPill}>
-              <span className={styles.liveDot} />
-              <span>
-                Lima, Perú: <LiveClock /> (UTC-5)
-              </span>
+            <div className={styles.heroLocalTime}>
+              <LiveClock />
             </div>
-            <div className={styles.heroMetaPill}>
-              <span>🟢 Disponible para proyectos &amp; consultoría</span>
-            </div>
+            <div className={styles.heroTimezone}>America / Lima</div>
           </div>
 
           <a
             href="mailto:dennys.marquez.dev@gmail.com"
-            className={styles.heroEmailLink}
+            className={styles.heroContactLink}
           >
-            <Mail size={15} />
+            <Mail size={16} />
             <span>dennys.marquez.dev@gmail.com</span>
           </a>
         </div>
 
-        {/* Center Giant Statement & Stickers */}
-        <div className={styles.heroCenter}>
-          <ScrollReveal delay={100}>
-            <div className={styles.heroEyebrowTag}>
-              <Sparkles size={14} />
-              <span>Software &amp; AI Engineering Studio · Lima, Perú 🇵🇪</span>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={200}>
-            <h1 className={styles.heroTitle}>
-              dennys<span className={styles.heroTitleAccent}>.</span>marquez
-            </h1>
-          </ScrollReveal>
-
-          {/* Moddo-style Tactile Interactive Stickers */}
-          <ScrollReveal delay={300}>
-            <div className={styles.heroStickers}>
-              <div className={`${styles.sticker} ${styles.stickerPink}`}>
-                <span>Full-Stack Moderno ⚡</span>
-              </div>
-              <div className={`${styles.sticker} ${styles.stickerBlue}`}>
-                <span>IA &amp; Automatización Práctica 🤖</span>
-              </div>
-              <div className={`${styles.sticker} ${styles.stickerOrange}`}>
-                <span>APIs &amp; Arquitectura Cloud 🚀</span>
-              </div>
-              <div className={`${styles.sticker} ${styles.stickerGreen}`}>
-                <span>Hardware IoT &amp; Telemetría 📡</span>
-              </div>
-              <div className={`${styles.sticker} ${styles.stickerLilac}`}>
-                <span>Hecho en Perú 🇵🇪</span>
-              </div>
-            </div>
-          </ScrollReveal>
+        {/* Center Colossal Statement */}
+        <div className={styles.heroTopWrap}>
+          <h1 className={styles.textHero}>dennys marquez</h1>
         </div>
 
-        {/* Hero Bottom Narrative & Rotating Badge */}
-        <div className={styles.heroBottom}>
-          <div className={styles.heroBadgeWrap}>
-            <RotatingBadge size={135} />
+        {/* Bottom Wrap: Left Brand Signature/Eyebrow/Eyes & Right Cobalt Blue Service Card with Stickers */}
+        <div className={styles.heroBottomWrap}>
+          <div className={styles.heroTitleWrap}>
+            <span className={styles.heroBrandSignature}>d.marquez</span>
+            <span className={styles.heroEyebrowStudio}>SOFTWARE &amp; AI STUDIO</span>
+            <CartoonEyes className={styles.heroEyeGraphic} />
           </div>
 
-          <div className={styles.heroNarrative}>
-            <p className={styles.heroTagline}>
-              ¡Hola! Soy <strong>Dennys</strong> 👋. Construyo software que resuelve problemas
-              reales: desde eliminar trámites burocráticos con Inteligencia Artificial hasta
-              diseñar plataformas web veloces, seguras y escalables para proyectos que buscan crecer.
-            </p>
-            <div className={styles.heroDoodle}>
-              <span>✦ Código limpio, interfaces humanas y soluciones que funcionan de verdad.</span>
+          <div className={styles.heroServiceArea}>
+            <div className={`${styles.serviceSticker} ${styles.serviceSticker1}`}>
+              <span>Full-Stack Web ⚡</span>
             </div>
-          </div>
-
-          <div className={styles.heroActions}>
-            <a href="#casos" className={styles.btnPrimary}>
-              <span>Ver lo que he construido</span>
-              <ArrowUpRight size={18} />
-            </a>
-            <a
-              href="https://wa.me/51922466078"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnSecondary}
-            >
-              <MessageCircle size={17} />
-              <span>Escríbeme por WhatsApp</span>
-            </a>
+            <div className={`${styles.serviceSticker} ${styles.serviceSticker2}`}>
+              <span>IA &amp; Agentes 🤖</span>
+            </div>
+            <div className={`${styles.serviceSticker} ${styles.serviceSticker3}`}>
+              <span>Arquitectura Cloud 🚀</span>
+            </div>
+            <div className={`${styles.serviceSticker} ${styles.serviceSticker4}`}>
+              <span>Hardware IoT 📡</span>
+            </div>
+            <div className={`${styles.serviceSticker} ${styles.serviceSticker5}`}>
+              <span>Lima, Perú</span>
+            </div>
           </div>
         </div>
       </section>
@@ -187,7 +148,7 @@ export default function Home() {
             <span className={styles.marqueeStar}>✦</span>
             <span>NEXT.JS 16 &amp; REACT 19</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>HECHO EN LIMA, PERÚ 🇵🇪</span>
+            <span>HECHO EN LIMA, PERÚ</span>
             <span className={styles.marqueeStar}>✦</span>
           </div>
           <div className={styles.marqueeItem}>
@@ -201,7 +162,7 @@ export default function Home() {
             <span className={styles.marqueeStar}>✦</span>
             <span>NEXT.JS 16 &amp; REACT 19</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>HECHO EN LIMA, PERÚ 🇵🇪</span>
+            <span>HECHO EN LIMA, PERÚ</span>
             <span className={styles.marqueeStar}>✦</span>
           </div>
         </div>
