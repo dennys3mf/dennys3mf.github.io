@@ -88,38 +88,12 @@ export default function Home() {
           <h1 className={styles.textHero}>dennys marquez</h1>
         </div>
 
-        {/* Bottom Wrap: Left Brand Signature/Eyebrow/Eyes & Right Cobalt Blue Service Card with Stickers */}
+        {/* Bottom Wrap: Brand Signature, Eyebrow & Eyes */}
         <div className={styles.heroBottomWrap}>
           <div className={styles.heroTitleWrap}>
             <span className={styles.heroBrandSignature}>d marquez</span>
             <span className={styles.heroEyebrowStudio}>SOFTWARE &amp; AI STUDIO</span>
             <CartoonEyes className={styles.heroEyeGraphic} />
-          </div>
-
-          <div className={styles.heroServiceArea}>
-            <div className={styles.heroServiceHeader}>
-              <span className={styles.heroServiceEyebrow}>CORE SERVICES</span>
-              <span className={styles.heroServiceStatus}>
-                <span className={styles.heroStatusDot} />
-                DISPONIBLE
-              </span>
-            </div>
-
-            <div className={`${styles.serviceSticker} ${styles.serviceSticker1}`}>
-              <span>Full-Stack Web ⚡</span>
-            </div>
-            <div className={`${styles.serviceSticker} ${styles.serviceSticker2}`}>
-              <span>IA &amp; Agentes 🤖</span>
-            </div>
-            <div className={`${styles.serviceSticker} ${styles.serviceSticker3}`}>
-              <span>Arquitectura Cloud 🚀</span>
-            </div>
-            <div className={`${styles.serviceSticker} ${styles.serviceSticker4}`}>
-              <span>Hardware IoT 📡</span>
-            </div>
-            <div className={`${styles.serviceSticker} ${styles.serviceSticker5}`}>
-              <span>Fintech &amp; Auditoría 📊</span>
-            </div>
           </div>
         </div>
       </section>
