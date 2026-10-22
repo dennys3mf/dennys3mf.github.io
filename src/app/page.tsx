@@ -2,7 +2,6 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 import GlobalCursor from "../components/GlobalCursor";
-import ThemeToggle from "../components/ThemeToggle";
 import LiveClock from "../components/LiveClock";
 import CartoonEyes from "../components/CartoonEyes";
 import {
@@ -74,7 +73,6 @@ export default function Home() {
           </div>
 
           <div className={styles.heroMetaActions}>
-            <ThemeToggle />
             <a
               href="mailto:dennys.marquez.dev@gmail.com"
               className={styles.heroContactLink}
@@ -99,6 +97,14 @@ export default function Home() {
           </div>
 
           <div className={styles.heroServiceArea}>
+            <div className={styles.heroServiceHeader}>
+              <span className={styles.heroServiceEyebrow}>CORE SERVICES</span>
+              <span className={styles.heroServiceStatus}>
+                <span className={styles.heroStatusDot} />
+                DISPONIBLE
+              </span>
+            </div>
+
             <div className={`${styles.serviceSticker} ${styles.serviceSticker1}`}>
               <span>Full-Stack Web ⚡</span>
             </div>
@@ -112,7 +118,7 @@ export default function Home() {
               <span>Hardware IoT 📡</span>
             </div>
             <div className={`${styles.serviceSticker} ${styles.serviceSticker5}`}>
-              <span>Lima, Perú</span>
+              <span>Fintech &amp; Auditoría 📊</span>
             </div>
           </div>
         </div>
