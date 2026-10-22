@@ -15,6 +15,7 @@ import {
 } from "../components/TactileBadges";
 import RotatingBadge from "../components/RotatingBadge";
 import PencilRibbon from "../components/PencilRibbon";
+import FloatingNav from "../components/FloatingNav";
 import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
 import {
@@ -40,27 +41,9 @@ export default function Home() {
       <GlobalCursor />
 
       {/* ====================================================================
-          FLOATING BOTTOM PILL NAVBAR (Exact Moddo White Capsule)
+          FLOATING BOTTOM PILL NAVBAR (Exact Moddo White Capsule with Yellow Active Pill)
          ==================================================================== */}
-      <header className={styles.navbarWrapper}>
-        <nav className={styles.navbar}>
-          <a href="#home" className={styles.navLink}>
-            Home
-          </a>
-          <a href="#servicios" className={styles.navLink}>
-            Services
-          </a>
-          <a href="#casos" className={styles.navLink}>
-            Cases
-          </a>
-          <a href="#whyus" className={styles.navLink}>
-            Why Us
-          </a>
-          <a href="#contacto" className={styles.navLink}>
-            Contact
-          </a>
-        </nav>
-      </header>
+      <FloatingNav />
 
       {/* ====================================================================
           HERO SECTION - EXACT MODDO SPECIFICATION
