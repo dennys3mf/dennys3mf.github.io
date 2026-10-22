@@ -17,6 +17,11 @@ import {
   CheckCircle2,
   Coffee,
   HeartHandshake,
+  Calculator,
+  BarChart3,
+  Scale,
+  FileText,
+  Database,
 } from "lucide-react";
 
 export default function Home() {
@@ -99,7 +104,7 @@ export default function Home() {
           <ScrollReveal delay={100}>
             <div className={styles.heroEyebrowTag}>
               <Sparkles size={14} />
-              <span>Software &amp; AI Engineer · Estudiante de Contabilidad</span>
+              <span>Software &amp; AI Engineering Studio · Lima, Perú 🇵🇪</span>
             </div>
           </ScrollReveal>
 
@@ -119,7 +124,7 @@ export default function Home() {
                 <span>IA &amp; Automatización Práctica 🤖</span>
               </div>
               <div className={`${styles.sticker} ${styles.stickerOrange}`}>
-                <span>Criterio Contable &amp; ROI 📊</span>
+                <span>APIs &amp; Arquitectura Cloud 🚀</span>
               </div>
               <div className={`${styles.sticker} ${styles.stickerGreen}`}>
                 <span>Hardware IoT &amp; Telemetría 📡</span>
@@ -141,7 +146,7 @@ export default function Home() {
             <p className={styles.heroTagline}>
               ¡Hola! Soy <strong>Dennys</strong> 👋. Construyo software que resuelve problemas
               reales: desde eliminar trámites burocráticos con Inteligencia Artificial hasta
-              diseñar plataformas web veloces pensadas para cuidar los números de tu negocio.
+              diseñar plataformas web veloces, seguras y escalables para proyectos que buscan crecer.
             </p>
             <div className={styles.heroDoodle}>
               <span>✦ Código limpio, interfaces humanas y soluciones que funcionan de verdad.</span>
@@ -176,7 +181,7 @@ export default function Home() {
             <span className={styles.marqueeStar}>✦</span>
             <span>INTELIGENCIA ARTIFICIAL PRÁCTICA</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>VISIÓN CONTABLE &amp; FINANCIERA</span>
+            <span>ARQUITECTURA CLOUD ESCALABLE</span>
             <span className={styles.marqueeStar}>✦</span>
             <span>INTERFACES HUMANAS</span>
             <span className={styles.marqueeStar}>✦</span>
@@ -190,7 +195,7 @@ export default function Home() {
             <span className={styles.marqueeStar}>✦</span>
             <span>INTELIGENCIA ARTIFICIAL PRÁCTICA</span>
             <span className={styles.marqueeStar}>✦</span>
-            <span>VISIÓN CONTABLE &amp; FINANCIERA</span>
+            <span>ARQUITECTURA CLOUD ESCALABLE</span>
             <span className={styles.marqueeStar}>✦</span>
             <span>INTERFACES HUMANAS</span>
             <span className={styles.marqueeStar}>✦</span>
@@ -203,7 +208,7 @@ export default function Home() {
       </div>
 
       {/* ====================================================================
-          ABOUT SECTION (Asymmetric Moddo Grid)
+          ABOUT SECTION (Asymmetric Moddo Grid + Dedicated Accounting Block)
          ==================================================================== */}
       <section id="about" className={styles.sectionContainer}>
         <div className={styles.aboutGrid}>
@@ -211,19 +216,17 @@ export default function Home() {
             <div className={styles.aboutContent}>
               <span className={styles.sectionTag}>[ 01 // QUIÉN SOY ]</span>
               <h2 className={styles.aboutHeadline}>
-                No solo escribo código: entiendo el negocio detrás de cada pantalla.
+                Desarrollador apasionado por crear software que funciona y resuelve problemas reales.
               </h2>
               <p className={styles.aboutLead}>
-                Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
-                financieros sufren con hojas de cálculo eternas que nadie sabe automatizar. Mi
-                propuesta une ambos mundos: <strong>estudio Contabilidad</strong> y{" "}
-                <strong>desarrollo software full-stack con IA</strong>.
+                Soy <strong>Dennys Gabriel Marquez Flores</strong>, desarrollador de software radicado en
+                Lima, Perú. Me dedico a la arquitectura web full-stack moderna, la integración práctica de
+                modelos de inteligencia artificial y la automatización de procesos.
               </p>
               <p className={styles.aboutLead}>
-                Esto me permite sentarme a hablar contigo sobre costos, márgenes e impuestos, y luego
-                abrir el editor para programar la solución exacta en TypeScript y Python. Me
-                apasiona el software que le ahorra tiempo a la gente y le da tranquilidad a las
-                empresas.
+                Construyo con un principio muy claro: el mejor software es aquel que no te hace perder tiempo.
+                Interfaces rápidas, código tipado que cualquier colega puede mantener y sistemas que escalan
+                sin caerse ante tráfico real.
               </p>
 
               <div className={styles.aboutBadgesList}>
@@ -236,8 +239,8 @@ export default function Home() {
                   <span>Automatizaciones con IA que Ahorran Horas</span>
                 </div>
                 <div className={styles.aboutBadgeItem}>
-                  <CheckCircle2 size={16} color="var(--accent-orange)" />
-                  <span>Criterio Contable y Financiero Real</span>
+                  <CheckCircle2 size={16} color="var(--accent-green)" />
+                  <span>Sistemas de Alta Disponibilidad &amp; Cloud</span>
                 </div>
               </div>
             </div>
@@ -258,6 +261,81 @@ export default function Home() {
             </div>
           </ScrollReveal>
         </div>
+
+        {/* ====================================================================
+            BLOQUE DESTACADO: MÁS SOBRE MÍ - MI FORMACIÓN EN CONTABILIDAD
+           ==================================================================== */}
+        <ScrollReveal delay={200}>
+          <div className={styles.accountingCard}>
+            <div className={styles.accountingHeader}>
+              <span className={styles.accountingTag}>
+                <Calculator size={14} /> [ MÁS SOBRE MÍ // MI FORMACIÓN EN CONTABILIDAD ]
+              </span>
+              <h3 className={styles.accountingTitle}>
+                El puente entre el código y los números reales de tu empresa.
+              </h3>
+              <p className={styles.accountingLead}>
+                Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
+                financieros sufren con hojas de cálculo eternas que nadie sabe automatizar. En
+                paralelo al desarrollo de software, estudio <strong>Contabilidad</strong>. Esta
+                formación me da una perspectiva única: entiendo el plan contable, los costos
+                operativos, los impuestos, las conciliaciones bancarias y el valor del flujo de caja.
+              </p>
+              <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
+                Esto significa que cuando diseño una base de datos o un flujo de facturación, no solo
+                pienso en la velocidad de la consulta: pienso en la trazabilidad para auditorías, el
+                cumplimiento normativo (SUNAT) y que cada centavo invertido en infraestructura cloud
+                tenga un retorno medible.
+              </p>
+            </div>
+
+            <div className={styles.accountingGrid}>
+              <div className={styles.accountingItem}>
+                <div className={styles.accountingItemIcon}>
+                  <BarChart3 size={22} />
+                </div>
+                <h4 className={styles.accountingItemTitle}>Comprensión del Negocio y ROI</h4>
+                <p className={styles.accountingItemDesc}>
+                  Hablo con la misma fluidez con tu contador o director financiero que con tu equipo
+                  técnico. Cada funcionalidad se diseña pensando en su retorno de inversión.
+                </p>
+              </div>
+
+              <div className={styles.accountingItem}>
+                <div className={styles.accountingItemIcon}>
+                  <ShieldCheck size={22} />
+                </div>
+                <h4 className={styles.accountingItemTitle}>Auditoría y Trazabilidad Forense</h4>
+                <p className={styles.accountingItemDesc}>
+                  Sistemas donde ningún registro se pierde. Sellos de tiempo, logs inalterables y
+                  estructuras de datos preparadas para revisiones y auditorías fiscales.
+                </p>
+              </div>
+
+              <div className={styles.accountingItem}>
+                <div className={styles.accountingItemIcon}>
+                  <Scale size={22} />
+                </div>
+                <h4 className={styles.accountingItemTitle}>Control Real de Costos Cloud</h4>
+                <p className={styles.accountingItemDesc}>
+                  Diseño arquitecturas serverless y bases de datos eficientes para evitar facturas
+                  sorpresa a fin de mes en proveedores cloud como AWS o Vercel.
+                </p>
+              </div>
+
+              <div className={styles.accountingItem}>
+                <div className={styles.accountingItemIcon}>
+                  <FileText size={22} />
+                </div>
+                <h4 className={styles.accountingItemTitle}>Automatización de Comprobantes &amp; SUNAT</h4>
+                <p className={styles.accountingItemDesc}>
+                  Experiencia práctica en lógica tributaria peruana, validación de comprobantes
+                  electrónicos y flujos de conciliación bancaria sin fricción.
+                </p>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* ====================================================================
@@ -338,21 +416,21 @@ export default function Home() {
               <div className={styles.serviceNumber}>03</div>
               <div className={styles.serviceTitleGroup}>
                 <span className={styles.serviceCategory} style={{ color: "var(--accent-orange)" }}>
-                  VISIÓN CONTABLE &amp; NEGOCIOS
+                  BACKEND &amp; ARQUITECTURA CLOUD
                 </span>
-                <h3 className={styles.serviceName}>Sistemas Financieros &amp; BI</h3>
+                <h3 className={styles.serviceName}>APIs, Backend &amp; Datos</h3>
               </div>
               <div>
                 <p className={styles.serviceDesc}>
-                  Diseñado desde la perspectiva de quien conoce el plan contable y los balances.
-                  Automatización de conciliaciones, auditoría digital de comprobantes y dashboards
-                  ejecutivos que te dicen con exactitud dónde ganas y dónde pierdes dinero.
+                  Diseño de APIs seguras, bases de datos relacionales y microservicios escalables.
+                  Estructuras preparadas para alta concurrencia, autenticación robusta y
+                  sincronización de datos en tiempo real.
                 </p>
                 <div className={styles.serviceTechList}>
-                  <span className={styles.serviceTechPill}>Conciliación Contable</span>
-                  <span className={styles.serviceTechPill}>Auditoría Digital</span>
-                  <span className={styles.serviceTechPill}>Dashboards BI</span>
-                  <span className={styles.serviceTechPill}>Análisis de Costos</span>
+                  <span className={styles.serviceTechPill}>PostgreSQL</span>
+                  <span className={styles.serviceTechPill}>FastAPI / Python</span>
+                  <span className={styles.serviceTechPill}>Node.js</span>
+                  <span className={styles.serviceTechPill}>Docker &amp; Prisma</span>
                 </div>
               </div>
               <div className={styles.serviceArrowBtn}>
@@ -706,10 +784,10 @@ export default function Home() {
             </div>
 
             <div className={styles.statCard}>
-              <span className={styles.statNumber}>Fin+Tech</span>
-              <span className={styles.statLabel}>Sinergia Única</span>
+              <span className={styles.statNumber}>Full-Stack</span>
+              <span className={styles.statLabel}>De Punta a Punta</span>
               <span className={styles.statDesc}>
-                Hablo con la misma fluidez con tu contador que con tu líder técnico.
+                Desde la experiencia visual en pantalla hasta la base de datos y la nube.
               </span>
             </div>
           </div>
@@ -781,7 +859,7 @@ export default function Home() {
               />
             </div>
             <p className={styles.footerTagline}>
-              Software &amp; AI Engineer · Estudiante de Contabilidad · Lima, Perú
+              Software &amp; AI Engineer · Lima, Perú 🇵🇪
             </p>
           </div>
 
