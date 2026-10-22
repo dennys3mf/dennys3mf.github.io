@@ -39,31 +39,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 0.5rem;
   background-color: #ffffff;
-  padding: 0.35rem 0.45rem;
+  padding: 0.5rem 0.65rem;
   border-radius: 9999px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.16);
-  border: none;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
 .navbar:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
 }
 
 .navLink {
-  padding: 0.52rem 1.25rem;
+  padding: 0.72rem 1.65rem;
   border-radius: 9999px;
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: #141518;
   text-decoration: none;
   transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease, transform 0.15s ease;
   white-space: nowrap;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -87,13 +87,13 @@
   }
 
   .navbar {
-    padding: 0.25rem 0.35rem;
-    gap: 0.2rem;
+    padding: 0.38rem 0.48rem;
+    gap: 0.25rem;
   }
 
   .navLink {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.92rem;
+    padding: 0.55rem 1.05rem;
+    font-size: 0.98rem;
   }
 }
 
@@ -107,6 +107,9 @@
    ==================================================================== */
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   width: 100%;
   padding: 1.5rem 3.5vw 2rem;
   margin: 0 auto;
@@ -115,6 +118,7 @@
   justify-content: space-between;
   position: relative;
   box-sizing: border-box;
+  overflow: hidden;
   background-color: var(--bg-page);
   /* Mathematical graph paper grid */
   background-image: 
@@ -222,7 +226,7 @@
   align-items: flex-end;
   width: 100%;
   gap: 2rem;
-  padding-bottom: 4.5rem; /* Leaves room for bottom navbar */
+  padding-bottom: 5.5rem; /* Leaves room for enlarged bottom navbar */
   box-sizing: border-box;
 }
 
@@ -1305,7 +1309,7 @@
   overflow: hidden;
   border-top-left-radius: clamp(40px, 6vw, 80px);
   border-top-right-radius: clamp(40px, 6vw, 80px);
-  margin-top: -48px;
+  margin-top: 0;
   z-index: 2;
 }
 
@@ -2391,10 +2395,11 @@
 }
 
 .footerModdoTop {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr 1fr;
-  gap: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: clamp(4rem, 12vw, 9rem);
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .footerBrandCol {
@@ -2537,11 +2542,6 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-
-  .footerModdoTop {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -2573,8 +2573,7 @@
   }
 
   .footerModdoTop {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .footerBadgesStrip {

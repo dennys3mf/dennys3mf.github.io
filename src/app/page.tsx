@@ -20,7 +20,6 @@ import { GithubIcon } from "../components/Icons";
 import {
   ArrowUpRight,
   Mail,
-  MessageCircle,
   ShieldCheck,
   Zap,
   Sparkles,
@@ -779,46 +778,6 @@ export default function Home() {
       <footer id="footer" className={styles.footerModdoWrapper}>
         <div className={styles.footerModdoContainer}>
           <div className={styles.footerModdoTop}>
-            {/* Brand & Peru Flag */}
-            <div className={styles.footerBrandCol}>
-              <h3 className={styles.footerBrandHeading}>dennys marquez</h3>
-              <p className={styles.footerBrandTagline}>
-                Full Stack Developer — Titulado en TECSUP — Arequipa / Lima, Perú
-                <svg
-                  width="18"
-                  height="12"
-                  viewBox="0 0 18 12"
-                  className={styles.peruFlag}
-                  aria-label="Bandera de Perú"
-                  role="img"
-                  style={{ marginLeft: "0.5rem", verticalAlign: "-1px", display: "inline-block" }}
-                >
-                  <rect width="6" height="12" fill="#D91023" />
-                  <rect x="6" width="6" height="12" fill="#FFFFFF" />
-                  <rect x="12" width="6" height="12" fill="#D91023" />
-                </svg>
-              </p>
-
-              <div className={styles.footerContactList}>
-                <a
-                  href="mailto:dennys.marquez.dev@gmail.com"
-                  className={styles.footerContactLink}
-                >
-                  <Mail size={16} />
-                  <span>dennys.marquez.dev@gmail.com</span>
-                </a>
-                <a
-                  href="https://wa.me/51922466078"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.footerContactLink}
-                >
-                  <MessageCircle size={16} />
-                  <span>(+51) 922 466 078</span>
-                </a>
-              </div>
-            </div>
-
             {/* Nav Links */}
             <div className={styles.footerNavCol}>
               <span className={styles.footerNavColTitle}>Navegación</span>
@@ -872,7 +831,6 @@ export default function Home() {
           {/* Bottom Row */}
           <div className={styles.footerBottomRow}>
             <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. Todos los derechos reservados.</span>
-            <span>Portafolio Profesional • Next.js 16 &amp; React 19</span>
             <a href="#home" className={styles.footerNavLink} style={{ fontSize: "0.92rem" }}>
               Volver Arriba ↑
             </a>
