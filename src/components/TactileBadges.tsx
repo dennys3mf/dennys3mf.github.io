@@ -178,3 +178,97 @@ export function BadgeCurious({ className = "" }: { className?: string }) {
     </div>
   );
 }
+
+export function BadgePlay({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={className}
+      style={{
+        position: "relative",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        userSelect: "none",
+        color: "#2735ce",
+      }}
+    >
+      <svg
+        viewBox="0 0 261 121"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "100%", height: "100%", overflow: "visible" }}
+        aria-hidden="true"
+      >
+        <path
+          d="M4.46484 0L213.007 32.1121C243.575 36.819 264.539 65.4148 259.832 95.9824L256.027 120.691L47.4851 88.5791C16.9174 83.8722 -4.04684 55.2765 0.66009 24.7088L4.46484 0Z"
+          fill="currentColor"
+        />
+      </svg>
+      <span
+        style={{
+          position: "absolute",
+          fontFamily: "var(--font-heading)",
+          fontWeight: 900,
+          fontSize: "0.82rem",
+          color: "#ffffff",
+          textAlign: "center",
+          letterSpacing: "-0.01em",
+          transform: "rotate(8.5deg)",
+        }}
+      >
+        PLAY SMART
+      </span>
+    </div>
+  );
+}
+
+export function BadgeBuild({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={className}
+      style={{
+        position: "relative",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        userSelect: "none",
+        color: "#ff008c",
+      }}
+    >
+      <svg
+        viewBox="0 0 217 118"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "100%", height: "100%", overflow: "visible" }}
+        aria-hidden="true"
+      >
+        <path
+          d="M99.9619 114.524C158.85 123.508 209.673 110.566 213.479 85.6175C217.285 60.669 172.633 33.1613 113.745 24.1774C54.8575 15.1935 4.03406 28.1355 0.227915 53.084C-3.57822 78.0326 41.0742 105.54 99.9619 114.524Z"
+          fill="currentColor"
+        />
+        <path
+          d="M209.591 -0.000984045C202.853 16.4254 200.865 18.1517 189.358 17.5674C199.29 23.4083 200 25.9433 196.593 43.3683C203.332 26.9418 205.32 25.2156 216.826 25.7998C206.895 19.9589 206.184 17.424 209.591 -0.000984045Z"
+          fill="currentColor"
+        />
+        <path
+          d="M14.1976 89.8125C9.85105 100.411 8.56608 101.528 1.13983 101.149C7.55028 104.917 8.00518 106.555 5.80983 117.799C10.1564 107.2 11.4413 106.083 18.8676 106.462C12.4571 102.694 12.0022 101.056 14.1976 89.8125Z"
+          fill="currentColor"
+        />
+      </svg>
+      <span
+        style={{
+          position: "absolute",
+          fontFamily: "var(--font-heading)",
+          fontWeight: 900,
+          fontSize: "0.82rem",
+          color: "#ffffff",
+          textAlign: "center",
+          letterSpacing: "-0.01em",
+          transform: "rotate(-2.5deg)",
+        }}
+      >
+        BUILD BETTER
+      </span>
+    </div>
+  );
+}

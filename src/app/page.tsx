@@ -10,8 +10,11 @@ import {
   BadgeBold,
   BadgeNoise,
   BadgeCurious,
+  BadgePlay,
+  BadgeBuild,
 } from "../components/TactileBadges";
 import RotatingBadge from "../components/RotatingBadge";
+import PencilRibbon from "../components/PencilRibbon";
 import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
 import {
@@ -49,6 +52,9 @@ export default function Home() {
           </a>
           <a href="#casos" className={styles.navLink}>
             Cases
+          </a>
+          <a href="#whyus" className={styles.navLink}>
+            Why Us
           </a>
           <a href="#contacto" className={styles.navLink}>
             Contact
@@ -253,20 +259,13 @@ export default function Home() {
           <div className={styles.servicesModdoStage}>
             {/* Left: Walking Mascot on the Thick Blue Curved Track */}
             <div className={styles.serviceTrackCol}>
-              <svg
-                className={styles.serviceRibbonSvg}
+              <PencilRibbon
+                d="M14.8359 35.5234C242.336 130.523 221.739 210.908 233.336 321.523C246.336 445.523 355.336 524.023 663.836 391.023C869.652 302.292 1000.53 540.523 683.836 540.523C543.336 540.523 446.336 593.523 433.836 664.523"
                 viewBox="0 0 913 672"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M14.8359 35.5234C242.336 130.523 221.739 210.908 233.336 321.523C246.336 445.523 355.336 524.023 663.836 391.023C869.652 302.292 1000.53 540.523 683.836 540.523C543.336 540.523 446.336 593.523 433.836 664.523"
-                  stroke="#2735ce"
-                  strokeWidth="77"
-                  strokeLinecap="round"
-                />
-              </svg>
+                stroke="#2735ce"
+                strokeWidth={77}
+                className={styles.serviceRibbonSvg}
+              />
               <img
                 src="/images/moddo/mascot-walking.webp"
                 alt="Dennys Marquez Mascot"
@@ -482,94 +481,107 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          PROCESS SECTION (Moddo 3-Step Culture with 3D Illustrations)
+          PROCESS SECTION (Moddo 3-Step Culture with 3D Illustrations & Connecting Pink Stroke)
          ==================================================================== */}
-      <section id="proceso" className={styles.sectionContainer}>
-        <ScrollReveal>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>
-              Cero magia negra: un proceso transparente y honesto
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Me gusta que las cosas sean claras desde el primer día: qué vamos a construir, por qué
-              y cuándo estará listo.
-            </p>
+      <section id="proceso" className={styles.processModdoSection}>
+        {/* Continuous Hot Pink Connecting Ribbon */}
+        <div className={styles.processRibbonWrap}>
+          <PencilRibbon
+            d="M1758.77 38.3438C1964.77 184.344 2063.53 778.039 1669.27 903.344C1153.27 1067.34 902.773 577.844 1078.77 491.344C1268.79 397.957 1288.72 959.844 902.773 959.844C607.773 959.844 580.773 780.844 404.773 759.844C231.116 739.123 86.2734 890.01 19.7734 920.844"
+            viewBox="0 0 1987 1007"
+            stroke="#ff008c"
+            strokeWidth={77}
+            className={styles.processRibbonSvg}
+          />
+        </div>
+
+        <div className={styles.sectionContainer} style={{ padding: "0 1rem", position: "relative", zIndex: 2 }}>
+          <ScrollReveal>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>
+                Cero magia negra: un proceso transparente y honesto
+              </h2>
+              <p className={styles.sectionSubtitle}>
+                Me gusta que las cosas sean claras desde el primer día: qué vamos a construir, por qué
+                y cuándo estará listo.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className={styles.processGrid}>
+            {/* Paso 01 */}
+            <ScrollReveal delay={100}>
+              <div className={styles.processCard}>
+                <div className={styles.processCardTop}>
+                  <span className={styles.processStepNum}>01</span>
+                  <span className={styles.processStepTag}>ENTENDER</span>
+                </div>
+                <div className={styles.processImageWrap}>
+                  <img
+                    src="/images/moddo/6ab21fb86bf7e13ace189013_blueprint.webp"
+                    alt="Etapa de entendimiento y modelado"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3 className={styles.processTitle}>1 Escuchar y Modelar</h3>
+                  <p className={styles.processDesc}>
+                    Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio.
+                    No toco una línea de código hasta tener clara la arquitectura y la meta.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Paso 02 */}
+            <ScrollReveal delay={200}>
+              <div className={styles.processCard}>
+                <div className={styles.processCardTop}>
+                  <span className={styles.processStepNum}>02</span>
+                  <span className={styles.processStepTag}>CONSTRUIR</span>
+                </div>
+                <div className={styles.processImageWrap}>
+                  <img
+                    src="/images/moddo/6ab21fb70137b2b01251c68d_design.webp"
+                    alt="Etapa de desarrollo y diseño"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3 className={styles.processTitle}>2 Construir &amp; Validar</h3>
+                  <p className={styles.processDesc}>
+                    Desarrollo con entregas continuas para que puedas probar el sistema desde la
+                    primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos
+                    raros.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Paso 03 */}
+            <ScrollReveal delay={300}>
+              <div className={styles.processCard}>
+                <div className={styles.processCardTop}>
+                  <span className={styles.processStepNum}>03</span>
+                  <span className={styles.processStepTag}>LANZAR</span>
+                </div>
+                <div className={styles.processImageWrap}>
+                  <img
+                    src="/images/moddo/6ab21fb76bf7e13ace188ff7_enhance.webp"
+                    alt="Etapa de optimización y despliegue"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3 className={styles.processTitle}>3 Poner en Marcha &amp; Medir</h3>
+                  <p className={styles.processDesc}>
+                    Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego
+                    documentación y te acompaño para que tu equipo opere con total tranquilidad.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
-
-        <div className={styles.processGrid}>
-          {/* Paso 01 */}
-          <ScrollReveal delay={100}>
-            <div className={styles.processCard}>
-              <div className={styles.processCardTop}>
-                <span className={styles.processStepNum}>01</span>
-                <span className={styles.processStepTag}>ENTENDER</span>
-              </div>
-              <div className={styles.processImageWrap}>
-                <img
-                  src="/images/moddo/6ab21fb86bf7e13ace189013_blueprint.webp"
-                  alt="Etapa de entendimiento y modelado"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <h3 className={styles.processTitle}>1 Escuchar y Modelar</h3>
-                <p className={styles.processDesc}>
-                  Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio.
-                  No toco una línea de código hasta tener clara la arquitectura y la meta.
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Paso 02 */}
-          <ScrollReveal delay={200}>
-            <div className={styles.processCard}>
-              <div className={styles.processCardTop}>
-                <span className={styles.processStepNum}>02</span>
-                <span className={styles.processStepTag}>CONSTRUIR</span>
-              </div>
-              <div className={styles.processImageWrap}>
-                <img
-                  src="/images/moddo/6ab21fb70137b2b01251c68d_design.webp"
-                  alt="Etapa de desarrollo y diseño"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <h3 className={styles.processTitle}>2 Construir &amp; Validar</h3>
-                <p className={styles.processDesc}>
-                  Desarrollo con entregas continuas para que puedas probar el sistema desde la
-                  primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos
-                  raros.
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Paso 03 */}
-          <ScrollReveal delay={300}>
-            <div className={styles.processCard}>
-              <div className={styles.processCardTop}>
-                <span className={styles.processStepNum}>03</span>
-                <span className={styles.processStepTag}>LANZAR</span>
-              </div>
-              <div className={styles.processImageWrap}>
-                <img
-                  src="/images/moddo/6ab21fb76bf7e13ace188ff7_enhance.webp"
-                  alt="Etapa de optimización y despliegue"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <h3 className={styles.processTitle}>3 Poner en Marcha &amp; Medir</h3>
-                <p className={styles.processDesc}>
-                  Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego
-                  documentación y te acompaño para que tu equipo opere con total tranquilidad.
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -635,83 +647,259 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          CTA SECTION (High-Impact Moddo Card)
+          WHY US SECTION (Moddo 3 Characters, Oval Shadows & Organic Cards)
          ==================================================================== */}
-      <section id="contacto" className={styles.sectionContainer}>
-        <ScrollReveal>
-          <div className={styles.ctaCard}>
-            <span className={styles.ctaEyebrow}>Hagamos que suceda</span>
-            <h2 className={styles.ctaTitle}>¿Tienes un proyecto o problema que quieras resolver?</h2>
-            <p className={styles.ctaDesc}>
-              Escríbeme con total confianza. Me encanta conversar sobre tecnología, automatización y
-              desafíos de negocio. Te responderé directamente y sin rodeos.
-            </p>
+      <section id="whyus" className={styles.whyUsSection}>
+        <div className={styles.whyUsContainer}>
+          <div className={styles.whyUsHeader}>
+            <h2 className={styles.whyUsTitle}>Why us?</h2>
+            <p className={styles.whyUsEyebrow}>Simple by choice</p>
+          </div>
 
-            <div className={styles.ctaButtonGroup}>
-              <a
-                href="https://wa.me/51922466078"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.ctaPrimaryBtn}
-              >
-                <MessageCircle size={18} />
-                <span>Conversar por WhatsApp (+51 922 466 078)</span>
-                <ArrowUpRight size={18} />
-              </a>
+          <div className={styles.whyUsRows}>
+            {/* Row 1: Flexible (Blueprint Roll + Cobalt Blue Card) */}
+            <ScrollReveal delay={100}>
+              <div className={styles.whyUsRow}>
+                <div className={styles.whyUsMediaCol}>
+                  <img
+                    src="/images/moddo/whyus-ch1.webp"
+                    alt="Blueprint roll character with peace sign"
+                    className={styles.whyUsCharacter}
+                    loading="lazy"
+                  />
+                  <div className={styles.charShadow} />
+                </div>
+                <div className={`${styles.whyUsCardContent} ${styles.whyUsCardFlexible}`}>
+                  <h3 className={styles.whyUsCardTitle}>Flexible</h3>
+                  <p className={styles.whyUsCardDesc}>
+                    Adaptabilidad total a tu modelo de negocio y requerimientos técnicos: desde prototipos rápidos y MVP hasta arquitecturas escalables y de alta disponibilidad.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
 
-              <a
-                href="mailto:dennys.marquez.dev@gmail.com"
-                className={styles.ctaSecondaryBtn}
-              >
-                <Mail size={18} />
-                <span>Enviar un Correo Directo</span>
-              </a>
+            {/* Row 2: Data-Driven Creativity (Walking Pencil + Hot Pink Card) */}
+            <ScrollReveal delay={200}>
+              <div className={styles.whyUsRow}>
+                <div className={styles.whyUsMediaCol}>
+                  <img
+                    src="/images/moddo/whyus-ch2.webp"
+                    alt="Pencil character walking with sneakers"
+                    className={styles.whyUsCharacter}
+                    loading="lazy"
+                  />
+                  <div className={styles.charShadow} />
+                </div>
+                <div className={`${styles.whyUsCardContent} ${styles.whyUsCardCreativity}`}>
+                  <h3 className={styles.whyUsCardTitle}>Data-Driven Creativity</h3>
+                  <p className={styles.whyUsCardDesc}>
+                    Estrategia e ingeniería guiadas por métricas reales, análisis de datos riguroso y visión de negocio sin perder la chispa creativa.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
 
+            {/* Row 3: Aligned with Core Values (Smiling Star + Emerald Green Card) */}
+            <ScrollReveal delay={300}>
+              <div className={styles.whyUsRow}>
+                <div className={styles.whyUsMediaCol}>
+                  <img
+                    src="/images/moddo/whyus-ch3.webp"
+                    alt="Smiling star character with sparkling eyes"
+                    className={styles.whyUsCharacter}
+                    loading="lazy"
+                  />
+                  <div className={styles.charShadow} />
+                </div>
+                <div className={`${styles.whyUsCardContent} ${styles.whyUsCardValues}`}>
+                  <h3 className={styles.whyUsCardTitle}>Aligned with Core Values</h3>
+                  <p className={styles.whyUsCardDesc}>
+                    Desarrollo de software con honestidad técnica, trazabilidad contable y código limpio que resuelve problemas concretos sin adornos innecesarios.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          CTA SECTION (Moddo Charcoal Canvas, Yellow Stadium Card, Rotating Badge)
+         ==================================================================== */}
+      <section id="contacto" className={styles.ctaModdoSection}>
+        {/* Looping Yellow Pencil Ribbon */}
+        <div className={styles.ctaConnectingPath}>
+          <PencilRibbon
+            d="M81.3438 572.578C752.344 296.078 1571.44 537.89 1796.84 764.594C2399.84 1371.08 1166.71 1232.76 1055.34 1206.12C873.344 1162.59 563.844 1010.59 698.344 842.094C832.844 673.594 1234.08 931.586 1543.84 990.624C1897.84 1058.09 2155.46 796.348 1955.34 485.076C1810.34 259.54 834.386 -62.3864 408.344 650.095C-63.1562 1438.6 954.51 1435.08 1166.84 1280.08"
+            viewBox="0 0 2239 1575"
+            stroke="#f7fa40"
+            strokeWidth={90}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
+
+        <div className={styles.ctaModdoContainer}>
+          <div className={styles.ctaModdoGrid}>
+            {/* Left: Electric Yellow Stadium Card */}
+            <div className={styles.ctaStadiumCard}>
+              <div>
+                <h2 className={styles.ctaStadiumTitle}>Have a project in mind?</h2>
+                <p className={styles.ctaStadiumDesc}>
+                  Partner with Dennys Marquez to transform your business or startup into a memorable digital experience.
+                </p>
+              </div>
+
+              <div>
+                <a
+                  href="https://wa.me/51922466078"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.ctaPillBtn}
+                >
+                  <span>↗</span>
+                  <span>Book a Call</span>
+                </a>
+
+                <div className={styles.ctaAltLinks}>
+                  <a
+                    href="mailto:dennys.marquez.dev@gmail.com"
+                    className={styles.ctaAltLink}
+                  >
+                    <Mail size={16} />
+                    <span>dennys.marquez.dev@gmail.com</span>
+                  </a>
+                  <a
+                    href="https://github.com/dennys3mf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.ctaAltLink}
+                  >
+                    <GithubIcon size={16} />
+                    <span>github.com/dennys3mf</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Photo Frame with Rotating Badge */}
+            <div className={styles.ctaMediaCol}>
+              <div className={styles.ctaPhotoFrame}>
+                <img
+                  src="/images/moddo/about-team.webp"
+                  alt="Dennys Marquez Studio"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className={styles.ctaBadgeWrap}>
+                <RotatingBadge size={145} text="✦ PARTNER WITH • DENNYS MARQUEZ •" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          FOOTER (Moddo Clean Studio Bottom with Floating Badges Strip)
+         ==================================================================== */}
+      <footer id="footer" className={styles.footerModdoWrapper}>
+        <div className={styles.footerModdoContainer}>
+          <div className={styles.footerModdoTop}>
+            {/* Brand & Peru Flag */}
+            <div className={styles.footerBrandCol}>
+              <h3 className={styles.footerBrandHeading}>dennys marquez</h3>
+              <p className={styles.footerBrandTagline}>
+                Software &amp; AI Studio — Lima, Perú
+                <svg
+                  width="18"
+                  height="12"
+                  viewBox="0 0 18 12"
+                  className={styles.peruFlag}
+                  aria-label="Bandera de Perú"
+                  role="img"
+                  style={{ marginLeft: "0.5rem", verticalAlign: "-1px", display: "inline-block" }}
+                >
+                  <rect width="6" height="12" fill="#D91023" />
+                  <rect x="6" width="6" height="12" fill="#FFFFFF" />
+                  <rect x="12" width="6" height="12" fill="#D91023" />
+                </svg>
+              </p>
+
+              <div className={styles.footerContactList}>
+                <a
+                  href="mailto:dennys.marquez.dev@gmail.com"
+                  className={styles.footerContactLink}
+                >
+                  <Mail size={16} />
+                  <span>dennys.marquez.dev@gmail.com</span>
+                </a>
+                <a
+                  href="https://wa.me/51922466078"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.footerContactLink}
+                >
+                  <MessageCircle size={16} />
+                  <span>(+51) 922 466 078</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Nav Links */}
+            <div className={styles.footerNavCol}>
+              <span className={styles.footerNavColTitle}>Navigation</span>
+              <a href="#home" className={styles.footerNavLink}>Home</a>
+              <a href="#servicios" className={styles.footerNavLink}>Services</a>
+              <a href="#casos" className={styles.footerNavLink}>Cases</a>
+              <a href="#whyus" className={styles.footerNavLink}>Why Us</a>
+              <a href="#contacto" className={styles.footerNavLink}>Contact</a>
+            </div>
+
+            {/* Social Links */}
+            <div className={styles.footerNavCol}>
+              <span className={styles.footerNavColTitle}>Connect</span>
               <a
                 href="https://github.com/dennys3mf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.ctaSecondaryBtn}
+                className={styles.footerNavLink}
               >
-                <GithubIcon size={18} />
-                <span>Ver Código en GitHub</span>
+                GitHub ↗
+              </a>
+              <a
+                href="https://wa.me/51922466078"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerNavLink}
+              >
+                WhatsApp ↗
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dennys-marquez/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerNavLink}
+              >
+                LinkedIn ↗
               </a>
             </div>
           </div>
-        </ScrollReveal>
-      </section>
 
-      {/* ====================================================================
-          FOOTER (Moddo Clean Studio Bottom)
-         ==================================================================== */}
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <div>
-            <div className={styles.footerBrand}>
-              <span>DENNYS GABRIEL MARQUEZ FLORES</span>
-              <svg
-                width="20"
-                height="14"
-                viewBox="0 0 20 14"
-                className={styles.peruFlag}
-                aria-label="Bandera de Perú"
-                role="img"
-              >
-                <rect width="6.67" height="14" fill="#D91023" />
-                <rect x="6.67" width="6.66" height="14" fill="#FFFFFF" />
-                <rect x="13.33" width="6.67" height="14" fill="#D91023" />
-              </svg>
-            </div>
-            <p className={styles.footerTagline}>
-              Software &amp; AI Engineer — Lima, Perú
-            </p>
+          {/* Floating Tactile Badges Strip */}
+          <div className={styles.footerBadgesStrip} aria-hidden="true">
+            <BadgeMove className={styles.footerBadgeItem} />
+            <BadgeBold className={styles.footerBadgeItem} />
+            <BadgePlay className={styles.footerBadgeItem} />
+            <BadgeNoise className={styles.footerBadgeItem} />
+            <BadgeCurious className={styles.footerBadgeItem} />
+            <BadgeBuild className={styles.footerBadgeItem} />
           </div>
 
-          <div className={styles.footerMeta}>
-            <span>MODDO HD ARCHITECTURE</span>
-            <span>NEXT.JS 16 &amp; REACT 19</span>
-            <span>© {new Date().getFullYear()}</span>
-            <a href="#home" className={styles.backToTopBtn}>
+          {/* Bottom Row */}
+          <div className={styles.footerBottomRow}>
+            <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. All rights reserved.</span>
+            <span>Moddo HD Architecture • Next.js 16 &amp; React 19</span>
+            <a href="#home" className={styles.footerNavLink} style={{ fontSize: "0.92rem" }}>
               Volver Arriba ↑
             </a>
           </div>

@@ -3,9 +3,14 @@
 interface RotatingBadgeProps {
   size?: number;
   className?: string;
+  text?: string;
 }
 
-export default function RotatingBadge({ size = 130, className = "" }: RotatingBadgeProps) {
+export default function RotatingBadge({
+  size = 130,
+  className = "",
+  text = "✦ PARTNER WITH • DENNYS MARQUEZ • SOFTWARE & AI",
+}: RotatingBadgeProps) {
   return (
     <div
       className={className}
@@ -44,7 +49,7 @@ export default function RotatingBadge({ size = 130, className = "" }: RotatingBa
           style={{ textTransform: "uppercase", fontFamily: "var(--font-heading)" }}
         >
           <textPath href="#textCircle" startOffset="0%">
-            ✦ PARTNER WITH • DENNYS MARQUEZ • SOFTWARE &amp; AI
+            {text}
           </textPath>
         </text>
       </svg>
@@ -75,7 +80,7 @@ export default function RotatingBadge({ size = 130, className = "" }: RotatingBa
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
         </svg>
       </div>
 
