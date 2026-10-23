@@ -123,8 +123,8 @@ export default function Home() {
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
               <img
-                src="/images/moddo/about-team.webp"
-                alt="Equipo colaborando y diseñando en el estudio"
+                src="/images/personal/dennys-portrait.webp"
+                alt="Dennys Gabriel Marquez Flores — Full Stack Developer & AI Engineer"
                 loading="lazy"
               />
             </div>
@@ -157,6 +157,31 @@ export default function Home() {
                   cumplimiento normativo (SUNAT) y que cada centavo invertido en infraestructura cloud
                   tenga un retorno medible.
                 </p>
+
+                {/* Companion Team Spotlight */}
+                <div className={styles.accountingCompanion}>
+                  <div className={styles.companionAvatars}>
+                    <div className={styles.companionAvatarItem} title="Modo Reunión de Directorio">
+                      <img
+                        src="/images/personal/dog-suit-cfo.webp"
+                        alt="CFO Canino en terno"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className={styles.companionAvatarItem} title="Modo Deploy & Producción">
+                      <img
+                        src="/images/personal/dog-pink-cap.webp"
+                        alt="Auditor de Calidad con visera"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.companionDetails}>
+                    <span className={styles.companionTag}>EQUIPO &amp; CONTROL FINANCIERO</span>
+                    <span className={styles.companionName}>CFO Canino &amp; Auditor de Calidad 👔🐾</span>
+                    <span className={styles.companionBio}>Supervisión estricta de presupuesto, balance de costos cloud y cero gastos innecesarios.</span>
+                  </div>
+                </div>
               </div>
 
               <div className={styles.accountingGrid}>
@@ -464,7 +489,7 @@ export default function Home() {
           <PencilRibbon
             d="M1758.77 38.3438C1964.77 184.344 2063.53 778.039 1669.27 903.344C1153.27 1067.34 902.773 577.844 1078.77 491.344C1268.79 397.957 1288.72 959.844 902.773 959.844C607.773 959.844 580.773 780.844 404.773 759.844C231.116 739.123 86.2734 890.01 19.7734 920.844"
             viewBox="0 0 1987 1007"
-            stroke="#ff008c"
+            stroke="#e11d74"
             strokeWidth={77}
             className={styles.processRibbonSvg}
           />
@@ -740,8 +765,8 @@ export default function Home() {
             <div className={styles.ctaMediaCol}>
               <div className={styles.ctaPhotoFrame}>
                 <img
-                  src="/images/moddo/about-team.webp"
-                  alt="Dennys Gabriel Marquez Flores - Full Stack Developer"
+                  src="/images/personal/dennys-dog-car.webp"
+                  alt="Dennys Marquez junto a su fiel compañero de equipo"
                   loading="lazy"
                 />
               </div>
