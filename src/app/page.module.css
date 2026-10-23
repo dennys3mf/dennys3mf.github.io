@@ -2652,7 +2652,7 @@
 .ctaStageWrap {
   position: relative;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -2699,7 +2699,7 @@
   flex-wrap: wrap;
   gap: 1.25rem;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 2.2rem auto 0;
   background: rgba(46, 43, 45, 0.75);
   border: 1px solid rgba(110, 96, 85, 0.35);

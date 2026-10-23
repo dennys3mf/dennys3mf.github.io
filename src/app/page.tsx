@@ -4,6 +4,7 @@ import ScrollReveal from "../components/ScrollReveal";
 import LiveClock from "../components/LiveClock";
 import RotatingBadge from "../components/RotatingBadge";
 import FloatingNav from "../components/FloatingNav";
+import ContactBillboard from "../components/ContactBillboard";
 import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
 import {
@@ -622,19 +623,7 @@ export default function Home() {
         <div className={styles.ctaModdoContainer}>
           <ScrollReveal>
             <div className={styles.ctaStageWrap}>
-              <a
-                href="https://wa.me/51922466078"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.ctaMainImgCard}
-                title="Conversar con Dennys Marquez por WhatsApp"
-              >
-                <img
-                  src="/images/personal/dennys-contact-cta.webp"
-                  alt="¿Tienes un proyecto o vacante en mente? Conversemos — Dennys Marquez"
-                  loading="lazy"
-                />
-              </a>
+              <ContactBillboard />
 
               {/* Rotating Badge Floating on the corner */}
               <div className={styles.ctaBadgeWrap}>
