@@ -111,11 +111,10 @@ export default function Home() {
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
-                Full Stack Developer titulado en Diseño y Desarrollo de Software por TECSUP (tercio
-                superior, promedio 18/20). Cuento con experiencia construyendo aplicaciones web y
-                móviles de alto impacto, integrando APIs, servicios cloud serverless y funcionalidades
-                avanzadas con IA. Me enfoco en soluciones de producto sólidas, arquitectura mantenible y
-                una experiencia de usuario impecable.
+                Full Stack Developer &amp; AI Engineer. Construyo productos digitales escalables y de alto
+                rendimiento combinando arquitecturas cloud serverless, interfaces reactivas e integración
+                de modelos de lenguaje en producción. Mi enfoque une solidez técnica, velocidad de entrega y
+                criterio de negocio.
               </p>
             </div>
           </div>
@@ -232,7 +231,7 @@ export default function Home() {
               />
               <img
                 src="/images/moddo/mascot-walking.webp"
-                alt="Mascota de Dennys Marquez"
+                alt="Mascota D de Dennys Marquez"
                 className={styles.serviceMascot}
                 loading="lazy"
               />
@@ -269,6 +268,17 @@ export default function Home() {
           CASES / WORK SECTION (Moddo 3-Column Visual Grid)
          ==================================================================== */}
       <section id="casos" className={styles.casesModdoSection}>
+        {/* Continuous Connecting Pencil Ribbon */}
+        <div className={styles.casesRibbonWrap}>
+          <PencilRibbon
+            d="M-50 80 C 400 -60, 800 240, 1400 120 C 1800 40, 1600 480, 1200 520 C 800 560, 200 680, 500 850 C 700 960, 1200 920, 1450 1100"
+            viewBox="0 0 1440 1150"
+            stroke="#f7fa40"
+            strokeWidth={68}
+            className={styles.casesRibbonSvg}
+          />
+        </div>
+
         <div className={styles.casesModdoContainer}>
           <div className={styles.casesModdoHeader}>
             <p className={styles.casesModdoEyebrow}>Proyectos &amp; Experiencia</p>
@@ -279,154 +289,166 @@ export default function Home() {
 
           <div className={styles.casesGridModdo}>
             {/* Project 01 */}
-            <a
-              href="https://ahorratiempo.pe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.caseCardModdo}
-            >
-              <div className={styles.caseImageFrame}>
-                <img
-                  src="/images/moddo/case-pencils.webp"
-                  alt="AhorraTiempo.pe"
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.caseMetaRow}>
-                <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>AhorraTiempo.pe</h3>
-                  <p className={styles.caseItemSub}>Lead Software Engineer · SPA React 18, IA por Voz &amp; Cloudflare Workers</p>
+            <ScrollReveal delay={100}>
+              <a
+                href="https://ahorratiempo.pe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.caseCardModdo}
+              >
+                <div className={styles.caseImageFrame}>
+                  <img
+                    src="/images/projects/ahorratiempo-preview.webp"
+                    alt="AhorraTiempo.pe - Plataforma SaaS con IA por Voz"
+                    loading="lazy"
+                  />
                 </div>
-                <div className={styles.caseArrowBtn}>
-                  <ArrowUpRight size={22} />
+                <div className={styles.caseMetaRow}>
+                  <div className={styles.caseMetaText}>
+                    <h3 className={styles.caseItemTitle}>AhorraTiempo.pe</h3>
+                    <p className={styles.caseItemSub}>Lead Software Engineer · SPA React 18, IA por Voz &amp; Cloudflare Workers</p>
+                  </div>
+                  <div className={styles.caseArrowBtn}>
+                    <ArrowUpRight size={22} />
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
 
             {/* Project 02 */}
-            <a
-              href="https://github.com/dennys3mf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.caseCardModdo}
-            >
-              <div className={styles.caseImageFrame}>
-                <img
-                  src="/images/moddo/case-chip.webp"
-                  alt="CONTROLA SERVILEX Legal IT"
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.caseMetaRow}>
-                <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>CONTROLA — SERVILEX Legal IT</h3>
-                  <p className={styles.caseItemSub}>Software Developer · Automatización Legal &amp; Gestión SG-SST</p>
+            <ScrollReveal delay={200}>
+              <a
+                href="https://github.com/dennys3mf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.caseCardModdo}
+              >
+                <div className={styles.caseImageFrame}>
+                  <img
+                    src="/images/projects/controla-servilex-preview.webp"
+                    alt="CONTROLA SERVILEX Legal IT & SG-SST"
+                    loading="lazy"
+                  />
                 </div>
-                <div className={styles.caseArrowBtn}>
-                  <ArrowUpRight size={22} />
+                <div className={styles.caseMetaRow}>
+                  <div className={styles.caseMetaText}>
+                    <h3 className={styles.caseItemTitle}>CONTROLA — SERVILEX Legal IT</h3>
+                    <p className={styles.caseItemSub}>Software Developer · Automatización Legal &amp; Gestión SG-SST</p>
+                  </div>
+                  <div className={styles.caseArrowBtn}>
+                    <ArrowUpRight size={22} />
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
 
             {/* Project 03 */}
-            <a
-              href="https://github.com/dennys3mf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.caseCardModdo}
-            >
-              <div className={styles.caseImageFrame}>
-                <img
-                  src="/images/moddo/case-workspace.webp"
-                  alt="CHANSA App Móvil"
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.caseMetaRow}>
-                <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>CHANSA App Móvil</h3>
-                  <p className={styles.caseItemSub}>Mobile Application Developer · Flutter, Dart &amp; Firebase</p>
+            <ScrollReveal delay={300}>
+              <a
+                href="https://github.com/dennys3mf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.caseCardModdo}
+              >
+                <div className={styles.caseImageFrame}>
+                  <img
+                    src="/images/projects/chansa-app-preview.webp"
+                    alt="CHANSA App Móvil en Flutter"
+                    loading="lazy"
+                  />
                 </div>
-                <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
-                  <ArrowUpRight size={22} />
+                <div className={styles.caseMetaRow}>
+                  <div className={styles.caseMetaText}>
+                    <h3 className={styles.caseItemTitle}>CHANSA App Móvil</h3>
+                    <p className={styles.caseItemSub}>Mobile Application Developer · Flutter, Dart &amp; Firebase</p>
+                  </div>
+                  <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
+                    <ArrowUpRight size={22} />
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
 
             {/* Project 04 */}
-            <a
-              href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.caseCardModdo}
-            >
-              <div className={styles.caseImageFrame}>
-                <img
-                  src="/images/moddo/case-cup.webp"
-                  alt="Safety Helmet IoT"
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.caseMetaRow}>
-                <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>Safety Helmet IoT</h3>
-                  <p className={styles.caseItemSub}>IoT Developer · Prototipo de Seguridad con Arduino &amp; Python</p>
+            <ScrollReveal delay={150}>
+              <a
+                href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.caseCardModdo}
+              >
+                <div className={styles.caseImageFrame}>
+                  <img
+                    src="/images/projects/safety-helmet-preview.webp"
+                    alt="Safety Helmet IoT - Telemetría y Sensores"
+                    loading="lazy"
+                  />
                 </div>
-                <div className={styles.caseArrowBtn}>
-                  <ArrowUpRight size={22} />
+                <div className={styles.caseMetaRow}>
+                  <div className={styles.caseMetaText}>
+                    <h3 className={styles.caseItemTitle}>Safety Helmet IoT</h3>
+                    <p className={styles.caseItemSub}>IoT Developer · Prototipo de Seguridad con Arduino &amp; Python</p>
+                  </div>
+                  <div className={styles.caseArrowBtn}>
+                    <ArrowUpRight size={22} />
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
 
             {/* Project 05 */}
-            <a
-              href="https://github.com/dennys3mf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.caseCardModdo}
-            >
-              <div className={styles.caseImageFrame}>
-                <img
-                  src="/images/moddo/case-car.webp"
-                  alt="Fintech &amp; Sunat Flow Engine"
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.caseMetaRow}>
-                <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>Fintech &amp; Sunat Flow Engine</h3>
-                  <p className={styles.caseItemSub}>Pasarela Culqi, Suscripciones &amp; Comprobantes Electrónicos</p>
+            <ScrollReveal delay={250}>
+              <a
+                href="https://github.com/dennys3mf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.caseCardModdo}
+              >
+                <div className={styles.caseImageFrame}>
+                  <img
+                    src="/images/projects/fintech-sunat-preview.webp"
+                    alt="Fintech & Sunat Flow Engine"
+                    loading="lazy"
+                  />
                 </div>
-                <div className={styles.caseArrowBtn}>
-                  <ArrowUpRight size={22} />
+                <div className={styles.caseMetaRow}>
+                  <div className={styles.caseMetaText}>
+                    <h3 className={styles.caseItemTitle}>Fintech &amp; Sunat Flow Engine</h3>
+                    <p className={styles.caseItemSub}>Pasarela Culqi, Suscripciones &amp; Comprobantes Electrónicos</p>
+                  </div>
+                  <div className={styles.caseArrowBtn}>
+                    <ArrowUpRight size={22} />
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
 
             {/* Project 06 */}
-            <a
-              href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.caseCardModdo}
-            >
-              <div className={styles.caseImageFrame}>
-                <img
-                  src="/images/moddo/case-portrait.webp"
-                  alt="App Fiscalización Digital Joya"
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.caseMetaRow}>
-                <div className={styles.caseMetaText}>
-                  <h3 className={styles.caseItemTitle}>App Fiscalización Digital Joya</h3>
-                  <p className={styles.caseItemSub}>Inspección Municipal In Situ, Modo Offline &amp; Cero Papel</p>
+            <ScrollReveal delay={350}>
+              <a
+                href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.caseCardModdo}
+              >
+                <div className={styles.caseImageFrame}>
+                  <img
+                    src="/images/projects/fiscalizacion-joya-preview.webp"
+                    alt="App Fiscalización Digital Joya"
+                    loading="lazy"
+                  />
                 </div>
-                <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
-                  <ArrowUpRight size={22} />
+                <div className={styles.caseMetaRow}>
+                  <div className={styles.caseMetaText}>
+                    <h3 className={styles.caseItemTitle}>App Fiscalización Digital Joya</h3>
+                    <p className={styles.caseItemSub}>Inspección Municipal In Situ, Modo Offline &amp; Cero Papel</p>
+                  </div>
+                  <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
+                    <ArrowUpRight size={22} />
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
           </div>
 
           {/* See All Work CTA Button */}
@@ -557,22 +579,24 @@ export default function Home() {
           <div className={styles.statsGridModdo}>
             <div className={styles.statsLeft}>
               <p className={styles.statsEyebrow}>Trayectoria &amp; Logros</p>
-              <h2 className={styles.statsHeadingColossal}>Excelencia</h2>
+              <h2 className={styles.statsHeadingColossal}>AhorraTiempo</h2>
               <div className={styles.statsSubheading}>
-                Titulado en TECSUP con tercio superior (18/20),
-                <br />
-                arquitectura cloud y sistemas en producción.
+                Lead Software Engineer en <strong>AhorraTiempo.pe</strong>. Lideré la concepción,
+                arquitectura y despliegue de una plataforma SaaS con asistente de IA por voz en vivo (Web Speech API),
+                pasarela de pagos Culqi y arquitectura serverless en Cloudflare Workers y Firestore.
               </div>
             </div>
 
             <div className={styles.statsPillsCol}>
               <div className={styles.statStadiumPill}>
-                <span className={styles.statGiantNum}>18/20</span>
-                <span className={styles.statDarkLabel}>Promedio Ponderado TECSUP</span>
+                <span className={styles.statGiantNum} style={{ fontSize: "clamp(1.7rem, 2.7vw, 2.6rem)", color: "#2735ce", lineHeight: 1.1 }}>
+                  AhorraTiempo
+                </span>
+                <span className={styles.statDarkLabel}>Lead Software Engineer · SaaS IA &amp; Pagos</span>
               </div>
               <div className={styles.statStadiumPill}>
                 <span className={styles.statGiantNum}>+2 Años</span>
-                <span className={styles.statDarkLabel}>Software en Producción</span>
+                <span className={styles.statDarkLabel}>Sistemas Cloud en Producción Global</span>
               </div>
             </div>
           </div>

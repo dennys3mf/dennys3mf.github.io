@@ -43,13 +43,12 @@ export default function PencilRibbon({
       const rect = svg.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Start drawing when top of SVG reaches bottom of viewport
-      // Complete drawing when bottom of SVG is comfortably in viewport
-      const start = windowHeight;
-      const end = windowHeight * 0.15;
-      const current = rect.top;
+      // Start drawing when the top of the SVG enters the bottom of the viewport
+      // Complete drawing smoothly as user scrolls through the full height of the section
+      const totalDistance = windowHeight + rect.height;
+      const scrolled = windowHeight - rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / (totalDistance * 0.88)));
 
-      const progress = Math.max(0, Math.min(1, (start - current) / (start - end)));
       path.style.strokeDashoffset = `${length * (1 - progress)}`;
       ticking = false;
     };
