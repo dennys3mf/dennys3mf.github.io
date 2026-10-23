@@ -1,9 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
-import GlobalCursor from "../components/GlobalCursor";
 import LiveClock from "../components/LiveClock";
-import CartoonEyes from "../components/CartoonEyes";
 import RotatingBadge from "../components/RotatingBadge";
 import PencilRibbon from "../components/PencilRibbon";
 import FloatingNav from "../components/FloatingNav";
@@ -23,13 +21,17 @@ import {
   Scale,
   FileText,
   Database,
+  Layers,
+  Cpu,
+  Coins,
+  Search,
+  Terminal,
+  Rocket,
 } from "lucide-react";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <GlobalCursor />
-
       {/* ====================================================================
           FLOATING BOTTOM PILL NAVBAR (Exact Moddo White Capsule with Yellow Active Pill)
          ==================================================================== */}
@@ -79,33 +81,40 @@ export default function Home() {
           <h1 className={styles.textHero}>dennys marquez</h1>
         </div>
 
-        {/* Bottom Wrap: Brand Signature, Eyebrow & Eyes */}
+        {/* Bottom Wrap: Brand Signature & Active Engineering Status */}
         <div className={styles.heroBottomWrap}>
           <div className={styles.heroTitleWrap}>
             <span className={styles.heroBrandSignature}>d marquez</span>
             <span className={styles.heroEyebrowStudio}>FULL STACK DEVELOPER &amp; IA</span>
-            <CartoonEyes className={styles.heroEyeGraphic} />
+            <div className={styles.heroStatusChip}>
+              <span className={styles.statusPulseDot} />
+              <span>Full Stack &amp; AI Systems</span>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Arterial Vascular Stream: Hero to About */}
+      <div className={styles.vascularBridgeWrap} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
+          <path
+            d="M720,0 C720,45 280,45 280,90"
+            stroke="#e11d48"
+            strokeWidth="16"
+            strokeLinecap="round"
+            className={styles.arterialPath}
+          />
+        </svg>
+      </div>
+
       {/* ====================================================================
-          ABOUT SECTION (Moddo Blue Canvas + Photo with Tactile Badges + Accounting)
+          ABOUT SECTION (Moddo Blue Canvas + Photo + Accounting)
          ==================================================================== */}
       <section id="about" className={styles.aboutModdoSection}>
         <div className={styles.aboutModdoContainer}>
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
-              <div className={styles.aboutEyebrowRow}>
-                <div className={styles.aboutAvatarSmall}>
-                  <img
-                    src="/images/personal/dennys-portrait.webp"
-                    alt="Dennys Marquez"
-                    loading="lazy"
-                  />
-                </div>
-                <p className={styles.aboutModdoEyebrow}>Sobre Mí · Dennys Marquez</p>
-              </div>
+              <span className={styles.aboutSimpleEyebrow}>Sobre mí</span>
               <h2 className={styles.aboutModdoHeading}>
                 Construyo aplicaciones web, móviles y sistemas con Inteligencia Artificial.
               </h2>
@@ -205,8 +214,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Arterial Vascular Stream: About to Servicios */}
+      <div className={styles.vascularBridgeWrap} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
+          <path
+            d="M280,0 C280,45 1050,45 1050,90"
+            stroke="#e11d48"
+            strokeWidth="16"
+            strokeLinecap="round"
+            className={styles.arterialPath}
+          />
+        </svg>
+      </div>
+
       {/* ====================================================================
-          SERVICES SECTION (Moddo Walking Mascot & Tactile Pill Stack)
+          SERVICES SECTION (Engineering Console & Direct Service Cards)
          ==================================================================== */}
       <section id="servicios" className={styles.servicesModdoSection}>
         <div className={styles.servicesModdoContainer}>
@@ -216,21 +238,46 @@ export default function Home() {
           </div>
 
           <div className={styles.servicesModdoStage}>
-            {/* Left: Walking Mascot on the Thick Blue Curved Track */}
-            <div className={styles.serviceTrackCol}>
-              <PencilRibbon
-                d="M14.8359 35.5234C242.336 130.523 221.739 210.908 233.336 321.523C246.336 445.523 355.336 524.023 663.836 391.023C869.652 302.292 1000.53 540.523 683.836 540.523C543.336 540.523 446.336 593.523 433.836 664.523"
-                viewBox="0 0 913 672"
-                stroke="#2735ce"
-                strokeWidth={77}
-                className={styles.serviceRibbonSvg}
-              />
-              <img
-                src="/images/moddo/mascot-walking.webp"
-                alt="Mascota D de Dennys Marquez"
-                className={styles.serviceMascot}
-                loading="lazy"
-              />
+            {/* Left: Architecture Core Console */}
+            <div className={styles.serviceConsoleCard}>
+              <div className={styles.consoleHeader}>
+                <div className={styles.consoleDots}>
+                  <span className={styles.consoleDotRed} />
+                  <span className={styles.consoleDotYellow} />
+                  <span className={styles.consoleDotGreen} />
+                </div>
+                <span className={styles.consoleTitle}>architecture-core.ts</span>
+              </div>
+              <div className={styles.consoleBody}>
+                <div className={styles.consoleLine}>
+                  <span className={styles.consoleKeyword}>export const</span> <span className={styles.consoleVar}>engineerCore</span> = &#123;
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  <span className={styles.consoleKey}>lead:</span> <span className={styles.consoleString}>&quot;Dennys Marquez&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  <span className={styles.consoleKey}>specialty:</span> <span className={styles.consoleString}>&quot;Full Stack &amp; AI Systems&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  <span className={styles.consoleKey}>production:</span> [
+                </div>
+                <div className={styles.consoleLineIndent2}>
+                  <span className={styles.consoleString}>&quot;React 18 / Next.js&quot;</span>, <span className={styles.consoleString}>&quot;Cloudflare Workers&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent2}>
+                  <span className={styles.consoleString}>&quot;Flutter / Dart&quot;</span>, <span className={styles.consoleString}>&quot;Python / LLM APIs&quot;</span>
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  ],
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  <span className={styles.consoleKey}>architecture:</span> <span className={styles.consoleString}>&quot;Serverless &amp; Microservices&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  <span className={styles.consoleKey}>financialAudit:</span> <span className={styles.consoleBoolean}>true</span>
+                </div>
+                <div className={styles.consoleLine}>&#125;;</div>
+              </div>
             </div>
 
             {/* Right: Stack of 5 Moddo Pill Service Buttons */}
@@ -259,6 +306,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Arterial Vascular Stream: Servicios to Casos */}
+      <div className={styles.vascularBridgeWrap} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
+          <path
+            d="M1050,0 C1050,45 420,45 420,90"
+            stroke="#e11d48"
+            strokeWidth="16"
+            strokeLinecap="round"
+            className={styles.arterialPath}
+          />
+        </svg>
+      </div>
 
       {/* ====================================================================
           CASES / WORK SECTION (Moddo 3-Column Visual Grid)
@@ -452,17 +512,17 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          PROCESS SECTION (Moddo 3-Step Culture with 3D Illustrations & Connecting Pink Stroke)
+          PROCESS SECTION (Vascular Connecting Stream & Engineering Phases)
          ==================================================================== */}
       <section id="proceso" className={styles.processModdoSection}>
-        {/* Continuous Hot Pink Connecting Ribbon */}
+        {/* Continuous Arterial Bloodstream */}
         <div className={styles.processRibbonWrap}>
           <PencilRibbon
             d="M1758.77 38.3438C1964.77 184.344 2063.53 778.039 1669.27 903.344C1153.27 1067.34 902.773 577.844 1078.77 491.344C1268.79 397.957 1288.72 959.844 902.773 959.844C607.773 959.844 580.773 780.844 404.773 759.844C231.116 739.123 86.2734 890.01 19.7734 920.844"
             viewBox="0 0 1987 1007"
-            stroke="#e11d74"
-            strokeWidth={77}
-            className={styles.processRibbonSvg}
+            stroke="#e11d48"
+            strokeWidth={28}
+            className={styles.vascularBloodRibbon}
           />
         </div>
 
@@ -485,17 +545,13 @@ export default function Home() {
               <div className={styles.processCard}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>01</span>
-                  <span className={styles.processStepTag}>ENTENDER</span>
+                  <span className={styles.processStepTag}>FASE 01 · ENTENDER</span>
                 </div>
-                <div className={styles.processImageWrap}>
-                  <img
-                    src="/images/moddo/6ab21fb86bf7e13ace189013_blueprint.webp"
-                    alt="Etapa de entendimiento y modelado"
-                    loading="lazy"
-                  />
+                <div className={styles.processIconBox}>
+                  <Search size={32} />
                 </div>
                 <div>
-                  <h3 className={styles.processTitle}>1 Escuchar y Modelar</h3>
+                  <h3 className={styles.processTitle}>Escuchar y Modelar</h3>
                   <p className={styles.processDesc}>
                     Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio.
                     No toco una línea de código hasta tener clara la arquitectura y la meta.
@@ -509,17 +565,13 @@ export default function Home() {
               <div className={styles.processCard}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>02</span>
-                  <span className={styles.processStepTag}>CONSTRUIR</span>
+                  <span className={styles.processStepTag}>FASE 02 · CONSTRUIR</span>
                 </div>
-                <div className={styles.processImageWrap}>
-                  <img
-                    src="/images/moddo/6ab21fb70137b2b01251c68d_design.webp"
-                    alt="Etapa de desarrollo y diseño"
-                    loading="lazy"
-                  />
+                <div className={styles.processIconBox}>
+                  <Terminal size={32} />
                 </div>
                 <div>
-                  <h3 className={styles.processTitle}>2 Construir &amp; Validar</h3>
+                  <h3 className={styles.processTitle}>Construir &amp; Validar</h3>
                   <p className={styles.processDesc}>
                     Desarrollo con entregas continuas para que puedas probar el sistema desde la
                     primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos
@@ -534,17 +586,13 @@ export default function Home() {
               <div className={styles.processCard}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>03</span>
-                  <span className={styles.processStepTag}>LANZAR</span>
+                  <span className={styles.processStepTag}>FASE 03 · DESPLEGAR</span>
                 </div>
-                <div className={styles.processImageWrap}>
-                  <img
-                    src="/images/moddo/6ab21fb76bf7e13ace188ff7_enhance.webp"
-                    alt="Etapa de optimización y despliegue"
-                    loading="lazy"
-                  />
+                <div className={styles.processIconBox}>
+                  <Rocket size={32} />
                 </div>
                 <div>
-                  <h3 className={styles.processTitle}>3 Poner en Marcha &amp; Medir</h3>
+                  <h3 className={styles.processTitle}>Poner en Marcha &amp; Medir</h3>
                   <p className={styles.processDesc}>
                     Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego
                     documentación y te acompaño para que tu equipo opere con total tranquilidad.
@@ -556,8 +604,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Arterial Vascular Stream: Proceso to WhyUs */}
+      <div className={styles.vascularBridgeWrap} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
+          <path
+            d="M1150,0 C1150,45 520,45 520,90"
+            stroke="#e11d48"
+            strokeWidth="16"
+            strokeLinecap="round"
+            className={styles.arterialPath}
+          />
+        </svg>
+      </div>
+
       {/* ====================================================================
-          WHY US SECTION (Moddo 3 Characters, Oval Shadows & Organic Cards)
+          WHY US SECTION (Professional Engineering Pillars)
          ==================================================================== */}
       <section id="whyus" className={styles.whyUsSection}>
         <div className={styles.whyUsContainer}>
@@ -566,84 +627,83 @@ export default function Home() {
             <p className={styles.whyUsEyebrow}>Sencillez, solidez y honestidad técnica</p>
           </div>
 
-          <div className={styles.whyUsRows}>
-            {/* Row 1: Versatilidad Full Stack (Blueprint Roll + Cobalt Blue Card) */}
+          <div className={styles.whyUsGridModern}>
+            {/* Pillar 1: Versatilidad Full Stack */}
             <ScrollReveal delay={100}>
-              <div className={styles.whyUsRow}>
-                <div className={styles.whyUsMediaCol}>
-                  <img
-                    src="/images/moddo/whyus-ch1.webp"
-                    alt="Personaje blueprint con señal de paz"
-                    className={styles.whyUsCharacter}
-                    loading="lazy"
-                  />
-                  <div className={styles.charShadow} />
+              <div className={`${styles.whyUsCardModern} ${styles.whyUsModernIndigo}`}>
+                <div className={styles.whyUsModernTop}>
+                  <div className={styles.whyUsModernIcon}>
+                    <Layers size={28} />
+                  </div>
+                  <span className={styles.whyUsModernBadge}>TECSUP TITULADO</span>
                 </div>
-                <div className={`${styles.whyUsCardContent} ${styles.whyUsCardFlexible}`}>
-                  <h3 className={styles.whyUsCardTitle}>Versatilidad Full Stack</h3>
-                  <p className={styles.whyUsCardDesc}>
-                    Titulado en TECSUP. Construyo desde interfaces modernas en React y Flutter hasta backends serverless en Cloudflare Workers y APIs en Node.js sin atajos ni fricción.
-                  </p>
-                </div>
+                <h3 className={styles.whyUsModernTitle}>Versatilidad Full Stack &amp; Cloud</h3>
+                <p className={styles.whyUsModernDesc}>
+                  Titulado en TECSUP. Construyo desde interfaces modernas en React y Flutter hasta backends serverless en Cloudflare Workers y APIs en Node.js y Python sin atajos ni fricción.
+                </p>
               </div>
             </ScrollReveal>
 
-            {/* Row 2: Ingeniería Aplicada con IA (Walking Pencil + Hot Pink Card) */}
+            {/* Pillar 2: Ingeniería Aplicada con IA */}
             <ScrollReveal delay={200}>
-              <div className={styles.whyUsRow}>
-                <div className={styles.whyUsMediaCol}>
-                  <img
-                    src="/images/moddo/whyus-ch2.webp"
-                    alt="Personaje lápiz caminando con energía"
-                    className={styles.whyUsCharacter}
-                    loading="lazy"
-                  />
-                  <div className={styles.charShadow} />
+              <div className={`${styles.whyUsCardModern} ${styles.whyUsModernCrimson}`}>
+                <div className={styles.whyUsModernTop}>
+                  <div className={styles.whyUsModernIcon}>
+                    <Cpu size={28} />
+                  </div>
+                  <span className={styles.whyUsModernBadge}>IA EN PRODUCCIÓN</span>
                 </div>
-                <div className={`${styles.whyUsCardContent} ${styles.whyUsCardCreativity}`}>
-                  <h3 className={styles.whyUsCardTitle}>Ingeniería Aplicada con IA</h3>
-                  <p className={styles.whyUsCardDesc}>
-                    Experiencia comprobada integrando modelos de lenguaje (LLM APIs), interfaces de voz interactivas (Web Speech API) y caché LRU para productos con usuarios reales.
-                  </p>
-                </div>
+                <h3 className={styles.whyUsModernTitle}>Ingeniería Aplicada con IA</h3>
+                <p className={styles.whyUsModernDesc}>
+                  Experiencia comprobada integrando modelos de lenguaje (LLM APIs), interfaces de voz interactivas (Web Speech API) y caché LRU para productos con usuarios reales.
+                </p>
               </div>
             </ScrollReveal>
 
-            {/* Row 3: Criterio de Negocio y Finanzas (Smiling Star + Emerald Green Card) */}
+            {/* Pillar 3: Criterio de Negocio y Finanzas */}
             <ScrollReveal delay={300}>
-              <div className={styles.whyUsRow}>
-                <div className={styles.whyUsMediaCol}>
-                  <img
-                    src="/images/moddo/whyus-ch3.webp"
-                    alt="Personaje estrella sonriente"
-                    className={styles.whyUsCharacter}
-                    loading="lazy"
-                  />
-                  <div className={styles.charShadow} />
+              <div className={`${styles.whyUsCardModern} ${styles.whyUsModernEmerald}`}>
+                <div className={styles.whyUsModernTop}>
+                  <div className={styles.whyUsModernIcon}>
+                    <Coins size={28} />
+                  </div>
+                  <span className={styles.whyUsModernBadge}>FORMACIÓN CONTABLE</span>
                 </div>
-                <div className={`${styles.whyUsCardContent} ${styles.whyUsCardValues}`}>
-                  <h3 className={styles.whyUsCardTitle}>Criterio de Negocio y Finanzas</h3>
-                  <p className={styles.whyUsCardDesc}>
-                    Mi formación en Contabilidad me permite entender la rentabilidad de cada requerimiento, optimizar costos en la nube y asegurar trazabilidad para auditorías y SUNAT.
-                  </p>
-                </div>
+                <h3 className={styles.whyUsModernTitle}>Criterio de Negocio y Finanzas</h3>
+                <p className={styles.whyUsModernDesc}>
+                  Mi formación en Contabilidad me permite entender la rentabilidad de cada requerimiento, optimizar costos en la nube y asegurar trazabilidad para auditorías y SUNAT.
+                </p>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
+      {/* Arterial Vascular Stream: WhyUs to Contacto */}
+      <div className={styles.vascularBridgeWrap} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
+          <path
+            d="M520,0 C520,45 720,45 720,90"
+            stroke="#e11d48"
+            strokeWidth="16"
+            strokeLinecap="round"
+            className={styles.arterialPath}
+          />
+        </svg>
+      </div>
+
       {/* ====================================================================
           CTA SECTION (Moddo Charcoal Canvas, Hero Contact Showcase & Action Bar)
          ==================================================================== */}
       <section id="contacto" className={styles.ctaModdoSection}>
-        {/* Looping Yellow Pencil Ribbon */}
+        {/* Arterial Bloodstream Looping Connector */}
         <div className={styles.ctaConnectingPath}>
           <PencilRibbon
             d="M81.3438 572.578C752.344 296.078 1571.44 537.89 1796.84 764.594C2399.84 1371.08 1166.71 1232.76 1055.34 1206.12C873.344 1162.59 563.844 1010.59 698.344 842.094C832.844 673.594 1234.08 931.586 1543.84 990.624C1897.84 1058.09 2155.46 796.348 1955.34 485.076C1810.34 259.54 834.386 -62.3864 408.344 650.095C-63.1562 1438.6 954.51 1435.08 1166.84 1280.08"
             viewBox="0 0 2239 1575"
-            stroke="#f7fa40"
-            strokeWidth={90}
+            stroke="#e11d48"
+            strokeWidth={30}
+            className={styles.vascularBloodRibbon}
             style={{ width: "100%", height: "100%" }}
           />
         </div>
