@@ -72,15 +72,15 @@
 }
 
 .navLink:hover {
-  background-color: rgba(247, 250, 64, 0.35);
-  color: #141518;
+  background-color: #e3f6f5;
+  color: #2a2f63;
 }
 
 .navLinkActive {
-  background-color: #f7fa40;
-  color: #141518;
+  background-color: #2a2f63;
+  color: #ffffff;
   font-weight: 800;
-  box-shadow: 0 4px 14px rgba(247, 250, 64, 0.4);
+  box-shadow: 0 4px 14px rgba(42, 47, 99, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -103,15 +103,15 @@
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(20px);
     border-radius: 9999px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 14px 38px -6px rgba(0, 0, 0, 0.24), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #dad3c6;
+    box-shadow: 0 14px 38px -6px rgba(24, 22, 22, 0.2), 0 2px 8px rgba(24, 22, 22, 0.06);
   }
 
   .navLink {
     padding: 0.62rem 0.2rem;
     font-size: clamp(0.78rem, 2.7vw, 0.92rem);
     font-weight: 600;
-    color: #64748b;
+    color: #554c4f;
     border-radius: 9999px;
     text-align: center;
     display: flex;
@@ -120,15 +120,15 @@
   }
 
   .navLink:hover {
-    color: #0f172a;
-    background-color: rgba(247, 250, 64, 0.25);
+    color: #2a2f63;
+    background-color: #e3f6f5;
   }
 
   .navLinkActive {
-    background-color: #f7fa40;
-    color: #101216;
+    background-color: #2a2f63;
+    color: #ffffff;
     font-weight: 800;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 10px rgba(42, 47, 99, 0.25);
   }
 }
 
@@ -294,14 +294,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background: rgba(20, 21, 24, 0.05);
-  border: 1px solid rgba(20, 21, 24, 0.1);
+  background: rgba(49, 54, 72, 0.06);
+  border: 1px solid rgba(49, 54, 72, 0.16);
   padding: 0.4rem 0.95rem;
   border-radius: 9999px;
   font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #313648;
   letter-spacing: -0.01em;
 }
 
@@ -309,8 +309,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #10b981;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+  background-color: #5fb0c9;
+  box-shadow: 0 0 10px rgba(95, 176, 201, 0.8);
   animation: pulseDot 2s infinite;
 }
 
@@ -330,7 +330,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 800;
-  color: #f7fa40;
+  color: #a7e0db;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
@@ -339,10 +339,10 @@
 /* Architecture Console in Services */
 .serviceConsoleCard {
   width: 100%;
-  background: #0b0f19;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #181616;
+  border: 1px solid rgba(110, 96, 85, 0.28);
   border-radius: 28px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 24px 60px rgba(24, 22, 22, 0.25);
   overflow: hidden;
   font-family: var(--font-mono, monospace);
   padding: 1.8rem 2rem;
@@ -357,7 +357,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(110, 96, 85, 0.2);
   padding-bottom: 0.85rem;
 }
 
@@ -390,7 +390,7 @@
 
 .consoleTitle {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: #dad3c6;
   letter-spacing: 0.02em;
 }
 
@@ -403,39 +403,39 @@
 }
 
 .consoleLine {
-  color: #f1f5f9;
+  color: #f4f1ec;
 }
 
 .consoleLineIndent {
   padding-left: 1.5rem;
-  color: #f1f5f9;
+  color: #f4f1ec;
 }
 
 .consoleLineIndent2 {
   padding-left: 3rem;
-  color: #f1f5f9;
+  color: #f4f1ec;
 }
 
 .consoleKeyword {
-  color: #f43f5e;
+  color: #5fb0c9;
   font-weight: 700;
 }
 
 .consoleVar {
-  color: #38bdf8;
+  color: #ffffff;
   font-weight: 700;
 }
 
 .consoleKey {
-  color: #94a3b8;
+  color: #dad3c6;
 }
 
 .consoleString {
-  color: #a3e635;
+  color: #a7e0db;
 }
 
 .consoleBoolean {
-  color: #fbbf24;
+  color: #e8e2d8;
   font-weight: 700;
 }
 
@@ -443,9 +443,9 @@
   width: 68px;
   height: 68px;
   border-radius: 20px;
-  background: rgba(225, 29, 72, 0.1);
-  border: 1px solid rgba(225, 29, 72, 0.25);
-  color: #e11d48;
+  background: rgba(62, 109, 156, 0.12);
+  border: 1px solid rgba(62, 109, 156, 0.28);
+  color: #3e6d9c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -465,7 +465,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 18px 45px rgba(24, 22, 22, 0.2);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -473,25 +473,25 @@
 
 .whyUsCardModern:hover {
   transform: translateY(-5px);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 26px 60px rgba(24, 22, 22, 0.32);
 }
 
 .whyUsModernIndigo {
-  background: linear-gradient(165deg, #18239e 0%, #101977 100%);
+  background: linear-gradient(165deg, #2a2f63 0%, #313648 100%);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(167, 224, 219, 0.22);
 }
 
 .whyUsModernCrimson {
-  background: linear-gradient(165deg, #be123c 0%, #881337 100%);
+  background: linear-gradient(165deg, #2e2b2d 0%, #181616 100%);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(207, 199, 184, 0.22);
 }
 
 .whyUsModernEmerald {
-  background: linear-gradient(165deg, #0f766e 0%, #064e3b 100%);
+  background: linear-gradient(165deg, #313648 0%, #2e2b2d 100%);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(167, 224, 219, 0.22);
 }
 
 .whyUsModernTop {
@@ -1669,7 +1669,7 @@
    MODDO ABOUT SECTION (Cobalt Blue Canvas & Tactile Pop Badges)
    ==================================================================== */
 .aboutModdoSection {
-  background: linear-gradient(165deg, #1b26ac 0%, #131d87 100%);
+  background: linear-gradient(165deg, #2a2f63 0%, #313648 100%);
   color: #ffffff;
   padding: 6.5rem 3.5vw 5.5rem;
   position: relative;
@@ -1923,7 +1923,7 @@
   width: 100%;
   max-width: 620px;
   height: auto;
-  color: #2735ce;
+  color: #3e6d9c;
   overflow: visible;
 }
 
@@ -1987,17 +1987,17 @@
   transform: translate(2px, -2px);
 }
 
-.pillPink { background-color: #e11d74; }
-.pillBlue { background-color: #1e40af; }
-.pillOrange { background-color: #ea580c; }
-.pillGreen { background-color: #059669; }
-.pillRed { background-color: #dc2626; }
+.pillPink { background-color: #2a2f63; }
+.pillBlue { background-color: #3e6d9c; }
+.pillOrange { background-color: #313648; }
+.pillGreen { background-color: #6e6055; }
+.pillRed { background-color: #2e2b2d; }
 
 /* ====================================================================
-   MODDO CASES SECTION (Cobalt Blue Background & 3-Column White Cards)
+   MODDO CASES SECTION (Executive Dark Palette & 3-Column White Cards)
    ==================================================================== */
 .casesModdoSection {
-  background: linear-gradient(165deg, #18239e 0%, #101977 100%);
+  background: linear-gradient(165deg, #181616 0%, #2e2b2d 50%, #313648 100%);
   color: #ffffff;
   padding: 6.5rem 3.5vw 6rem;
   position: relative;
@@ -2029,7 +2029,7 @@
 .casesModdoEyebrow {
   font-family: var(--font-accent);
   font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  color: rgba(255, 255, 255, 0.9);
+  color: #5fb0c9;
   margin: 0;
 }
 
@@ -2124,7 +2124,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #2735ce;
+  background-color: #3e6d9c;
   color: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -2134,8 +2134,8 @@
 }
 
 .caseArrowYellow {
-  background-color: #f7c800;
-  color: #18191b;
+  background-color: #5fb0c9;
+  color: #181616;
 }
 
 .caseCardModdo:hover .caseArrowBtn {
@@ -2153,14 +2153,15 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.95rem 2.2rem;
-  background-color: #18191b;
+  background-color: #2a2f63;
   color: #ffffff;
+  border: 1px solid rgba(167, 224, 219, 0.35);
   border-radius: 9999px;
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.05rem;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(24, 22, 22, 0.4);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -2214,7 +2215,7 @@
 .statsEyebrow {
   font-family: var(--font-accent);
   font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  color: #f7fa40;
+  color: #5fb0c9;
   margin: 0;
 }
 
@@ -2245,8 +2246,8 @@
 
 .statStadiumPill {
   flex: 1;
-  background-color: #f7fa40;
-  color: #121829;
+  background-color: #3e6d9c;
+  color: #ffffff;
   border-radius: 9999px;
   padding: 2.2rem 1.75rem;
   display: flex;
@@ -2502,7 +2503,7 @@
 .whyUsEyebrow {
   font-family: var(--font-accent);
   font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  color: #2735ce;
+  color: #3e6d9c;
   margin: 0;
 }
 
@@ -2550,11 +2551,11 @@
   bottom: 12px;
   width: clamp(180px, 22vw, 290px);
   height: clamp(26px, 3vw, 38px);
-  background-color: #f7fa40;
+  background-color: rgba(46, 43, 45, 0.25);
   border-radius: 50%;
   z-index: 1;
   opacity: 0.95;
-  box-shadow: 0 4px 16px rgba(247, 250, 64, 0.4);
+  box-shadow: 0 4px 16px rgba(24, 22, 22, 0.2);
 }
 
 .whyUsCardContent {
@@ -2589,15 +2590,15 @@
 }
 
 .whyUsCardFlexible {
-  background: linear-gradient(145deg, #1b26ac 0%, #121b7c 100%);
+  background: linear-gradient(145deg, #2a2f63 0%, #313648 100%);
 }
 
 .whyUsCardCreativity {
-  background: linear-gradient(145deg, #e11d74 0%, #b9125b 100%);
+  background: linear-gradient(145deg, #2e2b2d 0%, #181616 100%);
 }
 
 .whyUsCardValues {
-  background: linear-gradient(145deg, #0d9488 0%, #047857 100%);
+  background: linear-gradient(145deg, #3e6d9c 0%, #2a2f63 100%);
 }
 
 .whyUsCardTitle {
@@ -2624,7 +2625,8 @@
    MODDO CTA SECTION (Charcoal Canvas, Yellow Stadium Card, Rotating Badge)
    ==================================================================== */
 .ctaModdoSection {
-  background-color: #141518;
+  background-color: #181616;
+  background: linear-gradient(170deg, #181616 0%, #2e2b2d 60%, #313648 100%);
   color: #ffffff;
   padding: 7.5rem 3.5vw 8rem;
   position: relative;
@@ -2662,7 +2664,7 @@
   overflow: hidden;
   box-shadow: 0 32px 80px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.14);
   position: relative;
-  background-color: #0d1117;
+  background-color: #2e2b2d;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   cursor: pointer;
   text-decoration: none;
@@ -2670,7 +2672,7 @@
 
 .ctaMainImgCard:hover {
   transform: translateY(-4px) scale(1.008);
-  box-shadow: 0 40px 95px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(247, 250, 64, 0.5);
+  box-shadow: 0 40px 95px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(95, 176, 201, 0.5);
 }
 
 .ctaMainImgCard img {
@@ -2699,8 +2701,8 @@
   width: 100%;
   max-width: 1080px;
   margin: 2.2rem auto 0;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(46, 43, 45, 0.75);
+  border: 1px solid rgba(110, 96, 85, 0.35);
   padding: 1rem 1.8rem;
   border-radius: 9999px;
   backdrop-filter: blur(12px);
@@ -2712,8 +2714,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background-color: #f7fa40;
-  color: #141518;
+  background-color: #5fb0c9;
+  color: #181616;
   padding: 0.85rem 1.85rem;
   border-radius: 9999px;
   font-family: var(--font-heading);
@@ -2721,14 +2723,14 @@
   font-weight: 800;
   text-decoration: none;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 18px rgba(247, 250, 64, 0.3);
+  box-shadow: 0 4px 18px rgba(95, 176, 201, 0.35);
   cursor: pointer;
 }
 
 .ctaPillBtn:hover {
   transform: translateY(-2px) scale(1.03);
-  background-color: #ffffff;
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
+  background-color: #a7e0db;
+  box-shadow: 0 8px 24px rgba(167, 224, 219, 0.45);
 }
 
 .ctaAltLinks {
@@ -2847,7 +2849,7 @@
 }
 
 .footerContactLink:hover {
-  color: #2735ce;
+  color: #3e6d9c;
   transform: translateX(3px);
 }
 
@@ -2878,7 +2880,7 @@
 
 .footerNavLink:hover {
   transform: translateX(4px);
-  color: #2735ce;
+  color: #3e6d9c;
 }
 
 .footerBadgesStrip {

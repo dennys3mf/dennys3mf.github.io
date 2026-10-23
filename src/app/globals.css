@@ -1,16 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=JetBrains+Mono:wght@400;500;700&family=Parkinsans:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Moddo Brand Signature Color Palette - HD Vibrance */
-  --accent-blue: #2735ce;
-  --accent-pink: #ff008c;
-  --accent-azure: #1462df;
-  --accent-orange: #f56a00;
-  --accent-green: #1da342;
-  --accent-mint: #3ecf8e;
-  --accent-yellow: #f7c800;
-  --accent-lilac: #d994f8;
-  --accent-cyan: #7fe4f8;
+  /* User Palette: Neutrals / Dark */
+  --palette-black: #181616;
+  --palette-taupe: #6e6055;
+  --palette-charcoal: #2e2b2d;
+  --palette-mauve: #554c4f;
+  --palette-navy-slate: #313648;
+
+  /* User Palette: Cyan / Blue */
+  --palette-ice-blue: #e3f6f5;
+  --palette-mint-cyan: #a7e0db;
+  --palette-sky-cyan: #5fb0c9;
+  --palette-steel-blue: #3e6d9c;
+  --palette-deep-indigo: #2a2f63;
+
+  /* User Palette: Warm Neutrals / Paper */
+  --palette-pure-white: #ffffff;
+  --palette-warm-ivory: #f4f1ec;
+  --palette-linen: #e8e2d8;
+  --palette-sand: #dad3c6;
+  --palette-putty: #cfc7b8;
+
+  /* Semantic Brand Overrides */
+  --accent-blue: #2a2f63;
+  --accent-azure: #3e6d9c;
+  --accent-cyan: #5fb0c9;
+  --accent-mint: #a7e0db;
+  --accent-ice: #e3f6f5;
+  --accent-pink: #554c4f;
+  --accent-orange: #6e6055;
+  --accent-green: #3e6d9c;
+  --accent-yellow: #5fb0c9;
+  --accent-lilac: #313648;
 
   /* Fonts */
   --font-heading: 'Parkinsans', 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -27,73 +49,73 @@
 }
 
 /* ====================================================================
-   TEMA CLARO (Default / Moddo Signature Warm Tactile Paper)
+   TEMA CLARO (Default / Warm Tactile Paper & Architectural Palette)
    ==================================================================== */
 :root,
 [data-theme='light'] {
-  --bg-page: #f8f6f2;
+  --bg-page: #f4f1ec;
   --bg-card: #ffffff;
-  --bg-card-subtle: #f2efe9;
+  --bg-card-subtle: #e8e2d8;
   --bg-input: #ffffff;
 
-  --text-main: #18191b;
-  --text-muted: #535661;
-  --text-subtle: #848794;
+  --text-main: #181616;
+  --text-muted: #554c4f;
+  --text-subtle: #6e6055;
 
-  --border-color: rgba(24, 25, 27, 0.08);
-  --border-strong: rgba(24, 25, 27, 0.16);
-  --border-hover: rgba(24, 25, 27, 0.28);
+  --border-color: rgba(46, 43, 45, 0.12);
+  --border-strong: rgba(46, 43, 45, 0.22);
+  --border-hover: rgba(62, 109, 156, 0.45);
   --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
-  --nav-bg: rgba(255, 255, 255, 0.9);
-  --nav-border: rgba(24, 25, 27, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --nav-border: #dad3c6;
 
-  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.02), 0 12px 32px -4px rgba(0, 0, 0, 0.05);
-  --shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.03), 0 24px 50px -6px rgba(0, 0, 0, 0.09);
-  --shadow-floating: 0 20px 48px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 4px rgba(24, 22, 22, 0.02), 0 12px 32px -4px rgba(24, 22, 22, 0.06);
+  --shadow-card-hover: 0 4px 8px rgba(24, 22, 22, 0.04), 0 24px 50px -6px rgba(24, 22, 22, 0.1);
+  --shadow-floating: 0 20px 48px -8px rgba(24, 22, 22, 0.14), 0 0 0 1px rgba(24, 22, 22, 0.05);
 
-  --btn-primary-bg: #18191b;
+  --btn-primary-bg: #181616;
   --btn-primary-text: #ffffff;
   --btn-secondary-bg: #ffffff;
-  --btn-secondary-text: #18191b;
+  --btn-secondary-text: #181616;
 
-  --theme-btn-bg: rgba(0, 0, 0, 0.04);
-  --grid-line: rgba(24, 25, 27, 0.035);
+  --theme-btn-bg: rgba(46, 43, 45, 0.06);
+  --grid-line: rgba(110, 96, 85, 0.08);
   --paper-grain-opacity: 0.035;
 }
 
 /* ====================================================================
-   TEMA OSCURO (Moddo Dark Edition)
+   TEMA OSCURO (Executive Dark Charcoal & Slate Edition)
    ==================================================================== */
 [data-theme='dark'] {
-  --bg-page: #0f1013;
-  --bg-card: #17181e;
-  --bg-card-subtle: #21222b;
-  --bg-input: #14151a;
+  --bg-page: #181616;
+  --bg-card: #2e2b2d;
+  --bg-card-subtle: #313648;
+  --bg-input: #181616;
 
-  --text-main: #f6f7fb;
-  --text-muted: #a3a6b3;
-  --text-subtle: #676a78;
+  --text-main: #f4f1ec;
+  --text-muted: #dad3c6;
+  --text-subtle: #cfc7b8;
 
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --border-hover: rgba(255, 255, 255, 0.35);
+  --border-color: rgba(232, 226, 216, 0.12);
+  --border-strong: rgba(232, 226, 216, 0.22);
+  --border-hover: rgba(95, 176, 201, 0.5);
   --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-  --nav-bg: rgba(23, 24, 30, 0.9);
-  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(46, 43, 45, 0.95);
+  --nav-border: rgba(232, 226, 216, 0.15);
 
-  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 40px -4px rgba(0, 0, 0, 0.55);
-  --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.5), 0 28px 60px -6px rgba(0, 0, 0, 0.7);
-  --shadow-floating: 0 24px 50px -6px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.5), 0 16px 40px -4px rgba(0, 0, 0, 0.65);
+  --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.6), 0 28px 60px -6px rgba(0, 0, 0, 0.75);
+  --shadow-floating: 0 24px 50px -6px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
 
-  --btn-primary-bg: #f6f7fb;
-  --btn-primary-text: #0f1013;
-  --btn-secondary-bg: #21222b;
-  --btn-secondary-text: #f6f7fb;
+  --btn-primary-bg: #f4f1ec;
+  --btn-primary-text: #181616;
+  --btn-secondary-bg: #313648;
+  --btn-secondary-text: #f4f1ec;
 
   --theme-btn-bg: rgba(255, 255, 255, 0.08);
-  --grid-line: rgba(255, 255, 255, 0.03);
+  --grid-line: rgba(232, 226, 216, 0.05);
   --paper-grain-opacity: 0.025;
 }
 
