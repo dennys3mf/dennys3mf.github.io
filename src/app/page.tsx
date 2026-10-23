@@ -4,14 +4,6 @@ import ScrollReveal from "../components/ScrollReveal";
 import GlobalCursor from "../components/GlobalCursor";
 import LiveClock from "../components/LiveClock";
 import CartoonEyes from "../components/CartoonEyes";
-import {
-  BadgeMove,
-  BadgeBold,
-  BadgeNoise,
-  BadgeCurious,
-  BadgePlay,
-  BadgeBuild,
-} from "../components/TactileBadges";
 import RotatingBadge from "../components/RotatingBadge";
 import PencilRibbon from "../components/PencilRibbon";
 import FloatingNav from "../components/FloatingNav";
@@ -128,7 +120,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Photo stage with the 4 Moddo tactile badges */}
+          {/* Photo stage with clean workstation image */}
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
               <img
@@ -137,11 +129,6 @@ export default function Home() {
                 loading="lazy"
               />
             </div>
-
-            <BadgeMove className={styles.badgePosMove} />
-            <BadgeBold className={styles.badgePosBold} />
-            <BadgeNoise className={styles.badgePosNoise} />
-            <BadgeCurious className={styles.badgePosCurious} />
           </div>
 
           {/* ====================================================================
@@ -166,31 +153,6 @@ export default function Home() {
                   cumplimiento normativo (SUNAT) y que cada centavo invertido en infraestructura cloud
                   tenga un retorno medible.
                 </p>
-
-                {/* Companion Team Spotlight */}
-                <div className={styles.accountingCompanion}>
-                  <div className={styles.companionAvatars}>
-                    <div className={styles.companionAvatarItem} title="Modo Reunión de Directorio">
-                      <img
-                        src="/images/personal/dog-suit-cfo.webp"
-                        alt="CFO Canino en terno"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className={styles.companionAvatarItem} title="Modo Deploy & Producción">
-                      <img
-                        src="/images/personal/dog-pink-cap.webp"
-                        alt="Auditor de Calidad con visera"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.companionDetails}>
-                    <span className={styles.companionTag}>EQUIPO &amp; CONTROL FINANCIERO</span>
-                    <span className={styles.companionName}>CFO Canino &amp; Auditor de Calidad 👔🐾</span>
-                    <span className={styles.companionBio}>Supervisión estricta de presupuesto, balance de costos cloud y cero gastos innecesarios.</span>
-                  </div>
-                </div>
               </div>
 
               <div className={styles.accountingGrid}>
@@ -595,38 +557,6 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          STATS SECTION (Moddo Hot Pink Canvas, Yellow Stadium Pills & Logos)
-         ==================================================================== */}
-      <section id="stats" className={styles.statsModdoSection}>
-        <div className={styles.statsModdoContainer}>
-          <div className={styles.statsGridModdo}>
-            <div className={styles.statsLeft}>
-              <p className={styles.statsEyebrow}>Trayectoria &amp; Logros</p>
-              <h2 className={styles.statsHeadingColossal}>ahorratiempo.pe</h2>
-              <div className={styles.statsSubheading}>
-                Lead Software Engineer en <strong>ahorratiempo.pe</strong>. Lideré la concepción,
-                arquitectura y despliegue de una plataforma SaaS con asistente de IA por voz en vivo (Web Speech API),
-                pasarela de pagos Culqi y arquitectura serverless en Cloudflare Workers y Firestore.
-              </div>
-            </div>
-
-            <div className={styles.statsPillsCol}>
-              <div className={styles.statStadiumPill}>
-                <span className={styles.statGiantNum} style={{ fontSize: "clamp(1.7rem, 2.7vw, 2.6rem)", color: "#2735ce", lineHeight: 1.1 }}>
-                  ahorratiempo.pe
-                </span>
-                <span className={styles.statDarkLabel}>Lead Software Engineer · SaaS IA &amp; Pagos</span>
-              </div>
-              <div className={styles.statStadiumPill}>
-                <span className={styles.statGiantNum}>+2 Años</span>
-                <span className={styles.statDarkLabel}>Sistemas Cloud en Producción Global</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================================
           WHY US SECTION (Moddo 3 Characters, Oval Shadows & Organic Cards)
          ==================================================================== */}
       <section id="whyus" className={styles.whyUsSection}>
@@ -829,16 +759,6 @@ export default function Home() {
                 WhatsApp ↗
               </a>
             </div>
-          </div>
-
-          {/* Floating Tactile Badges Strip */}
-          <div className={styles.footerBadgesStrip} aria-hidden="true">
-            <BadgeMove className={styles.footerBadgeItem} />
-            <BadgeBold className={styles.footerBadgeItem} />
-            <BadgePlay className={styles.footerBadgeItem} />
-            <BadgeNoise className={styles.footerBadgeItem} />
-            <BadgeCurious className={styles.footerBadgeItem} />
-            <BadgeBuild className={styles.footerBadgeItem} />
           </div>
 
           {/* Bottom Row */}
