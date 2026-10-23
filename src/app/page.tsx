@@ -3,7 +3,6 @@ import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 import LiveClock from "../components/LiveClock";
 import RotatingBadge from "../components/RotatingBadge";
-import PencilRibbon from "../components/PencilRibbon";
 import FloatingNav from "../components/FloatingNav";
 import ProjectVideo from "../components/ProjectVideo";
 import { GithubIcon } from "../components/Icons";
@@ -93,19 +92,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Arterial Vascular Stream: Hero to About */}
-      <div className={styles.vascularBridgeWrap} aria-hidden="true">
-        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
-          <path
-            d="M720,0 C720,45 280,45 280,90"
-            stroke="#e11d48"
-            strokeWidth="16"
-            strokeLinecap="round"
-            className={styles.arterialPath}
-          />
-        </svg>
-      </div>
 
       {/* ====================================================================
           ABOUT SECTION (Moddo Blue Canvas + Photo + Accounting)
@@ -214,19 +200,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Arterial Vascular Stream: About to Servicios */}
-      <div className={styles.vascularBridgeWrap} aria-hidden="true">
-        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
-          <path
-            d="M280,0 C280,45 1050,45 1050,90"
-            stroke="#e11d48"
-            strokeWidth="16"
-            strokeLinecap="round"
-            className={styles.arterialPath}
-          />
-        </svg>
-      </div>
-
       {/* ====================================================================
           SERVICES SECTION (Engineering Console & Direct Service Cards)
          ==================================================================== */}
@@ -306,19 +279,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Arterial Vascular Stream: Servicios to Casos */}
-      <div className={styles.vascularBridgeWrap} aria-hidden="true">
-        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
-          <path
-            d="M1050,0 C1050,45 420,45 420,90"
-            stroke="#e11d48"
-            strokeWidth="16"
-            strokeLinecap="round"
-            className={styles.arterialPath}
-          />
-        </svg>
-      </div>
 
       {/* ====================================================================
           CASES / WORK SECTION (Moddo 3-Column Visual Grid)
@@ -512,20 +472,9 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          PROCESS SECTION (Vascular Connecting Stream & Engineering Phases)
+          PROCESS SECTION (Engineering Phases)
          ==================================================================== */}
       <section id="proceso" className={styles.processModdoSection}>
-        {/* Continuous Arterial Bloodstream */}
-        <div className={styles.processRibbonWrap}>
-          <PencilRibbon
-            d="M1758.77 38.3438C1964.77 184.344 2063.53 778.039 1669.27 903.344C1153.27 1067.34 902.773 577.844 1078.77 491.344C1268.79 397.957 1288.72 959.844 902.773 959.844C607.773 959.844 580.773 780.844 404.773 759.844C231.116 739.123 86.2734 890.01 19.7734 920.844"
-            viewBox="0 0 1987 1007"
-            stroke="#e11d48"
-            strokeWidth={28}
-            className={styles.vascularBloodRibbon}
-          />
-        </div>
-
         <div className={styles.sectionContainer} style={{ padding: "0 1rem", position: "relative", zIndex: 2 }}>
           <ScrollReveal>
             <div className={styles.sectionHeader}>
@@ -604,19 +553,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Arterial Vascular Stream: Proceso to WhyUs */}
-      <div className={styles.vascularBridgeWrap} aria-hidden="true">
-        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
-          <path
-            d="M1150,0 C1150,45 520,45 520,90"
-            stroke="#e11d48"
-            strokeWidth="16"
-            strokeLinecap="round"
-            className={styles.arterialPath}
-          />
-        </svg>
-      </div>
-
       {/* ====================================================================
           WHY US SECTION (Professional Engineering Pillars)
          ==================================================================== */}
@@ -679,35 +615,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Arterial Vascular Stream: WhyUs to Contacto */}
-      <div className={styles.vascularBridgeWrap} aria-hidden="true">
-        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" className={styles.vascularBridgeSvg}>
-          <path
-            d="M520,0 C520,45 720,45 720,90"
-            stroke="#e11d48"
-            strokeWidth="16"
-            strokeLinecap="round"
-            className={styles.arterialPath}
-          />
-        </svg>
-      </div>
-
       {/* ====================================================================
           CTA SECTION (Moddo Charcoal Canvas, Hero Contact Showcase & Action Bar)
          ==================================================================== */}
       <section id="contacto" className={styles.ctaModdoSection}>
-        {/* Arterial Bloodstream Looping Connector */}
-        <div className={styles.ctaConnectingPath}>
-          <PencilRibbon
-            d="M81.3438 572.578C752.344 296.078 1571.44 537.89 1796.84 764.594C2399.84 1371.08 1166.71 1232.76 1055.34 1206.12C873.344 1162.59 563.844 1010.59 698.344 842.094C832.844 673.594 1234.08 931.586 1543.84 990.624C1897.84 1058.09 2155.46 796.348 1955.34 485.076C1810.34 259.54 834.386 -62.3864 408.344 650.095C-63.1562 1438.6 954.51 1435.08 1166.84 1280.08"
-            viewBox="0 0 2239 1575"
-            stroke="#e11d48"
-            strokeWidth={30}
-            className={styles.vascularBloodRibbon}
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
-
         <div className={styles.ctaModdoContainer}>
           <ScrollReveal>
             <div className={styles.ctaStageWrap}>
