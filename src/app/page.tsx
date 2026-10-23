@@ -268,17 +268,6 @@ export default function Home() {
           CASES / WORK SECTION (Moddo 3-Column Visual Grid)
          ==================================================================== */}
       <section id="casos" className={styles.casesModdoSection}>
-        {/* Continuous Connecting Pencil Ribbon */}
-        <div className={styles.casesRibbonWrap}>
-          <PencilRibbon
-            d="M-50 80 C 400 -60, 800 240, 1400 120 C 1800 40, 1600 480, 1200 520 C 800 560, 200 680, 500 850 C 700 960, 1200 920, 1450 1100"
-            viewBox="0 0 1440 1150"
-            stroke="#f7fa40"
-            strokeWidth={68}
-            className={styles.casesRibbonSvg}
-          />
-        </div>
-
         <div className={styles.casesModdoContainer}>
           <div className={styles.casesModdoHeader}>
             <p className={styles.casesModdoEyebrow}>Proyectos &amp; Experiencia</p>
@@ -597,37 +586,6 @@ export default function Home() {
               <div className={styles.statStadiumPill}>
                 <span className={styles.statGiantNum}>+2 Años</span>
                 <span className={styles.statDarkLabel}>Sistemas Cloud en Producción Global</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Partner & Tech Logos Marquee Strip */}
-          <div className={styles.statsLogoMarquee} aria-hidden="true">
-            <div className={styles.statsLogoTrack}>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-philadelphia.avif" alt="Philadelphia" loading="lazy" />
-              </div>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-greenish.avif" alt="Greenish" loading="lazy" />
-              </div>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-network.avif" alt="Network" loading="lazy" />
-              </div>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-amsterdam.avif" alt="Amsterdam" loading="lazy" />
-              </div>
-              {/* Duplicate track for seamless infinite loop */}
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-philadelphia.avif" alt="Philadelphia" loading="lazy" />
-              </div>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-greenish.avif" alt="Greenish" loading="lazy" />
-              </div>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-network.avif" alt="Network" loading="lazy" />
-              </div>
-              <div className={styles.logoItemWrap}>
-                <img src="/images/moddo/logo-amsterdam.avif" alt="Amsterdam" loading="lazy" />
               </div>
             </div>
           </div>
