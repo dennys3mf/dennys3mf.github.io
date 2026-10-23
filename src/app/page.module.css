@@ -290,41 +290,6 @@
   text-transform: uppercase;
 }
 
-.heroStatusChip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: rgba(49, 54, 72, 0.06);
-  border: 1px solid rgba(49, 54, 72, 0.16);
-  padding: 0.4rem 0.95rem;
-  border-radius: 9999px;
-  font-family: var(--font-heading);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #313648;
-  letter-spacing: -0.01em;
-}
-
-.statusPulseDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #5fb0c9;
-  box-shadow: 0 0 10px rgba(95, 176, 201, 0.8);
-  animation: pulseDot 2s infinite;
-}
-
-@keyframes pulseDot {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.35);
-    opacity: 0.65;
-  }
-}
-
 .aboutSimpleEyebrow {
   display: inline-block;
   font-family: var(--font-heading);

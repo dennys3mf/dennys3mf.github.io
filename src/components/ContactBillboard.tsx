@@ -178,12 +178,6 @@ export default function ContactBillboard() {
       <div className={styles.contentGrid}>
         {/* Left Column */}
         <div className={styles.leftCol}>
-          {/* Status Pill */}
-          <div className={styles.statusPill}>
-            <span className={styles.statusDot} />
-            <span className={styles.statusText}>Disponible para nuevos proyectos</span>
-          </div>
-
           {/* Headline */}
           <h2 className={styles.headline}>
             ¿Tienes un <span className={styles.highlightCyan}>proyecto</span>

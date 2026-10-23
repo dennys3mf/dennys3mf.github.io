@@ -86,10 +86,6 @@ export default function Home() {
           <div className={styles.heroTitleWrap}>
             <span className={styles.heroBrandSignature}>d marquez</span>
             <span className={styles.heroEyebrowStudio}>FULL STACK DEVELOPER &amp; IA</span>
-            <div className={styles.heroStatusChip}>
-              <span className={styles.statusPulseDot} />
-              <span>Full Stack &amp; AI Systems</span>
-            </div>
           </div>
         </div>
       </section>

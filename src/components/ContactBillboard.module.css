@@ -63,48 +63,6 @@
   gap: 1.25rem;
 }
 
-/* 1. Status Pill */
-.statusPill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(18, 22, 34, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.4rem 1rem;
-  border-radius: 9999px;
-  width: fit-content;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-.statusDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #22c55e;
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.85);
-  animation: pulseGreen 2s infinite ease-in-out;
-}
-
-@keyframes pulseGreen {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.35);
-    opacity: 0.65;
-  }
-}
-
-.statusText {
-  font-family: var(--font-heading);
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: #f1f5f9;
-  letter-spacing: -0.01em;
-}
-
 /* 2. Main Headline */
 .headline {
   font-family: var(--font-heading);
