@@ -132,8 +132,8 @@ export default function Home() {
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
               <img
-                src="/images/personal/dennys-fullstack-ai.webp"
-                alt="Dennys Gabriel Marquez Flores — Full Stack Developer & AI Engineer en su estación de desarrollo con IA"
+                src="/images/personal/dennys-workstation.webp"
+                alt="Dennys Gabriel Marquez Flores — Full Stack Developer & AI Engineer en su estación de trabajo"
                 loading="lazy"
               />
             </div>
@@ -322,13 +322,13 @@ export default function Home() {
                 <div className={styles.caseImageFrame}>
                   <img
                     src="/images/projects/ahorratiempo-preview.webp"
-                    alt="AhorraTiempo.pe - Plataforma SaaS con IA por Voz"
+                    alt="ahorratiempo.pe - Plataforma SaaS con IA por Voz"
                     loading="lazy"
                   />
                 </div>
                 <div className={styles.caseMetaRow}>
                   <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>AhorraTiempo.pe</h3>
+                    <h3 className={styles.caseItemTitle}>ahorratiempo.pe</h3>
                     <p className={styles.caseItemSub}>Lead Software Engineer · SPA React 18, IA por Voz &amp; Cloudflare Workers</p>
                   </div>
                   <div className={styles.caseArrowBtn}>
@@ -602,9 +602,9 @@ export default function Home() {
           <div className={styles.statsGridModdo}>
             <div className={styles.statsLeft}>
               <p className={styles.statsEyebrow}>Trayectoria &amp; Logros</p>
-              <h2 className={styles.statsHeadingColossal}>AhorraTiempo</h2>
+              <h2 className={styles.statsHeadingColossal}>ahorratiempo.pe</h2>
               <div className={styles.statsSubheading}>
-                Lead Software Engineer en <strong>AhorraTiempo.pe</strong>. Lideré la concepción,
+                Lead Software Engineer en <strong>ahorratiempo.pe</strong>. Lideré la concepción,
                 arquitectura y despliegue de una plataforma SaaS con asistente de IA por voz en vivo (Web Speech API),
                 pasarela de pagos Culqi y arquitectura serverless en Cloudflare Workers y Firestore.
               </div>
@@ -613,7 +613,7 @@ export default function Home() {
             <div className={styles.statsPillsCol}>
               <div className={styles.statStadiumPill}>
                 <span className={styles.statGiantNum} style={{ fontSize: "clamp(1.7rem, 2.7vw, 2.6rem)", color: "#2735ce", lineHeight: 1.1 }}>
-                  AhorraTiempo
+                  ahorratiempo.pe
                 </span>
                 <span className={styles.statDarkLabel}>Lead Software Engineer · SaaS IA &amp; Pagos</span>
               </div>
@@ -704,7 +704,7 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          CTA SECTION (Moddo Charcoal Canvas, Yellow Stadium Card, Rotating Badge)
+          CTA SECTION (Moddo Charcoal Canvas, Hero Contact Showcase & Action Bar)
          ==================================================================== */}
       <section id="contacto" className={styles.ctaModdoSection}>
         {/* Looping Yellow Pencil Ribbon */}
@@ -719,70 +719,67 @@ export default function Home() {
         </div>
 
         <div className={styles.ctaModdoContainer}>
-          <div className={styles.ctaModdoGrid}>
-            {/* Left: Electric Yellow Stadium Card */}
-            <div className={styles.ctaStadiumCard}>
-              <div>
-                <h2 className={styles.ctaStadiumTitle}>¿Tienes un proyecto o vacante en mente?</h2>
-                <p className={styles.ctaStadiumDesc}>
-                  Disponible para roles Full Stack, desarrollo de producto o consultoría técnica. Conversemos sobre tus objetivos y cómo puedo aportar valor a tu equipo.
-                </p>
-              </div>
-
-              <div>
-                <a
-                  href="https://wa.me/51922466078"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.ctaPillBtn}
-                >
-                  <span>↗</span>
-                  <span>Conversar por WhatsApp</span>
-                </a>
-
-                <div className={styles.ctaAltLinks}>
-                  <a
-                    href="mailto:dennys.marquez.dev@gmail.com"
-                    className={styles.ctaAltLink}
-                  >
-                    <Mail size={16} />
-                    <span>dennys.marquez.dev@gmail.com</span>
-                  </a>
-                  <a
-                    href="https://github.com/dennys3mf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.ctaAltLink}
-                  >
-                    <GithubIcon size={16} />
-                    <span>github.com/dennys3mf</span>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/dennys-gabriel-marquez-flores"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.ctaAltLink}
-                  >
-                    <ArrowUpRight size={16} />
-                    <span>LinkedIn</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Photo Frame with Rotating Badge */}
-            <div className={styles.ctaMediaCol}>
-              <div className={styles.ctaPhotoFrame}>
+          <ScrollReveal>
+            <div className={styles.ctaStageWrap}>
+              <a
+                href="https://wa.me/51922466078"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaMainImgCard}
+                title="Conversar con Dennys Marquez por WhatsApp"
+              >
                 <img
-                  src="/images/personal/dennys-dog-car.webp"
-                  alt="Dennys Marquez junto a su fiel compañero de equipo"
+                  src="/images/personal/dennys-contact-cta.webp"
+                  alt="¿Tienes un proyecto o vacante en mente? Conversemos — Dennys Marquez"
                   loading="lazy"
                 />
-              </div>
+              </a>
 
+              {/* Rotating Badge Floating on the corner */}
               <div className={styles.ctaBadgeWrap}>
                 <RotatingBadge size={145} text="✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • IA & CLOUD •" />
               </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Interactive Action Bar (WhatsApp, Email, GitHub, LinkedIn) */}
+          <div className={styles.ctaActionsBar}>
+            <a
+              href="https://wa.me/51922466078"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaPillBtn}
+            >
+              <span>💬</span>
+              <span>Conversar por WhatsApp</span>
+            </a>
+
+            <div className={styles.ctaAltLinks}>
+              <a
+                href="mailto:dennys.marquez.dev@gmail.com"
+                className={styles.ctaAltLink}
+              >
+                <Mail size={16} />
+                <span>dennys.marquez.dev@gmail.com</span>
+              </a>
+              <a
+                href="https://github.com/dennys3mf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaAltLink}
+              >
+                <GithubIcon size={16} />
+                <span>github.com/dennys3mf</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dennys-gabriel-marquez-flores"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaAltLink}
+              >
+                <ArrowUpRight size={16} />
+                <span>LinkedIn</span>
+              </a>
             </div>
           </div>
         </div>
