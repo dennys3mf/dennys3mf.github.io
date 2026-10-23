@@ -1424,6 +1424,38 @@
   gap: 0.85rem;
 }
 
+.aboutEyebrowRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 0.35rem 1rem 0.35rem 0.45rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  width: fit-content;
+  margin-bottom: 0.25rem;
+}
+
+.aboutAvatarSmall {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  background-color: #1a2266;
+}
+
+.aboutAvatarSmall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
 .aboutModdoHeading {
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 5.2vw, 4.4rem);
@@ -1435,9 +1467,12 @@
 }
 
 .aboutModdoEyebrow {
-  font-family: var(--font-accent);
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -1460,32 +1495,32 @@
 
 .aboutMainImgCard {
   width: 100%;
-  height: clamp(340px, 42vw, 560px);
-  border-radius: 36px;
+  aspect-ratio: 1024 / 682;
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 28px 70px -15px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.14);
   position: relative;
-  background-color: #1a2266;
+  background-color: #0c1222;
 }
 
 .aboutMainImgCard img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center center;
   display: block;
 }
 
 /* Badges positioned around photo */
 .badgePosMove {
   position: absolute;
-  top: 18%;
+  top: 15%;
   left: -48px;
   width: clamp(105px, 11vw, 145px);
   height: clamp(105px, 11vw, 145px);
   z-index: 10;
   cursor: grab;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
   transition: transform 0.25s ease;
 }
 
@@ -1496,12 +1531,12 @@
 .badgePosBold {
   position: absolute;
   bottom: 8%;
-  left: -32px;
+  left: -36px;
   width: clamp(120px, 13vw, 175px);
   height: clamp(75px, 8vw, 105px);
   z-index: 10;
   cursor: grab;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
   transition: transform 0.25s ease;
 }
 
@@ -1511,13 +1546,13 @@
 
 .badgePosNoise {
   position: absolute;
-  top: -36px;
-  right: 20px;
+  top: -42px;
+  right: -36px;
   width: clamp(140px, 15vw, 210px);
   height: clamp(80px, 9vw, 120px);
   z-index: 10;
   cursor: grab;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
   transition: transform 0.25s ease;
 }
 
@@ -1527,13 +1562,13 @@
 
 .badgePosCurious {
   position: absolute;
-  bottom: -32px;
-  right: -24px;
+  bottom: -36px;
+  right: -32px;
   width: clamp(95px, 10vw, 135px);
   height: clamp(110px, 12vw, 155px);
   z-index: 10;
   cursor: grab;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
   transition: transform 0.25s ease;
 }
 
@@ -2054,36 +2089,37 @@
   }
 
   .aboutMainImgCard {
-    height: 300px;
-    border-radius: 24px;
+    height: auto;
+    aspect-ratio: 1024 / 682;
+    border-radius: 20px;
   }
 
   .badgePosMove {
-    top: 5%;
+    top: 2%;
     left: -10px;
-    width: 90px;
-    height: 90px;
+    width: 76px;
+    height: 76px;
   }
 
   .badgePosBold {
     bottom: -15px;
     left: -8px;
-    width: 110px;
-    height: 70px;
+    width: 95px;
+    height: 60px;
   }
 
   .badgePosNoise {
     top: -24px;
     right: -8px;
-    width: 120px;
-    height: 70px;
+    width: 95px;
+    height: 58px;
   }
 
   .badgePosCurious {
     bottom: -24px;
     right: -8px;
-    width: 80px;
-    height: 95px;
+    width: 72px;
+    height: 85px;
   }
 
   .serviceTrackCol {

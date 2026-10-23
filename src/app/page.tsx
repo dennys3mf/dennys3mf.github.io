@@ -104,10 +104,19 @@ export default function Home() {
         <div className={styles.aboutModdoContainer}>
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
+              <div className={styles.aboutEyebrowRow}>
+                <div className={styles.aboutAvatarSmall}>
+                  <img
+                    src="/images/personal/dennys-portrait.webp"
+                    alt="Dennys Marquez"
+                    loading="lazy"
+                  />
+                </div>
+                <p className={styles.aboutModdoEyebrow}>Sobre Mí · Dennys Marquez</p>
+              </div>
               <h2 className={styles.aboutModdoHeading}>
                 Construyo aplicaciones web, móviles y sistemas con Inteligencia Artificial.
               </h2>
-              <p className={styles.aboutModdoEyebrow}>Sobre Mí</p>
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
@@ -123,8 +132,8 @@ export default function Home() {
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
               <img
-                src="/images/personal/dennys-portrait.webp"
-                alt="Dennys Gabriel Marquez Flores — Full Stack Developer & AI Engineer"
+                src="/images/personal/dennys-fullstack-ai.webp"
+                alt="Dennys Gabriel Marquez Flores — Full Stack Developer & AI Engineer en su estación de desarrollo con IA"
                 loading="lazy"
               />
             </div>
