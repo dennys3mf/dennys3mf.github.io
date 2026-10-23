@@ -6,7 +6,11 @@ export const metadata: Metadata = {
   description:
     "Portafolio profesional de Dennys Gabriel Marquez Flores. Full Stack Developer & AI Engineer especializado en productos web y móviles escalables, Cloudflare Workers, React 18, Flutter y sistemas de IA en producción.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
