@@ -127,7 +127,6 @@ export default function Home() {
               <span className={styles.logoMarquez}>marquez</span>
             </h1>
             <div className={styles.heroSubtrack}>{t.hero.title}</div>
-            <div className={styles.heroSubmeta}>{t.hero.submeta}</div>
             <p className={styles.heroImpactMotto}>{t.hero.motto}</p>
           </div>
         </div>
