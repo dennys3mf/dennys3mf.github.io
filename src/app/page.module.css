@@ -339,13 +339,14 @@
 .heroOrb {
   position: absolute;
   top: 14%;
-  right: 9%;
-  width: clamp(44px, 5.2vw, 68px);
-  height: clamp(44px, 5.2vw, 68px);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #8A7BFF, #4F6BFF 65%, #1B339E 100%);
-  box-shadow: 0 16px 36px rgba(79, 107, 255, 0.45), inset 0 -4px 8px rgba(0, 0, 0, 0.25);
-  animation: floatHeroOrb 6s ease-in-out infinite alternate;
+  right: 8%;
+  width: clamp(90px, 9vw, 140px);
+  height: clamp(90px, 9vw, 140px);
+  pointer-events: auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes floatHeroOrb {
@@ -1851,10 +1852,10 @@
   }
 
   .heroOrb {
-    width: 36px;
-    height: 36px;
-    top: 10%;
-    right: 4%;
+    width: 64px;
+    height: 64px;
+    top: 9%;
+    right: 3%;
   }
 
   .heroBottomWrap {

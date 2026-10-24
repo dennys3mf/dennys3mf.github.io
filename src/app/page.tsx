@@ -7,6 +7,10 @@ import FloatingNav from "../components/FloatingNav";
 import ContactBillboard from "../components/ContactBillboard";
 import ProjectVideo from "../components/ProjectVideo";
 import ThemeToggle from "../components/ThemeToggle";
+import ThreeHeroSphere from "../components/ThreeHeroSphere";
+import GsapScrollOrchestrator from "../components/GsapScrollOrchestrator";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
 import { GithubIcon } from "../components/Icons";
 import {
   ArrowUpRight,
@@ -36,6 +40,9 @@ import {
 export default function Home() {
   return (
     <main className={styles.main}>
+      {/* GSAP & ScrollTrigger Animation Orchestrator */}
+      <GsapScrollOrchestrator />
+
       {/* ====================================================================
           FLOATING BOTTOM PILL NAVBAR (Exact Moddo White Capsule with Yellow Active Pill)
          ==================================================================== */}
@@ -45,9 +52,11 @@ export default function Home() {
           HERO SECTION - EXACT BRAND SPECIFICATION
          ==================================================================== */}
       <section id="home" className={styles.hero}>
-        {/* Decorative Fluid Vector Curves & Gradient Orb */}
+        {/* Decorative Fluid Vector Curves & Interactive 3D Three.js Sphere */}
         <div className={styles.heroBackgroundDecor} aria-hidden="true">
-          <div className={styles.heroOrb} />
+          <div className={styles.heroOrb}>
+            <ThreeHeroSphere />
+          </div>
           <div className={styles.heroCurvesWrap}>
             <svg className={styles.heroCurvesSvg} viewBox="0 0 1440 500" fill="none" preserveAspectRatio="none">
               <path
@@ -143,7 +152,7 @@ export default function Home() {
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
               <span className={styles.aboutSimpleEyebrow}>Sobre mí</span>
-              <h2 className={styles.aboutModdoHeading}>
+              <h2 className={styles.aboutModdoHeading} data-gsap="heading">
                 Desarrollador Full Stack con ingeniería de Machine Learning y Sistemas RAG Híbridos.
               </h2>
             </div>
@@ -177,9 +186,11 @@ export default function Home() {
           <ScrollReveal delay={150}>
             <div className={styles.accountingCard}>
               <div className={styles.accountingHeader}>
-                <span className={styles.accountingTag}>
-                  <Brain size={13} /> Full Stack · Machine Learning · RAG Híbrido
-                </span>
+                <div className="mb-4">
+                  <Badge variant="cyan" className="gap-2 px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider">
+                    <Brain size={13} /> Full Stack · Machine Learning · RAG Híbrido
+                  </Badge>
+                </div>
                 <h3 className={styles.accountingTitle}>
                   Ingeniería Full Stack &amp; Machine Learning: de la arquitectura de software a RAG Híbrido en producción
                 </h3>
@@ -199,7 +210,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.accountingGrid}>
+              <div className={styles.accountingGrid} data-gsap="card-grid">
                 <div className={styles.accountingItem}>
                   <div className={styles.accountingItemIcon}>
                     <Brain size={22} />
@@ -256,7 +267,9 @@ export default function Home() {
       <section id="servicios" className={styles.servicesModdoSection}>
         <div className={styles.servicesModdoContainer}>
           <div className={styles.servicesModdoHeader}>
-            <h2 className={styles.servicesModdoTitle}>Soluciones de Software &amp; Desarrollo Full Stack</h2>
+            <h2 className={styles.servicesModdoTitle} data-gsap="heading">
+              Soluciones de Software &amp; Desarrollo Full Stack
+            </h2>
             <p className={styles.servicesModdoEyebrow}>Servicios</p>
           </div>
 
@@ -337,92 +350,98 @@ export default function Home() {
         <div className={styles.casesModdoContainer}>
           <div className={styles.casesModdoHeader}>
             <p className={styles.casesModdoEyebrow}>Proyectos &amp; Experiencia</p>
-            <h2 className={styles.casesModdoTitle}>
+            <h2 className={styles.casesModdoTitle} data-gsap="heading">
               Software probado en producción y proyectos con impacto real.
             </h2>
           </div>
 
           <div className={styles.casesGridModdo}>
             {/* Project 01: ahorratiempo.pe */}
-            <ScrollReveal delay={100}>
-              <a
-                href="https://ahorratiempo.pe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.caseCardModdo}
-              >
-                <div className={styles.caseImageFrame}>
-                  <img
-                    src="/images/projects/ahorratiempo-preview.webp"
-                    alt="ahorratiempo.pe - Plataforma SaaS con IA por Voz"
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.caseMetaRow}>
-                  <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>ahorratiempo.pe</h3>
-                    <p className={styles.caseItemSub}>Lead Software Engineer · SPA React 18, IA por Voz &amp; Cloudflare Workers</p>
+            <div data-gsap="project-card">
+              <ScrollReveal delay={100}>
+                <a
+                  href="https://ahorratiempo.pe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCardModdo}
+                >
+                  <div className={styles.caseImageFrame}>
+                    <img
+                      src="/images/projects/ahorratiempo-preview.webp"
+                      alt="ahorratiempo.pe - Plataforma SaaS con IA por Voz"
+                      loading="lazy"
+                    />
                   </div>
-                  <div className={styles.caseArrowBtn}>
-                    <ArrowUpRight size={22} />
+                  <div className={styles.caseMetaRow}>
+                    <div className={styles.caseMetaText}>
+                      <h3 className={styles.caseItemTitle}>ahorratiempo.pe</h3>
+                      <p className={styles.caseItemSub}>Lead Software Engineer · SPA React 18, IA por Voz &amp; Cloudflare Workers</p>
+                    </div>
+                    <div className={styles.caseArrowBtn}>
+                      <ArrowUpRight size={22} />
+                    </div>
                   </div>
-                </div>
-              </a>
-            </ScrollReveal>
+                </a>
+              </ScrollReveal>
+            </div>
 
             {/* Project 02: Safety Helmet IoT */}
-            <ScrollReveal delay={200}>
-              <a
-                href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.caseCardModdo}
-              >
-                <div className={styles.caseImageFrame}>
-                  <img
-                    src="/images/projects/safety-helmet-preview.webp"
-                    alt="Safety Helmet IoT - Telemetría y Sensores"
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.caseMetaRow}>
-                  <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>Safety Helmet IoT</h3>
-                    <p className={styles.caseItemSub}>IoT Developer · Prototipo de Seguridad con Arduino &amp; Python</p>
+            <div data-gsap="project-card">
+              <ScrollReveal delay={200}>
+                <a
+                  href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCardModdo}
+                >
+                  <div className={styles.caseImageFrame}>
+                    <img
+                      src="/images/projects/safety-helmet-preview.webp"
+                      alt="Safety Helmet IoT - Telemetría y Sensores"
+                      loading="lazy"
+                    />
                   </div>
-                  <div className={styles.caseArrowBtn}>
-                    <ArrowUpRight size={22} />
+                  <div className={styles.caseMetaRow}>
+                    <div className={styles.caseMetaText}>
+                      <h3 className={styles.caseItemTitle}>Safety Helmet IoT</h3>
+                      <p className={styles.caseItemSub}>IoT Developer · Prototipo de Seguridad con Arduino &amp; Python</p>
+                    </div>
+                    <div className={styles.caseArrowBtn}>
+                      <ArrowUpRight size={22} />
+                    </div>
                   </div>
-                </div>
-              </a>
-            </ScrollReveal>
+                </a>
+              </ScrollReveal>
+            </div>
 
             {/* Project 03: App Fiscalización Digital Joya */}
-            <ScrollReveal delay={300}>
-              <a
-                href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.caseCardModdo}
-              >
-                <div className={styles.caseImageFrame}>
-                  <img
-                    src="/images/projects/fiscalizacion-joya-preview.webp"
-                    alt="App Fiscalización Digital Joya"
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.caseMetaRow}>
-                  <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>App Fiscalización Digital Joya</h3>
-                    <p className={styles.caseItemSub}>Inspección Municipal In Situ, Modo Offline &amp; Cero Papel</p>
+            <div data-gsap="project-card">
+              <ScrollReveal delay={300}>
+                <a
+                  href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCardModdo}
+                >
+                  <div className={styles.caseImageFrame}>
+                    <img
+                      src="/images/projects/fiscalizacion-joya-preview.webp"
+                      alt="App Fiscalización Digital Joya"
+                      loading="lazy"
+                    />
                   </div>
-                  <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
-                    <ArrowUpRight size={22} />
+                  <div className={styles.caseMetaRow}>
+                    <div className={styles.caseMetaText}>
+                      <h3 className={styles.caseItemTitle}>App Fiscalización Digital Joya</h3>
+                      <p className={styles.caseItemSub}>Inspección Municipal In Situ, Modo Offline &amp; Cero Papel</p>
+                    </div>
+                    <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
+                      <ArrowUpRight size={22} />
+                    </div>
                   </div>
-                </div>
-              </a>
-            </ScrollReveal>
+                </a>
+              </ScrollReveal>
+            </div>
           </div>
 
           {/* See All Work CTA Button */}
