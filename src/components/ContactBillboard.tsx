@@ -187,7 +187,7 @@ export default function ContactBillboard() {
 
           {/* Subtitle */}
           <p className={styles.subtext}>
-            Disponible para roles <strong>Full Stack</strong>, <strong>desarrollo de producto</strong> o{" "}
+            Disponible para roles <strong>Full Stack</strong>, <strong>sistemas de IA &amp; RAG</strong> o{" "}
             <strong>consultoría técnica</strong>.
             <br />
             Conversemos sobre tus objetivos y cómo puedo aportar valor a tu equipo.
@@ -216,7 +216,7 @@ export default function ContactBillboard() {
                 <Code2 size={22} />
               </div>
               <h3 className={styles.featureTitle}>Full Stack Development</h3>
-              <p className={styles.featureSubtitle}>Web &amp; Mobile Apps</p>
+              <p className={styles.featureSubtitle}>Next.js · React · Node</p>
             </div>
 
             {/* Feature 02 */}
@@ -224,8 +224,8 @@ export default function ContactBillboard() {
               <div className={styles.featureIconBox}>
                 <Box size={22} />
               </div>
-              <h3 className={styles.featureTitle}>Desarrollo de Producto</h3>
-              <p className={styles.featureSubtitle}>MVPs · Escalabilidad</p>
+              <h3 className={styles.featureTitle}>Sistemas RAG &amp; IA</h3>
+              <p className={styles.featureSubtitle}>LLMs · Vector DBs · Agentes</p>
             </div>
 
             {/* Feature 03 */}
@@ -234,7 +234,7 @@ export default function ContactBillboard() {
                 <Users size={22} />
               </div>
               <h3 className={styles.featureTitle}>Consultoría Técnica</h3>
-              <p className={styles.featureSubtitle}>Arquitectura · IA</p>
+              <p className={styles.featureSubtitle}>Arquitectura &amp; ROI</p>
             </div>
           </div>
 

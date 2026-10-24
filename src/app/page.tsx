@@ -27,6 +27,9 @@ import {
   Search,
   Terminal,
   Rocket,
+  Brain,
+  Workflow,
+  Code2,
 } from "lucide-react";
 
 export default function Home() {
@@ -99,15 +102,15 @@ export default function Home() {
             <div className={styles.aboutModdoLeft}>
               <span className={styles.aboutSimpleEyebrow}>Sobre mí</span>
               <h2 className={styles.aboutModdoHeading}>
-                Construyo aplicaciones web, móviles y sistemas con Inteligencia Artificial.
+                Construyo aplicaciones Full Stack e Inteligencia Artificial aplicada con sistemas RAG.
               </h2>
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
-                Full Stack Developer &amp; AI Engineer. Construyo productos digitales escalables y de alto
-                rendimiento combinando arquitecturas cloud serverless, interfaces reactivas e integración
-                de modelos de lenguaje en producción. Mi enfoque une solidez técnica, velocidad de entrega y
-                criterio de negocio.
+                Full Stack Developer &amp; AI Engineer especializado en productos digitales de alto rendimiento
+                e implementación de sistemas RAG (Retrieval-Augmented Generation). Conecto modelos de lenguaje con la base
+                de conocimiento y datos privados de organizaciones, integrando interfaces reactivas en Next.js, infraestructura
+                cloud escalable y un sólido criterio de rentabilidad y negocio.
               </p>
             </div>
           </div>
@@ -124,71 +127,74 @@ export default function Home() {
           </div>
 
           {/* ====================================================================
-              BLOQUE DESTACADO: MÁS SOBRE MÍ - MI FORMACIÓN EN CONTABILIDAD
+              BLOQUE DESTACADO: MÁS SOBRE MÍ - FULL STACK, SISTEMAS RAG & NEGOCIO
              ==================================================================== */}
           <ScrollReveal delay={150}>
             <div className={styles.accountingCard}>
               <div className={styles.accountingHeader}>
+                <span className={styles.accountingTag}>
+                  <Brain size={13} /> Full Stack &amp; Sistemas RAG
+                </span>
                 <h3 className={styles.accountingTitle}>
-                  El puente entre el código y los números reales de tu empresa
+                  Arquitectura Full Stack y Sistemas RAG: Inteligencia Artificial con contexto de negocio
                 </h3>
                 <p className={styles.accountingLead}>
-                  Muchos programadores construyen sin entender cómo se pagan las facturas; muchos
-                  financieros sufren con hojas de cálculo eternas que nadie sabe automatizar. En
-                  paralelo al desarrollo de software, estudio <strong>Contabilidad</strong>. Esta
-                  formación me da una perspectiva única: entiendo el plan contable, los costos
-                  operativos, los impuestos, las conciliaciones bancarias y el valor del flujo de caja.
+                  Muchos desarrolladores se limitan a construir interfaces aisladas o integrar llamadas básicas a la API
+                  de OpenAI que alucinan y carecen del contexto interno del negocio. Como <strong>Full Stack Developer &amp; AI Engineer</strong>,
+                  construyo la arquitectura de software completa e implemento <strong>sistemas RAG (Retrieval-Augmented Generation)</strong>:
+                  arquitecturas avanzadas que conectan modelos de lenguaje (LLMs) con tus bases de datos, manuales, políticas
+                  y documentos privados en tiempo real, garantizando respuestas precisas, contextualizadas y con fuentes verificadas.
                 </p>
                 <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
-                  Esto significa que cuando diseño una base de datos o un flujo de facturación, no solo
-                  pienso en la velocidad de la consulta: pienso en la trazabilidad para auditorías, el
-                  cumplimiento normativo (SUNAT) y que cada centavo invertido en infraestructura cloud
-                  tenga un retorno medible.
+                  A este dominio técnico le sumo mi formación complementaria en <strong>Gestión Contable y Financiera</strong>: entiendo
+                  la optimización de costos en inferencia de IA (tokenomics), la seguridad y privacidad de datos corporativos,
+                  la trazabilidad para auditorías y cómo lograr que cada solución de software tenga un retorno de inversión (ROI)
+                  medible para la organización.
                 </p>
               </div>
 
               <div className={styles.accountingGrid}>
                 <div className={styles.accountingItem}>
                   <div className={styles.accountingItemIcon}>
+                    <Brain size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Sistemas RAG &amp; Embeddings Vectoriales</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Diseño e implementación de pipelines RAG de extremo a extremo: chunking inteligente, embeddings, bases de datos
+                    vectoriales (pgvector, Pinecone) y búsqueda semántica híbrida para que los LLMs respondan sin alucinaciones.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <Layers size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Arquitectura Full Stack de Alto Rendimiento</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Desarrollo de punta a punta con Next.js, React 18, TypeScript, Node.js y Python. Interfaces reactivas ultra-rápidas,
+                    arquitecturas serverless o microservicios con tipado estricto y despliegues listos para producción.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <Workflow size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Agentes Autónomos &amp; Tool Calling</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Orquestación de agentes con capacidad de razonar y ejecutar acciones del mundo real mediante llamadas a funciones
+                    (tool calling): consulta y sincronización en vivo con ERPs, CRMs, APIs y automatización de flujos operativos complejos.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
                     <BarChart3 size={22} />
                   </div>
-                  <h4 className={styles.accountingItemTitle}>Comprensión del Negocio y ROI</h4>
+                  <h4 className={styles.accountingItemTitle}>Tokenomics, Costos Cloud &amp; ROI</h4>
                   <p className={styles.accountingItemDesc}>
-                    Hablo con la misma fluidez con tu contador o director financiero que con tu equipo
-                    técnico. Cada funcionalidad se diseña pensando en su retorno de inversión.
-                  </p>
-                </div>
-
-                <div className={styles.accountingItem}>
-                  <div className={styles.accountingItemIcon}>
-                    <ShieldCheck size={22} />
-                  </div>
-                  <h4 className={styles.accountingItemTitle}>Auditoría y Trazabilidad Forense</h4>
-                  <p className={styles.accountingItemDesc}>
-                    Sistemas donde ningún registro se pierde. Sellos de tiempo, logs inalterables y
-                    estructuras de datos preparadas para revisiones y auditorías fiscales.
-                  </p>
-                </div>
-
-                <div className={styles.accountingItem}>
-                  <div className={styles.accountingItemIcon}>
-                    <Scale size={22} />
-                  </div>
-                  <h4 className={styles.accountingItemTitle}>Control Real de Costos Cloud</h4>
-                  <p className={styles.accountingItemDesc}>
-                    Diseño arquitecturas serverless y bases de datos eficientes para evitar facturas
-                    sorpresa a fin de mes en proveedores cloud como AWS o Vercel.
-                  </p>
-                </div>
-
-                <div className={styles.accountingItem}>
-                  <div className={styles.accountingItemIcon}>
-                    <FileText size={22} />
-                  </div>
-                  <h4 className={styles.accountingItemTitle}>Automatización de Comprobantes &amp; SUNAT</h4>
-                  <p className={styles.accountingItemDesc}>
-                    Experiencia práctica en lógica tributaria peruana, validación de comprobantes
-                    electrónicos y flujos de conciliación bancaria sin fricción.
+                    Perspectiva contable aplicada al software: audito el consumo de tokens y llamadas a APIs para evitar sobrecostos en
+                    cloud (AWS/Vercel), estructuro trazabilidad para auditorías y garantizo que cada línea de código aporte rentabilidad real.
                   </p>
                 </div>
               </div>
@@ -226,16 +232,16 @@ export default function Home() {
                   <span className={styles.consoleKey}>lead:</span> <span className={styles.consoleString}>&quot;Dennys Marquez&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>specialty:</span> <span className={styles.consoleString}>&quot;Full Stack &amp; AI Systems&quot;</span>,
+                  <span className={styles.consoleKey}>specialty:</span> <span className={styles.consoleString}>&quot;Full Stack &amp; AI Systems (RAG)&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
                   <span className={styles.consoleKey}>production:</span> [
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;React 18 / Next.js&quot;</span>, <span className={styles.consoleString}>&quot;Cloudflare Workers&quot;</span>,
+                  <span className={styles.consoleString}>&quot;Next.js / TypeScript&quot;</span>, <span className={styles.consoleString}>&quot;RAG &amp; Vector DBs&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Flutter / Dart&quot;</span>, <span className={styles.consoleString}>&quot;Python / LLM APIs&quot;</span>
+                  <span className={styles.consoleString}>&quot;Python &amp; LLM Agents&quot;</span>, <span className={styles.consoleString}>&quot;Cloudflare / AWS&quot;</span>
                 </div>
                 <div className={styles.consoleLineIndent}>
                   ],
@@ -244,7 +250,7 @@ export default function Home() {
                   <span className={styles.consoleKey}>architecture:</span> <span className={styles.consoleString}>&quot;Serverless &amp; Microservices&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>financialAudit:</span> <span className={styles.consoleBoolean}>true</span>
+                  <span className={styles.consoleKey}>businessROI:</span> <span className={styles.consoleBoolean}>true</span>
                 </div>
                 <div className={styles.consoleLine}>&#125;;</div>
               </div>
@@ -254,11 +260,11 @@ export default function Home() {
             <div className={styles.servicesPillStack}>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillPink}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Desarrollo Web (React 18 &amp; TypeScript)</span>
+                <span>Desarrollo Web Full Stack (Next.js &amp; TypeScript)</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillBlue}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Integración de IA &amp; Asistentes de Voz</span>
+                <span>Sistemas RAG &amp; Modelos de Lenguaje (LLMs)</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillOrange}`}>
                 <span className={styles.servicePillIcon}>↗</span>
