@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "../app/page.module.css";
 
@@ -104,9 +103,6 @@ export default function FloatingNav() {
               </motion.a>
             );
           })}
-          <div className="ml-2 pl-2 border-l border-slate-200 flex items-center">
-            <LanguageToggle variant="segmented" />
-          </div>
         </motion.nav>
       </header>
 
@@ -128,7 +124,6 @@ export default function FloatingNav() {
           </a>
 
           <div className={styles.mobileTopActions}>
-            <LanguageToggle variant="compact" />
             <motion.button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -187,11 +182,6 @@ export default function FloatingNav() {
                       </motion.a>
                     );
                   })}
-                </div>
-
-                <div className="pt-2 pb-1 px-3 flex justify-between items-center border-t border-slate-100 mt-2">
-                  <span className="text-sm font-semibold text-slate-600">Language / Idioma:</span>
-                  <LanguageToggle variant="segmented" />
                 </div>
 
                 <div className={styles.mobileDrawerFooter}>

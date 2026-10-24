@@ -16,7 +16,6 @@ import { GithubIcon } from "../components/Icons";
 import {
   ArrowUpRight,
   Mail,
-  Sparkles,
   Search,
   Terminal,
   Rocket,
@@ -148,13 +147,6 @@ export default function Home() {
               <h2 className={styles.aboutModdoHeading} data-gsap="heading">
                 {t.about.heading}
               </h2>
-              {/* Prominent High-Legibility Degree Credential */}
-              <div className="mt-3 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/15 backdrop-blur-md border border-white/25 text-white text-base font-semibold shadow-xs">
-                <span className="text-yellow-400 text-lg">🎓</span>
-                <span>{t.about.degreeTitle}</span>
-                <span className="text-white/40">&middot;</span>
-                <span className="text-yellow-300 font-extrabold tracking-wide">{t.about.degreeInstitution}</span>
-              </div>
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
@@ -201,21 +193,6 @@ export default function Home() {
                 <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
                   {t.about.pMobile}
                 </p>
-
-                {/* Generous High-Contrast Focus Callout */}
-                <div className="mt-7 p-6 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-base md:text-lg font-medium flex items-center gap-4 shadow-xs">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
-                    <Sparkles size={22} />
-                  </div>
-                  <div>
-                    <span className="font-extrabold text-blue-600 uppercase tracking-wider text-xs md:text-sm block">
-                      {t.about.focusPrefix}
-                    </span>
-                    <span className="font-semibold text-slate-800 text-base md:text-lg">
-                      {t.about.focusText}
-                    </span>
-                  </div>
-                </div>
               </div>
 
               {/* 4 Core Pillars Grid */}
@@ -729,9 +706,12 @@ export default function Home() {
           {/* Bottom Row */}
           <div className={styles.footerBottomRow}>
             <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. {t.footer.rights}</span>
-            <a href="#home" className={styles.footerNavLink} style={{ fontSize: "1rem", fontWeight: 700 }}>
-              {language === "en" ? "Back to Top ↑" : "Volver Arriba ↑"}
-            </a>
+            <div className="flex items-center gap-4">
+              <LanguageToggle variant="segmented" />
+              <a href="#home" className={styles.footerNavLink} style={{ fontSize: "1rem", fontWeight: 700 }}>
+                {language === "en" ? "Back to Top ↑" : "Volver Arriba ↑"}
+              </a>
+            </div>
           </div>
         </div>
       </footer>
