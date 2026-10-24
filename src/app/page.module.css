@@ -320,11 +320,11 @@
   box-sizing: border-box;
   overflow: hidden;
   background-color: var(--bg-page);
-  /* Fondo cuadriculado: sin textos */
-  background-image: 
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 28px 28px;
+  /* Fondo ambient suave con iluminación de aura - Sin malla cuadriculada */
+  background:
+    radial-gradient(ellipse 75% 55% at 50% -5%, rgba(79, 107, 255, 0.08) 0%, transparent 65%),
+    radial-gradient(circle 450px at 85% 20%, rgba(138, 123, 255, 0.08) 0%, transparent 60%),
+    var(--bg-page);
 }
 
 /* Elementos decorativos: círculo/esfera 3D, curvas y degradados */
@@ -347,6 +347,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.heroOrb::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  background: radial-gradient(circle, rgba(79, 107, 255, 0.22) 0%, rgba(138, 123, 255, 0.08) 45%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(14px);
 }
 
 @keyframes floatHeroOrb {
