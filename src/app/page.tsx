@@ -130,9 +130,9 @@ export default function Home() {
               <span className={styles.logoDennys}>dennys</span>{" "}
               <span className={styles.logoMarquez}>marquez</span>
             </h1>
-            <div className={styles.heroSubtrack}>FULL STACK DEVELOPER</div>
+            <div className={styles.heroSubtrack}>Full Stack Developer | Python, React &amp; AI Integration</div>
             <div className={styles.heroSubmeta}>
-              Software Development &middot; Web Applications &middot; AI Integration
+              Software Design &amp; Development (TECSUP) &middot; Machine Learning &middot; Cloud Solutions
             </div>
             <p className={styles.heroImpactMotto}>
               Building digital products that make an impact.
@@ -151,20 +151,25 @@ export default function Home() {
         <div className={styles.aboutModdoContainer}>
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
-              <span className={styles.aboutSimpleEyebrow}>Sobre mí</span>
+              <span className={styles.aboutSimpleEyebrow}>Sobre mí · About Me</span>
               <h2 className={styles.aboutModdoHeading} data-gsap="heading">
-                Desarrollador Full Stack con ingeniería de Machine Learning y Sistemas RAG Híbridos.
+                Full Stack Developer &amp; AI Developer
               </h2>
+              <div className="mt-3 inline-flex items-center gap-2 text-xs font-mono text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 px-3.5 py-1.5 rounded-full shadow-sm">
+                <span>Professional Technical Degree in Software Design &amp; Development</span>
+                <span>&middot;</span>
+                <span className="font-bold text-white tracking-wide">TECSUP</span>
+              </div>
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
-                Soy <strong>Desarrollador Full Stack</strong> con sólida trayectoria construyendo aplicaciones web, móviles
-                y arquitecturas cloud escalables de punta a punta. Mi verdadero diferencial técnico radica en mi
-                especialización en <strong>Machine Learning e Inteligencia Artificial aplicada</strong>: domino el
-                diseño e implementación de <strong>sistemas RAG Híbridos (Hybrid Retrieval-Augmented Generation)</strong>,
-                fusionando búsqueda vectorial semántica con indexación léxica BM25 y modelos de re-ranking (Cross-Encoders)
-                para conectar modelos de lenguaje (LLMs) a datos empresariales privados con máxima precisión, auditoría y
-                cero alucinaciones.
+                I&apos;m a <strong>Full Stack Developer &amp; AI Developer from Peru</strong>, with a Professional Technical Degree in Software Design and Development from <strong>TECSUP</strong>.
+              </p>
+              <p className={styles.aboutModdoParagraph} style={{ marginTop: "0.85rem" }}>
+                I build intelligent web applications, AI-powered solutions, and scalable digital products by combining modern software engineering with machine learning and cloud technologies.
+              </p>
+              <p className={styles.aboutModdoParagraph} style={{ marginTop: "0.85rem" }}>
+                My technical experience includes <strong>React, TypeScript, JavaScript, Python, Django, Node.js, Firebase, Cloudflare Workers, and PySpark</strong>.
               </p>
             </div>
           </div>
@@ -174,74 +179,64 @@ export default function Home() {
             <div className={styles.aboutMainImgCard}>
               <img
                 src="/images/personal/dennys-workstation.webp"
-                alt="Dennys Gabriel Marquez Flores — Desarrollador Full Stack & Machine Learning Engineer en su estación de trabajo"
+                alt="Dennys Gabriel Marquez Flores — Full Stack Developer | Python, React & AI Integration"
                 loading="lazy"
               />
             </div>
           </div>
 
           {/* ====================================================================
-              BLOQUE DESTACADO: FULL STACK · MACHINE LEARNING · RAG HÍBRIDO & ROI
+              BLOQUE DESTACADO: FULL STACK · MACHINE LEARNING · AI INTEGRATION
              ==================================================================== */}
           <ScrollReveal delay={150}>
             <div className={styles.accountingCard}>
               <div className={styles.accountingHeader}>
                 <div className="mb-4">
                   <Badge variant="cyan" className="gap-2 px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider">
-                    <Brain size={13} /> Full Stack · Machine Learning · RAG Híbrido
+                    <Brain size={13} /> Full Stack Developer | Python, React &amp; AI Integration
                   </Badge>
                 </div>
                 <h3 className={styles.accountingTitle}>
-                  Ingeniería Full Stack &amp; Machine Learning: de la arquitectura de software a RAG Híbrido en producción
+                  Full Stack Engineering, Machine Learning &amp; AI Integration
                 </h3>
                 <p className={styles.accountingLead}>
-                  No me limito al desarrollo web tradicional ni a integrar wrappers básicos de ChatGPT que alucinan y no
-                  comprenden la realidad operativa. Como <strong>Desarrollador Full Stack &amp; Machine Learning Specialist</strong>,
-                  diseño ecosistemas de software robustos e implemento <strong>Sistemas RAG Híbridos</strong>: arquitecturas
-                  avanzadas que combinan recuperación densa (embeddings vectoriales en pgvector / Pinecone) y búsqueda dispersa
-                  (BM25 / full-text search) con capas de re-ranking, filtrado de metadatos y context injection. Esto permite que los
-                  modelos extraigan conocimiento exacto de manuales técnicos, normativas, bases SQL y ERPs corporativos.
+                  I have worked on machine learning projects involving <strong>recommendation systems inspired by platforms such as Netflix and TikTok</strong>, exploring how data and algorithms can deliver personalized content experiences.
                 </p>
                 <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
-                  A esta profundidad técnica le sumo formación en <strong>Gestión Contable y Rentabilidad</strong>: entiendo
-                  el ciclo MLOps, la optimización de latencia, el control estricto de costos de inferencia y consumo de tokens
-                  (tokenomics en AWS, Cloudflare y OpenAI), garantizando que cada solución de IA aporte un retorno de inversión (ROI)
-                  medible y seguro para el negocio.
+                  I&apos;m also experienced in integrating <strong>AI-powered chatbots and language models into web applications</strong>, and I&apos;m expanding my expertise in <strong>AI agents, automation, and intelligent personal assistants</strong>.
                 </p>
+                <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
+                  As the founder and developer of <a href="https://ahorratiempo.pe" target="_blank" rel="noopener noreferrer" className="text-cyan-300 font-semibold underline decoration-cyan-500 underline-offset-4 hover:text-cyan-200">ahorratiempo.pe</a>, I built a web platform that helps users access information about government procedures in Peru through modern interfaces and AI-powered assistance.
+                </p>
+                <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
+                  My background also includes cross-platform mobile development with <strong>Flutter and Dart</strong>, REST API integrations, database management, and business process automation. I&apos;m passionate about building practical, high-performance software that connects artificial intelligence, modern web development, and real-world business needs.
+                </p>
+                <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-blue-950/70 via-indigo-950/60 to-purple-950/60 border border-blue-400/30 text-blue-100 text-sm font-medium flex items-center gap-3">
+                  <Sparkles size={20} className="text-cyan-400 shrink-0" />
+                  <span>
+                    <strong>Currently focused on:</strong> Full Stack Engineering, Machine Learning, AI Integration, and intelligent automation.
+                  </span>
+                </div>
               </div>
 
               <div className={styles.accountingGrid} data-gsap="card-grid">
                 <div className={styles.accountingItem}>
                   <div className={styles.accountingItemIcon}>
+                    <Code2 size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Full Stack Engineering</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Scalable web applications built with <strong>React, TypeScript, JavaScript, Python, Django, and Node.js</strong>. Edge architectures on <strong>Cloudflare Workers</strong> and <strong>Firebase</strong>.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
                     <Brain size={22} />
                   </div>
-                  <h4 className={styles.accountingItemTitle}>RAG Híbrido &amp; Re-ranking de Precisión</h4>
+                  <h4 className={styles.accountingItemTitle}>Machine Learning &amp; Recommenders</h4>
                   <p className={styles.accountingItemDesc}>
-                    Implementación de pipelines de RAG Híbrido que fusionan embeddings vectoriales con búsqueda léxica BM25 y
-                    algoritmos de re-ranking (Cross-Encoders). Respuestas contextualizadas con citas de fuentes verificadas y
-                    cero alucinaciones sobre documentos privados.
-                  </p>
-                </div>
-
-                <div className={styles.accountingItem}>
-                  <div className={styles.accountingItemIcon}>
-                    <Layers size={22} />
-                  </div>
-                  <h4 className={styles.accountingItemTitle}>Desarrollo Full Stack de Alto Rendimiento</h4>
-                  <p className={styles.accountingItemDesc}>
-                    Arquitecturas modernas de extremo a extremo con Next.js, React 18, TypeScript, Python y Node.js.
-                    Interfaces intuitivas ultra-rápidas, microservicios serverless, APIs REST/GraphQL y despliegues optimizados.
-                  </p>
-                </div>
-
-                <div className={styles.accountingItem}>
-                  <div className={styles.accountingItemIcon}>
-                    <Cpu size={22} />
-                  </div>
-                  <h4 className={styles.accountingItemTitle}>Machine Learning &amp; Modelos Predictivos</h4>
-                  <p className={styles.accountingItemDesc}>
-                    Comprensión aplicada de algoritmos de Machine Learning, ingeniería de datos, fine-tuning de modelos,
-                    evaluación de métricas de precisión y despliegue de canalizaciones de inferencia eficientes y de baja latencia.
+                    Recommendation systems inspired by <strong>Netflix and TikTok</strong>. Large-scale data processing with <strong>PySpark</strong> and personalized content delivery experiences.
                   </p>
                 </div>
 
@@ -249,10 +244,19 @@ export default function Home() {
                   <div className={styles.accountingItemIcon}>
                     <Workflow size={22} />
                   </div>
-                  <h4 className={styles.accountingItemTitle}>Agentes Autónomos &amp; Tool Calling</h4>
+                  <h4 className={styles.accountingItemTitle}>AI Integration &amp; Agents</h4>
                   <p className={styles.accountingItemDesc}>
-                    Orquestación de agentes con capacidad de razonar y ejecutar acciones del mundo real mediante function calling:
-                    consulta y sincronización en vivo con ERPs, CRMs, pasarelas de pago y automatización de flujos empresariales.
+                    AI-powered chatbots, LLM integrations, autonomous <strong>AI agents</strong>, intelligent personal assistants, and real-world workflow automation.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <Layers size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Founder &amp; Cross-Platform Mobile</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Founder &amp; developer of <a href="https://ahorratiempo.pe" target="_blank" rel="noopener noreferrer" className="text-cyan-300 font-semibold underline">ahorratiempo.pe</a>. Cross-platform mobile development with <strong>Flutter and Dart</strong>, REST APIs, and database engineering.
                   </p>
                 </div>
               </div>
@@ -292,25 +296,34 @@ export default function Home() {
                   <span className={styles.consoleKey}>lead:</span> <span className={styles.consoleString}>&quot;Dennys Marquez&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>specialty:</span> <span className={styles.consoleString}>&quot;Full Stack, ML &amp; Hybrid RAG&quot;</span>,
+                  <span className={styles.consoleKey}>degree:</span> <span className={styles.consoleString}>&quot;Software Design &amp; Dev (TECSUP)&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>production:</span> [
+                  <span className={styles.consoleKey}>role:</span> <span className={styles.consoleString}>&quot;Full Stack Developer | Python, React &amp; AI&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent}>
+                  <span className={styles.consoleKey}>stack:</span> [
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Next.js / TypeScript&quot;</span>, <span className={styles.consoleString}>&quot;Hybrid RAG &amp; BM25&quot;</span>,
+                  <span className={styles.consoleString}>&quot;React, TypeScript, Python, Django&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Python &amp; ML Pipelines&quot;</span>, <span className={styles.consoleString}>&quot;pgvector / Cloudflare&quot;</span>
+                  <span className={styles.consoleString}>&quot;PySpark &amp; ML Recommenders&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent2}>
+                  <span className={styles.consoleString}>&quot;AI Chatbots, LLMs &amp; Agents&quot;</span>,
+                </div>
+                <div className={styles.consoleLineIndent2}>
+                  <span className={styles.consoleString}>&quot;Firebase &amp; Cloudflare Workers&quot;</span>
                 </div>
                 <div className={styles.consoleLineIndent}>
                   ],
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>architecture:</span> <span className={styles.consoleString}>&quot;Serverless &amp; Microservices&quot;</span>,
+                  <span className={styles.consoleKey}>founder:</span> <span className={styles.consoleString}>&quot;ahorratiempo.pe&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>businessROI:</span> <span className={styles.consoleBoolean}>true</span>
+                  <span className={styles.consoleKey}>businessImpact:</span> <span className={styles.consoleBoolean}>true</span>
                 </div>
                 <div className={styles.consoleLine}>&#125;;</div>
               </div>
@@ -614,7 +627,7 @@ export default function Home() {
 
               {/* Rotating Badge Floating on the corner */}
               <div className={styles.ctaBadgeWrap}>
-                <RotatingBadge size={145} text="✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • IA & CLOUD •" />
+                <RotatingBadge size={145} text="✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • PYTHON & AI •" />
               </div>
             </div>
           </ScrollReveal>
@@ -674,7 +687,7 @@ export default function Home() {
                 <span className={styles.footerLogoDennys}>dennys</span>
                 <span className={styles.footerLogoMarquez}>marquez</span>
               </div>
-              <span className={styles.footerLogoSub}>FULL STACK DEVELOPER</span>
+              <span className={styles.footerLogoSub}>Full Stack Developer | Python, React &amp; AI Integration</span>
               <p className={styles.footerBrandDesc}>
                 Building digital products that make an impact.
               </p>

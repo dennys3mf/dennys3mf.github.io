@@ -164,7 +164,7 @@ export default function ContactBillboard() {
       {/* 1. Raw Clean Photo of Dennys in the Car */}
       <Image
         src="/images/personal/dennys-contact-clean.webp"
-        alt="Dennys Marquez — Full Stack Developer & AI Engineer con su mascota"
+        alt="Dennys Marquez — Full Stack Developer | Python, React & AI Integration con su mascota"
         fill
         sizes="(max-width: 1200px) 100vw, 1200px"
         className={styles.bgImage}
@@ -187,8 +187,8 @@ export default function ContactBillboard() {
 
           {/* Subtitle */}
           <p className={styles.subtext}>
-            Disponible para roles <strong>Full Stack</strong>, <strong>Machine Learning &amp; RAG Híbrido</strong> o{" "}
-            <strong>consultoría técnica</strong>.
+            Disponible para roles como <strong>Full Stack Developer | Python, React &amp; AI Integration</strong> o{" "}
+            <strong>proyectos de ingeniería de software e IA</strong>.
             <br />
             Conversemos sobre tus objetivos y cómo puedo aportar valor a tu equipo.
           </p>
@@ -216,7 +216,7 @@ export default function ContactBillboard() {
                 <Code2 size={22} />
               </div>
               <h3 className={styles.featureTitle}>Full Stack Development</h3>
-              <p className={styles.featureSubtitle}>Next.js · React · Node</p>
+              <p className={styles.featureSubtitle}>React · TypeScript · Python · Django</p>
             </div>
 
             {/* Feature 02 */}
@@ -224,8 +224,8 @@ export default function ContactBillboard() {
               <div className={styles.featureIconBox}>
                 <Box size={22} />
               </div>
-              <h3 className={styles.featureTitle}>ML &amp; RAG Híbrido</h3>
-              <p className={styles.featureSubtitle}>BM25 · Embeddings · Agentes</p>
+              <h3 className={styles.featureTitle}>Python &amp; AI Integration</h3>
+              <p className={styles.featureSubtitle}>ML Recommenders · LLMs · Agentes</p>
             </div>
 
             {/* Feature 03 */}

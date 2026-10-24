@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dennys Marquez — Full Stack Developer & AI Engineer | Global Portfolio",
+  title: "Dennys Marquez — Full Stack Developer | Python, React & AI Integration",
   description:
-    "Portafolio profesional de Dennys Gabriel Marquez Flores. Full Stack Developer & AI Engineer especializado en productos web y móviles escalables, Cloudflare Workers, React 18, Flutter y sistemas de IA en producción.",
+    "Full Stack Developer & AI Developer from Peru, with a Professional Technical Degree in Software Design and Development from TECSUP. React, TypeScript, Python, Django, Machine Learning & AI Integration.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
