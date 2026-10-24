@@ -1495,10 +1495,119 @@
   transition: all 0.3s ease;
 }
 
-.processCard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover), var(--card-highlight);
-  border-color: var(--border-hover);
+.processCardEnhanced {
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.08);
+  border-radius: 28px;
+  padding: 2.4rem 2rem 2.2rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.processCardEnhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  opacity: 0.95;
+  transition: height 0.25s ease;
+}
+
+.processCardBlue::before {
+  background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);
+}
+
+.processCardPurple::before {
+  background: linear-gradient(90deg, #8B5CF6 0%, #C084FC 100%);
+}
+
+.processCardEmerald::before {
+  background: linear-gradient(90deg, #06B6D4 0%, #10B981 100%);
+}
+
+.processCardEnhanced:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(79, 107, 255, 0.25);
+}
+
+.processCardEnhanced:hover::before {
+  height: 7px;
+}
+
+.processIconBoxBlue {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+  flex-shrink: 0;
+}
+
+.processIconBoxPurple {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.35);
+  flex-shrink: 0;
+}
+
+.processIconBoxEmerald {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #06B6D4 0%, #059669 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+  flex-shrink: 0;
+}
+
+.processPipelineFlow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.processPipelineStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.1);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #11141A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.processPipelineArrow {
+  color: #94A3B8;
+  font-weight: bold;
 }
 
 .processCardTop {
@@ -1509,17 +1618,21 @@
 
 .processStepNum {
   font-family: var(--font-mono);
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--accent-blue);
 }
 
 .processStepTag {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--text-subtle);
+  background: rgba(17, 20, 26, 0.04);
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(17, 20, 26, 0.06);
 }
 
 .processImageWrap {
@@ -1552,8 +1665,8 @@
 
 .processDesc {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.62;
 }
 
 /* ====================================================================
