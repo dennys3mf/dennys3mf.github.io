@@ -6,6 +6,7 @@ import RotatingBadge from "../components/RotatingBadge";
 import FloatingNav from "../components/FloatingNav";
 import ContactBillboard from "../components/ContactBillboard";
 import ProjectVideo from "../components/ProjectVideo";
+import ThemeToggle from "../components/ThemeToggle";
 import { GithubIcon } from "../components/Icons";
 import {
   ArrowUpRight,
@@ -41,9 +42,42 @@ export default function Home() {
       <FloatingNav />
 
       {/* ====================================================================
-          HERO SECTION - EXACT MODDO SPECIFICATION
+          HERO SECTION - EXACT BRAND SPECIFICATION
          ==================================================================== */}
       <section id="home" className={styles.hero}>
+        {/* Decorative Fluid Vector Curves & Gradient Orb */}
+        <div className={styles.heroBackgroundDecor} aria-hidden="true">
+          <div className={styles.heroOrb} />
+          <div className={styles.heroCurvesWrap}>
+            <svg className={styles.heroCurvesSvg} viewBox="0 0 1440 500" fill="none" preserveAspectRatio="none">
+              <path
+                d="M-100 450 C 320 360, 680 500, 1050 390 C 1240 330, 1380 410, 1540 440"
+                stroke="url(#brandCurveGrad1)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M-60 490 C 380 430, 780 560, 1180 370 C 1320 320, 1450 390, 1540 420"
+                stroke="url(#brandCurveGrad2)"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+              <defs>
+                <linearGradient id="brandCurveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#4F6BFF" stopOpacity="0.45" />
+                  <stop offset="60%" stopColor="#8A7BFF" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#4F6BFF" stopOpacity="0.05" />
+                </linearGradient>
+                <linearGradient id="brandCurveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#8A7BFF" stopOpacity="0.4" />
+                  <stop offset="50%" stopColor="#4F6BFF" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#8A7BFF" stopOpacity="0.05" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
         {/* Top Meta Bar */}
         <div className={styles.heroMeta}>
           <div className={styles.heroMetaGroup}>
@@ -69,6 +103,7 @@ export default function Home() {
           </div>
 
           <div className={styles.heroMetaActions}>
+            <ThemeToggle />
             <a
               href="mailto:dennys.marquez.dev@gmail.com"
               className={styles.heroContactLink}
@@ -79,18 +114,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Center Colossal Statement */}
+        {/* Center Brand Statement */}
         <div className={styles.heroTopWrap}>
-          <h1 className={styles.textHero}>dennys marquez</h1>
-        </div>
-
-        {/* Bottom Wrap: Brand Signature & Active Engineering Status */}
-        <div className={styles.heroBottomWrap}>
-          <div className={styles.heroTitleWrap}>
-            <span className={styles.heroBrandSignature}>d marquez</span>
-            <span className={styles.heroEyebrowStudio}>FULL STACK DEVELOPER &amp; IA</span>
+          <div className={styles.heroCenterBrand}>
+            <h1 className={styles.textHero}>
+              <span className={styles.logoDennys}>dennys</span>{" "}
+              <span className={styles.logoMarquez}>marquez</span>
+            </h1>
+            <div className={styles.heroSubtrack}>FULL STACK DEVELOPER</div>
+            <div className={styles.heroSubmeta}>
+              Software Development &middot; Web Applications &middot; AI Integration
+            </div>
+            <p className={styles.heroImpactMotto}>
+              Building digital products that make an impact.
+            </p>
           </div>
         </div>
+
+        {/* Bottom Wrap: Spacing for floating navbar */}
+        <div className={styles.heroBottomWrap} />
       </section>
 
       {/* ====================================================================
@@ -602,13 +644,25 @@ export default function Home() {
       <footer id="footer" className={styles.footerModdoWrapper}>
         <div className={styles.footerModdoContainer}>
           <div className={styles.footerModdoTop}>
+            {/* Secondary Logo (Versión vertical / apilada) */}
+            <div className={styles.footerBrandCol}>
+              <div className={styles.footerLogoVertical}>
+                <span className={styles.footerLogoDennys}>dennys</span>
+                <span className={styles.footerLogoMarquez}>marquez</span>
+              </div>
+              <span className={styles.footerLogoSub}>FULL STACK DEVELOPER</span>
+              <p className={styles.footerBrandDesc}>
+                Building digital products that make an impact.
+              </p>
+            </div>
+
             {/* Nav Links */}
             <div className={styles.footerNavCol}>
               <span className={styles.footerNavColTitle}>Navegación</span>
               <a href="#home" className={styles.footerNavLink}>Inicio</a>
               <a href="#servicios" className={styles.footerNavLink}>Servicios</a>
               <a href="#casos" className={styles.footerNavLink}>Proyectos</a>
-              <a href="#whyus" className={styles.footerNavLink}>¿Por qué yo?</a>
+              <a href="#about" className={styles.footerNavLink}>Sobre mí</a>
               <a href="#contacto" className={styles.footerNavLink}>Contacto</a>
             </div>
 

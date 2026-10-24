@@ -32,8 +32,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                localStorage.removeItem('theme');
-                document.documentElement.setAttribute('data-theme', 'light');
+                const t = localStorage.getItem('brand-theme') || 'light';
+                document.documentElement.setAttribute('data-theme', t);
               } catch (e) {}
             `,
           }}

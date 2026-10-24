@@ -1,42 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=JetBrains+Mono:wght@400;500;700&family=Parkinsans:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* User Palette: Neutrals / Dark */
-  --palette-black: #181616;
-  --palette-taupe: #6e6055;
-  --palette-charcoal: #2e2b2d;
-  --palette-mauve: #554c4f;
-  --palette-navy-slate: #313648;
+  /* Official Brand Palette (HEX codes from identity sheet) */
+  --brand-black: #0F1115;
+  --brand-blue: #4F6BFF;
+  --brand-periwinkle: #8A7BFF;
+  --brand-light: #F7F8FB;
 
-  /* User Palette: Cyan / Blue */
-  --palette-ice-blue: #e3f6f5;
-  --palette-mint-cyan: #a7e0db;
-  --palette-sky-cyan: #5fb0c9;
-  --palette-steel-blue: #3e6d9c;
-  --palette-deep-indigo: #2a2f63;
+  /* Accent & Semantic System */
+  --accent-blue: #4F6BFF;
+  --accent-azure: #4F6BFF;
+  --accent-cyan: #8A7BFF;
+  --accent-mint: #4F6BFF;
+  --accent-ice: #F7F8FB;
+  --accent-pink: #8A7BFF;
+  --accent-orange: #4F6BFF;
+  --accent-green: #4F6BFF;
+  --accent-yellow: #8A7BFF;
+  --accent-lilac: #8A7BFF;
 
-  /* User Palette: Warm Neutrals / Paper */
-  --palette-pure-white: #ffffff;
-  --palette-warm-ivory: #f4f1ec;
-  --palette-linen: #e8e2d8;
-  --palette-sand: #dad3c6;
-  --palette-putty: #cfc7b8;
-
-  /* Semantic Brand Overrides */
-  --accent-blue: #2a2f63;
-  --accent-azure: #3e6d9c;
-  --accent-cyan: #5fb0c9;
-  --accent-mint: #a7e0db;
-  --accent-ice: #e3f6f5;
-  --accent-pink: #554c4f;
-  --accent-orange: #6e6055;
-  --accent-green: #3e6d9c;
-  --accent-yellow: #5fb0c9;
-  --accent-lilac: #313648;
-
-  /* Fonts */
-  --font-heading: 'Parkinsans', 'Plus Jakarta Sans', -apple-system, sans-serif;
-  --font-body: 'Parkinsans', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', 'Parkinsans', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Parkinsans', -apple-system, sans-serif;
   --font-accent: 'Architects Daughter', cursive, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -49,119 +34,82 @@
 }
 
 /* ====================================================================
-   TEMA CLARO (Default / Warm Tactile Paper & Architectural Palette)
+   TEMA CLARO (Default / Modern Clean Brand Edition - 01. WEB / PORTADA)
    ==================================================================== */
 :root,
 [data-theme='light'] {
-  --bg-page: #f4f1ec;
-  --bg-card: #ffffff;
-  --bg-card-subtle: #e8e2d8;
-  --bg-input: #ffffff;
+  --bg-page: #F7F8FB;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #EEF1F8;
+  --bg-input: #FFFFFF;
 
-  --text-main: #181616;
-  --text-muted: #554c4f;
-  --text-subtle: #6e6055;
+  --text-main: #0F1115;
+  --text-muted: #525866;
+  --text-subtle: #717784;
 
-  --border-color: rgba(46, 43, 45, 0.12);
-  --border-strong: rgba(46, 43, 45, 0.22);
-  --border-hover: rgba(62, 109, 156, 0.45);
+  --border-color: rgba(15, 17, 21, 0.08);
+  --border-strong: rgba(15, 17, 21, 0.16);
+  --border-hover: rgba(79, 107, 255, 0.45);
   --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
-  --nav-bg: rgba(255, 255, 255, 0.95);
-  --nav-border: #dad3c6;
+  --nav-bg: #FFFFFF;
+  --nav-border: rgba(15, 17, 21, 0.08);
+  --nav-active-bg: #0F1115;
+  --nav-active-text: #FFFFFF;
 
-  --shadow-card: 0 2px 4px rgba(24, 22, 22, 0.02), 0 12px 32px -4px rgba(24, 22, 22, 0.06);
-  --shadow-card-hover: 0 4px 8px rgba(24, 22, 22, 0.04), 0 24px 50px -6px rgba(24, 22, 22, 0.1);
-  --shadow-floating: 0 20px 48px -8px rgba(24, 22, 22, 0.14), 0 0 0 1px rgba(24, 22, 22, 0.05);
+  --shadow-card: 0 4px 16px rgba(15, 17, 21, 0.03), 0 16px 36px -4px rgba(79, 107, 255, 0.05);
+  --shadow-card-hover: 0 8px 24px rgba(15, 17, 21, 0.05), 0 24px 48px -6px rgba(79, 107, 255, 0.12);
+  --shadow-floating: 0 20px 48px -8px rgba(15, 17, 21, 0.14), 0 0 0 1px rgba(15, 17, 21, 0.04);
 
-  --btn-primary-bg: #181616;
-  --btn-primary-text: #ffffff;
-  --btn-secondary-bg: #ffffff;
-  --btn-secondary-text: #181616;
+  --btn-primary-bg: #0F1115;
+  --btn-primary-text: #FFFFFF;
+  --btn-secondary-bg: #FFFFFF;
+  --btn-secondary-text: #0F1115;
 
-  --theme-btn-bg: rgba(46, 43, 45, 0.06);
-  --grid-line: rgba(110, 96, 85, 0.08);
-  --paper-grain-opacity: 0.035;
+  --theme-btn-bg: rgba(15, 17, 21, 0.05);
+  --grid-line: rgba(79, 107, 255, 0.07);
+  --paper-grain-opacity: 0.015;
 }
 
 /* ====================================================================
-   TEMA OSCURO (Executive Dark Charcoal & Slate Edition)
+   TEMA OSCURO (Executive Brand Dark Edition - 05. HERO ALTERNATIVO)
    ==================================================================== */
 [data-theme='dark'] {
-  --bg-page: #181616;
-  --bg-card: #2e2b2d;
-  --bg-card-subtle: #313648;
-  --bg-input: #181616;
+  --bg-page: #0F1115;
+  --bg-card: #15181E;
+  --bg-card-subtle: #1C2029;
+  --bg-input: #101217;
 
-  --text-main: #f4f1ec;
-  --text-muted: #dad3c6;
-  --text-subtle: #cfc7b8;
+  --text-main: #F7F8FB;
+  --text-muted: #9DA4B2;
+  --text-subtle: #687082;
 
-  --border-color: rgba(232, 226, 216, 0.12);
-  --border-strong: rgba(232, 226, 216, 0.22);
-  --border-hover: rgba(95, 176, 201, 0.5);
-  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --border-color: rgba(247, 248, 251, 0.09);
+  --border-strong: rgba(247, 248, 251, 0.18);
+  --border-hover: rgba(79, 107, 255, 0.55);
+  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-  --nav-bg: rgba(46, 43, 45, 0.95);
-  --nav-border: rgba(232, 226, 216, 0.15);
+  --nav-bg: #15181E;
+  --nav-border: rgba(247, 248, 251, 0.12);
+  --nav-active-bg: #4F6BFF;
+  --nav-active-text: #FFFFFF;
 
-  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.5), 0 16px 40px -4px rgba(0, 0, 0, 0.65);
-  --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.6), 0 28px 60px -6px rgba(0, 0, 0, 0.75);
-  --shadow-floating: 0 24px 50px -6px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(79, 107, 255, 0.1);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(79, 107, 255, 0.3);
+  --shadow-floating: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(247, 248, 251, 0.1);
 
-  --btn-primary-bg: #f4f1ec;
-  --btn-primary-text: #181616;
-  --btn-secondary-bg: #313648;
-  --btn-secondary-text: #f4f1ec;
+  --btn-primary-bg: #4F6BFF;
+  --btn-primary-text: #FFFFFF;
+  --btn-secondary-bg: #1C2029;
+  --btn-secondary-text: #F7F8FB;
 
-  --theme-btn-bg: rgba(255, 255, 255, 0.08);
-  --grid-line: rgba(232, 226, 216, 0.05);
-  --paper-grain-opacity: 0.025;
-}
-
-/* ====================================================================
-   TEMA ACCESIBLE (Anti-Fatiga / Miopía & Astigmatismo)
-   ==================================================================== */
-[data-theme='accessible'] {
-  --bg-page: #181921;
-  --bg-card: #232532;
-  --bg-card-subtle: #2d3040;
-  --bg-input: #1f212c;
-
-  --text-main: #f9f5e8;
-  --text-muted: #d8d3c2;
-  --text-subtle: #aca695;
-
-  --border-color: rgba(249, 245, 232, 0.2);
-  --border-strong: rgba(249, 245, 232, 0.4);
-  --border-hover: rgba(249, 245, 232, 0.75);
-  --card-highlight: inset 0 1px 0 rgba(249, 245, 232, 0.15);
-
-  --nav-bg: rgba(35, 37, 50, 0.95);
-  --nav-border: rgba(249, 245, 232, 0.25);
-
-  --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.7);
-  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.75);
-
-  --btn-primary-bg: #f9f5e8;
-  --btn-primary-text: #181921;
-  --btn-secondary-bg: #2d3040;
-  --btn-secondary-text: #f9f5e8;
-
-  --theme-btn-bg: rgba(249, 245, 232, 0.12);
-  --grid-line: rgba(249, 245, 232, 0.06);
+  --theme-btn-bg: rgba(247, 248, 251, 0.08);
+  --grid-line: rgba(79, 107, 255, 0.13);
   --paper-grain-opacity: 0.02;
 }
 
-[data-theme='accessible'] body {
-  font-size: 108%;
-  font-weight: 500;
-  letter-spacing: 0.015em;
-}
-
 /* ====================================================================
-   BASE RESETS & HD REALISM STYLING
+   BASE RESETS & GRID MESH BACKGROUND (Sin textos)
    ==================================================================== */
 * {
   box-sizing: border-box;
@@ -184,24 +132,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
 }
 
-/* HD Realism: Tactile Studio Paper Texture Grain */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: var(--paper-grain-opacity);
-  pointer-events: none;
-  z-index: 99998;
-}
-
-/* Subtle architectural coordinate grid */
+/* Subtle architectural coordinate grid - Sin textos */
 body::before {
   content: '';
   position: fixed;
@@ -209,18 +144,18 @@ body::before {
   background-image:
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
 }
 
 ::selection {
-  background: var(--accent-pink);
-  color: #ffffff;
+  background: var(--brand-blue);
+  color: #FFFFFF;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent-blue);
+  outline: 2px solid var(--brand-blue);
   outline-offset: 3px;
 }
 

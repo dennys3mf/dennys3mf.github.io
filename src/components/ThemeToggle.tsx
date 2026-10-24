@@ -1,73 +1,74 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Sun, Moon, Eye } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("accessible");
+  const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme") || "accessible";
+    const savedTheme = localStorage.getItem("brand-theme") || "light";
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
-  const cycleTheme = () => {
-    let nextTheme = "dark";
-    if (theme === "light") nextTheme = "dark";
-    else if (theme === "dark") nextTheme = "accessible";
-    else if (theme === "accessible") nextTheme = "light";
-
+  const toggleTheme = () => {
+    const nextTheme = theme === "light" ? "dark" : "light";
     setTheme(nextTheme);
-    localStorage.setItem("theme", nextTheme);
+    localStorage.setItem("brand-theme", nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
   };
 
-  const getThemeLabel = () => {
-    if (theme === "light") return "Moddo Paper (Claro)";
-    if (theme === "accessible") return "Accesible (Miopía / Astigmatismo)";
-    return "Moddo Dark (Oscuro)";
-  };
-
   if (!mounted) {
-    return <div style={{ width: "36px", height: "36px" }} />;
+    return <div style={{ width: "88px", height: "34px" }} />;
   }
+
+  const isLight = theme === "light";
 
   return (
     <button
-      onClick={cycleTheme}
-      title={`Tema: ${getThemeLabel()} (Click para cambiar)`}
-      aria-label={`Cambiar tema: actual ${getThemeLabel()}`}
+      onClick={toggleTheme}
+      type="button"
+      title={isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro"}
+      aria-label={isLight ? "Modo oscuro" : "Modo claro"}
       style={{
-        background: "var(--theme-btn-bg, rgba(0, 0, 0, 0.05))",
-        border: "1px solid var(--border-color, rgba(0, 0, 0, 0.1))",
+        background: isLight ? "rgba(15, 17, 21, 0.05)" : "rgba(247, 248, 251, 0.1)",
+        border: "1px solid var(--border-color)",
         cursor: "pointer",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: "0.4rem",
-        padding: "0.45rem 0.8rem",
-        borderRadius: "999px",
+        gap: "0.45rem",
+        padding: "0.38rem 0.85rem",
+        borderRadius: "9999px",
         color: "var(--text-main)",
         fontSize: "0.78rem",
         fontFamily: "var(--font-heading)",
-        fontWeight: "600",
-        transition: "all 0.25s ease",
+        fontWeight: "700",
+        transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        userSelect: "none",
       }}
       onMouseOver={(e) => {
-        e.currentTarget.style.transform = "scale(1.05)";
+        e.currentTarget.style.transform = "translateY(-1px)";
+        e.currentTarget.style.borderColor = "var(--brand-blue, #4F6BFF)";
       }}
       onMouseOut={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.borderColor = "var(--border-color)";
       }}
     >
-      {theme === "light" && <Sun size={14} color="var(--accent-orange)" />}
-      {theme === "dark" && <Moon size={14} color="var(--accent-azure)" />}
-      {theme === "accessible" && <Eye size={14} color="var(--accent-yellow)" />}
-      <span style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-        {theme === "light" ? "LIGHT" : theme === "accessible" ? "A11Y" : "DARK"}
-      </span>
+      {isLight ? (
+        <>
+          <Moon size={14} color="#4F6BFF" />
+          <span style={{ letterSpacing: "0.04em", textTransform: "uppercase" }}>Oscuro</span>
+        </>
+      ) : (
+        <>
+          <Sun size={14} color="#8A7BFF" />
+          <span style={{ letterSpacing: "0.04em", textTransform: "uppercase" }}>Claro</span>
+        </>
+      )}
     </button>
   );
 }
