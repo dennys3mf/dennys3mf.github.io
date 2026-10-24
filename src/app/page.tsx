@@ -290,7 +290,7 @@ export default function Home() {
           </div>
 
           <div className={styles.casesGridModdo}>
-            {/* Project 01 */}
+            {/* Project 01: ahorratiempo.pe */}
             <ScrollReveal delay={100}>
               <a
                 href="https://ahorratiempo.pe"
@@ -317,62 +317,8 @@ export default function Home() {
               </a>
             </ScrollReveal>
 
-            {/* Project 02 */}
+            {/* Project 02: Safety Helmet IoT */}
             <ScrollReveal delay={200}>
-              <a
-                href="https://github.com/dennys3mf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.caseCardModdo}
-              >
-                <div className={styles.caseImageFrame}>
-                  <img
-                    src="/images/projects/controla-servilex-preview.webp"
-                    alt="CONTROLA SERVILEX Legal IT & SG-SST"
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.caseMetaRow}>
-                  <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>CONTROLA — SERVILEX Legal IT</h3>
-                    <p className={styles.caseItemSub}>Software Developer · Automatización Legal &amp; Gestión SG-SST</p>
-                  </div>
-                  <div className={styles.caseArrowBtn}>
-                    <ArrowUpRight size={22} />
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Project 03 */}
-            <ScrollReveal delay={300}>
-              <a
-                href="https://github.com/dennys3mf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.caseCardModdo}
-              >
-                <div className={styles.caseImageFrame}>
-                  <img
-                    src="/images/projects/chansa-app-preview.webp"
-                    alt="CHANSA App Móvil en Flutter"
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.caseMetaRow}>
-                  <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>CHANSA App Móvil</h3>
-                    <p className={styles.caseItemSub}>Mobile Application Developer · Flutter, Dart &amp; Firebase</p>
-                  </div>
-                  <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
-                    <ArrowUpRight size={22} />
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Project 04 */}
-            <ScrollReveal delay={150}>
               <a
                 href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
                 target="_blank"
@@ -398,35 +344,8 @@ export default function Home() {
               </a>
             </ScrollReveal>
 
-            {/* Project 05 */}
-            <ScrollReveal delay={250}>
-              <a
-                href="https://github.com/dennys3mf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.caseCardModdo}
-              >
-                <div className={styles.caseImageFrame}>
-                  <img
-                    src="/images/projects/fintech-sunat-preview.webp"
-                    alt="Fintech & Sunat Flow Engine"
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.caseMetaRow}>
-                  <div className={styles.caseMetaText}>
-                    <h3 className={styles.caseItemTitle}>Fintech &amp; Sunat Flow Engine</h3>
-                    <p className={styles.caseItemSub}>Pasarela Culqi, Suscripciones &amp; Comprobantes Electrónicos</p>
-                  </div>
-                  <div className={styles.caseArrowBtn}>
-                    <ArrowUpRight size={22} />
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Project 06 */}
-            <ScrollReveal delay={350}>
+            {/* Project 03: App Fiscalización Digital Joya */}
+            <ScrollReveal delay={300}>
               <a
                 href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
                 target="_blank"
