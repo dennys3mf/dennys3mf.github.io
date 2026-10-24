@@ -975,9 +975,9 @@
 }
 
 .accountingLead {
-  font-size: 1.1rem;
+  font-size: clamp(1.08rem, 1.4vw, 1.25rem);
   color: var(--text-muted);
-  line-height: 1.68;
+  line-height: 1.72;
 }
 
 .accountingLead strong {
@@ -1102,16 +1102,16 @@
 }
 
 .accountingItemTitle {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
 .accountingItemDesc {
-  font-size: 0.94rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.62;
 }
 
 /* ====================================================================
@@ -2442,10 +2442,11 @@
 
 .caseItemSub {
   font-family: var(--font-heading);
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  color: #535661;
+  color: #464D5D;
   margin: 0;
+  line-height: 1.45;
 }
 
 .caseArrowBtn {

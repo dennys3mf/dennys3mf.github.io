@@ -39,74 +39,61 @@
    ==================================================================== */
 :root,
 [data-theme='light'] {
-  --bg-page: #F7F8FB;
+  --bg-page: #F8F9FC;
   --bg-card: #FFFFFF;
-  --bg-card-subtle: #EEF1F8;
+  --bg-card-subtle: #EEF2F8;
   --bg-input: #FFFFFF;
 
-  --text-main: #0F1115;
-  --text-muted: #525866;
-  --text-subtle: #717784;
+  --text-main: #11141A;
+  --text-muted: #464D5D;
+  --text-subtle: #636B7C;
 
-  --border-color: rgba(15, 17, 21, 0.08);
-  --border-strong: rgba(15, 17, 21, 0.16);
+  --border-color: rgba(17, 20, 26, 0.08);
+  --border-strong: rgba(17, 20, 26, 0.16);
   --border-hover: rgba(79, 107, 255, 0.45);
   --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
   --nav-bg: #FFFFFF;
-  --nav-border: rgba(15, 17, 21, 0.08);
-  --nav-active-bg: #0F1115;
+  --nav-border: rgba(17, 20, 26, 0.1);
+  --nav-active-bg: #11141A;
   --nav-active-text: #FFFFFF;
 
-  --shadow-card: 0 4px 16px rgba(15, 17, 21, 0.03), 0 16px 36px -4px rgba(79, 107, 255, 0.05);
-  --shadow-card-hover: 0 8px 24px rgba(15, 17, 21, 0.05), 0 24px 48px -6px rgba(79, 107, 255, 0.12);
-  --shadow-floating: 0 20px 48px -8px rgba(15, 17, 21, 0.14), 0 0 0 1px rgba(15, 17, 21, 0.04);
+  --shadow-card: 0 4px 16px rgba(17, 20, 26, 0.04), 0 16px 36px -4px rgba(79, 107, 255, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(17, 20, 26, 0.06), 0 24px 48px -6px rgba(79, 107, 255, 0.14);
+  --shadow-floating: 0 20px 48px -8px rgba(17, 20, 26, 0.14), 0 0 0 1px rgba(17, 20, 26, 0.06);
 
-  --btn-primary-bg: #0F1115;
+  --btn-primary-bg: #11141A;
   --btn-primary-text: #FFFFFF;
   --btn-secondary-bg: #FFFFFF;
-  --btn-secondary-text: #0F1115;
+  --btn-secondary-text: #11141A;
 
-  --theme-btn-bg: rgba(15, 17, 21, 0.05);
-  --grid-line: rgba(79, 107, 255, 0.07);
+  --theme-btn-bg: rgba(17, 20, 26, 0.05);
+  --grid-line: rgba(79, 107, 255, 0.08);
   --paper-grain-opacity: 0.015;
 }
 
 /* ====================================================================
-   TEMA OSCURO (Executive Brand Dark Edition - 05. HERO ALTERNATIVO)
+   LENIS SMOOTH SCROLL STYLES (Cinematic Momentum)
    ==================================================================== */
-[data-theme='dark'] {
-  --bg-page: #0F1115;
-  --bg-card: #15181E;
-  --bg-card-subtle: #1C2029;
-  --bg-input: #101217;
+html.lenis,
+html.lenis body {
+  height: auto;
+}
 
-  --text-main: #F7F8FB;
-  --text-muted: #9DA4B2;
-  --text-subtle: #687082;
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
 
-  --border-color: rgba(247, 248, 251, 0.09);
-  --border-strong: rgba(247, 248, 251, 0.18);
-  --border-hover: rgba(79, 107, 255, 0.55);
-  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
 
-  --nav-bg: #15181E;
-  --nav-border: rgba(247, 248, 251, 0.12);
-  --nav-active-bg: #4F6BFF;
-  --nav-active-text: #FFFFFF;
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
 
-  --shadow-card: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(79, 107, 255, 0.1);
-  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(79, 107, 255, 0.3);
-  --shadow-floating: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(247, 248, 251, 0.1);
-
-  --btn-primary-bg: #4F6BFF;
-  --btn-primary-text: #FFFFFF;
-  --btn-secondary-bg: #1C2029;
-  --btn-secondary-text: #F7F8FB;
-
-  --theme-btn-bg: rgba(247, 248, 251, 0.08);
-  --grid-line: rgba(79, 107, 255, 0.13);
-  --paper-grain-opacity: 0.02;
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 /* ====================================================================

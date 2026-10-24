@@ -2,50 +2,60 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "../context/LanguageContext";
 import styles from "../app/page.module.css";
 
-interface NavItem {
-  label: string;
+interface NavSectionDef {
+  id: string;
   href: string;
   sectionIds: string[];
 }
 
-const NAV_ITEMS: NavItem[] = [
-  { label: "Inicio", href: "#home", sectionIds: ["home"] },
-  { label: "Servicios", href: "#servicios", sectionIds: ["servicios"] },
-  { label: "Proyectos", href: "#casos", sectionIds: ["casos", "proceso", "whyus"] },
-  { label: "Sobre mí", href: "#about", sectionIds: ["about"] },
-  { label: "Contacto", href: "#contacto", sectionIds: ["contacto", "footer"] },
+const SECTION_DEFS: NavSectionDef[] = [
+  { id: "home", href: "#home", sectionIds: ["home"] },
+  { id: "services", href: "#servicios", sectionIds: ["servicios"] },
+  { id: "projects", href: "#casos", sectionIds: ["casos", "proceso", "whyus"] },
+  { id: "about", href: "#about", sectionIds: ["about"] },
+  { id: "contact", href: "#contacto", sectionIds: ["contacto", "footer"] },
 ];
 
 export default function FloatingNav() {
-  const [activeItem, setActiveItem] = useState<string>("Inicio");
+  const { t } = useLanguage();
+  const [activeSectionId, setActiveSectionId] = useState<string>("home");
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+
+  const navItems = [
+    { id: "home", label: t.nav.home, href: "#home" },
+    { id: "services", label: t.nav.services, href: "#servicios" },
+    { id: "projects", label: t.nav.projects, href: "#casos" },
+    { id: "about", label: t.nav.about, href: "#about" },
+    { id: "contact", label: t.nav.contact, href: "#contacto" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight * 0.35;
 
       // Find current section
-      for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
-        const item = NAV_ITEMS[i];
+      for (let i = SECTION_DEFS.length - 1; i >= 0; i--) {
+        const item = SECTION_DEFS[i];
         for (const secId of item.sectionIds) {
           const el = document.getElementById(secId);
           if (el) {
             const top = el.offsetTop;
             const height = el.offsetHeight;
             if (scrollPos >= top && scrollPos < top + height) {
-              setActiveItem(item.label);
+              setActiveSectionId(item.id);
               return;
             }
           }
         }
       }
 
-      // Default to Inicio if near top
+      // Default to home if near top
       if (window.scrollY < 200) {
-        setActiveItem("Inicio");
+        setActiveSectionId("home");
       }
     };
 
@@ -69,7 +79,7 @@ export default function FloatingNav() {
 
   return (
     <>
-      {/* Desktop Floating Bottom Capsule (Enhanced with Motion micro-interactions) */}
+      {/* Desktop Floating Bottom Capsule with Language Switcher */}
       <header className={styles.navbarWrapper}>
         <motion.nav
           className={styles.navbar}
@@ -78,13 +88,13 @@ export default function FloatingNav() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          {NAV_ITEMS.map((item) => {
-            const isActive = activeItem === item.label;
+          {navItems.map((item) => {
+            const isActive = activeSectionId === item.id;
             return (
               <motion.a
-                key={item.label}
+                key={item.id}
                 href={item.href}
-                onClick={() => setActiveItem(item.label)}
+                onClick={() => setActiveSectionId(item.id)}
                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
@@ -94,6 +104,9 @@ export default function FloatingNav() {
               </motion.a>
             );
           })}
+          <div className="ml-2 pl-2 border-l border-slate-200 flex items-center">
+            <LanguageToggle variant="segmented" />
+          </div>
         </motion.nav>
       </header>
 
@@ -115,7 +128,7 @@ export default function FloatingNav() {
           </a>
 
           <div className={styles.mobileTopActions}>
-            <ThemeToggle />
+            <LanguageToggle variant="compact" />
             <motion.button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -153,14 +166,14 @@ export default function FloatingNav() {
                 transition={{ type: "spring", stiffness: 350, damping: 30 }}
               >
                 <div className={styles.mobileDrawerLinks}>
-                  {NAV_ITEMS.map((item, idx) => {
-                    const isActive = activeItem === item.label;
+                  {navItems.map((item, idx) => {
+                    const isActive = activeSectionId === item.id;
                     return (
                       <motion.a
-                        key={item.label}
+                        key={item.id}
                         href={item.href}
                         onClick={() => {
-                          setActiveItem(item.label);
+                          setActiveSectionId(item.id);
                           setMobileOpen(false);
                         }}
                         className={`${styles.mobileDrawerLink} ${
@@ -176,6 +189,11 @@ export default function FloatingNav() {
                   })}
                 </div>
 
+                <div className="pt-2 pb-1 px-3 flex justify-between items-center border-t border-slate-100 mt-2">
+                  <span className="text-sm font-semibold text-slate-600">Language / Idioma:</span>
+                  <LanguageToggle variant="segmented" />
+                </div>
+
                 <div className={styles.mobileDrawerFooter}>
                   <motion.a
                     href="https://wa.me/51922466078"
@@ -186,7 +204,7 @@ export default function FloatingNav() {
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span>Conversar por WhatsApp</span>
+                    <span>WhatsApp</span>
                     <ArrowUpRight size={18} />
                   </motion.a>
                 </div>

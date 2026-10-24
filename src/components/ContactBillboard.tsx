@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { MessageSquare, Code2, Box, Users } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 import styles from "./ContactBillboard.module.css";
 
 /* 12 Tech Stack SVG Logos */
@@ -159,12 +160,14 @@ function FirebaseIcon() {
 }
 
 export default function ContactBillboard() {
+  const { t } = useLanguage();
+
   return (
     <div className={styles.billboard}>
       {/* 1. Raw Clean Photo of Dennys in the Car */}
       <Image
         src="/images/personal/dennys-contact-clean.webp"
-        alt="Dennys Marquez — Full Stack Developer | Python, React & AI Integration con su mascota"
+        alt="Dennys Marquez — Full Stack Developer | Python, React & AI Integration"
         fill
         sizes="(max-width: 1200px) 100vw, 1200px"
         className={styles.bgImage}
@@ -180,17 +183,14 @@ export default function ContactBillboard() {
         <div className={styles.leftCol}>
           {/* Headline */}
           <h2 className={styles.headline}>
-            ¿Tienes un <span className={styles.highlightCyan}>proyecto</span>
+            {t.contact.headingPart1} <span className={styles.highlightCyan}>{t.contact.headingHighlight1}</span>
             <br />
-            <span className={styles.highlightCyan}>o vacante</span> en mente?
+            {t.contact.headingPart2} <span className={styles.highlightCyan}>{t.contact.headingHighlight2}</span>
           </h2>
 
           {/* Subtitle */}
           <p className={styles.subtext}>
-            Disponible para roles como <strong>Full Stack Developer | Python, React &amp; AI Integration</strong> o{" "}
-            <strong>proyectos de ingeniería de software e IA</strong>.
-            <br />
-            Conversemos sobre tus objetivos y cómo puedo aportar valor a tu equipo.
+            {t.contact.subtext}
           </p>
 
           {/* Main Action Button */}
@@ -199,12 +199,12 @@ export default function ContactBillboard() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.ctaBtn}
-            title="Conversar con Dennys Marquez por WhatsApp"
+            title="WhatsApp"
           >
             <span className={styles.ctaBtnIcon}>
               <MessageSquare size={20} fill="currentColor" strokeWidth={0} />
             </span>
-            <span>Conversemos</span>
+            <span>{t.contact.ctaButton}</span>
             <span className={styles.ctaBtnArrow}>›</span>
           </a>
 
@@ -215,8 +215,8 @@ export default function ContactBillboard() {
               <div className={styles.featureIconBox}>
                 <Code2 size={22} />
               </div>
-              <h3 className={styles.featureTitle}>Full Stack Development</h3>
-              <p className={styles.featureSubtitle}>React · TypeScript · Python · Django</p>
+              <h3 className={styles.featureTitle}>{t.contact.card1Title}</h3>
+              <p className={styles.featureSubtitle}>{t.contact.card1Sub}</p>
             </div>
 
             {/* Feature 02 */}
@@ -224,8 +224,8 @@ export default function ContactBillboard() {
               <div className={styles.featureIconBox}>
                 <Box size={22} />
               </div>
-              <h3 className={styles.featureTitle}>Python &amp; AI Integration</h3>
-              <p className={styles.featureSubtitle}>ML Recommenders · LLMs · Agentes</p>
+              <h3 className={styles.featureTitle}>{t.contact.card2Title}</h3>
+              <p className={styles.featureSubtitle}>{t.contact.card2Sub}</p>
             </div>
 
             {/* Feature 03 */}
@@ -233,8 +233,8 @@ export default function ContactBillboard() {
               <div className={styles.featureIconBox}>
                 <Users size={22} />
               </div>
-              <h3 className={styles.featureTitle}>Consultoría Técnica</h3>
-              <p className={styles.featureSubtitle}>Arquitectura &amp; ROI</p>
+              <h3 className={styles.featureTitle}>{t.contact.card3Title}</h3>
+              <p className={styles.featureSubtitle}>{t.contact.card3Sub}</p>
             </div>
           </div>
 
