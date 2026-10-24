@@ -144,15 +144,18 @@ export default function Home() {
             <div className={styles.aboutModdoLeft}>
               <span className={styles.aboutSimpleEyebrow}>Sobre mí</span>
               <h2 className={styles.aboutModdoHeading}>
-                Construyo aplicaciones Full Stack e Inteligencia Artificial aplicada con sistemas RAG.
+                Desarrollador Full Stack con ingeniería de Machine Learning y Sistemas RAG Híbridos.
               </h2>
             </div>
             <div>
               <p className={styles.aboutModdoParagraph}>
-                Full Stack Developer &amp; AI Engineer especializado en productos digitales de alto rendimiento
-                e implementación de sistemas RAG (Retrieval-Augmented Generation). Conecto modelos de lenguaje con la base
-                de conocimiento y datos privados de organizaciones, integrando interfaces reactivas en Next.js, infraestructura
-                cloud escalable y un sólido criterio de rentabilidad y negocio.
+                Soy <strong>Desarrollador Full Stack</strong> con sólida trayectoria construyendo aplicaciones web, móviles
+                y arquitecturas cloud escalables de punta a punta. Mi verdadero diferencial técnico radica en mi
+                especialización en <strong>Machine Learning e Inteligencia Artificial aplicada</strong>: domino el
+                diseño e implementación de <strong>sistemas RAG Híbridos (Hybrid Retrieval-Augmented Generation)</strong>,
+                fusionando búsqueda vectorial semántica con indexación léxica BM25 y modelos de re-ranking (Cross-Encoders)
+                para conectar modelos de lenguaje (LLMs) a datos empresariales privados con máxima precisión, auditoría y
+                cero alucinaciones.
               </p>
             </div>
           </div>
@@ -162,36 +165,37 @@ export default function Home() {
             <div className={styles.aboutMainImgCard}>
               <img
                 src="/images/personal/dennys-workstation.webp"
-                alt="Dennys Gabriel Marquez Flores — Full Stack Developer & AI Engineer en su estación de trabajo"
+                alt="Dennys Gabriel Marquez Flores — Desarrollador Full Stack & Machine Learning Engineer en su estación de trabajo"
                 loading="lazy"
               />
             </div>
           </div>
 
           {/* ====================================================================
-              BLOQUE DESTACADO: MÁS SOBRE MÍ - FULL STACK, SISTEMAS RAG & NEGOCIO
+              BLOQUE DESTACADO: FULL STACK · MACHINE LEARNING · RAG HÍBRIDO & ROI
              ==================================================================== */}
           <ScrollReveal delay={150}>
             <div className={styles.accountingCard}>
               <div className={styles.accountingHeader}>
                 <span className={styles.accountingTag}>
-                  <Brain size={13} /> Full Stack &amp; Sistemas RAG
+                  <Brain size={13} /> Full Stack · Machine Learning · RAG Híbrido
                 </span>
                 <h3 className={styles.accountingTitle}>
-                  Arquitectura Full Stack y Sistemas RAG: Inteligencia Artificial con contexto de negocio
+                  Ingeniería Full Stack &amp; Machine Learning: de la arquitectura de software a RAG Híbrido en producción
                 </h3>
                 <p className={styles.accountingLead}>
-                  Muchos desarrolladores se limitan a construir interfaces aisladas o integrar llamadas básicas a la API
-                  de OpenAI que alucinan y carecen del contexto interno del negocio. Como <strong>Full Stack Developer &amp; AI Engineer</strong>,
-                  construyo la arquitectura de software completa e implemento <strong>sistemas RAG (Retrieval-Augmented Generation)</strong>:
-                  arquitecturas avanzadas que conectan modelos de lenguaje (LLMs) con tus bases de datos, manuales, políticas
-                  y documentos privados en tiempo real, garantizando respuestas precisas, contextualizadas y con fuentes verificadas.
+                  No me limito al desarrollo web tradicional ni a integrar wrappers básicos de ChatGPT que alucinan y no
+                  comprenden la realidad operativa. Como <strong>Desarrollador Full Stack &amp; Machine Learning Specialist</strong>,
+                  diseño ecosistemas de software robustos e implemento <strong>Sistemas RAG Híbridos</strong>: arquitecturas
+                  avanzadas que combinan recuperación densa (embeddings vectoriales en pgvector / Pinecone) y búsqueda dispersa
+                  (BM25 / full-text search) con capas de re-ranking, filtrado de metadatos y context injection. Esto permite que los
+                  modelos extraigan conocimiento exacto de manuales técnicos, normativas, bases SQL y ERPs corporativos.
                 </p>
                 <p className={styles.accountingLead} style={{ marginTop: "0.85rem" }}>
-                  A este dominio técnico le sumo mi formación complementaria en <strong>Gestión Contable y Financiera</strong>: entiendo
-                  la optimización de costos en inferencia de IA (tokenomics), la seguridad y privacidad de datos corporativos,
-                  la trazabilidad para auditorías y cómo lograr que cada solución de software tenga un retorno de inversión (ROI)
-                  medible para la organización.
+                  A esta profundidad técnica le sumo formación en <strong>Gestión Contable y Rentabilidad</strong>: entiendo
+                  el ciclo MLOps, la optimización de latencia, el control estricto de costos de inferencia y consumo de tokens
+                  (tokenomics en AWS, Cloudflare y OpenAI), garantizando que cada solución de IA aporte un retorno de inversión (ROI)
+                  medible y seguro para el negocio.
                 </p>
               </div>
 
@@ -200,10 +204,11 @@ export default function Home() {
                   <div className={styles.accountingItemIcon}>
                     <Brain size={22} />
                   </div>
-                  <h4 className={styles.accountingItemTitle}>Sistemas RAG &amp; Embeddings Vectoriales</h4>
+                  <h4 className={styles.accountingItemTitle}>RAG Híbrido &amp; Re-ranking de Precisión</h4>
                   <p className={styles.accountingItemDesc}>
-                    Diseño e implementación de pipelines RAG de extremo a extremo: chunking inteligente, embeddings, bases de datos
-                    vectoriales (pgvector, Pinecone) y búsqueda semántica híbrida para que los LLMs respondan sin alucinaciones.
+                    Implementación de pipelines de RAG Híbrido que fusionan embeddings vectoriales con búsqueda léxica BM25 y
+                    algoritmos de re-ranking (Cross-Encoders). Respuestas contextualizadas con citas de fuentes verificadas y
+                    cero alucinaciones sobre documentos privados.
                   </p>
                 </div>
 
@@ -211,10 +216,21 @@ export default function Home() {
                   <div className={styles.accountingItemIcon}>
                     <Layers size={22} />
                   </div>
-                  <h4 className={styles.accountingItemTitle}>Arquitectura Full Stack de Alto Rendimiento</h4>
+                  <h4 className={styles.accountingItemTitle}>Desarrollo Full Stack de Alto Rendimiento</h4>
                   <p className={styles.accountingItemDesc}>
-                    Desarrollo de punta a punta con Next.js, React 18, TypeScript, Node.js y Python. Interfaces reactivas ultra-rápidas,
-                    arquitecturas serverless o microservicios con tipado estricto y despliegues listos para producción.
+                    Arquitecturas modernas de extremo a extremo con Next.js, React 18, TypeScript, Python y Node.js.
+                    Interfaces intuitivas ultra-rápidas, microservicios serverless, APIs REST/GraphQL y despliegues optimizados.
+                  </p>
+                </div>
+
+                <div className={styles.accountingItem}>
+                  <div className={styles.accountingItemIcon}>
+                    <Cpu size={22} />
+                  </div>
+                  <h4 className={styles.accountingItemTitle}>Machine Learning &amp; Modelos Predictivos</h4>
+                  <p className={styles.accountingItemDesc}>
+                    Comprensión aplicada de algoritmos de Machine Learning, ingeniería de datos, fine-tuning de modelos,
+                    evaluación de métricas de precisión y despliegue de canalizaciones de inferencia eficientes y de baja latencia.
                   </p>
                 </div>
 
@@ -224,19 +240,8 @@ export default function Home() {
                   </div>
                   <h4 className={styles.accountingItemTitle}>Agentes Autónomos &amp; Tool Calling</h4>
                   <p className={styles.accountingItemDesc}>
-                    Orquestación de agentes con capacidad de razonar y ejecutar acciones del mundo real mediante llamadas a funciones
-                    (tool calling): consulta y sincronización en vivo con ERPs, CRMs, APIs y automatización de flujos operativos complejos.
-                  </p>
-                </div>
-
-                <div className={styles.accountingItem}>
-                  <div className={styles.accountingItemIcon}>
-                    <BarChart3 size={22} />
-                  </div>
-                  <h4 className={styles.accountingItemTitle}>Tokenomics, Costos Cloud &amp; ROI</h4>
-                  <p className={styles.accountingItemDesc}>
-                    Perspectiva contable aplicada al software: audito el consumo de tokens y llamadas a APIs para evitar sobrecostos en
-                    cloud (AWS/Vercel), estructuro trazabilidad para auditorías y garantizo que cada línea de código aporte rentabilidad real.
+                    Orquestación de agentes con capacidad de razonar y ejecutar acciones del mundo real mediante function calling:
+                    consulta y sincronización en vivo con ERPs, CRMs, pasarelas de pago y automatización de flujos empresariales.
                   </p>
                 </div>
               </div>
@@ -274,16 +279,16 @@ export default function Home() {
                   <span className={styles.consoleKey}>lead:</span> <span className={styles.consoleString}>&quot;Dennys Marquez&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>specialty:</span> <span className={styles.consoleString}>&quot;Full Stack &amp; AI Systems (RAG)&quot;</span>,
+                  <span className={styles.consoleKey}>specialty:</span> <span className={styles.consoleString}>&quot;Full Stack, ML &amp; Hybrid RAG&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent}>
                   <span className={styles.consoleKey}>production:</span> [
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Next.js / TypeScript&quot;</span>, <span className={styles.consoleString}>&quot;RAG &amp; Vector DBs&quot;</span>,
+                  <span className={styles.consoleString}>&quot;Next.js / TypeScript&quot;</span>, <span className={styles.consoleString}>&quot;Hybrid RAG &amp; BM25&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Python &amp; LLM Agents&quot;</span>, <span className={styles.consoleString}>&quot;Cloudflare / AWS&quot;</span>
+                  <span className={styles.consoleString}>&quot;Python &amp; ML Pipelines&quot;</span>, <span className={styles.consoleString}>&quot;pgvector / Cloudflare&quot;</span>
                 </div>
                 <div className={styles.consoleLineIndent}>
                   ],
@@ -306,7 +311,7 @@ export default function Home() {
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillBlue}`}>
                 <span className={styles.servicePillIcon}>↗</span>
-                <span>Sistemas RAG &amp; Modelos de Lenguaje (LLMs)</span>
+                <span>RAG Híbrido, Machine Learning &amp; LLMs</span>
               </a>
               <a href="#contacto" className={`${styles.servicePillBtn} ${styles.pillOrange}`}>
                 <span className={styles.servicePillIcon}>↗</span>

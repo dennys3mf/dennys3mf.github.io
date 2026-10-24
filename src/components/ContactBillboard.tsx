@@ -187,7 +187,7 @@ export default function ContactBillboard() {
 
           {/* Subtitle */}
           <p className={styles.subtext}>
-            Disponible para roles <strong>Full Stack</strong>, <strong>sistemas de IA &amp; RAG</strong> o{" "}
+            Disponible para roles <strong>Full Stack</strong>, <strong>Machine Learning &amp; RAG Híbrido</strong> o{" "}
             <strong>consultoría técnica</strong>.
             <br />
             Conversemos sobre tus objetivos y cómo puedo aportar valor a tu equipo.
@@ -224,8 +224,8 @@ export default function ContactBillboard() {
               <div className={styles.featureIconBox}>
                 <Box size={22} />
               </div>
-              <h3 className={styles.featureTitle}>Sistemas RAG &amp; IA</h3>
-              <p className={styles.featureSubtitle}>LLMs · Vector DBs · Agentes</p>
+              <h3 className={styles.featureTitle}>ML &amp; RAG Híbrido</h3>
+              <p className={styles.featureSubtitle}>BM25 · Embeddings · Agentes</p>
             </div>
 
             {/* Feature 03 */}

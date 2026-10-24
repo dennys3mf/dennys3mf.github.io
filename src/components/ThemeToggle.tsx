@@ -8,9 +8,24 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("brand-theme") || "light";
-    setTheme(savedTheme);
-    document.documentElement.setAttribute("data-theme", savedTheme);
+    const current =
+      document.documentElement.getAttribute("data-theme") ||
+      localStorage.getItem("brand-theme") ||
+      "light";
+    setTheme(current);
+
+    // Sync across instances whenever data-theme changes on <html>
+    const observer = new MutationObserver(() => {
+      const updated = document.documentElement.getAttribute("data-theme") || "light";
+      setTheme(updated);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const toggleTheme = () => {
@@ -48,6 +63,7 @@ export default function ThemeToggle() {
         fontWeight: "700",
         transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
         userSelect: "none",
+        whiteSpace: "nowrap",
       }}
       onMouseOver={(e) => {
         e.currentTarget.style.transform = "translateY(-1px)";
