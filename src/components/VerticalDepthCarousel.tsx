@@ -322,14 +322,6 @@ export default function VerticalDepthCarousel() {
                           <Lock size={10} className="text-slate-400 shrink-0" />
                           <span>{proj.displayUrl}</span>
                         </div>
-                        <div className={styles.browserLiveBadge}>
-                          <span className={styles.livePulseDot} />
-                          <span>
-                            {proj.isLive
-                              ? t.projects.statusLive
-                              : t.projects.statusProduction}
-                          </span>
-                        </div>
                       </div>
 
                       <div className={styles.cardImageWrap}>

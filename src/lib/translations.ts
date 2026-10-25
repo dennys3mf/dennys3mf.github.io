@@ -47,8 +47,6 @@ export interface TranslationContent {
     eyebrow: string;
     heading: string;
     subheading: string;
-    statusLive: string;
-    statusProduction: string;
     categories: {
       all: string;
       aiWeb: string;
@@ -176,8 +174,6 @@ export const translations: Record<Language, TranslationContent> = {
       heading: "Production Systems & Impactful Products",
       subheading:
         "Explore real-world applications, SaaS platforms, and AI architectures built for global scalability.",
-      statusLive: "Live in Production",
-      statusProduction: "Enterprise Production",
       categories: {
         all: "All Projects",
         aiWeb: "AI & Web SaaS",
@@ -346,8 +342,6 @@ export const translations: Record<Language, TranslationContent> = {
       heading: "Sistemas en Producción y Productos con Impacto",
       subheading:
         "Explora aplicaciones reales, plataformas SaaS y arquitecturas de IA diseñadas para escalar con impacto global.",
-      statusLive: "Activo en Producción",
-      statusProduction: "Producción Empresarial",
       categories: {
         all: "Todos",
         aiWeb: "IA & Web SaaS",

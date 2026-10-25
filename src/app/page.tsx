@@ -366,17 +366,14 @@ export default function Home() {
           {/* Visual Step Connector Pipeline */}
           <div className={styles.processPipelineFlow}>
             <span className={styles.processPipelineStep}>
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
               <span>01. {language === "en" ? "Discovery & Architecture" : "Escuchar & Modelar"}</span>
             </span>
             <span className={styles.processPipelineArrow}>→</span>
             <span className={styles.processPipelineStep}>
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
               <span>02. {language === "en" ? "Clean Code & Testing" : "Construir & Validar"}</span>
             </span>
             <span className={styles.processPipelineArrow}>→</span>
             <span className={styles.processPipelineStep}>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
               <span>03. {language === "en" ? "Deploy & Observability" : "Desplegar & Medir"}</span>
             </span>
           </div>
@@ -409,10 +406,7 @@ export default function Home() {
                 <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col gap-2.5 font-mono text-xs text-slate-800 shadow-inner">
                   <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200/80 pb-2">
                     <span>Architecture Blueprint</span>
-                    <span className="text-blue-600 font-extrabold flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      Schema v2.4
-                    </span>
+                    <span className="text-blue-600 font-extrabold">Schema v2.4</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-700 text-xs">
                     <span className="font-bold text-slate-900">React 18</span>
@@ -504,10 +498,7 @@ export default function Home() {
                 {/* Visual Observability Console Widget */}
                 <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col gap-2.5 font-mono text-xs text-slate-800 shadow-inner">
                   <div className="flex items-center justify-between text-[11px] font-bold pb-2 border-b border-slate-200/80">
-                    <span className="flex items-center gap-1.5 text-emerald-700 font-extrabold">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
-                      Live Production
-                    </span>
+                    <span className="text-slate-700 font-extrabold uppercase tracking-wider">Cloud Telemetry</span>
                     <span className="text-slate-500">Cloudflare Edge</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-center pt-0.5">
