@@ -9,6 +9,12 @@ export default function SmoothScroller() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    // WCAG: Respect reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     // Initialize Lenis for buttery-smooth momentum / video-scrub scroll

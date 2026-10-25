@@ -93,6 +93,12 @@ export default function RotatingBadge({
             transform: rotate(360deg);
           }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+          svg {
+            animation: none !important;
+          }
+        }
       `}</style>
     </div>
   );

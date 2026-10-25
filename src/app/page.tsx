@@ -25,30 +25,74 @@ import {
   Layers,
   Cpu,
   Coins,
-  CheckCircle2,
-  Sparkles,
 } from "lucide-react";
+
+const PROJECTS_META = [
+  {
+    image: "/images/projects/ahorratiempo-preview.webp",
+    href: "https://ahorratiempo.pe",
+    alt: "ahorratiempo.pe — Plataforma SaaS con Asistente de IA por Voz",
+  },
+  {
+    image: "/images/projects/controla-servilex-preview.webp",
+    href: "https://github.com/dennys3mf",
+    alt: "CONTROLA - SERVILEX — Legal IT & SG-SST Enterprise Cloud Platform",
+  },
+  {
+    image: "/images/projects/chansa-app-preview.webp",
+    href: "https://github.com/dennys3mf",
+    alt: "CHANSA Mobile App — On-Demand Services Marketplace con Flutter & Dart",
+  },
+  {
+    image: "/images/projects/safety-helmet-preview.webp",
+    href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
+    alt: "Safety Helmet IoT — Telemetría y Sensores en Tiempo Real",
+  },
+  {
+    image: "/images/projects/fintech-sunat-preview.webp",
+    href: "https://github.com/dennys3mf",
+    alt: "Facturación & Billing Engine — Pasarela de Pagos Culqi y Facturación SUNAT",
+  },
+  {
+    image: "/images/projects/fiscalizacion-joya-preview.webp",
+    href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
+    alt: "App Fiscalización Digital Joya — Fiscalización Municipal Offline-First en Tablet",
+  },
+];
 
 export default function Home() {
   const { t, language } = useLanguage();
 
   return (
-    <main className={styles.main}>
-      {/* Lenis Smooth Inertia Momentum (Video-like Scroll) */}
-      <SmoothScroller />
+    <>
+      {/* WCAG Accessible Skip Link for Keyboard & Screen Readers */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-5 focus:py-3 focus:bg-blue-600 focus:text-white focus:font-extrabold focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300"
+      >
+        {language === "en" ? "Skip to main content" : "Saltar al contenido principal"}
+      </a>
 
-      {/* GSAP & ScrollTrigger Animation Orchestrator */}
-      <GsapScrollOrchestrator />
+      <main id="main-content" tabIndex={-1} className={styles.main}>
+        {/* Lenis Smooth Inertia Momentum (Video-like Scroll) */}
+        <SmoothScroller />
 
-      {/* ====================================================================
-          FLOATING BOTTOM PILL NAVBAR (With Language Switcher & Active Section Pill)
-         ==================================================================== */}
-      <FloatingNav />
+        {/* GSAP & ScrollTrigger Animation Orchestrator */}
+        <GsapScrollOrchestrator />
 
-      {/* ====================================================================
-          HERO SECTION - EXACT BRAND SPECIFICATION
-         ==================================================================== */}
-      <section id="home" className={styles.hero}>
+        {/* ====================================================================
+            FLOATING BOTTOM PILL NAVBAR (With Language Switcher & Active Section Pill)
+           ==================================================================== */}
+        <FloatingNav />
+
+        {/* ====================================================================
+            HERO SECTION - EXACT BRAND SPECIFICATION
+           ==================================================================== */}
+        <section
+          id="home"
+          className={styles.hero}
+          aria-label={language === "en" ? "Hero Introduction" : "Presentación e Introducción"}
+        >
         {/* Decorative Fluid Vector Curves & Interactive 3D Three.js Sphere */}
         <div className={styles.heroBackgroundDecor} aria-hidden="true" data-scrub="hero-bg">
           <div className={styles.heroOrb}>
@@ -138,25 +182,29 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          ABOUT SECTION - BRAND DOSSIER (Editorial Split & Specialized Pillars)
+          ABOUT SECTION (Brand Identity & Technical Pillars)
          ==================================================================== */}
-      <section id="about" className={styles.aboutModdoSection}>
+      <section
+        id="about"
+        className={styles.aboutModdoSection}
+        aria-labelledby="about-heading"
+      >
         <div className={styles.aboutModdoContainer}>
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
-              <span className={styles.aboutSimpleEyebrow}>
+              <span className={styles.sectionEyebrowBadge}>
                 <span className={styles.eyebrowDot} />
                 {t.about.eyebrow}
               </span>
-              <h2 className={styles.aboutModdoHeading} data-gsap="heading">
+              <h2
+                id="about-heading"
+                className={styles.aboutModdoHeading}
+                data-gsap="heading"
+              >
                 {t.about.heading}
               </h2>
-              <div className={styles.aboutDegreeBadge}>
-                <CheckCircle2 size={16} className="text-blue-600 inline-block mr-1.5 flex-shrink-0" />
-                <span>{t.about.degreeTitle} · <strong>{t.about.degreeInstitution}</strong></span>
-              </div>
             </div>
-            <div className={styles.aboutLeadWrap}>
+            <div>
               <p className={styles.aboutModdoParagraph}>
                 {t.about.lead1}
               </p>
@@ -169,7 +217,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Photo stage with clean workstation image & brand accent badge */}
+          {/* Photo stage with clean workstation image */}
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
               <img
@@ -177,131 +225,46 @@ export default function Home() {
                 alt="Dennys Gabriel Marquez Flores — Full Stack Developer | Python, React & AI Integration"
                 loading="lazy"
               />
-              <div className={styles.workstationBrandBadge}>
-                <span className={styles.workstationBrandDot} />
-                <span>TECSUP Alumni · Software Design &amp; Development</span>
-              </div>
             </div>
           </div>
 
           {/* ====================================================================
-              BRAND TECH DOSSIER (Executive 2-Column Split Layout)
+              FEATURED EDITORIAL CARD: FULL STACK · MACHINE LEARNING · AI INTEGRATION
              ==================================================================== */}
           <ScrollReveal delay={150}>
-            <div className={styles.brandDossierCard}>
-              {/* Left Column: Narrative Highlights & Founder Credentials */}
-              <div className={styles.dossierNarrativeCol}>
-                <div className={styles.dossierHeaderTag}>
-                  <span className={styles.dossierIsotipo}>d<span className={styles.dossierIsotipoDot}>.</span></span>
-                  <span className={styles.dossierTagText}>
-                    {language === "en" ? "Technical Trajectory & Real-World Impact" : "Trayectoria Técnica & Impacto Real"}
-                  </span>
-                </div>
-
-                <h3 className={styles.dossierTitle}>
+            <div className={styles.accountingCard}>
+              <div className={styles.accountingHeader}>
+                <h3 className={styles.accountingTitle}>
                   {t.about.featuredHeading}
                 </h3>
-
-                <div className={styles.dossierNarrativeCards}>
-                  {/* Highlight 1: Machine Learning & Recommenders */}
-                  <div className={styles.dossierHighlightItem}>
-                    <div className={styles.dossierHighlightIconWrap}>
-                      <Brain size={22} />
-                    </div>
-                    <div className={styles.dossierHighlightContent}>
-                      <h4 className={styles.dossierHighlightTitle}>
-                        {language === "en" ? "Machine Learning & Recommender Systems" : "Machine Learning & Recomendadores"}
-                      </h4>
-                      <p className={styles.dossierHighlightDesc}>
-                        {t.about.pRecommenders}
-                      </p>
-                      <div className={styles.dossierTechChips}>
-                        <span className={styles.dossierChip}>PySpark</span>
-                        <span className={styles.dossierChip}>Collaborative Filtering</span>
-                        <span className={styles.dossierChip}>Netflix / TikTok Feeds</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Highlight 2: AI Agents & Chatbots */}
-                  <div className={styles.dossierHighlightItem}>
-                    <div className={styles.dossierHighlightIconWrap}>
-                      <Workflow size={22} />
-                    </div>
-                    <div className={styles.dossierHighlightContent}>
-                      <h4 className={styles.dossierHighlightTitle}>
-                        {language === "en" ? "AI Chatbots, LLMs & Autonomous Agents" : "Chatbots IA, LLMs & Agentes Autónomos"}
-                      </h4>
-                      <p className={styles.dossierHighlightDesc}>
-                        {t.about.pAiAgents}
-                      </p>
-                      <div className={styles.dossierTechChips}>
-                        <span className={styles.dossierChip}>RAG Híbridos</span>
-                        <span className={styles.dossierChip}>pgvector</span>
-                        <span className={styles.dossierChip}>Tool Calling</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Highlight 3: Founder ahorratiempo.pe & Mobile */}
-                  <div className={styles.dossierHighlightItem}>
-                    <div className={styles.dossierHighlightIconWrap}>
-                      <Sparkles size={22} />
-                    </div>
-                    <div className={styles.dossierHighlightContent}>
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className={styles.dossierHighlightTitle}>
-                          {language === "en" ? "Founder of ahorratiempo.pe & Mobile Engineering" : "Fundador de ahorratiempo.pe & Desarrollo Móvil"}
-                        </h4>
-                        <a
-                          href="https://ahorratiempo.pe"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.dossierFounderLink}
-                        >
-                          ahorratiempo.pe ↗
-                        </a>
-                      </div>
-                      <p className={styles.dossierHighlightDesc}>
-                        {t.about.pAhorratiempo}
-                      </p>
-                      <p className={styles.dossierHighlightDesc} style={{ marginTop: "0.5rem" }}>
-                        {t.about.pMobile}
-                      </p>
-                      <div className={styles.dossierTechChips}>
-                        <span className={styles.dossierChip}>Flutter &amp; Dart</span>
-                        <span className={styles.dossierChip}>Cloudflare Workers</span>
-                        <span className={styles.dossierChip}>REST APIs</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <p className={styles.accountingLead}>
+                  {t.about.pRecommenders}
+                </p>
+                <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
+                  {t.about.pAiAgents}
+                </p>
+                <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
+                  {t.about.pAhorratiempo}
+                </p>
+                <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
+                  {t.about.pMobile}
+                </p>
               </div>
 
-              {/* Right Column: 4 Core Specialization Pillars Grid */}
-              <div className={styles.dossierPillarsCol} data-gsap="card-grid">
-                <div className={styles.dossierPillarsTopNote}>
-                  <span className={styles.dossierPillarsDot} />
-                  <span>{language === "en" ? "Core Engineering Pillars" : "Pilares de Especialización"}</span>
-                </div>
-
-                <div className={styles.dossierPillarsGrid}>
-                  {t.about.pillars.map((pillar, idx) => (
-                    <div key={idx} className={styles.dossierPillarCard} data-gsap="feature-card">
-                      <div className={styles.dossierPillarHeader}>
-                        <span className={styles.dossierPillarNum}>0{idx + 1}</span>
-                        <div className={styles.dossierPillarIconBox}>
-                          {idx === 0 && <Code2 size={22} className="text-blue-600" />}
-                          {idx === 1 && <Brain size={22} className="text-indigo-600" />}
-                          {idx === 2 && <Workflow size={22} className="text-purple-600" />}
-                          {idx === 3 && <Layers size={22} className="text-emerald-600" />}
-                        </div>
-                      </div>
-                      <h4 className={styles.dossierPillarTitle}>{pillar.title}</h4>
-                      <p className={styles.dossierPillarDesc}>{pillar.desc}</p>
+              {/* 4 Core Pillars Grid */}
+              <div className={styles.accountingGrid} data-gsap="card-grid">
+                {t.about.pillars.map((pillar, idx) => (
+                  <div key={idx} className={styles.accountingItem} data-gsap="feature-card">
+                    <div className={styles.accountingItemIcon}>
+                      {idx === 0 && <Code2 size={24} />}
+                      {idx === 1 && <Brain size={24} />}
+                      {idx === 2 && <Workflow size={24} />}
+                      {idx === 3 && <Layers size={24} />}
                     </div>
-                  ))}
-                </div>
+                    <h4 className={styles.accountingItemTitle}>{pillar.title}</h4>
+                    <p className={styles.accountingItemDesc}>{pillar.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </ScrollReveal>
@@ -311,13 +274,24 @@ export default function Home() {
       {/* ====================================================================
           SERVICES SECTION (Engineering Console & Direct Service Cards)
          ==================================================================== */}
-      <section id="servicios" className={styles.servicesModdoSection}>
+      <section
+        id="servicios"
+        className={styles.servicesModdoSection}
+        aria-labelledby="services-heading"
+      >
         <div className={styles.servicesModdoContainer}>
           <div className={styles.servicesModdoHeader}>
-            <h2 className={styles.servicesModdoTitle} data-gsap="heading">
+            <span className={styles.sectionEyebrowBadge}>
+              <span className={styles.eyebrowDot} />
+              {t.services.eyebrow}
+            </span>
+            <h2
+              id="services-heading"
+              className={styles.servicesModdoTitle}
+              data-gsap="heading"
+            >
               {t.services.heading}
             </h2>
-            <p className={styles.servicesModdoEyebrow}>{t.services.eyebrow}</p>
           </div>
 
           <div className={styles.servicesModdoStage}>
@@ -399,158 +373,69 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          CASES / WORK SECTION (Sleek Browser Chrome, Light Palette & High Impact)
+          CASES / WORK SECTION (Selected Production Projects Showcase)
          ==================================================================== */}
-      <section id="casos" className={styles.casesModdoSection}>
+      <section
+        id="casos"
+        className={styles.casesModdoSection}
+        aria-labelledby="cases-heading"
+      >
         <div className={styles.casesModdoContainer}>
           <div className={styles.casesModdoHeader}>
-            <div className={styles.casesModdoEyebrowWrap}>
-              <span className={styles.casesEyebrowDot} />
-              <span className={styles.casesModdoEyebrow}>{t.projects.eyebrow}</span>
-            </div>
-            <h2 className={styles.casesModdoTitle} data-gsap="heading">
+            <span className={styles.sectionEyebrowBadge}>
+              <span className={styles.eyebrowDot} />
+              {t.projects.eyebrow}
+            </span>
+            <h2
+              id="cases-heading"
+              className={styles.casesModdoTitle}
+              data-gsap="heading"
+            >
               {t.projects.heading}
             </h2>
-            <p className={styles.casesModdoSub}>
+            <p className={styles.casesModdoSubheading}>
               {t.projects.subheading}
             </p>
           </div>
 
           <div className={styles.casesGridModdo}>
-            {/* Project 01: ahorratiempo.pe */}
-            <div data-gsap="project-card">
-              <ScrollReveal delay={100}>
-                <a
-                  href="https://ahorratiempo.pe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.caseCardModdo}
-                >
-                  <div className={styles.caseImageFrame}>
-                    <div className={styles.caseBrowserBar}>
-                      <div className={styles.browserDots}>
-                        <span className={styles.dotRed} />
-                        <span className={styles.dotYellow} />
-                        <span className={styles.dotGreen} />
+            {t.projects.items.map((item, idx) => {
+              const meta = PROJECTS_META[idx];
+              if (!meta) return null;
+              return (
+                <div key={idx} data-gsap="project-card">
+                  <ScrollReveal delay={100 + (idx % 3) * 100}>
+                    <a
+                      href={meta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.caseCardModdo}
+                      aria-label={`${item.title} — ${item.tag}`}
+                    >
+                      <div className={styles.caseImageFrame}>
+                        <img
+                          src={meta.image}
+                          alt={meta.alt}
+                          loading="lazy"
+                        />
                       </div>
-                      <span className={styles.browserUrl}>ahorratiempo.pe</span>
-                    </div>
-                    <img
-                      src="/images/projects/ahorratiempo-preview.webp"
-                      alt="ahorratiempo.pe - Plataforma SaaS con IA por Voz"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className={styles.caseMetaContent}>
-                    <span className={styles.casePillTagBlue}>
-                      {t.projects.items[0].tag}
-                    </span>
-                    <h3 className={styles.caseItemTitle}>{t.projects.items[0].title}</h3>
-                    <p className={styles.caseItemSub}>{t.projects.items[0].desc}</p>
-                    <div className={styles.caseActionRow}>
-                      <span className={styles.caseLiveStatus}>
-                        <span className={styles.livePulseDot} />
-                        {language === "en" ? "Live in Production" : "En Producción"}
-                      </span>
-                      <span className={styles.caseActionBtn}>
-                        <span>{language === "en" ? "Explore SaaS" : "Explorar SaaS"}</span>
-                        <ArrowUpRight size={18} />
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </ScrollReveal>
-            </div>
-
-            {/* Project 02: Safety Helmet IoT */}
-            <div data-gsap="project-card">
-              <ScrollReveal delay={200}>
-                <a
-                  href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.caseCardModdo}
-                >
-                  <div className={styles.caseImageFrame}>
-                    <div className={styles.caseBrowserBar}>
-                      <div className={styles.browserDots}>
-                        <span className={styles.dotRed} />
-                        <span className={styles.dotYellow} />
-                        <span className={styles.dotGreen} />
+                      <div className={styles.caseMetaRow}>
+                        <div className={styles.caseMetaText}>
+                          <span className={styles.caseItemTag}>
+                            {item.tag}
+                          </span>
+                          <h3 className={styles.caseItemTitle}>{item.title}</h3>
+                          <p className={styles.caseItemSub}>{item.desc}</p>
+                        </div>
+                        <div className={styles.caseArrowBtn} aria-hidden="true">
+                          <ArrowUpRight size={22} />
+                        </div>
                       </div>
-                      <span className={styles.browserUrl}>github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT</span>
-                    </div>
-                    <img
-                      src="/images/projects/safety-helmet-preview.webp"
-                      alt="Safety Helmet IoT - Telemetría y Sensores"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className={styles.caseMetaContent}>
-                    <span className={styles.casePillTagIndigo}>
-                      {t.projects.items[3].tag}
-                    </span>
-                    <h3 className={styles.caseItemTitle}>{t.projects.items[3].title}</h3>
-                    <p className={styles.caseItemSub}>{t.projects.items[3].desc}</p>
-                    <div className={styles.caseActionRow}>
-                      <span className={styles.caseLiveStatus}>
-                        <span className={styles.livePulseDotGreen} />
-                        {language === "en" ? "Hardware + Cloud" : "Hardware + Cloud"}
-                      </span>
-                      <span className={styles.caseActionBtn}>
-                        <span>{language === "en" ? "View Code" : "Ver Código"}</span>
-                        <ArrowUpRight size={18} />
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </ScrollReveal>
-            </div>
-
-            {/* Project 03: App Fiscalización Digital Joya */}
-            <div data-gsap="project-card">
-              <ScrollReveal delay={300}>
-                <a
-                  href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.caseCardModdo}
-                >
-                  <div className={styles.caseImageFrame}>
-                    <div className={styles.caseBrowserBar}>
-                      <div className={styles.browserDots}>
-                        <span className={styles.dotRed} />
-                        <span className={styles.dotYellow} />
-                        <span className={styles.dotGreen} />
-                      </div>
-                      <span className={styles.browserUrl}>fiscalizacion.joya.gob.pe</span>
-                    </div>
-                    <img
-                      src="/images/projects/fiscalizacion-joya-preview.webp"
-                      alt="App Fiscalización Digital Joya"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className={styles.caseMetaContent}>
-                    <span className={styles.casePillTagEmerald}>
-                      {t.projects.items[5].tag}
-                    </span>
-                    <h3 className={styles.caseItemTitle}>{t.projects.items[5].title}</h3>
-                    <p className={styles.caseItemSub}>{t.projects.items[5].desc}</p>
-                    <div className={styles.caseActionRow}>
-                      <span className={styles.caseLiveStatus}>
-                        <span className={styles.livePulseDotGreen} />
-                        {language === "en" ? "Offline-First Sync" : "Sincronización Offline"}
-                      </span>
-                      <span className={styles.caseActionBtn}>
-                        <span>{language === "en" ? "View Case" : "Ver Caso"}</span>
-                        <ArrowUpRight size={18} />
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </ScrollReveal>
-            </div>
+                    </a>
+                  </ScrollReveal>
+                </div>
+              );
+            })}
           </div>
 
           {/* See All Work CTA Button */}
@@ -560,35 +445,37 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.seeAllWorkBtn}
+              aria-label={language === "en" ? "View all repositories on GitHub" : "Ver todos los repositorios en GitHub"}
             >
-              <GithubIcon size={20} />
+              <ArrowUpRight size={20} aria-hidden="true" />
               <span>{language === "en" ? "View More Projects on GitHub" : "Ver Más Proyectos en GitHub"}</span>
-              <ArrowUpRight size={18} />
             </a>
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          PROCESS SECTION (Engineering Methodology & Delivery Rigor)
+          PROCESS SECTION (Engineering Phases)
          ==================================================================== */}
-      <section id="proceso" className={styles.processModdoSection}>
-        <div className={styles.processModdoContainer}>
+      <section
+        id="proceso"
+        className={styles.processModdoSection}
+        aria-labelledby="process-heading"
+      >
+        <div className={styles.sectionContainer} style={{ padding: "0 1rem", position: "relative", zIndex: 2 }}>
           <ScrollReveal>
-            <div className={styles.processHeader}>
-              <div className={styles.processEyebrowWrap}>
-                <span className={styles.processEyebrowDot} />
-                <span className={styles.processEyebrow}>
-                  {language === "en" ? "Engineering Methodology" : "Metodología de Desarrollo"}
-                </span>
-              </div>
-              <h2 className={styles.processTitleMain}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionEyebrowBadge}>
+                <span className={styles.eyebrowDot} />
+                {language === "en" ? "Engineering Methodology" : "Metodología de Desarrollo"}
+              </span>
+              <h2 id="process-heading" className={styles.sectionTitle}>
                 {language === "en" ? "From Architecture to Production with Measurable Impact" : "De la Arquitectura a Producción con Impacto Medible"}
               </h2>
-              <p className={styles.processSubtitle}>
+              <p className={styles.sectionSubtitle}>
                 {language === "en"
-                  ? "A rigorous 3-stage delivery pipeline ensuring rock-solid stability, typed clean code, and zero shortcuts."
-                  : "Un proceso de 3 fases estructurado para construir software de alto rendimiento, código fuertemente tipado y despliegues estables sin magia negra."}
+                  ? "A rigorous 3-stage delivery pipeline ensuring rock-solid stability, zero shortcuts, and fast time-to-market."
+                  : "Un proceso de 3 fases estructurado para construir software de alto rendimiento, código tipado y despliegues estables sin magia negra."}
               </p>
             </div>
           </ScrollReveal>
@@ -597,170 +484,163 @@ export default function Home() {
           <div className={styles.processPipelineFlow}>
             <span className={styles.processPipelineStep}>
               <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-              <span>01. {language === "en" ? "Discovery & Architecture" : "Arquitectura & Modelado"}</span>
+              <span>01. {language === "en" ? "Discovery & Architecture" : "Escuchar & Modelar"}</span>
             </span>
             <span className={styles.processPipelineArrow}>→</span>
             <span className={styles.processPipelineStep}>
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-              <span>02. {language === "en" ? "Clean Code & Testing" : "Construcción & Validación"}</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
+              <span>02. {language === "en" ? "Clean Code & Testing" : "Construir & Validar"}</span>
             </span>
             <span className={styles.processPipelineArrow}>→</span>
             <span className={styles.processPipelineStep}>
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span>03. {language === "en" ? "Deploy & Observability" : "Despliegue & Observabilidad"}</span>
+              <span>03. {language === "en" ? "Deploy & Observability" : "Desplegar & Medir"}</span>
             </span>
           </div>
 
           <div className={styles.processGrid}>
-            {/* Phase 01: Blue Card */}
+            {/* Paso 01: Blue Card */}
             <ScrollReveal delay={100}>
               <div className={`${styles.processCardEnhanced} ${styles.processCardBlue}`}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>01</span>
                   <span className={styles.processStepTag}>
-                    {language === "en" ? "PHASE 01 · ARCHITECTURE" : "FASE 01 · ARQUITECTURA"}
+                    {language === "en" ? "PHASE 01 · ARCHITECTURE" : "FASE 01 · ENTENDER"}
                   </span>
                 </div>
-
-                <div className={styles.processIconAndTitle}>
-                  <div className={styles.processIconBoxBlue}>
-                    <Search size={28} />
-                  </div>
-                  <div>
-                    <h3 className={styles.processTitle}>
-                      {language === "en" ? "Listen & Model Architecture" : "Escuchar & Modelar Arquitectura"}
-                    </h3>
-                  </div>
+                <div className={styles.processIconBoxBlue}>
+                  <Search size={30} />
+                </div>
+                <div>
+                  <h3 className={styles.processTitle}>
+                    {language === "en" ? "Listen & Model" : "Escuchar y Modelar"}
+                  </h3>
+                  <p className={styles.processDesc}>
+                    {language === "en"
+                      ? "Deep dive into real business needs, data structures, and user constraints before writing code."
+                      : "Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio. No toco una línea de código hasta tener clara la arquitectura y la meta."}
+                  </p>
                 </div>
 
-                <p className={styles.processDesc}>
-                  {language === "en"
-                    ? "Deep dive into real business needs, data structures, and user constraints before writing code. Defining relational and vector schemas ready for scale."
-                    : "Analizo las restricciones del negocio, los flujos de datos y la escalabilidad requerida. Defino esquemas relacionales y vectoriales antes de escribir la primera línea de código."}
-                </p>
-
-                {/* Clean Branded Deliverables Checklist (Replaces squished micro-code) */}
-                <div className={styles.processDeliverablesBox}>
-                  <div className={styles.processDeliverablesHeader}>
-                    <span>{language === "en" ? "Phase Deliverables" : "Entregables Clave"}</span>
-                    <span className={styles.processDeliverablesBadge}>PostgreSQL · pgvector</span>
+                {/* Visual Architecture Schema Widget */}
+                <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col gap-2.5 font-mono text-xs text-slate-800 shadow-inner">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200/80 pb-2">
+                    <span>Architecture Blueprint</span>
+                    <span className="text-blue-600 font-extrabold flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      Schema v2.4
+                    </span>
                   </div>
-                  <ul className={styles.processDeliverablesList}>
-                    <li>
-                      <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Data modeling & hybrid vector schemas" : "Modelado de datos y esquemas vectoriales híbridos"}</span>
-                    </li>
-                    <li>
-                      <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Stack selection (React, Python, Cloudflare Edge)" : "Selección de stack técnico óptimo (React, Python, Cloudflare)"}</span>
-                    </li>
-                    <li>
-                      <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Clear API contracts & AI feasibility blueprint" : "Definición clara de APIs y viabilidad de IA"}</span>
-                    </li>
-                  </ul>
+                  <div className="flex items-center gap-2 text-slate-700 text-xs">
+                    <span className="font-bold text-slate-900">React 18</span>
+                    <span className="text-blue-500">→</span>
+                    <span className="font-bold text-blue-600">Cloudflare Edge</span>
+                    <span className="text-blue-500">→</span>
+                    <span className="font-bold text-slate-900">Python API</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 pt-1 text-[11px]">
+                    <span className="px-2 py-0.5 rounded-md bg-blue-100 text-blue-700 font-bold">PostgreSQL</span>
+                    <span className="px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-700 font-bold">pgvector</span>
+                    <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold">Auditable</span>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Phase 02: Indigo / Purple Card */}
+            {/* Paso 02: Purple Card */}
             <ScrollReveal delay={200}>
               <div className={`${styles.processCardEnhanced} ${styles.processCardPurple}`}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>02</span>
                   <span className={styles.processStepTag}>
-                    {language === "en" ? "PHASE 02 · BUILD & VALIDATE" : "FASE 02 · CONSTRUCCIÓN"}
+                    {language === "en" ? "PHASE 02 · BUILD & TEST" : "FASE 02 · CONSTRUIR"}
                   </span>
                 </div>
-
-                <div className={styles.processIconAndTitle}>
-                  <div className={styles.processIconBoxPurple}>
-                    <Terminal size={28} />
-                  </div>
-                  <div>
-                    <h3 className={styles.processTitle}>
-                      {language === "en" ? "Typed Code & Continuous Testing" : "Construcción Tipada & Validación"}
-                    </h3>
-                  </div>
+                <div className={styles.processIconBoxPurple}>
+                  <Terminal size={30} />
+                </div>
+                <div>
+                  <h3 className={styles.processTitle}>
+                    {language === "en" ? "Build & Validate" : "Construir & Validar"}
+                  </h3>
+                  <p className={styles.processDesc}>
+                    {language === "en"
+                      ? "Iterative development with clean, typed code in TypeScript and Python, delivering testable software from week one."
+                      : "Desarrollo con entregas continuas para que puedas probar el sistema desde la primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos raros."}
+                  </p>
                 </div>
 
-                <p className={styles.processDesc}>
-                  {language === "en"
-                    ? "Iterative development with clean, strongly typed code in TypeScript and Python. Developing hybrid RAG pipelines with testable software every week."
-                    : "Desarrollo iterativo con entregas continuas para probar el software desde la primera semana. Código fuertemente tipado en TypeScript y Python, con pipelines RAG híbridos testeados."}
-                </p>
-
-                {/* Clean Branded Deliverables Checklist */}
-                <div className={styles.processDeliverablesBox}>
-                  <div className={styles.processDeliverablesHeader}>
-                    <span>{language === "en" ? "Quality Standards" : "Estándares de Calidad"}</span>
-                    <span className={styles.processDeliverablesBadge}>100% Type-Safe</span>
+                {/* Visual Code IDE Widget */}
+                <div className="mt-4 p-4 rounded-2xl bg-[#0F1117] text-white font-mono text-xs shadow-inner flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
+                      <span className="text-[11px] text-slate-400 ml-1.5">recommender.ts</span>
+                    </div>
+                    <span className="text-[10px] text-emerald-400 font-bold">✓ TypeChecked</span>
                   </div>
-                  <ul className={styles.processDeliverablesList}>
-                    <li>
-                      <CheckCircle2 size={16} className="text-indigo-600 flex-shrink-0" />
-                      <span>{language === "en" ? "100% typed code (TypeScript + Python) without shortcuts" : "Código fuertemente tipado en TypeScript y Python sin atajos"}</span>
-                    </li>
-                    <li>
-                      <CheckCircle2 size={16} className="text-indigo-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Hybrid RAG pipelines & recommender validation" : "Pipelines RAG híbridos y recomendadores validados"}</span>
-                    </li>
-                    <li>
-                      <CheckCircle2 size={16} className="text-indigo-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Automated CI/CD & weekly functional deliverables" : "CI/CD automatizado y demos funcionales semanales"}</span>
-                    </li>
-                  </ul>
+                  <div className="text-[11px] leading-relaxed text-slate-300">
+                    <span className="text-purple-400">export async function</span> <span className="text-blue-400">rankFeed</span>() &#123;<br />
+                    &nbsp;&nbsp;<span className="text-slate-400">const</span> scored = <span className="text-purple-400">await</span> ai.rank(user);<br />
+                    &nbsp;&nbsp;<span className="text-purple-400">return</span> scored.filter(p =&gt; p.score &gt; 0.95);<br />
+                    &#125;
+                  </div>
+                  <div className="flex items-center justify-between pt-1.5 border-t border-white/10 text-[10px] text-slate-400">
+                    <span className="text-emerald-400 font-bold flex items-center gap-1">✓ 100% Tests Pass</span>
+                    <span className="text-slate-300 font-semibold">CI/CD Active</span>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Phase 03: Emerald Card */}
+            {/* Paso 03: Emerald Card */}
             <ScrollReveal delay={300}>
               <div className={`${styles.processCardEnhanced} ${styles.processCardEmerald}`}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>03</span>
                   <span className={styles.processStepTag}>
-                    {language === "en" ? "PHASE 03 · DEPLOY & SCALE" : "FASE 03 · PRODUCCIÓN"}
+                    {language === "en" ? "PHASE 03 · DEPLOY & SCALE" : "FASE 03 · DESPLEGAR"}
                   </span>
                 </div>
-
-                <div className={styles.processIconAndTitle}>
-                  <div className={styles.processIconBoxEmerald}>
-                    <Rocket size={28} />
-                  </div>
-                  <div>
-                    <h3 className={styles.processTitle}>
-                      {language === "en" ? "Cloud Deploy & Live Observability" : "Despliegue Cloud & Observabilidad"}
-                    </h3>
-                  </div>
+                <div className={styles.processIconBoxEmerald}>
+                  <Rocket size={30} />
+                </div>
+                <div>
+                  <h3 className={styles.processTitle}>
+                    {language === "en" ? "Deploy & Measure" : "Poner en Marcha & Medir"}
+                  </h3>
+                  <p className={styles.processDesc}>
+                    {language === "en"
+                      ? "Production cloud deployments with real-time observability, documentation, and continuous handover."
+                      : "Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego documentación y te acompaño para que tu equipo opere con total tranquilidad."}
+                  </p>
                 </div>
 
-                <p className={styles.processDesc}>
-                  {language === "en"
-                    ? "Production cloud deployments with ultra-low latency, real-time observability, clear technical documentation, and continuous handover."
-                    : "Puesta en producción en infraestructuras cloud resilientes con latencia ultra-baja. Monitoreo en tiempo real, documentación técnica clara y acompañamiento continuo."}
-                </p>
-
-                {/* Clean Branded Deliverables Checklist */}
-                <div className={styles.processDeliverablesBox}>
-                  <div className={styles.processDeliverablesHeader}>
-                    <span>{language === "en" ? "Operational SLA" : "Garantía & Métricas"}</span>
-                    <span className={styles.processDeliverablesBadgeGreen}>99.99% Uptime · 14ms</span>
+                {/* Visual Observability Console Widget */}
+                <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col gap-2.5 font-mono text-xs text-slate-800 shadow-inner">
+                  <div className="flex items-center justify-between text-[11px] font-bold pb-2 border-b border-slate-200/80">
+                    <span className="flex items-center gap-1.5 text-emerald-700 font-extrabold">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
+                      Live Production
+                    </span>
+                    <span className="text-slate-500">Cloudflare Edge</span>
                   </div>
-                  <ul className={styles.processDeliverablesList}>
-                    <li>
-                      <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Zero-downtime deployment on global cloud edge" : "Despliegue con cero tiempo de inactividad en el edge"}</span>
-                    </li>
-                    <li>
-                      <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Real-time error observability & performance telemetry" : "Observabilidad en tiempo real de errores y consumo"}</span>
-                    </li>
-                    <li>
-                      <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0" />
-                      <span>{language === "en" ? "Comprehensive docs, code handoff & post-launch support" : "Documentación completa y acompañamiento post-lanzamiento"}</span>
-                    </li>
-                  </ul>
+                  <div className="grid grid-cols-2 gap-2 text-center pt-0.5">
+                    <div className="p-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                      <div className="text-[10px] text-slate-500 font-bold uppercase">Latency</div>
+                      <div className="text-base font-extrabold text-slate-900">14 ms</div>
+                    </div>
+                    <div className="p-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                      <div className="text-[10px] text-slate-500 font-bold uppercase">Uptime</div>
+                      <div className="text-base font-extrabold text-emerald-600">99.99%</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between pt-1 text-[11px] text-slate-600 font-medium">
+                    <span>Zero-Downtime Deploy</span>
+                    <span className="text-emerald-700 font-bold">Auto-Scaling</span>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -771,11 +651,20 @@ export default function Home() {
       {/* ====================================================================
           WHY US SECTION (Professional Engineering Pillars)
          ==================================================================== */}
-      <section id="whyus" className={styles.whyUsSection}>
+      <section
+        id="whyus"
+        className={styles.whyUsSection}
+        aria-labelledby="whyus-heading"
+      >
         <div className={styles.whyUsContainer}>
           <div className={styles.whyUsHeader}>
-            <h2 className={styles.whyUsTitle}>{t.why.heading}</h2>
-            <p className={styles.whyUsEyebrow}>{t.why.eyebrow}</p>
+            <span className={styles.sectionEyebrowBadge}>
+              <span className={styles.eyebrowDot} />
+              {t.why.eyebrow}
+            </span>
+            <h2 id="whyus-heading" className={styles.whyUsTitle}>
+              {t.why.heading}
+            </h2>
           </div>
 
           <div className={styles.whyUsGridModern}>
@@ -827,14 +716,21 @@ export default function Home() {
       {/* ====================================================================
           CTA SECTION (Moddo Charcoal Canvas, Hero Contact Showcase & Action Bar)
          ==================================================================== */}
-      <section id="contacto" className={styles.ctaModdoSection}>
+      <section
+        id="contacto"
+        className={styles.ctaModdoSection}
+        aria-labelledby="contact-heading"
+      >
+        <h2 id="contact-heading" className="sr-only">
+          {language === "en" ? "Contact & Direct Channels" : "Contacto y Canales Directos"}
+        </h2>
         <div className={styles.ctaModdoContainer}>
           <ScrollReveal>
             <div className={styles.ctaStageWrap}>
               <ContactBillboard />
 
               {/* Rotating Badge Floating on the corner */}
-              <div className={styles.ctaBadgeWrap}>
+              <div className={styles.ctaBadgeWrap} aria-hidden="true">
                 <RotatingBadge size={145} text={t.contact.badgeText} />
               </div>
             </div>
@@ -847,8 +743,9 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.ctaPillBtn}
+              aria-label={language === "en" ? "Chat directly with Dennys on WhatsApp" : "Conversar directamente con Dennys por WhatsApp"}
             >
-              <span>💬</span>
+              <span aria-hidden="true">💬</span>
               <span>{language === "en" ? "Chat on WhatsApp" : "Conversar por WhatsApp"}</span>
             </a>
 
@@ -856,8 +753,9 @@ export default function Home() {
               <a
                 href="mailto:dennys.marquez.dev@gmail.com"
                 className={styles.ctaAltLink}
+                aria-label={t.hero.emailAria}
               >
-                <Mail size={16} />
+                <Mail size={16} aria-hidden="true" />
                 <span>dennys.marquez.dev@gmail.com</span>
               </a>
               <a
@@ -865,8 +763,9 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaAltLink}
+                aria-label="GitHub Profile — dennys3mf"
               >
-                <GithubIcon size={16} />
+                <GithubIcon size={16} aria-hidden="true" />
                 <span>github.com/dennys3mf</span>
               </a>
               <a
@@ -874,8 +773,9 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaAltLink}
+                aria-label="LinkedIn Profile — Dennys Gabriel Marquez Flores"
               >
-                <ArrowUpRight size={16} />
+                <ArrowUpRight size={16} aria-hidden="true" />
                 <span>LinkedIn</span>
               </a>
             </div>
@@ -886,7 +786,12 @@ export default function Home() {
       {/* ====================================================================
           FOOTER (Moddo Clean Studio Bottom with Floating Badges Strip)
          ==================================================================== */}
-      <footer id="footer" className={styles.footerModdoWrapper}>
+      <footer
+        id="footer"
+        className={styles.footerModdoWrapper}
+        role="contentinfo"
+        aria-label={language === "en" ? "Footer" : "Pie de página"}
+      >
         <div className={styles.footerModdoContainer}>
           <div className={styles.footerModdoTop}>
             {/* Secondary Logo */}
@@ -954,5 +859,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </>
   );
 }
