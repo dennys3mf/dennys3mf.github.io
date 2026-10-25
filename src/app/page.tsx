@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import ScrollReveal from "../components/ScrollReveal";
@@ -16,6 +17,8 @@ import { GithubIcon } from "../components/Icons";
 import {
   ArrowUpRight,
   Mail,
+  Copy,
+  Check,
   Search,
   Terminal,
   Rocket,
@@ -27,8 +30,71 @@ import {
   Coins,
 } from "lucide-react";
 
+interface ProjectItemData {
+  index: number;
+  category: "ai-web" | "mobile" | "cloud-systems";
+  image: string;
+  href: string;
+}
+
+const ALL_PROJECTS: ProjectItemData[] = [
+  {
+    index: 0,
+    category: "ai-web",
+    image: "/images/projects/ahorratiempo-preview.webp",
+    href: "https://ahorratiempo.pe",
+  },
+  {
+    index: 1,
+    category: "cloud-systems",
+    image: "/images/projects/controla-servilex-preview.webp",
+    href: "https://github.com/dennys3mf",
+  },
+  {
+    index: 2,
+    category: "mobile",
+    image: "/images/projects/chansa-app-preview.webp",
+    href: "https://github.com/dennys3mf",
+  },
+  {
+    index: 3,
+    category: "cloud-systems",
+    image: "/images/projects/safety-helmet-preview.webp",
+    href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
+  },
+  {
+    index: 4,
+    category: "cloud-systems",
+    image: "/images/projects/fintech-sunat-preview.webp",
+    href: "https://github.com/dennys3mf",
+  },
+  {
+    index: 5,
+    category: "mobile",
+    image: "/images/projects/fiscalizacion-joya-preview.webp",
+    href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
+  },
+];
+
 export default function Home() {
   const { t, language } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<"all" | "ai-web" | "mobile" | "cloud-systems">("all");
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("dennys.marquez.dev@gmail.com");
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2200);
+    } catch {
+      // fallback
+    }
+  };
+
+  const filteredProjects = ALL_PROJECTS.filter((proj) => {
+    if (activeCategory === "all") return true;
+    return proj.category === activeCategory;
+  });
 
   return (
     <main className={styles.main}>
@@ -108,14 +174,30 @@ export default function Home() {
 
           <div className={styles.heroMetaActions}>
             <LanguageToggle variant="segmented" />
-            <a
-              href="mailto:dennys.marquez.dev@gmail.com"
-              className={styles.heroContactLink}
-              aria-label={t.hero.emailAria}
-            >
-              <Mail size={16} />
-              <span>dennys.marquez.dev@gmail.com</span>
-            </a>
+            <div className="inline-flex items-center gap-1.5">
+              <a
+                href="mailto:dennys.marquez.dev@gmail.com"
+                className={styles.heroContactLink}
+                aria-label={t.hero.emailAria}
+              >
+                <Mail size={16} />
+                <span>dennys.marquez.dev@gmail.com</span>
+              </a>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-600 border border-slate-200/80 transition-all duration-200 shadow-sm cursor-pointer"
+                title={t.projects.copyEmail}
+                aria-label={t.projects.copyEmail}
+              >
+                {copiedEmail ? <Check size={14} className="text-emerald-600" /> : <Copy size={13} />}
+                {copiedEmail && (
+                  <span className="absolute -bottom-8 right-0 bg-slate-900 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-lg whitespace-nowrap z-50 animate-in fade-in">
+                    {t.projects.copiedEmail}
+                  </span>
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -319,110 +401,112 @@ export default function Home() {
             <p className="text-slate-600 text-lg max-w-2xl mt-2 font-medium">
               {t.projects.subheading}
             </p>
+
+            {/* Interactive Category Filter Pills */}
+            <div
+              className="flex flex-wrap items-center gap-2 mt-6"
+              role="tablist"
+              aria-label="Filtrar proyectos"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeCategory === "all"}
+                onClick={() => setActiveCategory("all")}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
+                  activeCategory === "all"
+                    ? "bg-slate-900 text-white border-slate-900 shadow-md"
+                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
+                }`}
+              >
+                {t.projects.categories.all} ({ALL_PROJECTS.length})
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeCategory === "ai-web"}
+                onClick={() => setActiveCategory("ai-web")}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
+                  activeCategory === "ai-web"
+                    ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
+                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
+                }`}
+              >
+                {t.projects.categories.aiWeb}
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeCategory === "mobile"}
+                onClick={() => setActiveCategory("mobile")}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
+                  activeCategory === "mobile"
+                    ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
+                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
+                }`}
+              >
+                {t.projects.categories.mobile}
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeCategory === "cloud-systems"}
+                onClick={() => setActiveCategory("cloud-systems")}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
+                  activeCategory === "cloud-systems"
+                    ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
+                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
+                }`}
+              >
+                {t.projects.categories.cloudSystems}
+              </button>
+            </div>
           </div>
 
           <div className={styles.casesGridModdo}>
-            {/* Project 01: ahorratiempo.pe */}
-            <div data-gsap="project-card">
-              <ScrollReveal delay={100}>
-                <a
-                  href="https://ahorratiempo.pe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.caseCardModdo}
-                >
-                  <div className={styles.caseImageFrame}>
-                    <Image
-                      src="/images/projects/ahorratiempo-preview.webp"
-                      alt="ahorratiempo.pe - Plataforma SaaS con IA por Voz"
-                      width={1200}
-                      height={825}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className={styles.caseMetaRow}>
-                    <div className={styles.caseMetaText}>
-                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
-                        {t.projects.items[0].tag}
-                      </span>
-                      <h3 className={styles.caseItemTitle}>{t.projects.items[0].title}</h3>
-                      <p className={styles.caseItemSub}>{t.projects.items[0].desc}</p>
-                    </div>
-                    <div className={styles.caseArrowBtn}>
-                      <ArrowUpRight size={22} />
-                    </div>
-                  </div>
-                </a>
-              </ScrollReveal>
-            </div>
-
-            {/* Project 02: Safety Helmet IoT */}
-            <div data-gsap="project-card">
-              <ScrollReveal delay={200}>
-                <a
-                  href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.caseCardModdo}
-                >
-                  <div className={styles.caseImageFrame}>
-                    <Image
-                      src="/images/projects/safety-helmet-preview.webp"
-                      alt="Safety Helmet IoT - Telemetría y Sensores"
-                      width={1200}
-                      height={825}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className={styles.caseMetaRow}>
-                    <div className={styles.caseMetaText}>
-                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
-                        {t.projects.items[3].tag}
-                      </span>
-                      <h3 className={styles.caseItemTitle}>{t.projects.items[3].title}</h3>
-                      <p className={styles.caseItemSub}>{t.projects.items[3].desc}</p>
-                    </div>
-                    <div className={styles.caseArrowBtn}>
-                      <ArrowUpRight size={22} />
-                    </div>
-                  </div>
-                </a>
-              </ScrollReveal>
-            </div>
-
-            {/* Project 03: App Fiscalización Digital Joya */}
-            <div data-gsap="project-card">
-              <ScrollReveal delay={300}>
-                <a
-                  href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.caseCardModdo}
-                >
-                  <div className={styles.caseImageFrame}>
-                    <Image
-                      src="/images/projects/fiscalizacion-joya-preview.webp"
-                      alt="App Fiscalización Digital Joya"
-                      width={1200}
-                      height={825}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className={styles.caseMetaRow}>
-                    <div className={styles.caseMetaText}>
-                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
-                        {t.projects.items[5].tag}
-                      </span>
-                      <h3 className={styles.caseItemTitle}>{t.projects.items[5].title}</h3>
-                      <p className={styles.caseItemSub}>{t.projects.items[5].desc}</p>
-                    </div>
-                    <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
-                      <ArrowUpRight size={22} />
-                    </div>
-                  </div>
-                </a>
-              </ScrollReveal>
-            </div>
+            {filteredProjects.map((proj, idx) => {
+              const item = t.projects.items[proj.index];
+              if (!item) return null;
+              return (
+                <div key={proj.index} data-gsap="project-card">
+                  <ScrollReveal delay={(idx % 3) * 100}>
+                    <a
+                      href={proj.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.caseCardModdo}
+                    >
+                      <div className={styles.caseImageFrame}>
+                        <Image
+                          src={proj.image}
+                          alt={item.title}
+                          width={1200}
+                          height={825}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className={styles.caseMetaRow}>
+                        <div className={styles.caseMetaText}>
+                          <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
+                            {item.tag}
+                          </span>
+                          <h3 className={styles.caseItemTitle}>{item.title}</h3>
+                          <p className={styles.caseItemSub}>{item.desc}</p>
+                          {item.metrics && (
+                            <span className="inline-block mt-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200/60">
+                              {item.metrics}
+                            </span>
+                          )}
+                        </div>
+                        <div className={styles.caseArrowBtn}>
+                          <ArrowUpRight size={22} />
+                        </div>
+                      </div>
+                    </a>
+                  </ScrollReveal>
+                </div>
+              );
+            })}
           </div>
 
           {/* See All Work CTA Button */}

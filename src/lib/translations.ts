@@ -49,6 +49,14 @@ export interface TranslationContent {
     subheading: string;
     statusLive: string;
     statusProduction: string;
+    categories: {
+      all: string;
+      aiWeb: string;
+      mobile: string;
+      cloudSystems: string;
+    };
+    copyEmail: string;
+    copiedEmail: string;
     items: Array<{
       tag: string;
       title: string;
@@ -166,6 +174,14 @@ export const translations: Record<Language, TranslationContent> = {
         "Explore real-world applications, SaaS platforms, and AI architectures built for global scalability.",
       statusLive: "Live in Production",
       statusProduction: "Enterprise Production",
+      categories: {
+        all: "All Projects",
+        aiWeb: "AI & Web SaaS",
+        mobile: "Mobile & Flutter",
+        cloudSystems: "Cloud & IoT Systems",
+      },
+      copyEmail: "Copy email",
+      copiedEmail: "Copied to clipboard!",
       items: [
         {
           tag: "AI Citizen SaaS · React 18 · Voice AI",
@@ -324,6 +340,14 @@ export const translations: Record<Language, TranslationContent> = {
         "Explora aplicaciones reales, plataformas SaaS y arquitecturas de IA diseñadas para escalar con impacto global.",
       statusLive: "Activo en Producción",
       statusProduction: "Producción Empresarial",
+      categories: {
+        all: "Todos",
+        aiWeb: "IA & Web SaaS",
+        mobile: "Móvil & Flutter",
+        cloudSystems: "Cloud & Sistemas IoT",
+      },
+      copyEmail: "Copiar correo",
+      copiedEmail: "¡Copiado al portapapeles!",
       items: [
         {
           tag: "SaaS Ciudadano con IA · React 18 · Voz",
