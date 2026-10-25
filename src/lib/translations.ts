@@ -57,6 +57,10 @@ export interface TranslationContent {
     };
     copyEmail: string;
     copiedEmail: string;
+    visitProject: string;
+    viewGithub: string;
+    projectCounter: string;
+    scrollHint: string;
     items: Array<{
       tag: string;
       title: string;
@@ -182,6 +186,10 @@ export const translations: Record<Language, TranslationContent> = {
       },
       copyEmail: "Copy email",
       copiedEmail: "Copied to clipboard!",
+      visitProject: "Visit Live Platform",
+      viewGithub: "View Source on GitHub",
+      projectCounter: "PROJECT",
+      scrollHint: "Scroll or use arrows to navigate in 3D",
       items: [
         {
           tag: "AI Citizen SaaS · React 18 · Voice AI",
@@ -348,6 +356,10 @@ export const translations: Record<Language, TranslationContent> = {
       },
       copyEmail: "Copiar correo",
       copiedEmail: "¡Copiado al portapapeles!",
+      visitProject: "Visitar Plataforma en Vivo",
+      viewGithub: "Ver Código en GitHub",
+      projectCounter: "PROYECTO",
+      scrollHint: "Haz scroll o usa las flechas para explorar en 3D",
       items: [
         {
           tag: "SaaS Ciudadano con IA · React 18 · Voz",

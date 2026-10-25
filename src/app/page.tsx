@@ -12,6 +12,7 @@ import LanguageToggle from "../components/LanguageToggle";
 import ThreeHeroSphere from "../components/ThreeHeroSphere";
 import GsapScrollOrchestrator from "../components/GsapScrollOrchestrator";
 import SmoothScroller from "../components/SmoothScroller";
+import VerticalDepthCarousel from "../components/VerticalDepthCarousel";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "../components/Icons";
 import {
@@ -30,55 +31,8 @@ import {
   Coins,
 } from "lucide-react";
 
-interface ProjectItemData {
-  index: number;
-  category: "ai-web" | "mobile" | "cloud-systems";
-  image: string;
-  href: string;
-}
-
-const ALL_PROJECTS: ProjectItemData[] = [
-  {
-    index: 0,
-    category: "ai-web",
-    image: "/images/projects/ahorratiempo-preview.webp",
-    href: "https://ahorratiempo.pe",
-  },
-  {
-    index: 1,
-    category: "cloud-systems",
-    image: "/images/projects/controla-servilex-preview.webp",
-    href: "https://github.com/dennys3mf",
-  },
-  {
-    index: 2,
-    category: "mobile",
-    image: "/images/projects/chansa-app-preview.webp",
-    href: "https://github.com/dennys3mf",
-  },
-  {
-    index: 3,
-    category: "cloud-systems",
-    image: "/images/projects/safety-helmet-preview.webp",
-    href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
-  },
-  {
-    index: 4,
-    category: "cloud-systems",
-    image: "/images/projects/fintech-sunat-preview.webp",
-    href: "https://github.com/dennys3mf",
-  },
-  {
-    index: 5,
-    category: "mobile",
-    image: "/images/projects/fiscalizacion-joya-preview.webp",
-    href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
-  },
-];
-
 export default function Home() {
   const { t, language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<"all" | "ai-web" | "mobile" | "cloud-systems">("all");
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = async () => {
@@ -90,11 +44,6 @@ export default function Home() {
       // fallback
     }
   };
-
-  const filteredProjects = ALL_PROJECTS.filter((proj) => {
-    if (activeCategory === "all") return true;
-    return proj.category === activeCategory;
-  });
 
   return (
     <main className={styles.main}>
@@ -389,140 +338,9 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          CASES / WORK SECTION (Moddo Visual Grid with Video-like Scrub)
+          CASES / WORK SECTION: 3D VERTICAL DEPTH CAROUSEL (From Depth into Focus)
          ==================================================================== */}
-      <section id="casos" className={styles.casesModdoSection}>
-        <div className={styles.casesModdoContainer}>
-          <div className={styles.casesModdoHeader}>
-            <p className={styles.casesModdoEyebrow}>{t.projects.eyebrow}</p>
-            <h2 className={styles.casesModdoTitle} data-gsap="heading">
-              {t.projects.heading}
-            </h2>
-            <p className="text-slate-600 text-lg max-w-2xl mt-2 font-medium">
-              {t.projects.subheading}
-            </p>
-
-            {/* Interactive Category Filter Pills */}
-            <div
-              className="flex flex-wrap items-center gap-2 mt-6"
-              role="tablist"
-              aria-label="Filtrar proyectos"
-            >
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeCategory === "all"}
-                onClick={() => setActiveCategory("all")}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
-                  activeCategory === "all"
-                    ? "bg-slate-900 text-white border-slate-900 shadow-md"
-                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
-                }`}
-              >
-                {t.projects.categories.all} ({ALL_PROJECTS.length})
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeCategory === "ai-web"}
-                onClick={() => setActiveCategory("ai-web")}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
-                  activeCategory === "ai-web"
-                    ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
-                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
-                }`}
-              >
-                {t.projects.categories.aiWeb}
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeCategory === "mobile"}
-                onClick={() => setActiveCategory("mobile")}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
-                  activeCategory === "mobile"
-                    ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
-                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
-                }`}
-              >
-                {t.projects.categories.mobile}
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeCategory === "cloud-systems"}
-                onClick={() => setActiveCategory("cloud-systems")}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 border cursor-pointer ${
-                  activeCategory === "cloud-systems"
-                    ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
-                    : "bg-white/90 text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900"
-                }`}
-              >
-                {t.projects.categories.cloudSystems}
-              </button>
-            </div>
-          </div>
-
-          <div className={styles.casesGridModdo}>
-            {filteredProjects.map((proj, idx) => {
-              const item = t.projects.items[proj.index];
-              if (!item) return null;
-              return (
-                <div key={proj.index} data-gsap="project-card">
-                  <ScrollReveal delay={(idx % 3) * 100}>
-                    <a
-                      href={proj.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.caseCardModdo}
-                    >
-                      <div className={styles.caseImageFrame}>
-                        <Image
-                          src={proj.image}
-                          alt={item.title}
-                          width={1200}
-                          height={825}
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className={styles.caseMetaRow}>
-                        <div className={styles.caseMetaText}>
-                          <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
-                            {item.tag}
-                          </span>
-                          <h3 className={styles.caseItemTitle}>{item.title}</h3>
-                          <p className={styles.caseItemSub}>{item.desc}</p>
-                          {item.metrics && (
-                            <span className="inline-block mt-2 text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200/60">
-                              {item.metrics}
-                            </span>
-                          )}
-                        </div>
-                        <div className={styles.caseArrowBtn}>
-                          <ArrowUpRight size={22} />
-                        </div>
-                      </div>
-                    </a>
-                  </ScrollReveal>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* See All Work CTA Button */}
-          <div className={styles.casesSeeAllWrap}>
-            <a
-              href="https://github.com/dennys3mf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.seeAllWorkBtn}
-            >
-              <ArrowUpRight size={20} />
-              <span>{language === "en" ? "View More Projects on GitHub" : "Ver Más Proyectos en GitHub"}</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      <VerticalDepthCarousel />
 
       {/* ====================================================================
           PROCESS SECTION (Engineering Phases)
