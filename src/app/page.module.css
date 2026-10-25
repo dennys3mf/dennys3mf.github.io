@@ -938,6 +938,271 @@
 /* ====================================================================
    MÁS SOBRE MÍ: MI FACETA CONTABLE (DEDICATED ACCOUNTING SECTION)
    ==================================================================== */
+/* ====================================================================
+   MÁS SOBRE MÍ: BRAND DOSSIER (2-COLUMN EDITORIAL TECH SPECIFICATION)
+   ==================================================================== */
+.brandDossierCard {
+  margin-top: 3.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.08);
+  border-radius: 32px;
+  padding: clamp(2rem, 3.5vw, 3.5rem);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.05);
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.brandDossierCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #4F6BFF 0%, #F7E02C 50%, #181616 100%);
+}
+
+.dossierNarrativeCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.dossierHeaderTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(79, 107, 255, 0.06);
+  border: 1px solid rgba(79, 107, 255, 0.16);
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.dossierIsotipo {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #181616;
+}
+
+.dossierIsotipoDot {
+  color: #4F6BFF;
+}
+
+.dossierTagText {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4F6BFF;
+}
+
+.dossierTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.dossierNarrativeCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dossierHighlightItem {
+  display: flex;
+  gap: 1.15rem;
+  padding: 1.4rem;
+  border-radius: 20px;
+  background: #F8F9FC;
+  border: 1px solid rgba(17, 20, 26, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dossierHighlightItem:hover {
+  transform: translateY(-2px);
+  border-color: rgba(79, 107, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(79, 107, 255, 0.06);
+}
+
+.dossierHighlightIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #4F6BFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.dossierHighlightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.dossierHighlightTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.dossierHighlightDesc {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #4B5563;
+  margin: 0;
+}
+
+.dossierFounderLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #4F6BFF;
+  background: rgba(79, 107, 255, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dossierFounderLink:hover {
+  background: #4F6BFF;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.dossierTechChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+.dossierChip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #313648;
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.dossierPillarsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dossierPillarsTopNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748B;
+}
+
+.dossierPillarsDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #F7E02C;
+}
+
+.dossierPillarsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dossierPillarCard {
+  background: #F8F9FC;
+  border: 1px solid rgba(17, 20, 26, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dossierPillarCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(79, 107, 255, 0.4);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  background: #FFFFFF;
+}
+
+.dossierPillarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dossierPillarNum {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #94A3B8;
+}
+
+.dossierPillarIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dossierPillarTitle {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.dossierPillarDesc {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: #4B5563;
+  margin: 0;
+}
+
 .accountingCard {
   margin-top: 3.5rem;
   background: var(--bg-card);
@@ -1998,6 +2263,39 @@
     padding: 2.5rem 1.15rem;
   }
 
+  .brandDossierCard {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.6rem 1.15rem;
+    margin-top: 2rem;
+    border-radius: 22px;
+  }
+
+  .dossierTitle {
+    font-size: 1.65rem;
+  }
+
+  .dossierHighlightItem {
+    padding: 1.15rem 1rem;
+    border-radius: 16px;
+    gap: 0.85rem;
+  }
+
+  .dossierHighlightDesc {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .dossierPillarCard {
+    padding: 1.25rem 1.1rem;
+    border-radius: 16px;
+  }
+
+  .dossierPillarDesc {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
   .accountingCard {
     padding: 1.6rem 1.15rem;
     margin-top: 2rem;
@@ -2010,7 +2308,7 @@
   }
 
   .accountingLead {
-    font-size: 0.92rem;
+    font-size: 1rem;
     line-height: 1.55;
   }
 
@@ -2029,7 +2327,7 @@
   }
 
   .accountingItemDesc {
-    font-size: 0.88rem;
+    font-size: 0.98rem;
     line-height: 1.5;
   }
 
@@ -2118,11 +2416,11 @@
 }
 
 /* ====================================================================
-   MODDO ABOUT SECTION (Cobalt Blue Canvas & Tactile Pop Badges)
+   MODDO ABOUT SECTION (Light Brand Canvas, Refined Hierarchy & Workstation)
    ==================================================================== */
 .aboutModdoSection {
-  background: linear-gradient(165deg, #2a2f63 0%, #313648 100%);
-  color: #ffffff;
+  background-color: var(--bg-page);
+  color: var(--text-main);
   padding: 6.5rem 3.5vw 5.5rem;
   position: relative;
   overflow: hidden;
@@ -2130,6 +2428,17 @@
   border-top-right-radius: clamp(40px, 6vw, 80px);
   margin-top: 0;
   z-index: 2;
+}
+
+.aboutModdoSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 10%;
+  width: 50%;
+  height: 380px;
+  background: radial-gradient(ellipse at center, rgba(79, 107, 255, 0.06) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 [data-theme='accessible'] .aboutModdoSection {
@@ -2160,17 +2469,44 @@
   gap: 0.85rem;
 }
 
-.aboutEyebrowRow {
+.aboutSimpleEyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 0.35rem 1rem 0.35rem 0.45rem;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: rgba(79, 107, 255, 0.08);
+  border: 1px solid rgba(79, 107, 255, 0.2);
+  padding: 0.38rem 1rem;
   border-radius: 9999px;
-  backdrop-filter: blur(8px);
   width: fit-content;
-  margin-bottom: 0.25rem;
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+}
+
+.aboutDegreeBadge {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  color: var(--text-subtle);
+  margin: 0.4rem 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.aboutLeadWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .aboutAvatarSmall {
@@ -2198,7 +2534,7 @@
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: var(--text-main);
   margin: 0;
 }
 
@@ -2206,7 +2542,7 @@
   font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin: 0;
@@ -2214,11 +2550,10 @@
 
 .aboutModdoParagraph {
   font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--text-muted);
   margin: 0;
-  padding-top: 0.75rem;
 }
 
 /* Photo Card & 4 Pop Badges */
@@ -2234,9 +2569,35 @@
   aspect-ratio: 1024 / 682;
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 28px 70px -15px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 50px rgba(17, 20, 26, 0.08), 0 0 0 1px rgba(17, 20, 26, 0.08);
   position: relative;
-  background-color: #0c1222;
+  background-color: #E8EDF5;
+}
+
+.workstationBrandBadge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: rgba(24, 22, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.workstationBrandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-yellow);
 }
 
 .aboutMainImgCard img {
@@ -2446,14 +2807,25 @@
 .pillRed { background-color: #2e2b2d; }
 
 /* ====================================================================
-   MODDO CASES SECTION (Executive Dark Palette & 3-Column White Cards)
+   MODDO CASES SECTION (Sleek Browser Chrome, Light Palette & High Impact)
    ==================================================================== */
 .casesModdoSection {
-  background: linear-gradient(165deg, #181616 0%, #2e2b2d 50%, #313648 100%);
-  color: #ffffff;
+  background-color: var(--bg-page);
+  color: var(--text-main);
   padding: 6.5rem 3.5vw 6rem;
   position: relative;
   overflow: hidden;
+}
+
+.casesModdoSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 380px;
+  background: radial-gradient(ellipse at center, rgba(79, 107, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 [data-theme='accessible'] .casesModdoSection {
@@ -2474,14 +2846,35 @@
 .casesModdoHeader {
   display: flex;
   flex-direction: column;
+  gap: 0.65rem;
+  max-width: 860px;
+}
+
+.casesModdoEyebrowWrap {
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
-  max-width: 900px;
+  background: rgba(79, 107, 255, 0.08);
+  border: 1px solid rgba(79, 107, 255, 0.18);
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.casesEyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
 }
 
 .casesModdoEyebrow {
-  font-family: var(--font-accent);
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  color: #5fb0c9;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -2489,9 +2882,17 @@
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.casesModdoSub {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.65;
+  color: #4B5563;
   margin: 0;
 }
 
@@ -2504,21 +2905,23 @@
 .caseCardModdo {
   position: relative;
   z-index: 5;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(17, 20, 26, 0.08);
   border-radius: 28px;
-  padding: 1.15rem 1.15rem 1.4rem;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  color: #18191b;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  color: #18191B;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   text-decoration: none;
 }
 
 .caseCardModdo:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
+  border-color: rgba(79, 107, 255, 0.4);
 }
 
 .caseImageFrame {
@@ -2526,73 +2929,201 @@
   aspect-ratio: 16 / 11;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #f2efe9;
+  background-color: #F8F9FC;
+  border: 1px solid rgba(17, 20, 26, 0.06);
+  position: relative;
+}
+
+.caseBrowserBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: rgba(24, 22, 22, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.85rem;
+  z-index: 2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.browserDots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dotRed {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FF5F56;
+}
+
+.dotYellow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FFBD2E;
+}
+
+.dotGreen {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #27C93F;
+}
+
+.browserUrl {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .caseImageFrame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  padding-top: 32px;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .caseCardModdo:hover .caseImageFrame img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-.caseMetaRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0 0.4rem;
-}
-
-.caseMetaText {
+.caseMetaContent {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.65rem;
+  padding: 0 0.35rem 0.35rem;
+}
+
+.casePillTagBlue {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #2563EB;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.casePillTagIndigo {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4F46E5;
+  background: #EEF2FF;
+  border: 1px solid #C7D2FE;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.casePillTagEmerald {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #059669;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
 }
 
 .caseItemTitle {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  color: #18191b;
+  color: #18191B;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .caseItemSub {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 500;
   color: #464D5D;
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
-.caseArrowBtn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #3e6d9c;
-  color: #ffffff;
+.caseActionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(17, 20, 26, 0.06);
+}
+
+.caseLiveStatus {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
 }
 
-.caseArrowYellow {
-  background-color: #5fb0c9;
-  color: #181616;
+.livePulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
-.caseCardModdo:hover .caseArrowBtn {
-  transform: scale(1.12) rotate(-5deg);
+.livePulseDotGreen {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.caseActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #181616;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.caseCardModdo:hover .caseActionBtn {
+  background: #4F6BFF;
+  transform: translateX(3px);
 }
 
 .casesSeeAllWrap {
@@ -2604,23 +3135,25 @@
 .seeAllWorkBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.95rem 2.2rem;
-  background-color: #2a2f63;
-  color: #ffffff;
-  border: 1px solid rgba(167, 224, 219, 0.35);
+  gap: 0.75rem;
+  background: #181616;
+  color: #FFFFFF;
+  border: 1px solid #181616;
+  padding: 0.95rem 2rem;
   border-radius: 9999px;
   font-family: var(--font-heading);
-  font-weight: 800;
   font-size: 1.05rem;
+  font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(24, 22, 22, 0.4);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .seeAllWorkBtn:hover {
-  transform: translateY(-2px) scale(1.03);
-  opacity: 0.95;
+  background: #4F6BFF;
+  border-color: #4F6BFF;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(79, 107, 255, 0.25);
 }
 
 /* ====================================================================
@@ -2885,7 +3418,7 @@
 }
 
 /* ====================================================================
-   MODDO PROCESS SECTION (Pink Ribbon Stroke & Connected Transitions)
+   MODDO PROCESS SECTION (Engineering Delivery Rigor & Deliverables)
    ==================================================================== */
 .processModdoSection {
   background-color: var(--bg-page);
@@ -2896,6 +3429,140 @@
   border-top-right-radius: clamp(40px, 6vw, 80px);
   margin-top: -48px;
   z-index: 3;
+}
+
+.processModdoContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.processHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 860px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  align-items: center;
+}
+
+.processEyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(79, 107, 255, 0.08);
+  border: 1px solid rgba(79, 107, 255, 0.18);
+  padding: 0.38rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 0.25rem;
+}
+
+.processEyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+}
+
+.processEyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-blue);
+}
+
+.processTitleMain {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.processSubtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.65;
+  color: #4B5563;
+  margin: 0;
+  max-width: 760px;
+}
+
+.processIconAndTitle {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.processDeliverablesBox {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: 18px;
+  background: #F8F9FC;
+  border: 1px solid rgba(17, 20, 26, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.processDeliverablesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  border-bottom: 1px solid rgba(17, 20, 26, 0.06);
+  padding-bottom: 0.5rem;
+}
+
+.processDeliverablesBadge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #3B82F6;
+  background: #EFF6FF;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.processDeliverablesBadgeGreen {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #059669;
+  background: #ECFDF5;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.processDeliverablesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.processDeliverablesList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: #1F2937;
+  font-weight: 500;
 }
 
 .processRibbonWrap {
@@ -2954,9 +3621,12 @@
 }
 
 .whyUsEyebrow {
-  font-family: var(--font-accent);
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  color: #3e6d9c;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-blue);
   margin: 0;
 }
 
