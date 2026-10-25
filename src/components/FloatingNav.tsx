@@ -78,8 +78,8 @@ export default function FloatingNav() {
 
   return (
     <>
-      {/* Desktop Floating Bottom Capsule */}
-      <div className={styles.navbarWrapper}>
+      {/* Desktop Floating Bottom Capsule with Language Switcher */}
+      <header className={styles.navbarWrapper}>
         <motion.nav
           className={styles.navbar}
           aria-label="Navegación principal"
@@ -95,7 +95,6 @@ export default function FloatingNav() {
                 href={item.href}
                 onClick={() => setActiveSectionId(item.id)}
                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
-                aria-current={isActive ? "page" : undefined}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -105,10 +104,10 @@ export default function FloatingNav() {
             );
           })}
         </motion.nav>
-      </div>
+      </header>
 
       {/* Mobile Top Header (Clean sticky top navigation) */}
-      <header className={styles.mobileTopBar} role="banner">
+      <header className={styles.mobileTopBar}>
         <div className={styles.mobileTopBarInner}>
           <a
             href="#home"
@@ -175,7 +174,6 @@ export default function FloatingNav() {
                         className={`${styles.mobileDrawerLink} ${
                           isActive ? styles.mobileDrawerLinkActive : ""
                         }`}
-                        aria-current={isActive ? "page" : undefined}
                         whileTap={{ scale: 0.97 }}
                       >
                         <span className={styles.mobileDrawerIndex}>0{idx + 1}</span>

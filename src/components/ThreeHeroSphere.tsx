@@ -97,28 +97,6 @@ export default function ThreeHeroSphere() {
     periwinkleLight.position.set(2, 2, -2);
     scene.add(periwinkleLight);
 
-    // Check WCAG Reduced Motion Preference
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
-      group.rotation.y = 0.5;
-      group.rotation.x = 0.2;
-      renderer.render(scene, camera);
-
-      return () => {
-        coreGeometry.dispose();
-        coreMaterial.dispose();
-        wireGeometry.dispose();
-        wireMaterial.dispose();
-        particleGeometry.dispose();
-        particleMaterial.dispose();
-        renderer.dispose();
-        if (container && renderer.domElement) {
-          container.removeChild(renderer.domElement);
-        }
-      };
-    }
-
     // Mouse Tracking with smooth damping
     let mouseX = 0;
     let mouseY = 0;
@@ -135,7 +113,7 @@ export default function ThreeHeroSphere() {
 
     // Render loop
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);

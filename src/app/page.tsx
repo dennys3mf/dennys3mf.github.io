@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./page.module.css";
-import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../components/ScrollReveal";
 import LiveClock from "../components/LiveClock";
 import RotatingBadge from "../components/RotatingBadge";
@@ -27,72 +27,26 @@ import {
   Coins,
 } from "lucide-react";
 
-const PROJECTS_META = [
-  {
-    image: "/images/projects/ahorratiempo-preview.webp",
-    href: "https://ahorratiempo.pe",
-    alt: "ahorratiempo.pe — Plataforma SaaS con Asistente de IA por Voz",
-  },
-  {
-    image: "/images/projects/controla-servilex-preview.webp",
-    href: "https://github.com/dennys3mf",
-    alt: "CONTROLA - SERVILEX — Legal IT & SG-SST Enterprise Cloud Platform",
-  },
-  {
-    image: "/images/projects/chansa-app-preview.webp",
-    href: "https://github.com/dennys3mf",
-    alt: "CHANSA Mobile App — On-Demand Services Marketplace con Flutter & Dart",
-  },
-  {
-    image: "/images/projects/safety-helmet-preview.webp",
-    href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
-    alt: "Safety Helmet IoT — Telemetría y Sensores en Tiempo Real",
-  },
-  {
-    image: "/images/projects/fintech-sunat-preview.webp",
-    href: "https://github.com/dennys3mf",
-    alt: "Facturación & Billing Engine — Pasarela de Pagos Culqi y Facturación SUNAT",
-  },
-  {
-    image: "/images/projects/fiscalizacion-joya-preview.webp",
-    href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
-    alt: "App Fiscalización Digital Joya — Fiscalización Municipal Offline-First en Tablet",
-  },
-];
-
 export default function Home() {
   const { t, language } = useLanguage();
 
   return (
-    <>
-      {/* WCAG Accessible Skip Link for Keyboard & Screen Readers */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-5 focus:py-3 focus:bg-blue-600 focus:text-white focus:font-extrabold focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300"
-      >
-        {language === "en" ? "Skip to main content" : "Saltar al contenido principal"}
-      </a>
+    <main className={styles.main}>
+      {/* Lenis Smooth Inertia Momentum (Video-like Scroll) */}
+      <SmoothScroller />
 
-      <main id="main-content" tabIndex={-1} className={styles.main}>
-        {/* Lenis Smooth Inertia Momentum (Video-like Scroll) */}
-        <SmoothScroller />
+      {/* GSAP & ScrollTrigger Animation Orchestrator */}
+      <GsapScrollOrchestrator />
 
-        {/* GSAP & ScrollTrigger Animation Orchestrator */}
-        <GsapScrollOrchestrator />
+      {/* ====================================================================
+          FLOATING BOTTOM PILL NAVBAR (With Language Switcher & Active Section Pill)
+         ==================================================================== */}
+      <FloatingNav />
 
-        {/* ====================================================================
-            FLOATING BOTTOM PILL NAVBAR (With Language Switcher & Active Section Pill)
-           ==================================================================== */}
-        <FloatingNav />
-
-        {/* ====================================================================
-            HERO SECTION - EXACT BRAND SPECIFICATION
-           ==================================================================== */}
-        <section
-          id="home"
-          className={styles.hero}
-          aria-label={language === "en" ? "Hero Introduction" : "Presentación e Introducción"}
-        >
+      {/* ====================================================================
+          HERO SECTION - EXACT BRAND SPECIFICATION
+         ==================================================================== */}
+      <section id="home" className={styles.hero}>
         {/* Decorative Fluid Vector Curves & Interactive 3D Three.js Sphere */}
         <div className={styles.heroBackgroundDecor} aria-hidden="true" data-scrub="hero-bg">
           <div className={styles.heroOrb}>
@@ -182,25 +136,14 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          ABOUT SECTION (Brand Identity & Technical Pillars)
+          ABOUT SECTION (Moddo Blue Canvas + Photo + Accounting)
          ==================================================================== */}
-      <section
-        id="about"
-        className={styles.aboutModdoSection}
-        aria-labelledby="about-heading"
-      >
+      <section id="about" className={styles.aboutModdoSection}>
         <div className={styles.aboutModdoContainer}>
           <div className={styles.aboutModdoHeader}>
             <div className={styles.aboutModdoLeft}>
-              <span className={styles.sectionEyebrowBadge}>
-                <span className={styles.eyebrowDot} />
-                {t.about.eyebrow}
-              </span>
-              <h2
-                id="about-heading"
-                className={styles.aboutModdoHeading}
-                data-gsap="heading"
-              >
+              <span className={styles.aboutSimpleEyebrow}>{t.about.eyebrow}</span>
+              <h2 className={styles.aboutModdoHeading} data-gsap="heading">
                 {t.about.heading}
               </h2>
             </div>
@@ -220,9 +163,11 @@ export default function Home() {
           {/* Photo stage with clean workstation image */}
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
-              <img
+              <Image
                 src="/images/personal/dennys-workstation.webp"
                 alt="Dennys Gabriel Marquez Flores — Full Stack Developer | Python, React & AI Integration"
+                width={1024}
+                height={682}
                 loading="lazy"
               />
             </div>
@@ -274,24 +219,13 @@ export default function Home() {
       {/* ====================================================================
           SERVICES SECTION (Engineering Console & Direct Service Cards)
          ==================================================================== */}
-      <section
-        id="servicios"
-        className={styles.servicesModdoSection}
-        aria-labelledby="services-heading"
-      >
+      <section id="servicios" className={styles.servicesModdoSection}>
         <div className={styles.servicesModdoContainer}>
           <div className={styles.servicesModdoHeader}>
-            <span className={styles.sectionEyebrowBadge}>
-              <span className={styles.eyebrowDot} />
-              {t.services.eyebrow}
-            </span>
-            <h2
-              id="services-heading"
-              className={styles.servicesModdoTitle}
-              data-gsap="heading"
-            >
+            <h2 className={styles.servicesModdoTitle} data-gsap="heading">
               {t.services.heading}
             </h2>
+            <p className={styles.servicesModdoEyebrow}>{t.services.eyebrow}</p>
           </div>
 
           <div className={styles.servicesModdoStage}>
@@ -373,69 +307,122 @@ export default function Home() {
       </section>
 
       {/* ====================================================================
-          CASES / WORK SECTION (Selected Production Projects Showcase)
+          CASES / WORK SECTION (Moddo Visual Grid with Video-like Scrub)
          ==================================================================== */}
-      <section
-        id="casos"
-        className={styles.casesModdoSection}
-        aria-labelledby="cases-heading"
-      >
+      <section id="casos" className={styles.casesModdoSection}>
         <div className={styles.casesModdoContainer}>
           <div className={styles.casesModdoHeader}>
-            <span className={styles.sectionEyebrowBadge}>
-              <span className={styles.eyebrowDot} />
-              {t.projects.eyebrow}
-            </span>
-            <h2
-              id="cases-heading"
-              className={styles.casesModdoTitle}
-              data-gsap="heading"
-            >
+            <p className={styles.casesModdoEyebrow}>{t.projects.eyebrow}</p>
+            <h2 className={styles.casesModdoTitle} data-gsap="heading">
               {t.projects.heading}
             </h2>
-            <p className={styles.casesModdoSubheading}>
+            <p className="text-slate-600 text-lg max-w-2xl mt-2 font-medium">
               {t.projects.subheading}
             </p>
           </div>
 
           <div className={styles.casesGridModdo}>
-            {t.projects.items.map((item, idx) => {
-              const meta = PROJECTS_META[idx];
-              if (!meta) return null;
-              return (
-                <div key={idx} data-gsap="project-card">
-                  <ScrollReveal delay={100 + (idx % 3) * 100}>
-                    <a
-                      href={meta.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.caseCardModdo}
-                      aria-label={`${item.title} — ${item.tag}`}
-                    >
-                      <div className={styles.caseImageFrame}>
-                        <img
-                          src={meta.image}
-                          alt={meta.alt}
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className={styles.caseMetaRow}>
-                        <div className={styles.caseMetaText}>
-                          <span className={styles.caseItemTag}>
-                            {item.tag}
-                          </span>
-                          <h3 className={styles.caseItemTitle}>{item.title}</h3>
-                          <p className={styles.caseItemSub}>{item.desc}</p>
-                        </div>
-                        <div className={styles.caseArrowBtn} aria-hidden="true">
-                          <ArrowUpRight size={22} />
-                        </div>
-                      </div>
-                    </a>
-                  </ScrollReveal>
-                </div>
-              );
-            })}
+            {/* Project 01: ahorratiempo.pe */}
+            <div data-gsap="project-card">
+              <ScrollReveal delay={100}>
+                <a
+                  href="https://ahorratiempo.pe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCardModdo}
+                >
+                  <div className={styles.caseImageFrame}>
+                    <Image
+                      src="/images/projects/ahorratiempo-preview.webp"
+                      alt="ahorratiempo.pe - Plataforma SaaS con IA por Voz"
+                      width={1200}
+                      height={825}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={styles.caseMetaRow}>
+                    <div className={styles.caseMetaText}>
+                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
+                        {t.projects.items[0].tag}
+                      </span>
+                      <h3 className={styles.caseItemTitle}>{t.projects.items[0].title}</h3>
+                      <p className={styles.caseItemSub}>{t.projects.items[0].desc}</p>
+                    </div>
+                    <div className={styles.caseArrowBtn}>
+                      <ArrowUpRight size={22} />
+                    </div>
+                  </div>
+                </a>
+              </ScrollReveal>
+            </div>
+
+            {/* Project 02: Safety Helmet IoT */}
+            <div data-gsap="project-card">
+              <ScrollReveal delay={200}>
+                <a
+                  href="https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCardModdo}
+                >
+                  <div className={styles.caseImageFrame}>
+                    <Image
+                      src="/images/projects/safety-helmet-preview.webp"
+                      alt="Safety Helmet IoT - Telemetría y Sensores"
+                      width={1200}
+                      height={825}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={styles.caseMetaRow}>
+                    <div className={styles.caseMetaText}>
+                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
+                        {t.projects.items[3].tag}
+                      </span>
+                      <h3 className={styles.caseItemTitle}>{t.projects.items[3].title}</h3>
+                      <p className={styles.caseItemSub}>{t.projects.items[3].desc}</p>
+                    </div>
+                    <div className={styles.caseArrowBtn}>
+                      <ArrowUpRight size={22} />
+                    </div>
+                  </div>
+                </a>
+              </ScrollReveal>
+            </div>
+
+            {/* Project 03: App Fiscalización Digital Joya */}
+            <div data-gsap="project-card">
+              <ScrollReveal delay={300}>
+                <a
+                  href="https://github.com/dennys3mf/App-Fiscalizacion-Joya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCardModdo}
+                >
+                  <div className={styles.caseImageFrame}>
+                    <Image
+                      src="/images/projects/fiscalizacion-joya-preview.webp"
+                      alt="App Fiscalización Digital Joya"
+                      width={1200}
+                      height={825}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={styles.caseMetaRow}>
+                    <div className={styles.caseMetaText}>
+                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
+                        {t.projects.items[5].tag}
+                      </span>
+                      <h3 className={styles.caseItemTitle}>{t.projects.items[5].title}</h3>
+                      <p className={styles.caseItemSub}>{t.projects.items[5].desc}</p>
+                    </div>
+                    <div className={`${styles.caseArrowBtn} ${styles.caseArrowYellow}`}>
+                      <ArrowUpRight size={22} />
+                    </div>
+                  </div>
+                </a>
+              </ScrollReveal>
+            </div>
           </div>
 
           {/* See All Work CTA Button */}
@@ -445,9 +432,8 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.seeAllWorkBtn}
-              aria-label={language === "en" ? "View all repositories on GitHub" : "Ver todos los repositorios en GitHub"}
             >
-              <ArrowUpRight size={20} aria-hidden="true" />
+              <ArrowUpRight size={20} />
               <span>{language === "en" ? "View More Projects on GitHub" : "Ver Más Proyectos en GitHub"}</span>
             </a>
           </div>
@@ -457,19 +443,14 @@ export default function Home() {
       {/* ====================================================================
           PROCESS SECTION (Engineering Phases)
          ==================================================================== */}
-      <section
-        id="proceso"
-        className={styles.processModdoSection}
-        aria-labelledby="process-heading"
-      >
+      <section id="proceso" className={styles.processModdoSection}>
         <div className={styles.sectionContainer} style={{ padding: "0 1rem", position: "relative", zIndex: 2 }}>
           <ScrollReveal>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionEyebrowBadge}>
-                <span className={styles.eyebrowDot} />
+              <span className="text-xs md:text-sm font-extrabold uppercase tracking-widest text-blue-600 bg-blue-50 border border-blue-200/80 px-4 py-1.5 rounded-full inline-block mb-3.5 shadow-xs">
                 {language === "en" ? "Engineering Methodology" : "Metodología de Desarrollo"}
               </span>
-              <h2 id="process-heading" className={styles.sectionTitle}>
+              <h2 className={styles.sectionTitle}>
                 {language === "en" ? "From Architecture to Production with Measurable Impact" : "De la Arquitectura a Producción con Impacto Medible"}
               </h2>
               <p className={styles.sectionSubtitle}>
@@ -651,20 +632,11 @@ export default function Home() {
       {/* ====================================================================
           WHY US SECTION (Professional Engineering Pillars)
          ==================================================================== */}
-      <section
-        id="whyus"
-        className={styles.whyUsSection}
-        aria-labelledby="whyus-heading"
-      >
+      <section id="whyus" className={styles.whyUsSection}>
         <div className={styles.whyUsContainer}>
           <div className={styles.whyUsHeader}>
-            <span className={styles.sectionEyebrowBadge}>
-              <span className={styles.eyebrowDot} />
-              {t.why.eyebrow}
-            </span>
-            <h2 id="whyus-heading" className={styles.whyUsTitle}>
-              {t.why.heading}
-            </h2>
+            <h2 className={styles.whyUsTitle}>{t.why.heading}</h2>
+            <p className={styles.whyUsEyebrow}>{t.why.eyebrow}</p>
           </div>
 
           <div className={styles.whyUsGridModern}>
@@ -716,21 +688,14 @@ export default function Home() {
       {/* ====================================================================
           CTA SECTION (Moddo Charcoal Canvas, Hero Contact Showcase & Action Bar)
          ==================================================================== */}
-      <section
-        id="contacto"
-        className={styles.ctaModdoSection}
-        aria-labelledby="contact-heading"
-      >
-        <h2 id="contact-heading" className="sr-only">
-          {language === "en" ? "Contact & Direct Channels" : "Contacto y Canales Directos"}
-        </h2>
+      <section id="contacto" className={styles.ctaModdoSection}>
         <div className={styles.ctaModdoContainer}>
           <ScrollReveal>
             <div className={styles.ctaStageWrap}>
               <ContactBillboard />
 
               {/* Rotating Badge Floating on the corner */}
-              <div className={styles.ctaBadgeWrap} aria-hidden="true">
+              <div className={styles.ctaBadgeWrap}>
                 <RotatingBadge size={145} text={t.contact.badgeText} />
               </div>
             </div>
@@ -743,9 +708,8 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.ctaPillBtn}
-              aria-label={language === "en" ? "Chat directly with Dennys on WhatsApp" : "Conversar directamente con Dennys por WhatsApp"}
             >
-              <span aria-hidden="true">💬</span>
+              <span>💬</span>
               <span>{language === "en" ? "Chat on WhatsApp" : "Conversar por WhatsApp"}</span>
             </a>
 
@@ -753,9 +717,8 @@ export default function Home() {
               <a
                 href="mailto:dennys.marquez.dev@gmail.com"
                 className={styles.ctaAltLink}
-                aria-label={t.hero.emailAria}
               >
-                <Mail size={16} aria-hidden="true" />
+                <Mail size={16} />
                 <span>dennys.marquez.dev@gmail.com</span>
               </a>
               <a
@@ -763,9 +726,8 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaAltLink}
-                aria-label="GitHub Profile — dennys3mf"
               >
-                <GithubIcon size={16} aria-hidden="true" />
+                <GithubIcon size={16} />
                 <span>github.com/dennys3mf</span>
               </a>
               <a
@@ -773,9 +735,8 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaAltLink}
-                aria-label="LinkedIn Profile — Dennys Gabriel Marquez Flores"
               >
-                <ArrowUpRight size={16} aria-hidden="true" />
+                <ArrowUpRight size={16} />
                 <span>LinkedIn</span>
               </a>
             </div>
@@ -786,12 +747,7 @@ export default function Home() {
       {/* ====================================================================
           FOOTER (Moddo Clean Studio Bottom with Floating Badges Strip)
          ==================================================================== */}
-      <footer
-        id="footer"
-        className={styles.footerModdoWrapper}
-        role="contentinfo"
-        aria-label={language === "en" ? "Footer" : "Pie de página"}
-      >
+      <footer id="footer" className={styles.footerModdoWrapper}>
         <div className={styles.footerModdoContainer}>
           <div className={styles.footerModdoTop}>
             {/* Secondary Logo */}
@@ -859,6 +815,5 @@ export default function Home() {
         </div>
       </footer>
     </main>
-    </>
   );
 }

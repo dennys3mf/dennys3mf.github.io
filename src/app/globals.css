@@ -44,31 +44,30 @@
   --bg-card-subtle: #EEF2F8;
   --bg-input: #FFFFFF;
 
-  /* High-Contrast WCAG AAA/AA Compliant Text System */
-  --text-main: #0B0F19;      /* 16.5:1 contrast against white (AAA) */
-  --text-muted: #334155;     /* 7.8:1 contrast against white (AAA) */
-  --text-subtle: #475569;    /* 5.5:1 contrast against white (AA) */
+  --text-main: #11141A;
+  --text-muted: #464D5D;
+  --text-subtle: #636B7C;
 
-  --border-color: rgba(15, 23, 42, 0.08);
-  --border-strong: rgba(15, 23, 42, 0.16);
-  --border-hover: rgba(79, 107, 255, 0.5);
+  --border-color: rgba(17, 20, 26, 0.08);
+  --border-strong: rgba(17, 20, 26, 0.16);
+  --border-hover: rgba(79, 107, 255, 0.45);
   --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
   --nav-bg: #FFFFFF;
-  --nav-border: rgba(15, 23, 42, 0.1);
-  --nav-active-bg: #0B0F19;
+  --nav-border: rgba(17, 20, 26, 0.1);
+  --nav-active-bg: #11141A;
   --nav-active-text: #FFFFFF;
 
-  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 8px 24px -4px rgba(15, 23, 42, 0.06);
-  --shadow-card-hover: 0 4px 12px rgba(15, 23, 42, 0.06), 0 20px 40px -8px rgba(79, 107, 255, 0.12);
-  --shadow-floating: 0 20px 48px -8px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(15, 23, 42, 0.06);
+  --shadow-card: 0 4px 16px rgba(17, 20, 26, 0.04), 0 16px 36px -4px rgba(79, 107, 255, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(17, 20, 26, 0.06), 0 24px 48px -6px rgba(79, 107, 255, 0.14);
+  --shadow-floating: 0 20px 48px -8px rgba(17, 20, 26, 0.14), 0 0 0 1px rgba(17, 20, 26, 0.06);
 
-  --btn-primary-bg: #0B0F19;
+  --btn-primary-bg: #11141A;
   --btn-primary-text: #FFFFFF;
   --btn-secondary-bg: #FFFFFF;
-  --btn-secondary-text: #0B0F19;
+  --btn-secondary-text: #11141A;
 
-  --theme-btn-bg: rgba(15, 23, 42, 0.05);
+  --theme-btn-bg: rgba(17, 20, 26, 0.05);
   --grid-line: rgba(79, 107, 255, 0.08);
   --paper-grain-opacity: 0.015;
 }
@@ -144,27 +143,8 @@ body::before {
 }
 
 :focus-visible {
-  outline: 3px solid #2563EB !important;
-  outline-offset: 3px !important;
-  border-radius: 4px;
-}
-
-/* ====================================================================
-   WCAG ACCESSIBILITY: REDUCED MOTION PREFERENCES
-   ==================================================================== */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  html {
-    scroll-behavior: auto !important;
-  }
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 3px;
 }
 
 a {

@@ -14,19 +14,16 @@ export default function ProjectVideo({ src, url, title }: ProjectVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
             if (videoRef.current && isPlaying) {
               videoRef.current.play().catch(() => {});
             }
           } else {
-            setIsVisible(false);
             if (videoRef.current) {
               videoRef.current.pause();
             }

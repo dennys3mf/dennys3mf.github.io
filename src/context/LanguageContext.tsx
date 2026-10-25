@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { Language, TranslationContent, translations } from "../lib/translations";
 
 interface LanguageContextType {
@@ -19,32 +25,34 @@ const LanguageContext = createContext<LanguageContextType>({
 
 const STORAGE_KEY = "dennys_portfolio_lang";
 
+const emptySubscribe = () => () => {};
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
-  const [mounted, setMounted] = useState(false);
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
+        if (saved === "es" || saved === "en") return saved;
+        const browserLang = navigator.language?.toLowerCase();
+        if (browserLang?.startsWith("es")) return "es";
+      } catch {
+        // fallback to en
+      }
+    }
+    return "en";
+  });
+
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
-    setMounted(true);
-    // Read persisted language preference or browser language
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
-      if (saved === "es" || saved === "en") {
-        setLanguageState(saved);
-        document.documentElement.lang = saved;
-      } else {
-        const browserLang = navigator.language?.toLowerCase();
-        if (browserLang.startsWith("es")) {
-          setLanguageState("es");
-          document.documentElement.lang = "es";
-        } else {
-          setLanguageState("en");
-          document.documentElement.lang = "en";
-        }
-      }
-    } catch {
-      // fallback to en
+    if (mounted) {
+      document.documentElement.lang = language;
     }
-  }, []);
+  }, [mounted, language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -61,13 +69,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguage(next);
   };
 
+  const currentLang = mounted ? language : "en";
+
   return (
     <LanguageContext.Provider
       value={{
-        language: mounted ? language : "en",
+        language: currentLang,
         setLanguage,
         toggleLanguage,
-        t: translations[mounted ? language : "en"],
+        t: translations[currentLang],
       }}
     >
       {children}

@@ -521,65 +521,12 @@
   z-index: 2;
 }
 
-/* ====================================================================
-   WCAG AAA / MODERNIST SECTION EYEBROWS & VISUAL HIERARCHY
-   ==================================================================== */
-.sectionEyebrowBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.95rem;
-  border-radius: 9999px;
-  background-color: #EFF6FF;
-  border: 1px solid rgba(37, 99, 235, 0.22);
-  color: #1D4ED8;
-  font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.85rem;
-  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.06);
-  user-select: none;
-  width: fit-content;
-}
-
-.eyebrowDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #2563EB;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-.casesModdoSubheading {
-  font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
-  color: var(--text-muted);
-  max-width: 65ch;
-  margin-top: 0.65rem;
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-.caseItemTag {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 800;
-  color: #1D4ED8;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.25rem;
-}
-
 .aboutSimpleEyebrow {
   display: inline-block;
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 800;
-  color: #1D4ED8;
+  color: #a7e0db;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
