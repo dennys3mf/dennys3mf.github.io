@@ -1,28 +1,14 @@
 /* ====================================================================
-   CLEAN & PROFESSIONAL VERTICAL 3D DEPTH CAROUSEL (ZERO CHIPS)
+   CLEAN, ORDERLY & ELEGANT VERTICAL SLIDING CARDS (ZERO CHIPS)
    ==================================================================== */
 
 .carouselSection {
   background-color: var(--bg-page, #F8F9FC);
-  padding: 6.5rem 3.5vw 7.5rem;
+  padding: 6rem 3.5vw 7rem;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-/* Subtle ambient radial lighting */
-.carouselSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90vw;
-  max-width: 1200px;
-  height: 500px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(79, 107, 255, 0.08), transparent 70%);
-  pointer-events: none;
 }
 
 .carouselContainer {
@@ -30,22 +16,30 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
   position: relative;
   z-index: 2;
 }
 
-/* Simple & Professional Header */
-.carouselHeader {
+/* Header Row: Title & Subtitle on Left, Sleek Controls on Right */
+.carouselHeaderRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.carouselHeaderLeft {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  max-width: 760px;
+  max-width: 720px;
 }
 
 .eyebrow {
   font-family: var(--font-accent);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
   color: var(--brand-blue, #4F6BFF);
   margin: 0;
   font-weight: 700;
@@ -54,7 +48,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -64,42 +58,94 @@
 
 .subheading {
   color: #475569;
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-  line-height: 1.65;
-  margin: 0.25rem 0 0;
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  margin: 0.2rem 0 0;
   font-weight: 450;
 }
 
-/* 3D Stage Section */
-.stageWrapper {
-  position: relative;
+/* Sleek Navigation Bar in Header */
+.navControlsGroup {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
+  padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.navCounter {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0F1115;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.navCounterTotal {
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.navButtonsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #F8F9FC;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #0F1115;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navBtn:hover:not(:disabled) {
+  background: #0F1115;
+  color: #FFFFFF;
+  border-color: #0F1115;
+  transform: scale(1.05);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Stage & Orderly Card Deck */
+.stageWrapper {
+  position: relative;
+  width: 100%;
   margin-top: 0.5rem;
 }
 
-.stage3D {
+.deckStage {
   position: relative;
   width: 100%;
   height: 540px;
-  perspective: 1400px;
-  perspective-origin: center 40%;
   user-select: none;
 }
 
-/* Individual 3D Card */
-.card3D {
+/* Card Sliding & Layered Stacking */
+.cardDeckItem {
   position: absolute;
   inset: 0;
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 1060px;
-  height: 500px;
-  transform-style: preserve-3d;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 480px;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity;
   cursor: pointer;
 }
@@ -110,14 +156,14 @@
   height: 100%;
   background: #FFFFFF;
   border: 1px solid rgba(15, 23, 42, 0.09);
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 65px -15px rgba(15, 23, 42, 0.12),
-              0 0 0 1px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.09),
+              0 0 0 1px rgba(15, 23, 42, 0.03);
   position: relative;
 }
 
-/* Card Visual Mockup Stage */
+/* Screenshot Frame */
 .cardVisual {
   position: relative;
   height: 100%;
@@ -134,17 +180,17 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card3D:hover .cardVisual img {
-  transform: scale(1.025);
+.cardDeckItem:hover .cardVisual img {
+  transform: scale(1.02);
 }
 
-/* Card Information Side: Pure Editorial, Zero Chips */
+/* Editorial Information (Zero Chips) */
 .cardInfo {
-  padding: 2.8rem 2.8rem;
+  padding: 2.6rem 2.8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.4rem;
   background: #FFFFFF;
 }
 
@@ -157,7 +203,7 @@
 
 .cardDiscipline {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -166,7 +212,7 @@
 
 .cardCounter {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #94A3B8;
   letter-spacing: 0.06em;
@@ -175,12 +221,12 @@
 .cardBody {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .cardTitle {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 2.4vw, 2.4rem);
+  font-size: clamp(1.7rem, 2.3vw, 2.3rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -190,8 +236,8 @@
 
 .cardDesc {
   color: #475569;
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.62;
   margin: 0;
   font-weight: 400;
 }
@@ -201,7 +247,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  padding-top: 0.5rem;
+  padding-top: 0.6rem;
   border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
@@ -215,17 +261,17 @@
 }
 
 .cardTechText {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #334155;
   font-weight: 500;
   line-height: 1.45;
 }
 
-/* Simple & Professional Link Button */
+/* Professional Link */
 .cardActions {
   display: flex;
   align-items: center;
-  padding-top: 0.5rem;
+  padding-top: 0.4rem;
 }
 
 .cardPrimaryBtn {
@@ -268,90 +314,52 @@
   transform: translate(2px, -2px);
 }
 
-/* Minimalist Vertical Navigation Rail */
-.navRail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 1rem 0.65rem;
-  background: #FFFFFF;
-  border: 1px solid rgba(15, 23, 42, 0.09);
-  border-radius: 9999px;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
-}
-
-.navArrowBtn {
+/* Dot Navigation Track Below Deck */
+.deckDotsTrack {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #F8F9FC;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  color: #0F1115;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.dotBtn {
+  height: 6px;
+  border-radius: 9999px;
+  border: none;
+  background: rgba(15, 23, 42, 0.15);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
 }
 
-.navArrowBtn:hover:not(:disabled) {
-  background: #0F1115;
-  color: #FFFFFF;
-  border-color: #0F1115;
-  transform: scale(1.05);
+.dotBtnInactive {
+  width: 16px;
 }
 
-.navArrowBtn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
+.dotBtnInactive:hover {
+  background: rgba(15, 23, 42, 0.3);
 }
 
-.navFraction {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #475569;
-  padding: 0.25rem 0;
-}
-
-/* Subtle Footer Nav Hint */
-.stageFooterHint {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #94A3B8;
-  font-size: 0.82rem;
-  font-weight: 500;
-  margin-top: 0.25rem;
-  padding: 0 0.5rem;
-}
-
-.stageFooterHint span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.dotBtnActive {
+  width: 36px;
+  background: var(--brand-blue, #4F6BFF);
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .stageWrapper {
+  .carouselHeaderRow {
     flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .navRail {
-    flex-direction: row;
-    padding: 0.5rem 1rem;
+    align-items: flex-start;
     gap: 1.25rem;
   }
 
-  .stage3D {
-    height: 560px;
+  .deckStage {
+    height: 530px;
   }
 
-  .card3D {
-    height: 520px;
+  .cardDeckItem {
+    height: 480px;
   }
 }
 
@@ -360,17 +368,17 @@
     padding: 4.5rem 1.25rem 5rem;
   }
 
-  .stage3D {
-    height: 620px;
+  .deckStage {
+    height: 590px;
   }
 
-  .card3D {
-    height: 580px;
+  .cardDeckItem {
+    height: 550px;
   }
 
   .cardInner {
     grid-template-columns: 1fr;
-    grid-template-rows: 230px 1fr;
+    grid-template-rows: 220px 1fr;
   }
 
   .cardVisual {
@@ -380,23 +388,15 @@
 
   .cardInfo {
     padding: 1.5rem 1.4rem;
-    gap: 1rem;
+    gap: 0.9rem;
   }
 
   .cardTitle {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .cardDesc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.55;
-  }
-
-  .cardTechRow {
-    padding-top: 0.4rem;
-  }
-
-  .cardTechText {
-    font-size: 0.82rem;
   }
 }

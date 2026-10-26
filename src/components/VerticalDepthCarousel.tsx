@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import { ArrowUpRight, ChevronUp, ChevronDown, MousePointer } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "./Icons";
 import styles from "./VerticalDepthCarousel.module.css";
@@ -91,9 +91,7 @@ const ALL_PROJECTS: ProjectItem[] = [
 export default function VerticalDepthCarousel() {
   const { t, language } = useLanguage();
   const [activeIdx, setActiveIdx] = useState(0);
-  const stageRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number | null>(null);
-  const isWheelingRef = useRef(false);
 
   const handleNext = useCallback(() => {
     setActiveIdx((prev) => (prev < ALL_PROJECTS.length - 1 ? prev + 1 : 0));
@@ -103,39 +101,7 @@ export default function VerticalDepthCarousel() {
     setActiveIdx((prev) => (prev > 0 ? prev - 1 : ALL_PROJECTS.length - 1));
   }, []);
 
-  // Wheel listener with boundary escape for natural page scrolling
-  useEffect(() => {
-    const stage = stageRef.current;
-    if (!stage) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      // If at boundary, let natural page scroll happen
-      if (activeIdx === 0 && e.deltaY < 0) return;
-      if (activeIdx === ALL_PROJECTS.length - 1 && e.deltaY > 0) return;
-
-      if (isWheelingRef.current) return;
-
-      if (Math.abs(e.deltaY) > 30) {
-        e.preventDefault();
-        isWheelingRef.current = true;
-
-        if (e.deltaY > 0) {
-          handleNext();
-        } else {
-          handlePrev();
-        }
-
-        setTimeout(() => {
-          isWheelingRef.current = false;
-        }, 550);
-      }
-    };
-
-    stage.addEventListener("wheel", handleWheel, { passive: false });
-    return () => stage.removeEventListener("wheel", handleWheel);
-  }, [activeIdx, handleNext, handlePrev]);
-
-  // Touch gestures for mobile/tablet
+  // Touch gesture handler for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartY.current = e.touches[0].clientY;
   };
@@ -145,64 +111,58 @@ export default function VerticalDepthCarousel() {
     const touchEndY = e.changedTouches[0].clientY;
     const diff = touchStartY.current - touchEndY;
 
-    if (diff > 45) {
+    if (diff > 50) {
       handleNext();
-    } else if (diff < -45) {
+    } else if (diff < -50) {
       handlePrev();
     }
     touchStartY.current = null;
   };
 
-  // 3D Depth Card Stacking Transform Calculator
+  // Orderly layered vertical sliding card transform
   const getCardStyle = (index: number) => {
     const diff = index - activeIdx;
 
     if (diff === 0) {
       return {
-        transform: "translate3d(0, 0, 0px) scale(1)",
+        transform: "translateY(0px) scale(1)",
         opacity: 1,
         zIndex: 30,
-        filter: "blur(0px)",
         pointerEvents: "auto" as const,
       };
     } else if (diff === 1) {
       return {
-        transform: "translate3d(0, 42px, -80px) scale(0.93)",
+        transform: "translateY(24px) scale(0.96)",
         opacity: 0.65,
-        zIndex: 25,
-        filter: "blur(0.5px)",
+        zIndex: 20,
         pointerEvents: "auto" as const,
       };
     } else if (diff === 2) {
       return {
-        transform: "translate3d(0, 80px, -160px) scale(0.86)",
+        transform: "translateY(48px) scale(0.92)",
         opacity: 0.35,
-        zIndex: 20,
-        filter: "blur(1.5px)",
+        zIndex: 10,
         pointerEvents: "auto" as const,
       };
     } else if (diff >= 3) {
       return {
-        transform: "translate3d(0, 114px, -240px) scale(0.8)",
-        opacity: 0.12,
-        zIndex: 15,
-        filter: "blur(3px)",
-        pointerEvents: "auto" as const,
+        transform: "translateY(70px) scale(0.88)",
+        opacity: 0,
+        zIndex: 5,
+        pointerEvents: "none" as const,
       };
     } else if (diff === -1) {
       return {
-        transform: "translate3d(0, -85px, 60px) scale(1.04)",
+        transform: "translateY(-55px) scale(0.96)",
         opacity: 0,
-        zIndex: 10,
-        filter: "blur(2px)",
+        zIndex: 5,
         pointerEvents: "none" as const,
       };
     } else {
       return {
-        transform: "translate3d(0, -130px, 120px) scale(1.08)",
+        transform: "translateY(-90px) scale(0.92)",
         opacity: 0,
-        zIndex: 5,
-        filter: "blur(4px)",
+        zIndex: 1,
         pointerEvents: "none" as const,
       };
     }
@@ -211,20 +171,57 @@ export default function VerticalDepthCarousel() {
   return (
     <section id="casos" className={styles.carouselSection}>
       <div className={styles.carouselContainer}>
-        {/* Simple & Professional Header (Zero Chips) */}
-        <div className={styles.carouselHeader}>
-          <p className={styles.eyebrow}>{t.projects.eyebrow}</p>
-          <h2 className={styles.title} data-gsap="heading">
-            {t.projects.heading}
-          </h2>
-          <p className={styles.subheading}>{t.projects.subheading}</p>
+        {/* Header Row: Title on Left, Sleek Navigation on Right */}
+        <div className={styles.carouselHeaderRow}>
+          <div className={styles.carouselHeaderLeft}>
+            <p className={styles.eyebrow}>{t.projects.eyebrow}</p>
+            <h2 className={styles.title} data-gsap="heading">
+              {t.projects.heading}
+            </h2>
+            <p className={styles.subheading}>{t.projects.subheading}</p>
+          </div>
+
+          {/* Sleek Navigation Controls */}
+          <div
+            className={styles.navControlsGroup}
+            role="toolbar"
+            aria-label="Controles de navegación de proyectos"
+          >
+            <div className={styles.navCounter} aria-live="polite">
+              <span>0{activeIdx + 1}</span>
+              <span className={styles.navCounterTotal}> / 0{ALL_PROJECTS.length}</span>
+            </div>
+
+            <div className={styles.navButtonsRow}>
+              <button
+                type="button"
+                onClick={handlePrev}
+                disabled={activeIdx === 0}
+                className={styles.navBtn}
+                aria-label="Proyecto anterior"
+                title="Proyecto anterior"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={activeIdx === ALL_PROJECTS.length - 1}
+                className={styles.navBtn}
+                aria-label="Siguiente proyecto"
+                title="Siguiente proyecto"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* 3D Vertical Depth Carousel Stage */}
+        {/* Orderly Layered Card Deck */}
         <div className={styles.stageWrapper}>
           <div
-            className={styles.stage3D}
-            ref={stageRef}
+            className={styles.deckStage}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
@@ -237,7 +234,7 @@ export default function VerticalDepthCarousel() {
               return (
                 <div
                   key={proj.index}
-                  className={styles.card3D}
+                  className={styles.cardDeckItem}
                   style={cardStyle}
                   onClick={() => {
                     if (!isCurrent) setActiveIdx(idx);
@@ -315,51 +312,20 @@ export default function VerticalDepthCarousel() {
             })}
           </div>
 
-          {/* Minimalist Vertical Navigation Rail */}
-          <div
-            className={styles.navRail}
-            role="toolbar"
-            aria-label="Controles del carrusel"
-          >
-            <button
-              type="button"
-              onClick={handlePrev}
-              disabled={activeIdx === 0}
-              className={styles.navArrowBtn}
-              aria-label="Proyecto anterior"
-              title="Proyecto anterior"
-            >
-              <ChevronUp size={20} />
-            </button>
-
-            <span className={styles.navFraction} aria-hidden="true">
-              0{activeIdx + 1}/0{ALL_PROJECTS.length}
-            </span>
-
-            <button
-              type="button"
-              onClick={handleNext}
-              disabled={activeIdx === ALL_PROJECTS.length - 1}
-              className={styles.navArrowBtn}
-              aria-label="Siguiente proyecto"
-              title="Siguiente proyecto"
-            >
-              <ChevronDown size={20} />
-            </button>
+          {/* Minimalist Dot/Pill Track */}
+          <div className={styles.deckDotsTrack} aria-hidden="true">
+            {ALL_PROJECTS.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveIdx(i)}
+                className={`${styles.dotBtn} ${
+                  i === activeIdx ? styles.dotBtnActive : styles.dotBtnInactive
+                }`}
+                aria-label={`Ir al proyecto ${i + 1}`}
+              />
+            ))}
           </div>
-        </div>
-
-        {/* Minimal Subtle Navigation Hint */}
-        <div className={styles.stageFooterHint}>
-          <span>
-            <MousePointer size={14} className="text-slate-400" />
-            {t.projects.scrollHint}
-          </span>
-          <span>
-            {language === "en"
-              ? "Click any background project to focus"
-              : "Haz clic en cualquier proyecto del fondo para enfocarlo"}
-          </span>
         </div>
       </div>
     </section>
