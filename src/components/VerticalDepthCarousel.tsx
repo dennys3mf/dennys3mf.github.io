@@ -262,9 +262,6 @@ export default function VerticalDepthCarousel() {
                         <span className={styles.cardDiscipline}>
                           {proj.discipline[language]}
                         </span>
-                        <span className={styles.cardCounter}>
-                          0{idx + 1} / 0{ALL_PROJECTS.length}
-                        </span>
                       </div>
 
                       <div className={styles.cardBody}>

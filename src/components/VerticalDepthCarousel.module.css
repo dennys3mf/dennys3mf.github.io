@@ -210,13 +210,6 @@
   color: var(--brand-blue, #4F6BFF);
 }
 
-.cardCounter {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #94A3B8;
-  letter-spacing: 0.06em;
-}
 
 .cardBody {
   display: flex;
