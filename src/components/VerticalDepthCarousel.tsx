@@ -2,115 +2,106 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import {
-  ArrowUpRight,
-  ChevronUp,
-  ChevronDown,
-  Lock,
-  Sparkles,
-  MousePointer,
-  Layers,
-} from "lucide-react";
+import { ArrowUpRight, ChevronUp, ChevronDown, MousePointer } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "./Icons";
 import styles from "./VerticalDepthCarousel.module.css";
 
 interface ProjectItem {
   index: number;
-  category: "ai-web" | "mobile" | "cloud-systems";
   image: string;
   href: string;
-  displayUrl: string;
   isLive: boolean;
-  techStack: string[];
+  discipline: {
+    en: string;
+    es: string;
+  };
+  stack: string;
 }
 
 const ALL_PROJECTS: ProjectItem[] = [
   {
     index: 0,
-    category: "ai-web",
     image: "/images/projects/ahorratiempo-preview.webp",
     href: "https://ahorratiempo.pe",
-    displayUrl: "https://ahorratiempo.pe",
     isLive: true,
-    techStack: ["React 18", "Next.js", "Voice AI", "Tailwind CSS", "Culqi Gateway"],
+    discipline: {
+      en: "AI Citizen SaaS",
+      es: "SaaS Ciudadano con IA",
+    },
+    stack: "React 18 · Next.js · Voice AI · Tailwind CSS · Culqi Gateway",
   },
   {
     index: 1,
-    category: "cloud-systems",
     image: "/images/projects/controla-servilex-preview.webp",
     href: "https://github.com/dennys3mf",
-    displayUrl: "controla.servilex.pe",
     isLive: false,
-    techStack: ["Python", "Django", "PostgreSQL", "SG-SST Matrix", "Multi-Tenant"],
+    discipline: {
+      en: "Enterprise Cloud & Legal IT",
+      es: "Plataforma Cloud & Legal IT",
+    },
+    stack: "Python · Django · PostgreSQL · SG-SST Compliance · Multi-Tenant",
   },
   {
     index: 2,
-    category: "mobile",
     image: "/images/projects/chansa-app-preview.webp",
     href: "https://github.com/dennys3mf",
-    displayUrl: "app.chansa.pe/mobile",
     isLive: false,
-    techStack: ["Flutter", "Dart", "Firebase", "Realtime Chat", "Geolocation API"],
+    discipline: {
+      en: "Cross-Platform Mobile App",
+      es: "App Móvil Multiplataforma",
+    },
+    stack: "Flutter · Dart · Firebase · Realtime Chat · Geolocation API",
   },
   {
     index: 3,
-    category: "cloud-systems",
     image: "/images/projects/safety-helmet-preview.webp",
     href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
-    displayUrl: "iot.safety-helmet.io",
     isLive: false,
-    techStack: ["C++", "Arduino", "IoT Telemetry", "MQ-2 Gas Sensors", "GPS Tracker"],
+    discipline: {
+      en: "Industrial IoT & Telemetry",
+      es: "IoT & Telemetría Industrial",
+    },
+    stack: "C++ · Arduino · Microservices · MQ-2 Sensors · GPS Telemetry",
   },
   {
     index: 4,
-    category: "cloud-systems",
     image: "/images/projects/fintech-sunat-preview.webp",
     href: "https://github.com/dennys3mf",
-    displayUrl: "billing.sunat-api.cloud",
     isLive: false,
-    techStack: ["Python", "Culqi API", "SUNAT Electronic Invoicing", "XML / CDR"],
+    discipline: {
+      en: "Fintech & Electronic Billing",
+      es: "Fintech & Facturación Electrónica",
+    },
+    stack: "Python · Culqi API · SUNAT XML / CDR · RESTful Services",
   },
   {
     index: 5,
-    category: "mobile",
     image: "/images/projects/fiscalizacion-joya-preview.webp",
     href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
-    displayUrl: "fiscalizacion.joya.gob.pe",
     isLive: false,
-    techStack: ["Flutter", "SQLite Local", "Offline-First Sync", "Android Tablet"],
+    discipline: {
+      en: "Field Inspection Tablet App",
+      es: "App de Inspección en Campo",
+    },
+    stack: "Flutter · SQLite Local · Offline-First Sync · Android Tablet",
   },
 ];
 
 export default function VerticalDepthCarousel() {
   const { t, language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<"all" | "ai-web" | "mobile" | "cloud-systems">("all");
   const [activeIdx, setActiveIdx] = useState(0);
   const stageRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number | null>(null);
   const isWheelingRef = useRef(false);
 
-  // Filter projects by category
-  const filteredProjects = ALL_PROJECTS.filter((proj) => {
-    if (activeCategory === "all") return true;
-    return proj.category === activeCategory;
-  });
-
-  // Safe active index calculation
-  const safeActiveIdx = activeIdx >= filteredProjects.length ? 0 : activeIdx;
-
-  const handleCategorySelect = (category: "all" | "ai-web" | "mobile" | "cloud-systems") => {
-    setActiveCategory(category);
-    setActiveIdx(0);
-  };
-
   const handleNext = useCallback(() => {
-    setActiveIdx((prev) => (prev < filteredProjects.length - 1 ? prev + 1 : 0));
-  }, [filteredProjects.length]);
+    setActiveIdx((prev) => (prev < ALL_PROJECTS.length - 1 ? prev + 1 : 0));
+  }, []);
 
   const handlePrev = useCallback(() => {
-    setActiveIdx((prev) => (prev > 0 ? prev - 1 : filteredProjects.length - 1));
-  }, [filteredProjects.length]);
+    setActiveIdx((prev) => (prev > 0 ? prev - 1 : ALL_PROJECTS.length - 1));
+  }, []);
 
   // Wheel listener with boundary escape for natural page scrolling
   useEffect(() => {
@@ -118,10 +109,9 @@ export default function VerticalDepthCarousel() {
     if (!stage) return;
 
     const handleWheel = (e: WheelEvent) => {
-      // If at start and scrolling up, let standard page scroll continue
+      // If at boundary, let natural page scroll happen
       if (activeIdx === 0 && e.deltaY < 0) return;
-      // If at end and scrolling down, let standard page scroll continue
-      if (activeIdx === filteredProjects.length - 1 && e.deltaY > 0) return;
+      if (activeIdx === ALL_PROJECTS.length - 1 && e.deltaY > 0) return;
 
       if (isWheelingRef.current) return;
 
@@ -143,9 +133,9 @@ export default function VerticalDepthCarousel() {
 
     stage.addEventListener("wheel", handleWheel, { passive: false });
     return () => stage.removeEventListener("wheel", handleWheel);
-  }, [activeIdx, filteredProjects.length, handleNext, handlePrev]);
+  }, [activeIdx, handleNext, handlePrev]);
 
-  // Touch swipe support
+  // Touch gestures for mobile/tablet
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartY.current = e.touches[0].clientY;
   };
@@ -165,7 +155,7 @@ export default function VerticalDepthCarousel() {
 
   // 3D Depth Card Stacking Transform Calculator
   const getCardStyle = (index: number) => {
-    const diff = index - safeActiveIdx;
+    const diff = index - activeIdx;
 
     if (diff === 0) {
       return {
@@ -177,31 +167,31 @@ export default function VerticalDepthCarousel() {
       };
     } else if (diff === 1) {
       return {
-        transform: "translate3d(0, 48px, -110px) scale(0.92)",
-        opacity: 0.72,
+        transform: "translate3d(0, 42px, -80px) scale(0.93)",
+        opacity: 0.65,
         zIndex: 25,
-        filter: "blur(0.6px)",
+        filter: "blur(0.5px)",
         pointerEvents: "auto" as const,
       };
     } else if (diff === 2) {
       return {
-        transform: "translate3d(0, 92px, -220px) scale(0.84)",
-        opacity: 0.42,
+        transform: "translate3d(0, 80px, -160px) scale(0.86)",
+        opacity: 0.35,
         zIndex: 20,
-        filter: "blur(1.6px)",
+        filter: "blur(1.5px)",
         pointerEvents: "auto" as const,
       };
     } else if (diff >= 3) {
       return {
-        transform: "translate3d(0, 130px, -330px) scale(0.76)",
-        opacity: 0.18,
+        transform: "translate3d(0, 114px, -240px) scale(0.8)",
+        opacity: 0.12,
         zIndex: 15,
         filter: "blur(3px)",
         pointerEvents: "auto" as const,
       };
     } else if (diff === -1) {
       return {
-        transform: "translate3d(0, -90px, 80px) scale(1.05)",
+        transform: "translate3d(0, -85px, 60px) scale(1.04)",
         opacity: 0,
         zIndex: 10,
         filter: "blur(2px)",
@@ -209,7 +199,7 @@ export default function VerticalDepthCarousel() {
       };
     } else {
       return {
-        transform: "translate3d(0, -140px, 140px) scale(1.1)",
+        transform: "translate3d(0, -130px, 120px) scale(1.08)",
         opacity: 0,
         zIndex: 5,
         filter: "blur(4px)",
@@ -221,66 +211,13 @@ export default function VerticalDepthCarousel() {
   return (
     <section id="casos" className={styles.carouselSection}>
       <div className={styles.carouselContainer}>
-        {/* Header with High-Contrast Typography */}
+        {/* Simple & Professional Header (Zero Chips) */}
         <div className={styles.carouselHeader}>
           <p className={styles.eyebrow}>{t.projects.eyebrow}</p>
           <h2 className={styles.title} data-gsap="heading">
             {t.projects.heading}
           </h2>
           <p className={styles.subheading}>{t.projects.subheading}</p>
-
-          {/* Interactive Category Filter Pills */}
-          <div
-            className={styles.filterBar}
-            role="tablist"
-            aria-label="Filtrar proyectos"
-          >
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === "all"}
-              onClick={() => handleCategorySelect("all")}
-              className={`${styles.filterPill} ${
-                activeCategory === "all" ? styles.filterPillActive : ""
-              }`}
-            >
-              <span>{t.projects.categories.all}</span>
-              <span className={styles.filterCount}>{ALL_PROJECTS.length}</span>
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === "ai-web"}
-              onClick={() => handleCategorySelect("ai-web")}
-              className={`${styles.filterPill} ${
-                activeCategory === "ai-web" ? styles.filterPillActive : ""
-              }`}
-            >
-              <span>{t.projects.categories.aiWeb}</span>
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === "mobile"}
-              onClick={() => handleCategorySelect("mobile")}
-              className={`${styles.filterPill} ${
-                activeCategory === "mobile" ? styles.filterPillActive : ""
-              }`}
-            >
-              <span>{t.projects.categories.mobile}</span>
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === "cloud-systems"}
-              onClick={() => handleCategorySelect("cloud-systems")}
-              className={`${styles.filterPill} ${
-                activeCategory === "cloud-systems" ? styles.filterPillActive : ""
-              }`}
-            >
-              <span>{t.projects.categories.cloudSystems}</span>
-            </button>
-          </div>
         </div>
 
         {/* 3D Vertical Depth Carousel Stage */}
@@ -291,11 +228,11 @@ export default function VerticalDepthCarousel() {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            {filteredProjects.map((proj, idx) => {
+            {ALL_PROJECTS.map((proj, idx) => {
               const item = t.projects.items[proj.index];
               if (!item) return null;
               const cardStyle = getCardStyle(idx);
-              const isCurrent = idx === safeActiveIdx;
+              const isCurrent = idx === activeIdx;
 
               return (
                 <div
@@ -306,67 +243,47 @@ export default function VerticalDepthCarousel() {
                     if (!isCurrent) setActiveIdx(idx);
                   }}
                   role="region"
-                  aria-label={`${item.title} (${idx + 1} de ${filteredProjects.length})`}
-                  aria-hidden={!isCurrent && idx < safeActiveIdx}
+                  aria-label={`${item.title} (${idx + 1} de ${ALL_PROJECTS.length})`}
+                  aria-hidden={!isCurrent && idx < activeIdx}
                 >
                   <div className={styles.cardInner}>
-                    {/* Visual Mockup Stage */}
+                    {/* Visual Screenshot Stage */}
                     <div className={styles.cardVisual}>
-                      <div className={styles.cardBrowserHeader}>
-                        <div className={styles.browserDots} aria-hidden="true">
-                          <span className={`${styles.dot} ${styles.dotRed}`} />
-                          <span className={`${styles.dot} ${styles.dotYellow}`} />
-                          <span className={`${styles.dot} ${styles.dotGreen}`} />
-                        </div>
-                        <div className={styles.browserUrlPill}>
-                          <Lock size={10} className="text-slate-400 shrink-0" />
-                          <span>{proj.displayUrl}</span>
-                        </div>
-                      </div>
-
-                      <div className={styles.cardImageWrap}>
-                        <Image
-                          src={proj.image}
-                          alt={item.title}
-                          width={1200}
-                          height={825}
-                          priority={idx === 0}
-                          loading={idx === 0 ? "eager" : "lazy"}
-                        />
-                      </div>
+                      <Image
+                        src={proj.image}
+                        alt={item.title}
+                        width={1200}
+                        height={825}
+                        priority={idx === 0}
+                        loading={idx === 0 ? "eager" : "lazy"}
+                      />
                     </div>
 
-                    {/* Information & Impact Stage */}
+                    {/* Information Stage: Pure Clean Typography, Zero Chips */}
                     <div className={styles.cardInfo}>
                       <div className={styles.cardMetaTop}>
-                        <span className={styles.cardCounter}>
-                          {t.projects.projectCounter} 0{idx + 1} / 0{filteredProjects.length}
+                        <span className={styles.cardDiscipline}>
+                          {proj.discipline[language]}
                         </span>
-                        <span className={styles.cardTagPill}>{item.tag}</span>
+                        <span className={styles.cardCounter}>
+                          0{idx + 1} / 0{ALL_PROJECTS.length}
+                        </span>
                       </div>
 
-                      <div>
+                      <div className={styles.cardBody}>
                         <h3 className={styles.cardTitle}>{item.title}</h3>
                         <p className={styles.cardDesc}>{item.desc}</p>
                       </div>
 
-                      {item.metrics && (
-                        <div className={styles.cardMetricsRow}>
-                          <span className={styles.cardMetricsBadge}>
-                            <Sparkles size={13} className="shrink-0" />
-                            <span>{item.metrics}</span>
-                          </span>
-                        </div>
-                      )}
-
-                      <div className={styles.cardTechList}>
-                        {proj.techStack.map((tech) => (
-                          <span key={tech} className={styles.cardTechChip}>
-                            {tech}
-                          </span>
-                        ))}
+                      {/* Plain-Text Tech Stack (No Chips/Badges) */}
+                      <div className={styles.cardTechRow}>
+                        <span className={styles.cardTechLabel}>
+                          {language === "en" ? "Technologies" : "Tecnologías"}
+                        </span>
+                        <span className={styles.cardTechText}>{proj.stack}</span>
                       </div>
 
+                      {/* Professional Clean Action Link */}
                       <div className={styles.cardActions}>
                         <a
                           href={proj.href}
@@ -374,20 +291,19 @@ export default function VerticalDepthCarousel() {
                           rel="noopener noreferrer"
                           className={styles.cardPrimaryBtn}
                           onClick={(e) => {
-                            // Don't trigger card selection if clicking CTA
                             e.stopPropagation();
                           }}
                         >
                           {proj.isLive ? (
                             <>
                               <span>{t.projects.visitProject}</span>
-                              <ArrowUpRight size={18} />
+                              <ArrowUpRight size={17} />
                             </>
                           ) : (
                             <>
-                              <GithubIcon size={16} />
+                              <GithubIcon size={15} />
                               <span>{t.projects.viewGithub}</span>
-                              <ArrowUpRight size={18} />
+                              <ArrowUpRight size={17} />
                             </>
                           )}
                         </a>
@@ -399,11 +315,11 @@ export default function VerticalDepthCarousel() {
             })}
           </div>
 
-          {/* Vertical Navigation Rail */}
+          {/* Minimalist Vertical Navigation Rail */}
           <div
             className={styles.navRail}
             role="toolbar"
-            aria-label="Controles del carrusel 3D"
+            aria-label="Controles del carrusel"
           >
             <button
               type="button"
@@ -413,46 +329,36 @@ export default function VerticalDepthCarousel() {
               aria-label="Proyecto anterior"
               title="Proyecto anterior"
             >
-              <ChevronUp size={22} />
+              <ChevronUp size={20} />
             </button>
 
-            <div className={styles.trackPills} aria-hidden="true">
-              {filteredProjects.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setActiveIdx(i)}
-                  className={`${styles.trackDot} ${
-                    i === safeActiveIdx ? styles.trackDotActive : ""
-                  }`}
-                  aria-label={`Ir al proyecto ${i + 1}`}
-                />
-              ))}
-            </div>
+            <span className={styles.navFraction} aria-hidden="true">
+              0{activeIdx + 1}/0{ALL_PROJECTS.length}
+            </span>
 
             <button
               type="button"
               onClick={handleNext}
-              disabled={activeIdx === filteredProjects.length - 1}
+              disabled={activeIdx === ALL_PROJECTS.length - 1}
               className={styles.navArrowBtn}
               aria-label="Siguiente proyecto"
               title="Siguiente proyecto"
             >
-              <ChevronDown size={22} />
+              <ChevronDown size={20} />
             </button>
           </div>
         </div>
 
-        {/* Interaction Hint */}
+        {/* Minimal Subtle Navigation Hint */}
         <div className={styles.stageFooterHint}>
           <span>
-            <MousePointer size={14} className="text-blue-400" />
+            <MousePointer size={14} className="text-slate-400" />
             {t.projects.scrollHint}
           </span>
-          <span className="text-slate-600">•</span>
           <span>
-            <Layers size={14} className="text-purple-400" />
-            {language === "en" ? "Click any card in background to focus" : "Haz clic en cualquier tarjeta del fondo para enfocarla"}
+            {language === "en"
+              ? "Click any background project to focus"
+              : "Haz clic en cualquier proyecto del fondo para enfocarlo"}
           </span>
         </div>
       </div>
