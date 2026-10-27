@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React from "react";
 import Image from "next/image";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "./Icons";
 import styles from "./VerticalDepthCarousel.module.css";
@@ -90,88 +90,11 @@ const ALL_PROJECTS: ProjectItem[] = [
 
 export default function VerticalDepthCarousel() {
   const { t, language } = useLanguage();
-  const [activeIdx, setActiveIdx] = useState(0);
-  const touchStartY = useRef<number | null>(null);
-
-  const handleNext = useCallback(() => {
-    setActiveIdx((prev) => (prev < ALL_PROJECTS.length - 1 ? prev + 1 : 0));
-  }, []);
-
-  const handlePrev = useCallback(() => {
-    setActiveIdx((prev) => (prev > 0 ? prev - 1 : ALL_PROJECTS.length - 1));
-  }, []);
-
-  // Touch gesture handler for mobile swipe
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartY.current === null) return;
-    const touchEndY = e.changedTouches[0].clientY;
-    const diff = touchStartY.current - touchEndY;
-
-    if (diff > 50) {
-      handleNext();
-    } else if (diff < -50) {
-      handlePrev();
-    }
-    touchStartY.current = null;
-  };
-
-  // Orderly layered vertical sliding card transform
-  const getCardStyle = (index: number) => {
-    const diff = index - activeIdx;
-
-    if (diff === 0) {
-      return {
-        transform: "translateY(0px) scale(1)",
-        opacity: 1,
-        zIndex: 30,
-        pointerEvents: "auto" as const,
-      };
-    } else if (diff === 1) {
-      return {
-        transform: "translateY(24px) scale(0.96)",
-        opacity: 0.65,
-        zIndex: 20,
-        pointerEvents: "auto" as const,
-      };
-    } else if (diff === 2) {
-      return {
-        transform: "translateY(48px) scale(0.92)",
-        opacity: 0.35,
-        zIndex: 10,
-        pointerEvents: "auto" as const,
-      };
-    } else if (diff >= 3) {
-      return {
-        transform: "translateY(70px) scale(0.88)",
-        opacity: 0,
-        zIndex: 5,
-        pointerEvents: "none" as const,
-      };
-    } else if (diff === -1) {
-      return {
-        transform: "translateY(-55px) scale(0.96)",
-        opacity: 0,
-        zIndex: 5,
-        pointerEvents: "none" as const,
-      };
-    } else {
-      return {
-        transform: "translateY(-90px) scale(0.92)",
-        opacity: 0,
-        zIndex: 1,
-        pointerEvents: "none" as const,
-      };
-    }
-  };
 
   return (
     <section id="casos" className={styles.carouselSection}>
       <div className={styles.carouselContainer}>
-        {/* Header Row: Title on Left, Sleek Navigation on Right */}
+        {/* Section Header: Pure Clean Editorial Presentation */}
         <div className={styles.carouselHeaderRow}>
           <div className={styles.carouselHeaderLeft}>
             <p className={styles.eyebrow}>{t.projects.eyebrow}</p>
@@ -180,149 +103,86 @@ export default function VerticalDepthCarousel() {
             </h2>
             <p className={styles.subheading}>{t.projects.subheading}</p>
           </div>
-
-          {/* Sleek Navigation Controls */}
-          <div
-            className={styles.navControlsGroup}
-            role="toolbar"
-            aria-label="Controles de navegación de proyectos"
-          >
-            <div className={styles.navCounter} aria-live="polite">
-              <span>0{activeIdx + 1}</span>
-              <span className={styles.navCounterTotal}> / 0{ALL_PROJECTS.length}</span>
-            </div>
-
-            <div className={styles.navButtonsRow}>
-              <button
-                type="button"
-                onClick={handlePrev}
-                disabled={activeIdx === 0}
-                className={styles.navBtn}
-                aria-label="Proyecto anterior"
-                title="Proyecto anterior"
-              >
-                <ChevronLeft size={18} />
-              </button>
-
-              <button
-                type="button"
-                onClick={handleNext}
-                disabled={activeIdx === ALL_PROJECTS.length - 1}
-                className={styles.navBtn}
-                aria-label="Siguiente proyecto"
-                title="Siguiente proyecto"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Orderly Layered Card Deck */}
-        <div className={styles.stageWrapper}>
-          <div
-            className={styles.deckStage}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {ALL_PROJECTS.map((proj, idx) => {
-              const item = t.projects.items[proj.index];
-              if (!item) return null;
-              const cardStyle = getCardStyle(idx);
-              const isCurrent = idx === activeIdx;
+        {/* Scroll-Driven Stacking Cards Deck (Smooth, Orderly, Natural Flow) */}
+        <div className={styles.cardsStack}>
+          {ALL_PROJECTS.map((proj, idx) => {
+            const item = t.projects.items[proj.index];
+            if (!item) return null;
 
-              return (
-                <div
-                  key={proj.index}
-                  className={styles.cardDeckItem}
-                  style={cardStyle}
-                  onClick={() => {
-                    if (!isCurrent) setActiveIdx(idx);
-                  }}
-                  role="region"
+            return (
+              <div
+                key={proj.index}
+                className={styles.cardItemWrapper}
+                style={{
+                  "--card-index": idx,
+                } as React.CSSProperties}
+              >
+                <article
+                  className={styles.projectCard}
                   aria-label={`${item.title} (${idx + 1} de ${ALL_PROJECTS.length})`}
-                  aria-hidden={!isCurrent && idx < activeIdx}
                 >
-                  <div className={styles.cardInner}>
-                    {/* Visual Screenshot Stage */}
-                    <div className={styles.cardVisual}>
-                      <Image
-                        src={proj.image}
-                        alt={item.title}
-                        width={1200}
-                        height={825}
-                        priority={idx === 0}
-                        loading={idx === 0 ? "eager" : "lazy"}
-                      />
+                  {/* Visual Screenshot Stage */}
+                  <div className={styles.cardVisual}>
+                    <Image
+                      src={proj.image}
+                      alt={item.title}
+                      width={1200}
+                      height={825}
+                      priority={idx === 0}
+                      loading={idx === 0 ? "eager" : "lazy"}
+                    />
+                  </div>
+
+                  {/* Information Stage: Pure Clean Typography, Zero Chips */}
+                  <div className={styles.cardInfo}>
+                    <div className={styles.cardMetaTop}>
+                      <span className={styles.cardDiscipline}>
+                        {proj.discipline[language]}
+                      </span>
                     </div>
 
-                    {/* Information Stage: Pure Clean Typography, Zero Chips */}
-                    <div className={styles.cardInfo}>
-                      <div className={styles.cardMetaTop}>
-                        <span className={styles.cardDiscipline}>
-                          {proj.discipline[language]}
-                        </span>
-                      </div>
+                    <div className={styles.cardBody}>
+                      <h3 className={styles.cardTitle}>{item.title}</h3>
+                      <p className={styles.cardDesc}>{item.desc}</p>
+                    </div>
 
-                      <div className={styles.cardBody}>
-                        <h3 className={styles.cardTitle}>{item.title}</h3>
-                        <p className={styles.cardDesc}>{item.desc}</p>
-                      </div>
+                    {/* Plain-Text Tech Stack (No Chips / Badges) */}
+                    <div className={styles.cardTechRow}>
+                      <span className={styles.cardTechLabel}>
+                        {language === "en" ? "Technologies" : "Tecnologías"}
+                      </span>
+                      <span className={styles.cardTechText}>{proj.stack}</span>
+                    </div>
 
-                      {/* Plain-Text Tech Stack (No Chips/Badges) */}
-                      <div className={styles.cardTechRow}>
-                        <span className={styles.cardTechLabel}>
-                          {language === "en" ? "Technologies" : "Tecnologías"}
-                        </span>
-                        <span className={styles.cardTechText}>{proj.stack}</span>
-                      </div>
-
-                      {/* Professional Clean Action Link */}
-                      <div className={styles.cardActions}>
-                        <a
-                          href={proj.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.cardPrimaryBtn}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                          }}
-                        >
-                          {proj.isLive ? (
-                            <>
-                              <span>{t.projects.visitProject}</span>
-                              <ArrowUpRight size={17} />
-                            </>
-                          ) : (
-                            <>
-                              <GithubIcon size={15} />
-                              <span>{t.projects.viewGithub}</span>
-                              <ArrowUpRight size={17} />
-                            </>
-                          )}
-                        </a>
-                      </div>
+                    {/* Professional Clean Action Link */}
+                    <div className={styles.cardActions}>
+                      <a
+                        href={proj.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cardPrimaryBtn}
+                      >
+                        {proj.isLive ? (
+                          <>
+                            <span>{t.projects.visitProject}</span>
+                            <ArrowUpRight size={17} />
+                          </>
+                        ) : (
+                          <>
+                            <GithubIcon size={15} />
+                            <span>{t.projects.viewGithub}</span>
+                            <ArrowUpRight size={17} />
+                          </>
+                        )}
+                      </a>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Minimalist Dot/Pill Track */}
-          <div className={styles.deckDotsTrack} aria-hidden="true">
-            {ALL_PROJECTS.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActiveIdx(i)}
-                className={`${styles.dotBtn} ${
-                  i === activeIdx ? styles.dotBtnActive : styles.dotBtnInactive
-                }`}
-                aria-label={`Ir al proyecto ${i + 1}`}
-              />
-            ))}
-          </div>
+                </article>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

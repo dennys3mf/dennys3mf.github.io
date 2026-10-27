@@ -3,6 +3,7 @@ import {
   Plus_Jakarta_Sans,
   JetBrains_Mono,
   Architects_Daughter,
+  Orbitron,
 } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
@@ -23,6 +24,12 @@ const architectsDaughter = Architects_Daughter({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-accent-var",
+  display: "swap",
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-tech-var",
   display: "swap",
 });
 
@@ -140,7 +147,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="light"
-      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} ${architectsDaughter.variable}`}
+      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} ${architectsDaughter.variable} ${orbitron.variable}`}
       suppressHydrationWarning
     >
       <head>

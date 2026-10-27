@@ -24,6 +24,7 @@
   --font-body: var(--font-heading-var), 'Plus Jakarta Sans', sans-serif;
   --font-accent: var(--font-accent-var), 'Architects Daughter', cursive, sans-serif;
   --font-mono: var(--font-mono-var), 'JetBrains Mono', monospace;
+  --font-tech: var(--font-tech-var), 'Orbitron', monospace;
 
   /* Global Radius & Grid */
   --radius-pill: 9999px;
