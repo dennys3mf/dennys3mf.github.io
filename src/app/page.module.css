@@ -1514,7 +1514,7 @@
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.05);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -1628,7 +1628,7 @@
 }
 
 .processStepNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-tech, var(--font-mono));
   font-size: 1.45rem;
   font-weight: 800;
   color: var(--accent-blue);

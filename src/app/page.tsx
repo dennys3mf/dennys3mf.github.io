@@ -349,9 +349,6 @@ export default function Home() {
         <div className={styles.sectionContainer} style={{ padding: "0 1rem", position: "relative", zIndex: 2 }}>
           <ScrollReveal>
             <div className={styles.sectionHeader}>
-              <span className="text-xs md:text-sm font-extrabold uppercase tracking-widest text-blue-600 bg-blue-50 border border-blue-200/80 px-4 py-1.5 rounded-full inline-block mb-3.5 shadow-xs">
-                {language === "en" ? "Engineering Methodology" : "Metodología de Desarrollo"}
-              </span>
               <h2 className={styles.sectionTitle}>
                 {language === "en" ? "From Architecture to Production with Measurable Impact" : "De la Arquitectura a Producción con Impacto Medible"}
               </h2>
@@ -363,30 +360,12 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Visual Step Connector Pipeline */}
-          <div className={styles.processPipelineFlow}>
-            <span className={styles.processPipelineStep}>
-              <span>01. {language === "en" ? "Discovery & Architecture" : "Escuchar & Modelar"}</span>
-            </span>
-            <span className={styles.processPipelineArrow}>→</span>
-            <span className={styles.processPipelineStep}>
-              <span>02. {language === "en" ? "Clean Code & Testing" : "Construir & Validar"}</span>
-            </span>
-            <span className={styles.processPipelineArrow}>→</span>
-            <span className={styles.processPipelineStep}>
-              <span>03. {language === "en" ? "Deploy & Observability" : "Desplegar & Medir"}</span>
-            </span>
-          </div>
-
           <div className={styles.processGrid}>
             {/* Paso 01: Blue Card */}
             <ScrollReveal delay={100}>
               <div className={`${styles.processCardEnhanced} ${styles.processCardBlue}`}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>01</span>
-                  <span className={styles.processStepTag}>
-                    {language === "en" ? "PHASE 01 · ARCHITECTURE" : "FASE 01 · ENTENDER"}
-                  </span>
                 </div>
                 <div className={styles.processIconBoxBlue}>
                   <Search size={30} />
@@ -401,26 +380,6 @@ export default function Home() {
                       : "Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio. No toco una línea de código hasta tener clara la arquitectura y la meta."}
                   </p>
                 </div>
-
-                {/* Visual Architecture Schema Widget */}
-                <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col gap-2.5 font-mono text-xs text-slate-800 shadow-inner">
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200/80 pb-2">
-                    <span>Architecture Blueprint</span>
-                    <span className="text-blue-600 font-extrabold">Schema v2.4</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-700 text-xs">
-                    <span className="font-bold text-slate-900">React 18</span>
-                    <span className="text-blue-500">→</span>
-                    <span className="font-bold text-blue-600">Cloudflare Edge</span>
-                    <span className="text-blue-500">→</span>
-                    <span className="font-bold text-slate-900">Python API</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 pt-1 text-[11px]">
-                    <span className="px-2 py-0.5 rounded-md bg-blue-100 text-blue-700 font-bold">PostgreSQL</span>
-                    <span className="px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-700 font-bold">pgvector</span>
-                    <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold">Auditable</span>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
 
@@ -429,9 +388,6 @@ export default function Home() {
               <div className={`${styles.processCardEnhanced} ${styles.processCardPurple}`}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>02</span>
-                  <span className={styles.processStepTag}>
-                    {language === "en" ? "PHASE 02 · BUILD & TEST" : "FASE 02 · CONSTRUIR"}
-                  </span>
                 </div>
                 <div className={styles.processIconBoxPurple}>
                   <Terminal size={30} />
@@ -446,29 +402,6 @@ export default function Home() {
                       : "Desarrollo con entregas continuas para que puedas probar el sistema desde la primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos raros."}
                   </p>
                 </div>
-
-                {/* Visual Code IDE Widget */}
-                <div className="mt-4 p-4 rounded-2xl bg-[#0F1117] text-white font-mono text-xs shadow-inner flex flex-col gap-2.5">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                      <span className="text-[11px] text-slate-400 ml-1.5">recommender.ts</span>
-                    </div>
-                    <span className="text-[10px] text-emerald-400 font-bold">✓ TypeChecked</span>
-                  </div>
-                  <div className="text-[11px] leading-relaxed text-slate-300">
-                    <span className="text-purple-400">export async function</span> <span className="text-blue-400">rankFeed</span>() &#123;<br />
-                    &nbsp;&nbsp;<span className="text-slate-400">const</span> scored = <span className="text-purple-400">await</span> ai.rank(user);<br />
-                    &nbsp;&nbsp;<span className="text-purple-400">return</span> scored.filter(p =&gt; p.score &gt; 0.95);<br />
-                    &#125;
-                  </div>
-                  <div className="flex items-center justify-between pt-1.5 border-t border-white/10 text-[10px] text-slate-400">
-                    <span className="text-emerald-400 font-bold flex items-center gap-1">✓ 100% Tests Pass</span>
-                    <span className="text-slate-300 font-semibold">CI/CD Active</span>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
 
@@ -477,9 +410,6 @@ export default function Home() {
               <div className={`${styles.processCardEnhanced} ${styles.processCardEmerald}`}>
                 <div className={styles.processCardTop}>
                   <span className={styles.processStepNum}>03</span>
-                  <span className={styles.processStepTag}>
-                    {language === "en" ? "PHASE 03 · DEPLOY & SCALE" : "FASE 03 · DESPLEGAR"}
-                  </span>
                 </div>
                 <div className={styles.processIconBoxEmerald}>
                   <Rocket size={30} />
@@ -493,28 +423,6 @@ export default function Home() {
                       ? "Production cloud deployments with real-time observability, documentation, and continuous handover."
                       : "Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego documentación y te acompaño para que tu equipo opere con total tranquilidad."}
                   </p>
-                </div>
-
-                {/* Visual Observability Console Widget */}
-                <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col gap-2.5 font-mono text-xs text-slate-800 shadow-inner">
-                  <div className="flex items-center justify-between text-[11px] font-bold pb-2 border-b border-slate-200/80">
-                    <span className="text-slate-700 font-extrabold uppercase tracking-wider">Cloud Telemetry</span>
-                    <span className="text-slate-500">Cloudflare Edge</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 text-center pt-0.5">
-                    <div className="p-2 rounded-xl bg-white border border-slate-200 shadow-xs">
-                      <div className="text-[10px] text-slate-500 font-bold uppercase">Latency</div>
-                      <div className="text-base font-extrabold text-slate-900">14 ms</div>
-                    </div>
-                    <div className="p-2 rounded-xl bg-white border border-slate-200 shadow-xs">
-                      <div className="text-[10px] text-slate-500 font-bold uppercase">Uptime</div>
-                      <div className="text-base font-extrabold text-emerald-600">99.99%</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between pt-1 text-[11px] text-slate-600 font-medium">
-                    <span>Zero-Downtime Deploy</span>
-                    <span className="text-emerald-700 font-bold">Auto-Scaling</span>
-                  </div>
                 </div>
               </div>
             </ScrollReveal>
