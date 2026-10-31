@@ -1,45 +1,38 @@
 /* ====================================================================
-   3D VERTICAL DEPTH CAROUSEL (ORDERLY, FLUID & PROFESSIONAL)
+   ORGANIC TREE BRANCH & LEAVES ARCHITECTURE (RAMA Y HOJAS CON TALLOS)
    ==================================================================== */
 
-.carouselSection {
+.treeSection {
   background-color: var(--bg-page, #F8F9FC);
-  padding: 5.5rem 3.5vw 7.5rem;
+  padding: 6.5rem 3.5vw 8.5rem;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.carouselContainer {
-  max-width: 1220px;
+.treeContainer {
+  max-width: 1240px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   position: relative;
   z-index: 2;
 }
 
-/* Header Row: Title & Subtitle */
-.carouselHeaderRow {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.carouselHeaderLeft {
+/* Header Row */
+.treeHeader {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  max-width: 720px;
+  gap: 0.75rem;
+  max-width: 780px;
 }
 
 .eyebrow {
   font-family: var(--font-accent);
   font-size: clamp(1.2rem, 1.8vw, 1.55rem);
-  color: var(--brand-blue, #4F6BFF);
+  color: #10B981;
   margin: 0;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -63,163 +56,198 @@
   font-weight: 450;
 }
 
-/* Minimalist Project Index Tabs (Without < and > buttons) */
-.projectTabsRow {
+/* Branch Stage */
+.branchStage {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 0 2rem;
+}
+
+/* Central Organic Vertical Trunk (La Rama Principal) */
+.trunkLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trunkSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+}
+
+/* Leaves Container */
+.leavesList {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Leaf Row (Positioning alternating left and right on the branch) */
+.leafRow {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  overflow-x: auto;
-  padding: 0.35rem;
-  background: #FFFFFF;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 9999px;
-  scrollbar-width: none;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
-  align-self: flex-start;
-  max-width: 100%;
-}
-
-.projectTabsRow::-webkit-scrollbar {
-  display: none;
-}
-
-.projectTabBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.55rem 1.1rem;
-  border-radius: 9999px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #64748B;
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 600;
-  white-space: nowrap;
   position: relative;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
 }
 
-.projectTabBtn:hover {
-  color: #0F1115;
-  background: rgba(15, 23, 42, 0.03);
+.leafRowLeft {
+  justify-content: flex-start;
 }
 
-.projectTabBtnActive {
-  background: #0F1115 !important;
-  color: #FFFFFF !important;
-  font-weight: 700;
-  box-shadow: 0 4px 14px -1px rgba(15, 23, 42, 0.2);
+.leafRowRight {
+  justify-content: flex-end;
 }
 
-.tabNum {
-  font-family: var(--font-tech, 'Orbitron', monospace);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--brand-blue, #4F6BFF);
-}
-
-.projectTabBtnActive .tabNum {
-  color: #8A7BFF;
-}
-
-.tabName {
-  letter-spacing: -0.01em;
-}
-
-.tabActiveIndicator {
+/* Stem (Tallo) connecting the branch trunk to this leaf */
+.stemConnector {
   position: absolute;
-  bottom: 3px;
-  left: 14px;
-  right: 14px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 9999px;
-  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.tabProgressFill {
+.stemLeft {
+  left: calc(50% - 40px);
+  width: 40px;
+}
+
+.stemRight {
+  right: calc(50% - 40px);
+  width: 40px;
+}
+
+.stemSvg {
+  width: 100%;
+  height: 100%;
   display: block;
-  height: 100%;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.3));
+}
+
+/* Organic Sprout Node on the Trunk */
+.stemBudNode {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.8), 0 0 0 2.5px #FFFFFF;
+}
+
+.stemLeft .stemBudNode {
+  right: -6px;
+}
+
+.stemRight .stemBudNode {
+  left: -6px;
+}
+
+/* Organic Leaf Node at the Card Junction */
+.leafBaseNode {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background: #4F6BFF;
-  animation-name: progressAnim;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  box-shadow: 0 0 8px rgba(79, 107, 255, 0.8), 0 0 0 2px #FFFFFF;
 }
 
-@keyframes progressAnim {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
+.stemLeft .leafBaseNode {
+  left: -4px;
 }
 
-/* Stage & Orderly 3D Depth Deck */
-.stageWrapper {
+.stemRight .leafBaseNode {
+  right: -4px;
+}
+
+/* Leaf Card (La Hoja) */
+.leafCard {
+  width: calc(50% - 40px);
+  max-width: 560px;
+  background: #FFFFFF;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.08),
+              0 0 0 1px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
   position: relative;
-  width: 100%;
-  height: 520px;
-  margin-top: 0.5rem;
-  user-select: none;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s ease;
 }
 
-.deckStage {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* Organic Asymmetrical Leaf Radii & Natural Sway */
+.leafCardLeft {
+  border-radius: 46px 14px 46px 14px;
 }
 
-/* Card Depth Stacking */
-.cardDeckItem {
+.leafCardLeft:hover {
+  transform: translateY(-8px) rotate(-1.2deg);
+  box-shadow: 0 26px 50px -12px rgba(16, 185, 129, 0.18),
+              0 0 0 1px rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.leafCardRight {
+  border-radius: 14px 46px 14px 46px;
+}
+
+.leafCardRight:hover {
+  transform: translateY(-8px) rotate(1.2deg);
+  box-shadow: 0 26px 50px -12px rgba(16, 185, 129, 0.18),
+              0 0 0 1px rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Organic Leaf Vein Accent */
+.leafVeinLine {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, #10B981 0%, #4F6BFF 100%);
+  opacity: 0.9;
+  z-index: 5;
+}
+
+/* Leaf Visual Media Frame */
+.leafVisual {
+  position: relative;
   width: 100%;
-  max-width: 1100px;
-  height: 480px;
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity;
-  cursor: pointer;
-}
-
-.cardInner {
-  display: grid;
-  grid-template-columns: 1.15fr 0.95fr;
-  height: 100%;
-  background: #FFFFFF;
-  border: 1px solid rgba(15, 23, 42, 0.09);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.1),
-              0 0 0 1px rgba(15, 23, 42, 0.03);
-  position: relative;
-  transition: box-shadow 0.3s ease;
-}
-
-.cardActive .cardInner {
-  box-shadow: 0 26px 60px -15px rgba(15, 23, 42, 0.14),
-              0 0 0 1px rgba(79, 107, 255, 0.2);
-}
-
-/* Visual Media Frame (Video & High-Def Screenshot) */
-.cardVisual {
-  position: relative;
-  height: 100%;
+  height: 280px;
   overflow: hidden;
   background: #0B0F19;
-  border-right: 1px solid rgba(15, 23, 42, 0.06);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-.cardVideo,
-.cardImage {
+.leafCardLeft .leafVisual {
+  border-radius: 44px 12px 0 0;
+}
+
+.leafCardRight .leafVisual {
+  border-radius: 12px 44px 0 0;
+}
+
+.leafVideo,
+.leafImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -229,99 +257,106 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.cardDeckItem:hover .cardVideo,
-.cardDeckItem:hover .cardImage {
-  transform: scale(1.02);
+.leafCard:hover .leafVideo,
+.leafCard:hover .leafImage {
+  transform: scale(1.03);
 }
 
-/* Editorial Information (Pure Typography, Zero Chips) */
-.cardInfo {
-  padding: 2.6rem 2.8rem;
+/* Leaf Editorial Info Stage (Pure Typography, Zero Chips) */
+.leafInfo {
+  padding: 2.2rem 2.4rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.4rem;
+  gap: 1.25rem;
   background: #FFFFFF;
 }
 
-.cardMetaTop {
+.leafMetaTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
-/* Robotic Cybernetic Font for Discipline */
-.cardDiscipline {
+/* Robotic Cybernetic Font for Discipline (Orbitron) */
+.leafDiscipline {
   font-family: var(--font-tech, 'Orbitron', monospace);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--brand-blue, #4F6BFF);
 }
 
-.cardBody {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.leafOrderNum {
+  font-family: var(--font-tech, 'Orbitron', monospace);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #10B981;
+  letter-spacing: 0.05em;
 }
 
-.cardTitle {
+.leafBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.leafTitle {
   font-family: var(--font-heading);
-  font-size: clamp(1.7rem, 2.3vw, 2.3rem);
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.025em;
   color: #0F1115;
   margin: 0;
 }
 
-.cardDesc {
+.leafDesc {
   color: #475569;
-  font-size: 1rem;
-  line-height: 1.62;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
   font-weight: 400;
 }
 
-/* Clean Plain-Text Stack (No Chips/Badges) */
-.cardTechRow {
+/* Clean Plain-Text Tech Stack (No Chips / Badges) */
+.leafTechRow {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding-top: 0.6rem;
+  gap: 0.3rem;
+  padding-top: 0.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-.cardTechLabel {
+.leafTechLabel {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #94A3B8;
 }
 
-.cardTechText {
-  font-size: 0.88rem;
+.leafTechText {
+  font-size: 0.84rem;
   color: #334155;
   font-weight: 500;
   line-height: 1.45;
 }
 
-/* Professional Link */
-.cardActions {
+/* Professional Clean Action Link */
+.leafActions {
   display: flex;
   align-items: center;
-  padding-top: 0.4rem;
+  padding-top: 0.35rem;
 }
 
-.cardPrimaryBtn {
+.leafPrimaryBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #0F1115;
   text-decoration: none;
@@ -329,7 +364,7 @@
   position: relative;
 }
 
-.cardPrimaryBtn::after {
+.leafPrimaryBtn::after {
   content: "";
   position: absolute;
   left: 0;
@@ -341,80 +376,84 @@
   transform-origin: left;
 }
 
-.cardPrimaryBtn:hover {
-  color: var(--brand-blue, #4F6BFF);
+.leafPrimaryBtn:hover {
+  color: #10B981;
 }
 
-.cardPrimaryBtn:hover::after {
-  background: var(--brand-blue, #4F6BFF);
+.leafPrimaryBtn:hover::after {
+  background: #10B981;
 }
 
-.cardPrimaryBtn svg {
+.leafPrimaryBtn svg {
   transition: transform 0.2s ease;
 }
 
-.cardPrimaryBtn:hover svg {
+.leafPrimaryBtn:hover svg {
   transform: translate(2px, -2px);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .stageWrapper {
-    height: 520px;
+/* Responsive on Tablets & Mobile */
+@media (max-width: 992px) {
+  .treeSection {
+    padding: 4.5rem 1.25rem 6rem;
   }
 
-  .cardDeckItem {
-    height: 480px;
+  .trunkLine {
+    left: 20px;
+    transform: none;
+    width: 32px;
   }
 
-  .cardInfo {
-    padding: 2.2rem 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .carouselSection {
-    padding: 4.5rem 1.25rem 5.5rem;
+  .leavesList {
+    gap: 3.5rem;
   }
 
-  .projectTabsRow {
-    border-radius: 16px;
-    padding: 0.3rem;
+  .leafRow {
+    justify-content: flex-start !important;
+    padding-left: 54px;
   }
 
-  .projectTabBtn {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.82rem;
+  .leafCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 32px 14px 32px 14px !important;
   }
 
-  .stageWrapper {
-    height: 590px;
+  .leafCard:hover {
+    transform: translateY(-4px) !important;
   }
 
-  .cardDeckItem {
-    height: 550px;
+  .stemConnector {
+    left: 20px !important;
+    right: auto !important;
+    width: 34px !important;
   }
 
-  .cardInner {
-    grid-template-columns: 1fr;
-    grid-template-rows: 230px 1fr;
+  .stemBudNode {
+    left: -5px !important;
+    right: auto !important;
   }
 
-  .cardVisual {
-    border-right: none;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  .leafBaseNode {
+    right: -3px !important;
+    left: auto !important;
   }
 
-  .cardInfo {
-    padding: 1.5rem 1.4rem;
-    gap: 0.9rem;
+  .leafVisual {
+    height: 220px;
+    border-radius: 30px 12px 0 0 !important;
   }
 
-  .cardTitle {
-    font-size: 1.4rem;
+  .leafInfo {
+    padding: 1.6rem 1.4rem;
+    gap: 1rem;
   }
 
-  .cardDesc {
+  .leafTitle {
+    font-size: 1.35rem;
+  }
+
+  .leafDesc {
     font-size: 0.88rem;
     line-height: 1.55;
   }
