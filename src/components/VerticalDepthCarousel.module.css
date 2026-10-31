@@ -107,25 +107,29 @@
               0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
-/* Screenshot Frame */
+/* Visual Media Frame (Video & Screenshot) */
 .cardVisual {
   position: relative;
   height: 100%;
   min-height: 320px;
   overflow: hidden;
-  background: #F1F4F9;
+  background: #0B0F19;
   border-right: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-.cardVisual img {
+.cardVisual img,
+.cardVideo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+  background-color: #0B0F19;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.projectCard:hover .cardVisual img {
+.projectCard:hover .cardVisual img,
+.projectCard:hover .cardVideo {
   transform: scale(1.025);
 }
 

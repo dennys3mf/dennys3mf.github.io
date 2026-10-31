@@ -10,6 +10,7 @@ import styles from "./VerticalDepthCarousel.module.css";
 interface ProjectItem {
   index: number;
   image: string;
+  video?: string;
   href: string;
   isLive: boolean;
   discipline: {
@@ -23,6 +24,7 @@ const ALL_PROJECTS: ProjectItem[] = [
   {
     index: 0,
     image: "/images/projects/ahorratiempo-preview.webp",
+    video: "/videos/ahorratiempo.mp4",
     href: "https://ahorratiempo.pe",
     isLive: true,
     discipline: {
@@ -34,6 +36,7 @@ const ALL_PROJECTS: ProjectItem[] = [
   {
     index: 1,
     image: "/images/projects/controla-servilex-preview.webp",
+    video: "/videos/controla.mp4",
     href: "https://github.com/dennys3mf",
     isLive: false,
     discipline: {
@@ -56,6 +59,7 @@ const ALL_PROJECTS: ProjectItem[] = [
   {
     index: 3,
     image: "/images/projects/safety-helmet-preview.webp",
+    video: "/videos/casco-inteligente.mp4",
     href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
     isLive: false,
     discipline: {
@@ -78,6 +82,7 @@ const ALL_PROJECTS: ProjectItem[] = [
   {
     index: 5,
     image: "/images/projects/fiscalizacion-joya-preview.webp",
+    video: "/videos/app-fiscalizacion.mp4",
     href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
     isLive: false,
     discipline: {
@@ -123,16 +128,36 @@ export default function VerticalDepthCarousel() {
                   className={styles.projectCard}
                   aria-label={`${item.title} (${idx + 1} de ${ALL_PROJECTS.length})`}
                 >
-                  {/* Visual Screenshot Stage */}
+                  {/* Visual Stage: Pre-recorded Video (Muted / Autoplay) or Optimized Screenshot */}
                   <div className={styles.cardVisual}>
-                    <Image
-                      src={proj.image}
-                      alt={item.title}
-                      width={1200}
-                      height={825}
-                      priority={idx === 0}
-                      loading={idx === 0 ? "eager" : "lazy"}
-                    />
+                    {proj.video ? (
+                      <video
+                        ref={(el) => {
+                          if (el) {
+                            el.defaultMuted = true;
+                            el.muted = true;
+                          }
+                        }}
+                        src={proj.video}
+                        poster={proj.image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className={styles.cardVideo}
+                        aria-label={`${item.title} video`}
+                      />
+                    ) : (
+                      <Image
+                        src={proj.image}
+                        alt={item.title}
+                        width={1200}
+                        height={825}
+                        priority={idx === 0}
+                        loading={idx === 0 ? "eager" : "lazy"}
+                      />
+                    )}
                   </div>
 
                   {/* Information Stage: Pure Clean Typography, Zero Chips */}
