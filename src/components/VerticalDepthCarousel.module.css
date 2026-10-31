@@ -1,5 +1,5 @@
 /* ====================================================================
-   ORGANIC TREE BRANCH & LEAVES ARCHITECTURE (RAMA Y HOJAS CON TALLOS)
+   REALISTIC BOTANICAL TREE BRANCH & LEAVES (RAMA Y HOJAS CON TALLOS)
    ==================================================================== */
 
 .treeSection {
@@ -12,7 +12,7 @@
 }
 
 .treeContainer {
-  max-width: 1240px;
+  max-width: 1260px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -21,12 +21,23 @@
   z-index: 2;
 }
 
-/* Header Row */
+/* Header with Foliage Accent */
 .treeHeader {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
   max-width: 780px;
+}
+
+.headerBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sproutIcon {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.3));
 }
 
 .eyebrow {
@@ -56,21 +67,21 @@
   font-weight: 450;
 }
 
-/* Branch Stage */
+/* Realistic Botanical Branch Stage */
 .branchStage {
   position: relative;
   width: 100%;
   padding: 1.5rem 0 2rem;
 }
 
-/* Central Organic Vertical Trunk (La Rama Principal) */
+/* Central Organic Vertical Trunk (Rama Principal) */
 .trunkLine {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
+  width: 60px;
   z-index: 1;
   pointer-events: none;
 }
@@ -79,111 +90,99 @@
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.28));
 }
 
 /* Leaves Container */
 .leavesList {
   display: flex;
   flex-direction: column;
-  gap: 4.8rem;
+  gap: 4.5rem;
   position: relative;
   z-index: 2;
 }
 
-/* Leaf Row (Positioning alternating left and right on the branch) */
+/* 3-Column Grid for Zero-Gap Stem Connection */
 .leafRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
   align-items: center;
   position: relative;
   width: 100%;
 }
 
-.leafRowLeft {
-  justify-content: flex-start;
-}
-
-.leafRowRight {
+.colLeft {
+  display: flex;
   justify-content: flex-end;
+  width: 100%;
 }
 
-/* Stem (Tallo) connecting the branch trunk to this leaf */
-.stemConnector {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 32px;
+.colRight {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.colCenter {
+  position: relative;
+  width: 50px;
+  height: 100%;
+  min-height: 120px;
   display: flex;
   align-items: center;
-  z-index: 1;
-  pointer-events: none;
+  justify-content: center;
+  z-index: 3;
 }
 
-.stemLeft {
-  left: calc(50% - 40px);
-  width: 40px;
-}
-
-.stemRight {
-  right: calc(50% - 40px);
-  width: 40px;
+/* Organic Stem (Tallo) connecting trunk to leaf card */
+.stemConnector {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stemSvg {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.3));
+  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.35));
 }
 
-/* Organic Sprout Node on the Trunk */
-.stemBudNode {
+/* Foliage sprout cluster at the branch node */
+.foliageSproutWrap {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.8), 0 0 0 2.5px #FFFFFF;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  pointer-events: none;
+  z-index: 4;
 }
 
-.stemLeft .stemBudNode {
-  right: -6px;
+.sproutFoliageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.4));
+  transition: transform 0.4s ease;
 }
 
-.stemRight .stemBudNode {
-  left: -6px;
+.leafRow:hover .sproutFoliageImg {
+  transform: scale(1.15) rotate(5deg);
 }
 
-/* Organic Leaf Node at the Card Junction */
-.leafBaseNode {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #4F6BFF;
-  box-shadow: 0 0 8px rgba(79, 107, 255, 0.8), 0 0 0 2px #FFFFFF;
-}
-
-.stemLeft .leafBaseNode {
-  left: -4px;
-}
-
-.stemRight .leafBaseNode {
-  right: -4px;
-}
-
-/* Leaf Card (La Hoja) */
+/* Realistic Leaf Card (La Hoja del Proyecto) */
 .leafCard {
-  width: calc(50% - 40px);
-  max-width: 560px;
+  width: 100%;
+  max-width: 540px;
   background: #FFFFFF;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.08),
-              0 0 0 1px rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  box-shadow: 0 18px 45px -12px rgba(15, 23, 42, 0.08),
+              0 0 0 1px rgba(16, 185, 129, 0.06);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -193,38 +192,38 @@
               border-color 0.45s ease;
 }
 
-/* Organic Asymmetrical Leaf Radii & Natural Sway */
+/* Asymmetric Botanical Leaf Silhouettes */
 .leafCardLeft {
-  border-radius: 46px 14px 46px 14px;
+  border-radius: 48px 14px 48px 14px;
 }
 
 .leafCardLeft:hover {
-  transform: translateY(-8px) rotate(-1.2deg);
-  box-shadow: 0 26px 50px -12px rgba(16, 185, 129, 0.18),
-              0 0 0 1px rgba(16, 185, 129, 0.35);
-  border-color: rgba(16, 185, 129, 0.4);
+  transform: translateY(-8px) rotate(-1.3deg);
+  box-shadow: 0 26px 55px -12px rgba(16, 185, 129, 0.22),
+              0 0 0 1px rgba(16, 185, 129, 0.4);
+  border-color: rgba(16, 185, 129, 0.5);
 }
 
 .leafCardRight {
-  border-radius: 14px 46px 14px 46px;
+  border-radius: 14px 48px 14px 48px;
 }
 
 .leafCardRight:hover {
-  transform: translateY(-8px) rotate(1.2deg);
-  box-shadow: 0 26px 50px -12px rgba(16, 185, 129, 0.18),
-              0 0 0 1px rgba(16, 185, 129, 0.35);
-  border-color: rgba(16, 185, 129, 0.4);
+  transform: translateY(-8px) rotate(1.3deg);
+  box-shadow: 0 26px 55px -12px rgba(16, 185, 129, 0.22),
+              0 0 0 1px rgba(16, 185, 129, 0.4);
+  border-color: rgba(16, 185, 129, 0.5);
 }
 
-/* Organic Leaf Vein Accent */
+/* Leaf Vein Line (Nervadura Orgánica) */
 .leafVeinLine {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #10B981 0%, #4F6BFF 100%);
-  opacity: 0.9;
+  height: 3.5px;
+  background: linear-gradient(90deg, #10B981 0%, #4ADE80 50%, #4F6BFF 100%);
+  opacity: 0.95;
   z-index: 5;
 }
 
@@ -232,18 +231,18 @@
 .leafVisual {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 275px;
   overflow: hidden;
   background: #0B0F19;
   border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 .leafCardLeft .leafVisual {
-  border-radius: 44px 12px 0 0;
+  border-radius: 46px 12px 0 0;
 }
 
 .leafCardRight .leafVisual {
-  border-radius: 12px 44px 0 0;
+  border-radius: 12px 46px 0 0;
 }
 
 .leafVideo,
@@ -262,7 +261,7 @@
   transform: scale(1.03);
 }
 
-/* Leaf Editorial Info Stage (Pure Typography, Zero Chips) */
+/* Leaf Editorial Info Stage */
 .leafInfo {
   padding: 2.2rem 2.4rem;
   display: flex;
@@ -290,10 +289,10 @@
 
 .leafOrderNum {
   font-family: var(--font-tech, 'Orbitron', monospace);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #10B981;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 }
 
 .leafBody {
@@ -320,7 +319,7 @@
   font-weight: 400;
 }
 
-/* Clean Plain-Text Tech Stack (No Chips / Badges) */
+/* Plain-Text Tech Stack (No Chips / Badges) */
 .leafTechRow {
   display: flex;
   flex-direction: column;
@@ -345,7 +344,7 @@
   line-height: 1.45;
 }
 
-/* Professional Clean Action Link */
+/* Action Link */
 .leafActions {
   display: flex;
   align-items: center;
@@ -392,7 +391,7 @@
   transform: translate(2px, -2px);
 }
 
-/* Responsive on Tablets & Mobile */
+/* Responsive for Mobile & Tablets */
 @media (max-width: 992px) {
   .treeSection {
     padding: 4.5rem 1.25rem 6rem;
@@ -401,7 +400,7 @@
   .trunkLine {
     left: 20px;
     transform: none;
-    width: 32px;
+    width: 36px;
   }
 
   .leavesList {
@@ -409,8 +408,33 @@
   }
 
   .leafRow {
-    justify-content: flex-start !important;
-    padding-left: 54px;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-left: 48px;
+    gap: 0;
+  }
+
+  .colLeft,
+  .colRight {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .colCenter {
+    position: absolute;
+    left: 12px;
+    top: 36px;
+    width: 36px;
+    min-height: auto;
+  }
+
+  .stemConnector {
+    height: 36px;
+  }
+
+  .foliageSproutWrap {
+    width: 34px;
+    height: 34px;
   }
 
   .leafCard {
@@ -421,22 +445,6 @@
 
   .leafCard:hover {
     transform: translateY(-4px) !important;
-  }
-
-  .stemConnector {
-    left: 20px !important;
-    right: auto !important;
-    width: 34px !important;
-  }
-
-  .stemBudNode {
-    left: -5px !important;
-    right: auto !important;
-  }
-
-  .leafBaseNode {
-    right: -3px !important;
-    left: auto !important;
   }
 
   .leafVisual {
