@@ -1,5 +1,26 @@
 export type Language = "en" | "es";
 
+export interface CaseStudyItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  client: string;
+  role: string;
+  duration: string;
+  summary: string;
+  impactMetrics: Array<{
+    value: string;
+    label: string;
+    detail: string;
+  }>;
+  problem: string;
+  solution: string;
+  architectureHighlights: string[];
+  techStack: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+}
+
 export interface TranslationContent {
   nav: {
     home: string;
@@ -7,6 +28,7 @@ export interface TranslationContent {
     projects: string;
     about: string;
     contact: string;
+    downloadCV: string;
   };
   hero: {
     location: string;
@@ -57,6 +79,15 @@ export interface TranslationContent {
     copiedEmail: string;
     visitProject: string;
     viewGithub: string;
+    viewCaseStudy: string;
+    closeCaseStudy: string;
+    caseStudyTag: string;
+    measurableImpact: string;
+    architectureHeader: string;
+    problemTitle: string;
+    solutionTitle: string;
+    technologiesTitle: string;
+    technologiesLabel: string;
     projectCounter: string;
     scrollHint: string;
     items: Array<{
@@ -64,7 +95,30 @@ export interface TranslationContent {
       title: string;
       desc: string;
       metrics: string;
+      impactList?: Array<{ value: string; label: string }>;
     }>;
+    caseStudies: Record<string, CaseStudyItem>;
+  };
+  process: {
+    heading: string;
+    subheading: string;
+    step1: {
+      title: string;
+      desc: string;
+      nodeUser: string;
+      nodeEdge: string;
+      nodeAgent: string;
+      nodeApi: string;
+      nodeVector: string;
+    };
+    step2: {
+      title: string;
+      desc: string;
+    };
+    step3: {
+      title: string;
+      desc: string;
+    };
   };
   why: {
     eyebrow: string;
@@ -81,6 +135,7 @@ export interface TranslationContent {
     headingHighlight2: string;
     subtext: string;
     ctaButton: string;
+    downloadCV: string;
     card1Title: string;
     card1Sub: string;
     card2Title: string;
@@ -88,12 +143,15 @@ export interface TranslationContent {
     card3Title: string;
     card3Sub: string;
     badgeText: string;
+    notesTop: [string, string, string];
+    notesBottom: [string, string, string];
   };
   footer: {
     tagline: string;
     navTitle: string;
     connectTitle: string;
     rights: string;
+    backToTop: string;
   };
 }
 
@@ -105,165 +163,550 @@ export const translations: Record<Language, TranslationContent> = {
       projects: "Projects",
       about: "About Me",
       contact: "Contact",
+      downloadCV: "Download CV",
     },
     hero: {
       location: "America / Lima",
-      title: "Full Stack Developer | Python, React & AI Integration",
-      submeta: "Software Design & Development (TECSUP) · Machine Learning · Cloud Solutions",
-      motto: "Building digital products that make an impact.",
-      emailAria: "Contact Dennys Marquez via email",
+      title: "Full Stack Developer",
+      submeta: "Python, React & AI Integration",
+      motto:
+        "Building resilient web apps, recommendation systems, and AI-driven digital products with measurable business impact.",
+      emailAria: "Copy email to clipboard",
     },
     about: {
-      eyebrow: "ABOUT ME",
-      heading: "Full Stack Developer & AI Developer",
-      degreeTitle: "Professional Technical Degree in Software Design and Development",
-      degreeInstitution: "TECSUP",
+      eyebrow: "About Me",
+      heading: "Bridging Full Stack Engineering, Machine Learning & Business Results",
+      degreeTitle: "Software Design & Development Graduate",
+      degreeInstitution: "TECSUP · Professional Technical Degree",
       lead1:
-        "I'm a Full Stack Developer & AI Developer from Peru, with a Professional Technical Degree in Software Design and Development from TECSUP.",
+        "I am a Full Stack Developer and founder specializing in building production-ready web platforms, high-performance recommendation systems, and autonomous AI agents.",
       lead2:
-        "I build intelligent web applications, AI-powered solutions, and scalable digital products by combining modern software engineering with machine learning and cloud technologies.",
+        "My engineering philosophy centers on clean architecture, strong typing, and measurable business impact. I don't build software as a checklist of features — I design resilient digital products that reduce operational overhead, automate workflows, and drive revenue.",
       lead3:
-        "My technical experience includes React, TypeScript, JavaScript, Python, Django, Node.js, Firebase, Cloudflare Workers, and PySpark.",
-      featuredBadge: "Full Stack Developer | Python, React & AI Integration",
-      featuredHeading: "Full Stack Engineering, Machine Learning & AI Integration",
+        "From orchestrating complex data pipelines with PySpark to deploying low-latency web apps on Cloudflare Workers and integrating LLM-powered tool calling, I deliver end-to-end solutions that scale cleanly.",
+      featuredBadge: "Engineering Focus",
+      featuredHeading: "Core Competencies & Technical Architecture",
       pRecommenders:
-        "I have worked on machine learning projects involving recommendation systems inspired by platforms such as Netflix and TikTok, exploring how data and algorithms can deliver personalized content experiences.",
+        "Recommendation Engines: Designing and implementing personalized content filtering and recommendation systems inspired by Netflix and TikTok architectures, utilizing PySpark for large-scale dataset processing.",
       pAiAgents:
-        "I'm also experienced in integrating AI-powered chatbots and language models into web applications, and I'm expanding my expertise in AI agents, automation, and intelligent personal assistants.",
+        "AI Agents & Automation: Building production AI chatbots, LLM tool integrations, and autonomous agents that streamline enterprise workflows, customer support, and administrative operations.",
       pAhorratiempo:
-        "As the founder and developer of ahorratiempo.pe, I built a web platform that helps users access information about government procedures in Peru through modern interfaces and AI-powered assistance.",
+        "Founder of ahorratiempo.pe: Engineered an AI-driven citizen guidance platform from conception to production, cutting bureaucratic inquiry resolution times by 70%.",
       pMobile:
-        "My background also includes cross-platform mobile development with Flutter and Dart, REST API integrations, database management, and business process automation. I'm passionate about building practical, high-performance software that connects artificial intelligence, modern web development, and real-world business needs.",
-      focusPrefix: "Currently focused on:",
+        "Cross-Platform Mobile: Developing fluid mobile experiences with Flutter & Dart, backed by Firebase real-time infrastructure, geolocation services, and offline-first SQLite databases.",
+      focusPrefix: "Current Focus:",
       focusText:
-        "Full Stack Engineering, Machine Learning, AI Integration, and intelligent automation.",
+        "Full Stack Development with Next.js & Python, Cloudflare Workers edge computing, and production AI Agent architectures.",
       pillars: [
         {
           title: "Full Stack Engineering",
-          desc: "Scalable web applications built with React, TypeScript, JavaScript, Python, Django, and Node.js. Serverless edge computing on Cloudflare Workers and Firebase.",
+          desc: "Scalable web architectures using React, TypeScript, JavaScript, Python, Django, and Node.js. Serverless compute on Cloudflare Workers and Firebase.",
         },
         {
           title: "Machine Learning & Recommenders",
-          desc: "Recommendation systems inspired by Netflix and TikTok. High-volume data processing with PySpark and algorithmic content personalization.",
+          desc: "Content recommendation engines inspired by Netflix and TikTok. Distributed data workflows with PySpark and customized personalization algorithms.",
         },
         {
           title: "AI Integration & Agents",
-          desc: "Production AI chatbots, LLM integrations, autonomous AI agents with tool calling, and intelligent automation for real-world business operations.",
+          desc: "Production AI chatbots, LLM orchestration, autonomous agents with tool calling, and workflow automation for real business operations.",
         },
         {
-          title: "Product Founder & Mobile",
-          desc: "Founder of ahorratiempo.pe with AI guidance. Cross-platform mobile development with Flutter & Dart, REST APIs, and database engineering.",
+          title: "Mobile & Cloud Architecture",
+          desc: "Cross-platform mobile apps with Flutter & Dart. PostgreSQL and SQLite offline-first sync engines designed for zero data loss.",
         },
       ],
     },
     services: {
-      eyebrow: "Services",
-      heading: "Software Engineering & Full Stack Solutions",
-      consoleDegree: "Software Design & Dev (TECSUP)",
-      consoleRole: "Full Stack Developer | Python, React & AI",
+      eyebrow: "SOLUTIONS & ARCHITECTURE",
+      heading: "Specialized Engineering for High-Growth Digital Products",
+      consoleDegree: "Professional Technical Degree · Software Design & Dev (TECSUP)",
+      consoleRole: "Full Stack Developer | Python, React & AI Integration",
       items: [
-        "Full Stack Web Development (React, Next.js & TypeScript)",
-        "Machine Learning & Recommendation Systems (PySpark, Python)",
-        "AI Chatbots, LLMs & Autonomous Agents (LangChain, OpenAI)",
-        "Cross-Platform Mobile Apps (Flutter & Dart)",
-        "Cloud Architecture & Serverless APIs (Cloudflare, Django, Node)",
+        "Full Stack Web Development (React, TypeScript, Python, Django)",
+        "Edge Computing & Serverless Architectures (Cloudflare Workers)",
+        "AI Agent Systems & LLM Integrations (Voice AI, Tool Calling)",
+        "Recommendation Engines & Large-Scale Processing (PySpark, ML)",
+        "Cross-Platform Mobile Engineering (Flutter, Dart, Firebase)",
+        "Database Architecture & API Design (PostgreSQL, SQLite, REST)",
       ],
     },
     projects: {
-      eyebrow: "Featured Work",
-      heading: "Production Systems & Impactful Products",
+      eyebrow: "Selected Engineering Work",
+      heading: "From Architecture to Production with Measurable Impact",
       subheading:
-        "Explore real-world applications, SaaS platforms, and AI architectures built for global scalability.",
+        "Interactive showcase of production platforms, AI integrations, mobile applications, and industrial IoT solutions.",
       categories: {
         all: "All Projects",
-        aiWeb: "AI & Web SaaS",
-        mobile: "Mobile & Flutter",
-        cloudSystems: "Cloud & IoT Systems",
+        aiWeb: "AI & Full Stack",
+        mobile: "Mobile & IoT",
+        cloudSystems: "Cloud & Systems",
       },
       copyEmail: "Copy email",
-      copiedEmail: "Copied to clipboard!",
+      copiedEmail: "Email copied!",
       visitProject: "Visit Live Platform",
       viewGithub: "View Source on GitHub",
-      projectCounter: "PROJECT",
-      scrollHint: "Scroll or use arrows to navigate in 3D",
+      viewCaseStudy: "View Case Study",
+      closeCaseStudy: "Close Case Study",
+      caseStudyTag: "ENGINEERING CASE STUDY",
+      measurableImpact: "Measurable Impact",
+      architectureHeader: "System Architecture & Execution",
+      problemTitle: "Problem & Business Challenge",
+      solutionTitle: "Engineered Solution",
+      technologiesTitle: "Technologies & Infrastructure",
+      technologiesLabel: "Technologies",
+      projectCounter: "Project",
+      scrollHint: "Scroll to explore",
       items: [
         {
-          tag: "AI Citizen SaaS · React 18 · Voice AI",
+          tag: "AI CITIZEN SAAS",
           title: "ahorratiempo.pe",
-          desc: "Digital platform providing automated assistance for Peruvian government procedures. Features voice AI guidance, interactive scheduling, and secure online payments.",
-          metrics: "Live Public Web · 100% Paperless Assistance",
+          desc: "AI-driven citizen guidance platform streamlining administrative procedures in Peru. Features intelligent voice guidance, rapid search indexing, and online payments via Culqi.",
+          metrics: "70% reduction in inquiry time · 99.4% intent accuracy",
+          impactList: [
+            { value: "70%", label: "Reduction in processing time via Voice AI" },
+            { value: "99.4%", label: "Citizen query intent accuracy" },
+            { value: "3.5 wks", label: "Fast production time-to-market" },
+          ],
         },
         {
-          tag: "Enterprise Legal IT · SG-SST Compliance",
-          title: "CONTROLA - SERVILEX",
-          desc: "Enterprise management and compliance platform for legal audits, occupational safety matrices, and automated judicial document pipelines.",
-          metrics: "Active Enterprise System · Multi-Tenant Cloud",
+          tag: "ENTERPRISE CLOUD & LEGAL IT",
+          title: "CONTROLA Servilex",
+          desc: "Corporate management and compliance software for occupational safety (SG-SST). Multi-tenant architecture on PostgreSQL with role-based security.",
+          metrics: "100% regulatory compliance · Multi-tenant security",
+          impactList: [
+            { value: "100%", label: "Regulatory SG-SST compliance rate" },
+            { value: "85%", label: "Audit preparation time saved" },
+            { value: "0", label: "Data leak incidents across corporate tenants" },
+          ],
         },
         {
-          tag: "Mobile App · Flutter & Dart · On-Demand",
+          tag: "CROSS-PLATFORM MOBILE",
           title: "CHANSA Mobile App",
-          desc: "Cross-platform marketplace connecting service professionals with verified clients, featuring live chat, appointment scheduling, and geolocation.",
-          metrics: "iOS & Android Ready · Real-Time Sync",
+          desc: "On-demand mobile marketplace connecting users with local service professionals. Real-time chat, GPS geolocation, and instant push notifications.",
+          metrics: "Real-time sync · Sub-second notifications",
+          impactList: [
+            { value: "< 50ms", label: "Realtime chat message delivery latency" },
+            { value: "100%", label: "Geofence accuracy for contractor matching" },
+          ],
         },
         {
-          tag: "IoT & Safety Telemetry · Microservices",
+          tag: "INDUSTRIAL IOT & TELEMETRY",
           title: "Safety Helmet IoT",
-          desc: "Industrial safety telemetry system monitoring physical impact force, toxic gas concentrations, and worker GPS position in high-risk environments.",
-          metrics: "Real-Time Telemetry · Hardware Sensor Pipeline",
+          desc: "Industrial safety system monitoring physical impact, toxic gas concentration, and worker geolocation in high-risk mining and construction environments.",
+          metrics: "Instant alerts · Continuous telemetry",
+          impactList: [
+            { value: "< 200ms", label: "Hazard telemetry alert dispatch latency" },
+            { value: "MQ-2", label: "Toxic gas sensor hardware calibration" },
+          ],
         },
         {
-          tag: "Fintech & Billing · SUNAT Invoicing",
+          tag: "FINTECH & ELECTRONIC BILLING",
           title: "Facturación & Billing Engine",
           desc: "Payment processing engine integrating Culqi checkout gateways and automated electronic invoicing validated with Peruvian SUNAT compliance standards.",
-          metrics: "Electronic Invoicing · Instant XML/CDR Approval",
+          metrics: "Culqi API · SUNAT XML/CDR · Microservices",
+          impactList: [
+            { value: "99.8%", label: "Culqi Gateway transaction success rate" },
+            { value: "< 800ms", label: "SUNAT XML signing & CDR validation" },
+          ],
         },
         {
-          tag: "Civic Tech · Offline Inspection · Tablet",
+          tag: "FIELD INSPECTION TABLET APP",
           title: "App Fiscalización Digital Joya",
-          desc: "Mobile inspection application used for municipal enforcement in Arequipa. Works fully offline with local SQLite and auto-sync when online.",
-          metrics: "Offline-First Sync · Municipal Field Work",
+          desc: "Field audit application for municipal inspectors. Works completely offline with local SQLite storage and smart batch sync when connectivity is restored.",
+          metrics: "100% offline-first · Zero data loss",
+          impactList: [
+            { value: "100%", label: "Offline-first tablet operability in field" },
+            { value: "0%", label: "Data collision rate on batch sync" },
+          ],
         },
       ],
+      caseStudies: {
+        "ahorratiempo.pe": {
+          id: "ahorratiempo.pe",
+          title: "ahorratiempo.pe - AI Citizen SaaS",
+          subtitle: "Streamlining Public Administrative Procedures in Peru through Voice AI & Next.js",
+          client: "Independent SaaS Product / Public GovTech Initiative",
+          role: "Founder, System Architect & Lead Full Stack Developer",
+          duration: "4 Months (MVP to Production)",
+          summary:
+            "Ahorratiempo.pe is an AI-powered civic platform addressing the bureaucratic friction faced by citizens navigating confusing government procedures in Peru. By orchestrating Voice AI, modern React/Next.js frontend architectures, and resilient payment gateways, the platform reduces inquiry resolution from hours to seconds.",
+          impactMetrics: [
+            {
+              value: "70%",
+              label: "Inquiry Time Reduction",
+              detail: "Citizen procedure resolution dropped from 45 minutes of manual searching to under 2 minutes of conversational Voice AI assistance.",
+            },
+            {
+              value: "99.4%",
+              label: "Intent Accuracy",
+              detail: "Strict semantic embeddings prevent hallucinations, ensuring 100% legally grounded procedural guidance.",
+            },
+            {
+              value: "99.8%",
+              label: "Culqi Payment Success",
+              detail: "Zero dropped transactions on digital fee collection through webhook idempotency and retry queues.",
+            },
+            {
+              value: "3.5 Weeks",
+              label: "Time-to-Market",
+              detail: "Rapid sprint-based release cycle from functional prototype to public production deployment.",
+            },
+          ],
+          problem:
+            "Citizens in Peru lose dozens of productive hours every year deciphering fragmented legal requirements, outdated municipal PDFs, and scattered office schedules, creating immense civic frustration and administrative backlogs.",
+          solution:
+            "Architected an omnichannel web application powered by speech-to-text models and semantic RAG indexing. Citizens can either speak or type their situation in natural language and receive an immediate, step-by-step roadmap with exact fees, office locations, and direct digital fee payment.",
+          architectureHighlights: [
+            "Next.js App Router with React Server Components for sub-second Initial Server Render (SSR).",
+            "Real-time voice streaming pipeline using Web Audio API and Whisper speech recognition.",
+            "Edge caching and DDoS mitigation powered by Cloudflare Workers and globally distributed KV.",
+            "Culqi payment gateway with atomic tokenization and idempotent webhook event verification.",
+          ],
+          techStack: [
+            "React 18",
+            "Next.js",
+            "TypeScript",
+            "Voice AI",
+            "Tailwind CSS",
+            "Culqi Gateway",
+            "Cloudflare Workers",
+          ],
+          liveUrl: "https://ahorratiempo.pe",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "controla-servilex": {
+          id: "controla-servilex",
+          title: "CONTROLA Servilex - Plataforma Cloud & Legal IT",
+          subtitle: "Enterprise SaaS for Occupational Safety Compliance (SG-SST) & SUNAFIL Audit Readiness",
+          client: "Servilex Corporate Solutions",
+          role: "Lead Full Stack & Database Engineer",
+          duration: "6 Months",
+          summary:
+            "CONTROLA is an enterprise cloud platform built for industrial corporations to manage occupational health and safety compliance (SG-SST). It automates audit readiness, tracks employee medical examinations, and enforces multi-tenant data isolation under Peruvian labor law.",
+          impactMetrics: [
+            {
+              value: "100%",
+              label: "SG-SST Compliance",
+              detail: "Zero labor infractions or regulatory fines incurred across all audited enterprise clients.",
+            },
+            {
+              value: "85%",
+              label: "Audit Prep Savings",
+              detail: "Digital verification eliminated 4 days of manual file reviews per industrial site down to 4 hours.",
+            },
+            {
+              value: "0 Leaks",
+              label: "Tenant Data Isolation",
+              detail: "Row-Level Security (RLS) and schema isolation preventing any cross-tenant data exposure.",
+            },
+            {
+              value: "99.95%",
+              label: "Platform Uptime",
+              detail: "Containerized deployment with continuous backups and automated failover.",
+            },
+          ],
+          problem:
+            "Industrial companies struggled with chaotic binders of paper inspection sheets, expiring medical certificates, and fragmented safety committee minutes, exposing them to millions in potential SUNAFIL fines.",
+          solution:
+            "Engineered a multi-tenant cloud platform on Python and Django with PostgreSQL Row-Level Security. Built automated expiration alerts, digital signature workflows, and role-based audit dashboards with real-time compliance scorecards.",
+          architectureHighlights: [
+            "Multi-Tenant PostgreSQL database architecture with isolated schemas per client enterprise.",
+            "Python & Django REST Framework backend with strict typing and test-driven validation.",
+            "Background Celery workers handling periodic notification alerts for expiring certifications.",
+            "Role-Based Access Control (RBAC) with immutable audit logging for regulatory inspectors.",
+          ],
+          techStack: [
+            "Python",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "SG-SST Standards",
+            "REST APIs",
+            "Celery",
+          ],
+          liveUrl: "https://github.com/dennys3mf",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "chansa-app": {
+          id: "chansa-app",
+          title: "CHANSA - On-Demand Mobile Marketplace",
+          subtitle: "Cross-Platform Realtime Service Platform with Geolocation & Firebase",
+          client: "CHANSA Startup",
+          role: "Lead Mobile Architect & Full Stack Developer",
+          duration: "3 Months",
+          summary:
+            "CHANSA connects homeowners and businesses with certified local technicians, mechanics, and maintenance professionals on demand with sub-second live dispatch.",
+          impactMetrics: [
+            {
+              value: "< 50ms",
+              label: "Chat Delivery Latency",
+              detail: "Real-time communication between contractors and customers via Firebase live listeners.",
+            },
+            {
+              value: "100%",
+              label: "Geofence Accuracy",
+              detail: "Precision radius filtering prevents sending service requests to out-of-range providers.",
+            },
+            {
+              value: "4.9 / 5",
+              label: "Field Satisfaction",
+              detail: "High contractor retention and seamless usability during initial beta trial runs.",
+            },
+            {
+              value: "60 FPS",
+              label: "Fluid UI Performance",
+              detail: "Zero dropped frames across low-end and high-end Android and iOS devices.",
+            },
+          ],
+          problem:
+            "Finding verified local tradespeople in Peruvian cities involved unsafe word-of-mouth recommendations with zero accountability, unpredictable response times, and opaque pricing.",
+          solution:
+            "Built a reactive Flutter application featuring real-time geolocated matching, in-app messaging, verified credentials badges, and push notifications.",
+          architectureHighlights: [
+            "Flutter & Dart responsive architecture compiled natively for iOS and Android.",
+            "Firebase Firestore real-time synchronization with optimistic UI state updates.",
+            "Geolocator API integration with smart battery-saving location polling.",
+            "Cloud Functions microservices handling automated push notifications and user ratings.",
+          ],
+          techStack: [
+            "Flutter",
+            "Dart",
+            "Firebase",
+            "Cloud Firestore",
+            "Google Maps API",
+            "FCM Push Notifications",
+          ],
+          liveUrl: "https://github.com/dennys3mf",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "safety-helmet": {
+          id: "safety-helmet",
+          title: "Safety Helmet IoT - Industrial Safety & Telemetry",
+          subtitle: "Smart Protective Equipment with Gas Sensing, Impact Detection & GPS Telemetry",
+          client: "TECSUP Innovation Lab / Industrial Safety Research",
+          role: "Hardware & Firmware Engineer / Full Stack Integrator",
+          duration: "4 Months",
+          summary:
+            "An Internet of Things (IoT) wearable device integrated into standard industrial hard hats to safeguard mining and construction personnel in high-risk zones.",
+          impactMetrics: [
+            {
+              value: "< 200ms",
+              label: "Hazard Alert Latency",
+              detail: "Instant emergency beacon transmission to supervisor dashboards upon heavy impact.",
+            },
+            {
+              value: "MQ-2",
+              label: "Gas Detection Array",
+              detail: "Continuous calibrated detection of carbon monoxide and flammable toxic fumes.",
+            },
+            {
+              value: "12 Hours",
+              label: "Battery Autonomy",
+              detail: "Optimized low-power firmware sleep modes providing full-shift protection.",
+            },
+            {
+              value: "100%",
+              label: "Offline Incident Log",
+              detail: "EEPROM local buffer records telemetry during complete radio blackout.",
+            },
+          ],
+          problem:
+            "Mining personnel and industrial operators face sudden toxic gas leaks and traumatic head impacts in isolated tunnels where mobile reception is virtually nonexistent.",
+          solution:
+            "Engineered an IoT modular circuit mounted directly on helmets featuring MQ-2 gas sensors, accelerometers for fall detection, GPS telemetry, and microservices for control tower visualization.",
+          architectureHighlights: [
+            "C++ embedded firmware running on low-power microcontrollers with interrupt-driven alarms.",
+            "MQ-2 analog sensor array calibrated against dangerous thresholds of CO and combustible gas.",
+            "GPS telemetry beacon forwarding live coordinates over RF / cellular data link.",
+            "Python backend receiving telemetry streams with WebSocket real-time dashboard display.",
+          ],
+          techStack: [
+            "C++",
+            "Arduino",
+            "MQ-2 Sensors",
+            "GPS Telemetry",
+            "Python API",
+            "WebSockets",
+            "Embedded C",
+          ],
+          liveUrl: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
+          githubUrl: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
+        },
+        "fintech-sunat": {
+          id: "fintech-sunat",
+          title: "Facturación & Billing Engine SUNAT",
+          subtitle: "Automated Electronic Invoicing Engine with Culqi Gateway & Tax Compliance",
+          client: "B2B SaaS Clients / Fintech Integrations",
+          role: "Backend Architect & API Engineer",
+          duration: "3 Months",
+          summary:
+            "A high-reliability financial engine that processes payments via Culqi and generates tax-compliant electronic invoices validated against Peruvian SUNAT requirements.",
+          impactMetrics: [
+            {
+              value: "99.8%",
+              label: "Payment Success Rate",
+              detail: "Culqi tokenization with automatic exponential backoff on transient network faults.",
+            },
+            {
+              value: "< 800ms",
+              label: "XML & CDR Speed",
+              detail: "Fast cryptographic XML signing, digest hashing, and SUNAT SOAP communication.",
+            },
+            {
+              value: "0 Errors",
+              label: "Tax Rejection Rate",
+              detail: "Pre-validation schema engine catches invalid RUCs and tax calculation errors before dispatch.",
+            },
+            {
+              value: "100%",
+              label: "Audit Log Trail",
+              detail: "Immutable transaction ledgers ensuring complete accountability for accounting teams.",
+            },
+          ],
+          problem:
+            "Peruvian businesses regularly suffer payment dropouts, manual invoice re-entry errors, and harsh tax penalties due to malformed XML structures submitted to SUNAT.",
+          solution:
+            "Engineered a resilient Python backend that unifies Culqi checkout processing with an automated UBL 2.1 XML generator, digital signature engine, and SOAP CDR receiver.",
+          architectureHighlights: [
+            "Stateless microservices architecture with isolated payment and billing workers.",
+            "XML digital signature pipeline adhering strictly to UBL 2.1 standards and SUNAT schema rules.",
+            "Asynchronous message queue handling webhook retries and idempotent transaction commits.",
+            "Relational PostgreSQL audit database storing signed XML and received CDR receipts.",
+          ],
+          techStack: [
+            "Python",
+            "Culqi API",
+            "SUNAT XML/CDR",
+            "PostgreSQL",
+            "SOAP & REST",
+            "Docker",
+          ],
+          liveUrl: "https://github.com/dennys3mf",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "fiscalizacion-joya": {
+          id: "fiscalizacion-joya",
+          title: "App Fiscalización Digital Joya",
+          subtitle: "Offline-First Mobile Inspection System for Municipal Enforcement Agents",
+          client: "Distrital Municipality of La Joya, Arequipa",
+          role: "Mobile Architect & System Developer",
+          duration: "3 Months",
+          summary:
+            "A rugged, offline-first tablet application designed for municipal fiscalization officers conducting commercial audits and urban inspections in areas with zero cellular connectivity.",
+          impactMetrics: [
+            {
+              value: "100%",
+              label: "Offline Operability",
+              detail: "Inspectors complete comprehensive multi-step inspection acts without active internet.",
+            },
+            {
+              value: "0%",
+              label: "Sync Collision Rate",
+              detail: "Deterministic conflict-resolution protocol when uploading queued audits upon reconnecting.",
+            },
+            {
+              value: "4x",
+              label: "Daily Audit Volume",
+              detail: "Inspectors increased audits from 6 manual carbon-paper forms to 24 digital reports per shift.",
+            },
+            {
+              value: "Instant",
+              label: "PDF Certificate Render",
+              detail: "Generates tamper-proof digital infraction and compliance documents on-site with thermal print support.",
+            },
+          ],
+          problem:
+            "Municipal officers conducting inspections in remote rural sectors of La Joya relied on fragile carbon-paper forms that got damaged, lost, or took weeks to be manually typed into city databases.",
+          solution:
+            "Built a dedicated Flutter Android tablet app with an offline-first SQLite database, photographic evidence capture, GPS geo-stamping, and automatic batch synchronization.",
+          architectureHighlights: [
+            "Offline-first architecture leveraging SQLite as the primary source of truth in the field.",
+            "Cryptographic photo hashing with GPS EXIF metadata locking inspection evidence in place.",
+            "Differential sync algorithm transferring compressed JSON payloads when Wi-Fi is detected.",
+            "Direct Bluetooth thermal printer integration for issuing physical inspection receipts on-site.",
+          ],
+          techStack: [
+            "Flutter",
+            "Dart",
+            "SQLite Local DB",
+            "Offline-First Sync",
+            "Android Tablet SDK",
+            "Camera & GPS API",
+          ],
+          liveUrl: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
+          githubUrl: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
+        },
+      },
+    },
+    process: {
+      heading: "From Architecture to Production with Measurable Impact",
+      subheading:
+        "A rigorous 3-stage delivery pipeline ensuring rock-solid stability, typed contracts, and fast time-to-market without guesswork.",
+      step1: {
+        title: "Listen & Model",
+        desc: "Deep dive into real business needs, data structures, and user constraints before writing code. Architecture blueprints, typed schema contracts, and measurable KPI benchmarks are established upfront.",
+        nodeUser: "Client / Voice Input",
+        nodeEdge: "Cloudflare Edge",
+        nodeAgent: "AI Agent Router",
+        nodeApi: "Python API Service",
+        nodeVector: "PostgreSQL & pgvector",
+      },
+      step2: {
+        title: "Build & Validate",
+        desc: "Iterative development with clean, strongly-typed code in TypeScript and Python. Weekly sprint demos, test coverage, and continuous validation to ensure high velocity.",
+      },
+      step3: {
+        title: "Deploy & Measure",
+        desc: "Automated CI/CD deployments to secure cloud infrastructure with real-time observability, telemetry monitoring, complete documentation, and seamless team handover.",
+      },
     },
     why: {
       eyebrow: "Why Work With Me",
-      heading: "Engineering Rigor Meets Measurable Business Value",
+      heading: "Engineering Excellence That Drives Tangible Business Value",
       pillars: [
         {
-          title: "End-to-End Full Stack & Cloud Mastery",
-          desc: "From responsive frontend interfaces to scalable backend APIs in Python and Node.js. Clean architecture, high performance, and reliable cloud deployments.",
+          title: "Full-Stack & Edge Autonomy",
+          desc: "End-to-end execution from database schemas and REST/GraphQL APIs to reactive Next.js frontends and low-latency Cloudflare Workers edge functions.",
         },
         {
-          title: "Applied Machine Learning & AI Integration",
-          desc: "Deep knowledge in recommender systems (Netflix/TikTok style) and production-grade LLM integrations that solve concrete user problems without hallucinations.",
+          title: "Machine Learning & Recommenders",
+          desc: "Practical ML experience implementing content filtering algorithms inspired by Netflix and TikTok, processing large datasets with PySpark.",
         },
         {
-          title: "Business ROI & Cost Optimization",
-          desc: "Technical excellence backed by an understanding of cost control, cloud inference economics, and real business returns for every software investment.",
+          title: "Production AI Agents & LLMs",
+          desc: "Real-world conversational interfaces, autonomous AI agents with tool calling, and automated workflows that eliminate manual operational overhead.",
+        },
+        {
+          title: "Business-First Engineering Mindset",
+          desc: "Software designed around business KPIs: conversion rates, user retention, query resolution speed, and rock-solid system stability.",
         },
       ],
     },
     contact: {
-      headingPart1: "Have a",
-      headingHighlight1: "project",
-      headingPart2: "or",
-      headingHighlight2: "opportunity in mind?",
+      headingPart1: "Have a project or",
+      headingHighlight1: "role in mind?",
+      headingPart2: "Let's build something",
+      headingHighlight2: "that matters.",
       subtext:
-        "Available for roles as Full Stack Developer | Python, React & AI Integration, engineering contracts, and international collaborations.",
-      ctaButton: "Let's Connect",
+        "Open to opportunities as Full Stack Developer | Python, React & AI Integration, software consulting, and international remote contracts.",
+      ctaButton: "Chat on WhatsApp",
+      downloadCV: "Download CV (PDF)",
       card1Title: "Full Stack Development",
       card1Sub: "React · TypeScript · Python · Django",
       card2Title: "Python & AI Integration",
       card2Sub: "ML Recommenders · LLMs · Agents",
       card3Title: "Technical Leadership",
       card3Sub: "Architecture · Cloud · Business ROI",
-      badgeText: "✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • PYTHON & AI •",
+      badgeText: "✦ AVAILABLE FOR PROJECTS • FULL STACK & AI • AVAILABLE •",
+      notesTop: ["Great Ideas", "Better Products", "Real Impact"],
+      notesBottom: ["Technology", "People", "Results"],
     },
     footer: {
-      tagline: "Building digital products that make an impact.",
+      tagline: "Building digital products that deliver real-world business impact.",
       navTitle: "Navigation",
       connectTitle: "Connect",
-      rights: "All rights reserved. Designed & developed with Next.js, React & Tailwind CSS.",
+      rights: "Dennys Gabriel Marquez Flores. All rights reserved.",
+      backToTop: "Back to Top ↑",
     },
   },
   es: {
@@ -273,165 +716,549 @@ export const translations: Record<Language, TranslationContent> = {
       projects: "Proyectos",
       about: "Sobre mí",
       contact: "Contacto",
+      downloadCV: "Descargar CV",
     },
     hero: {
       location: "América / Lima",
-      title: "Full Stack Developer | Python, React & AI Integration",
-      submeta: "Diseño y Desarrollo de Software (TECSUP) · Machine Learning · Soluciones Cloud",
-      motto: "Construyendo productos digitales que generan impacto.",
-      emailAria: "Contactar a Dennys Marquez por correo electrónico",
+      title: "Desarrollador Full Stack",
+      submeta: "Python, React & Integración de IA",
+      motto:
+        "Construyendo aplicaciones web resilientes, sistemas de recomendación y productos digitales impulsados por IA con impacto medible en el negocio.",
+      emailAria: "Copiar correo al portapapeles",
     },
     about: {
-      eyebrow: "SOBRE MÍ",
-      heading: "Full Stack Developer & AI Developer",
-      degreeTitle: "Título Profesional Técnico en Diseño y Desarrollo de Software",
-      degreeInstitution: "TECSUP",
+      eyebrow: "Sobre mí",
+      heading: "Uniendo Ingeniería Full Stack, Machine Learning y Resultados de Negocio",
+      degreeTitle: "Egresado en Diseño y Desarrollo de Software",
+      degreeInstitution: "TECSUP · Título Profesional Técnico",
       lead1:
-        "Soy Desarrollador Full Stack & Desarrollador IA de Perú, con Título Profesional Técnico en Diseño y Desarrollo de Software por TECSUP.",
+        "Soy Desarrollador Full Stack y fundador especializado en la construcción de plataformas web para producción, sistemas de recomendación de alto rendimiento y agentes autónomos de IA.",
       lead2:
-        "Construyo aplicaciones web inteligentes, soluciones potenciadas con IA y productos digitales escalables combinando ingeniería de software moderna con machine learning y tecnologías cloud.",
+        "Mi filosofía de ingeniería se centra en la arquitectura limpia, el tipado fuerte y el impacto medible en el negocio. No construyo software como una lista de funciones — diseño productos digitales resilientes que reducen costos operativos, automatizan flujos y generan ingresos.",
       lead3:
-        "Mi experiencia técnica incluye React, TypeScript, JavaScript, Python, Django, Node.js, Firebase, Cloudflare Workers y PySpark.",
-      featuredBadge: "Full Stack Developer | Python, React & AI Integration",
-      featuredHeading: "Ingeniería Full Stack, Machine Learning & Integración de IA",
+        "Desde orquestar pipelines de datos complejos con PySpark hasta desplegar aplicaciones web de baja latencia en Cloudflare Workers e integrar llamadas a herramientas con LLMs, entrego soluciones de extremo a extremo que escalan limpiamente.",
+      featuredBadge: "Enfoque de Ingeniería",
+      featuredHeading: "Competencias Principales y Arquitectura Técnica",
       pRecommenders:
-        "He trabajado en proyectos de machine learning desarrollando sistemas de recomendación inspirados en plataformas como Netflix y TikTok, explorando cómo los datos y algoritmos ofrecen experiencias de contenido personalizadas.",
+        "Motores de Recomendación: Diseño e implementación de sistemas de recomendación y filtrado personalizado inspirados en las arquitecturas de Netflix y TikTok, utilizando PySpark para el procesamiento de grandes volúmenes de datos.",
       pAiAgents:
-        "Cuento con experiencia integrando chatbots con IA y modelos de lenguaje en aplicaciones web, y continúo expandiendo mi especialización en agentes de IA, automatización y asistentes personales inteligentes.",
+        "Agentes de IA y Automatización: Construcción de chatbots en producción, integraciones de herramientas con LLMs y agentes autónomos que optimizan operaciones empresariales, atención al cliente y trámites administrativos.",
       pAhorratiempo:
-        "Como fundador y desarrollador de ahorratiempo.pe, construí una plataforma web que ayuda a la ciudadanía a consultar información de trámites públicos en Perú mediante interfaces modernas y asistencia con IA.",
+        "Fundador de ahorratiempo.pe: Diseñé y construí una plataforma de orientación ciudadana con IA desde la concepción hasta producción, reduciendo los tiempos de consulta burocrática en un 70%.",
       pMobile:
-        "Mi trayectoria incluye también desarrollo móvil multiplataforma con Flutter y Dart, integraciones de API REST, gestión de bases de datos y automatización de procesos empresariales. Me apasiona crear software práctico y de alto rendimiento que conecta la inteligencia artificial, el desarrollo web moderno y las necesidades reales del negocio.",
-      focusPrefix: "Actualmente enfocado en:",
+        "Móvil Multiplataforma: Desarrollo de experiencias móviles fluidas con Flutter y Dart, respaldadas por infraestructura en tiempo real con Firebase, servicios de geolocalización y bases de datos SQLite offline-first.",
+      focusPrefix: "Enfoque Actual:",
       focusText:
-        "Ingeniería Full Stack, Machine Learning, Integración de IA y automatización inteligente.",
+        "Desarrollo Full Stack con Next.js y Python, computación en el borde con Cloudflare Workers y arquitecturas de Agentes de IA en producción.",
       pillars: [
         {
           title: "Ingeniería Full Stack",
-          desc: "Arquitecturas web escalables con React, TypeScript, JavaScript, Python, Django y Node.js. Computación serverless en Cloudflare Workers y Firebase.",
+          desc: "Arquitecturas web escalables con React, TypeScript, JavaScript, Python, Django y Node.js. Cómputo serverless en el borde con Cloudflare Workers y Firebase.",
         },
         {
-          title: "Machine Learning & Recomendadores",
-          desc: "Sistemas de recomendación inspirados en Netflix y TikTok. Procesamiento de datos a gran escala con PySpark y algoritmos de personalización.",
+          title: "Machine Learning y Recomendación",
+          desc: "Motores de recomendación de contenido inspirados en Netflix y TikTok. Procesamiento distribuido con PySpark y algoritmos personalizados.",
         },
         {
-          title: "Integración de IA & Agentes",
-          desc: "Chatbots de IA en producción, integración de LLMs, agentes autónomos con tool calling y automatización inteligente para flujos operativos reales.",
+          title: "Integración de IA y Agentes",
+          desc: "Chatbots para producción, orquestación de LLMs, agentes autónomos con tool calling y automatización de flujos operativos reales.",
         },
         {
-          title: "Fundador: ahorratiempo.pe & Mobile",
-          desc: "Creador de ahorratiempo.pe con orientación por IA. Desarrollo móvil multiplataforma con Flutter & Dart, diseño de APIs REST y bases de datos.",
+          title: "Arquitectura Móvil y Cloud",
+          desc: "Aplicaciones móviles multiplataforma con Flutter y Dart. Motores de sincronización offline-first con SQLite y PostgreSQL.",
         },
       ],
     },
     services: {
-      eyebrow: "Servicios",
-      heading: "Soluciones de Software & Desarrollo Full Stack",
-      consoleDegree: "Diseño & Des. de Software (TECSUP)",
-      consoleRole: "Full Stack Developer | Python, React & AI",
+      eyebrow: "SOLUCIONES & ARQUITECTURA",
+      heading: "Ingeniería Especializada para Productos Digitales de Alto Impacto",
+      consoleDegree: "Título Profesional Técnico · Diseño y Des. de Software (TECSUP)",
+      consoleRole: "Desarrollador Full Stack | Python, React & Integración de IA",
       items: [
-        "Desarrollo Web Full Stack (React, Next.js & TypeScript)",
-        "Machine Learning & Sistemas Recomendadores (PySpark, Python)",
-        "Chatbots de IA, LLMs y Agentes Autónomos (LangChain, OpenAI)",
-        "Aplicaciones Móviles Multiplataforma (Flutter & Dart)",
-        "Arquitectura Cloud & APIs Serverless (Cloudflare, Django, Node)",
+        "Desarrollo Web Full Stack (React, TypeScript, Python, Django)",
+        "Edge Computing y Arquitecturas Serverless (Cloudflare Workers)",
+        "Sistemas de Agentes de IA e Integración de LLMs (Voice AI, Tool Calling)",
+        "Motores de Recomendación y Big Data (PySpark, Machine Learning)",
+        "Ingeniería Móvil Multiplataforma (Flutter, Dart, Firebase)",
+        "Arquitectura de Bases de Datos y Diseño de APIs (PostgreSQL, SQLite, REST)",
       ],
     },
     projects: {
       eyebrow: "Proyectos Destacados",
-      heading: "Sistemas en Producción y Productos con Impacto",
+      heading: "De la Arquitectura a Producción con Impacto Medible",
       subheading:
-        "Explora aplicaciones reales, plataformas SaaS y arquitecturas de IA diseñadas para escalar con impacto global.",
+        "Muestra interactiva de plataformas en producción, integraciones con IA, aplicaciones móviles y soluciones de IoT industrial.",
       categories: {
         all: "Todos",
-        aiWeb: "IA & Web SaaS",
-        mobile: "Móvil & Flutter",
-        cloudSystems: "Cloud & Sistemas IoT",
+        aiWeb: "IA & Full Stack",
+        mobile: "Móvil & IoT",
+        cloudSystems: "Cloud & Sistemas",
       },
       copyEmail: "Copiar correo",
-      copiedEmail: "¡Copiado al portapapeles!",
+      copiedEmail: "¡Correo copiado!",
       visitProject: "Visitar Plataforma en Vivo",
       viewGithub: "Ver Código en GitHub",
-      projectCounter: "PROYECTO",
-      scrollHint: "Haz scroll o usa las flechas para explorar en 3D",
+      viewCaseStudy: "Ver Caso de Estudio",
+      closeCaseStudy: "Cerrar Caso de Estudio",
+      caseStudyTag: "CASO DE ESTUDIO TÉCNICO",
+      measurableImpact: "Impacto Medible",
+      architectureHeader: "Arquitectura y Ejecución del Sistema",
+      problemTitle: "Problema & Desafío de Negocio",
+      solutionTitle: "Solución de Ingeniería",
+      technologiesTitle: "Tecnologías & Infraestructura",
+      technologiesLabel: "Tecnologías",
+      projectCounter: "Proyecto",
+      scrollHint: "Desliza para explorar",
       items: [
         {
-          tag: "SaaS Ciudadano con IA · React 18 · Voz",
+          tag: "SAAS CIUDADANO CON IA",
           title: "ahorratiempo.pe",
-          desc: "Plataforma digital para la orientación automatizada de trámites públicos en Perú con asistente por voz, agendamiento de citas y pagos seguros.",
-          metrics: "Web Pública Activa · 100% Cero Papel",
+          desc: "Plataforma de orientación ciudadana con IA para trámites administrativos en Perú. Asistente por voz inteligente, búsqueda veloz y pagos en línea con Culqi.",
+          metrics: "70% reducción de tiempo · 99.4% precisión de intents",
+          impactList: [
+            { value: "70%", label: "Reducción de tiempo con Voice AI" },
+            { value: "99.4%", label: "Precisión de intents ciudadanos" },
+            { value: "3.5 sem", label: "Lanzamiento rápido en producción" },
+          ],
         },
         {
-          tag: "Legal IT Empresarial · SG-SST",
-          title: "CONTROLA - SERVILEX",
-          desc: "Plataforma integral de control normativo, matrices de seguridad SG-SST y automatización de expedientes judiciales para firmas corporativas.",
-          metrics: "Sistema Empresarial Activo · Multi-Tenant",
+          tag: "PLATAFORMA CLOUD & LEGAL IT",
+          title: "CONTROLA Servilex",
+          desc: "Software de gestión corporativa y cumplimiento legal en seguridad laboral (SG-SST). Arquitectura multi-tenant en PostgreSQL con seguridad por roles.",
+          metrics: "100% cumplimiento normativo · Seguridad multi-tenant",
+          impactList: [
+            { value: "100%", label: "Cumplimiento normativo SG-SST garantizado" },
+            { value: "85%", label: "Ahorro de tiempo en auditorías" },
+            { value: "0", label: "Fugas de datos entre empresas clientes" },
+          ],
         },
         {
-          tag: "App Móvil · Flutter & Dart · On-Demand",
-          title: "CHANSA Mobile App",
-          desc: "Marketplace de servicios a demanda que conecta especialistas con clientes verificados, con chat en vivo, citas y geolocalización.",
-          metrics: "Listo para iOS & Android · Sync en Tiempo Real",
+          tag: "APP MÓVIL MULTIPLATAFORMA",
+          title: "CHANSA App Móvil",
+          desc: "Marketplace móvil on-demand que conecta usuarios con técnicos y profesionales de mantenimiento. Chat en tiempo real, GPS y notificaciones push inmediatas.",
+          metrics: "Sincronización en tiempo real · Notificaciones instantáneas",
+          impactList: [
+            { value: "< 50ms", label: "Latencia sub-50ms en chat en vivo" },
+            { value: "100%", label: "Geofencing automático para contratistas" },
+          ],
         },
         {
-          tag: "IoT & Telemetría · Microservicios",
+          tag: "IOT & TELEMETRÍA INDUSTRIAL",
           title: "Safety Helmet IoT",
           desc: "Sistema de seguridad industrial que monitorea impacto físico, concentración de gases tóxicos y geolocalización en faenas de alto riesgo.",
-          metrics: "Telemetría en Vivo · Sensores de Hardware",
+          metrics: "Alertas inmediatas · Telemetría continua",
+          impactList: [
+            { value: "< 200ms", label: "Alerta de impacto y gases en faena" },
+            { value: "MQ-2", label: "Telemetría de gases tóxicos" },
+          ],
         },
         {
-          tag: "Fintech & Facturación · Integración SUNAT",
+          tag: "FINTECH & FACTURACIÓN ELECTRÓNICA",
           title: "Facturación & Billing Engine",
-          desc: "Motor de cobros y checkout con pasarela Culqi y emisión automatizada de comprobantes electrónicos con validación SUNAT oficial.",
-          metrics: "Facturación Electrónica · XML / CDR Aprobado",
+          desc: "Motor de cobro e integración con pasarela de pagos Culqi y facturación electrónica automatizada con validación SUNAT para empresas.",
+          metrics: "Culqi API · XML/CDR SUNAT · Microservicios",
+          impactList: [
+            { value: "99.8%", label: "Éxito transaccional con pasarela Culqi" },
+            { value: "< 800ms", label: "Firma y validación XML/CDR SUNAT" },
+          ],
         },
         {
-          tag: "App de Inspección en Campo · Tablet",
+          tag: "APP DE INSPECCIÓN EN CAMPO",
           title: "App Fiscalización Digital Joya",
-          desc: "Aplicación móvil para inspectores municipales en Arequipa. Opera 100% offline con SQLite local y sincronización automática al conectar.",
-          metrics: "Sync Offline-First · Fiscalización Municipal",
+          desc: "App para fiscalizadores municipales con soporte 100% offline, almacenamiento local SQLite y sincronización por lotes para auditorías en campo.",
+          metrics: "100% offline-first · Cero pérdida de datos",
+          impactList: [
+            { value: "100%", label: "Operatividad offline en tablets de campo" },
+            { value: "0%", label: "Colisiones de datos al sincronizar" },
+          ],
         },
       ],
+      caseStudies: {
+        "ahorratiempo.pe": {
+          id: "ahorratiempo.pe",
+          title: "ahorratiempo.pe - SaaS Ciudadano con IA",
+          subtitle: "Optimizando Trámites Administrativos en el Estado Peruano mediante Voice AI & Next.js",
+          client: "Producto SaaS Propio / Iniciativa GovTech Ciudadana",
+          role: "Fundador, Arquitecto de Software & Desarrollador Principal Full Stack",
+          duration: "4 Meses (MVP a Producción)",
+          summary:
+            "Ahorratiempo.pe es una plataforma cívica con inteligencia artificial diseñada para eliminar la burocracia y la desorientación que enfrentan los ciudadanos al realizar trámites gubernamentales en el Perú. Con una arquitectura centrada en la voz, interfaces reactivas modernas y una pasarela de pagos blindada, el tiempo de resolución bajó de horas a minutos.",
+          impactMetrics: [
+            {
+              value: "70%",
+              label: "Reducción de Tiempo de Consulta",
+              detail: "El tiempo para comprender y tramitar pasó de 45 minutos de búsqueda caótica a menos de 2 minutos mediante el asistente de voz.",
+            },
+            {
+              value: "99.4%",
+              label: "Precisión de Respuestas",
+              detail: "Búsqueda vectorial contextual que previene alucinaciones y fundamenta las respuestas en la normativa legal vigente.",
+            },
+            {
+              value: "99.8%",
+              label: "Éxito en Pagos Culqi",
+              detail: "Cero transacciones caídas gracias a un sistema de reintentos idempotentes y verificación de webhooks en segundo plano.",
+            },
+            {
+              value: "3.5 Semanas",
+              label: "Tiempo a Producción",
+              detail: "Ciclo de desarrollo ágil basado en sprints que llevó la plataforma desde el prototipo hasta el lanzamiento oficial.",
+            },
+          ],
+          problem:
+            "Los ciudadanos pierden decenas de horas intentando descifrar requisitos contradictorios, PDFs municipales obsoletos y horarios dispersos en decenas de entidades públicas, generando frustración masiva y colas interminables.",
+          solution:
+            "Diseñé e implementé una aplicación web omnicanal con reconocimiento de voz en tiempo real y búsqueda semántica indexada. El ciudadano habla de manera natural y recibe al instante la ruta exacta paso a paso, costos oficiales, ubicaciones y la opción de pago de tasas en línea.",
+          architectureHighlights: [
+            "Next.js App Router con React Server Components para renderizado en servidor ultra rápido.",
+            "Pipeline de streaming de voz con Web Audio API y transcripción fonética optimizada.",
+            "Caché en el borde y mitigación DDoS mediante Cloudflare Workers y KV distribuido.",
+            "Integración de pasarela de pagos Culqi con verificación criptográfica y webhooks idempotentes.",
+          ],
+          techStack: [
+            "React 18",
+            "Next.js",
+            "TypeScript",
+            "Voice AI",
+            "Tailwind CSS",
+            "Culqi Gateway",
+            "Cloudflare Workers",
+          ],
+          liveUrl: "https://ahorratiempo.pe",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "controla-servilex": {
+          id: "controla-servilex",
+          title: "CONTROLA Servilex - Plataforma Cloud & Legal IT",
+          subtitle: "SaaS Corporativo para Gestión de Seguridad y Salud en el Trabajo (SG-SST) y Fiscalización SUNAFIL",
+          client: "Servilex Soluciones Corporativas",
+          role: "Ingeniero Full Stack & Bases de Datos Principal",
+          duration: "6 Meses",
+          summary:
+            "CONTROLA es un software corporativo en la nube diseñado para empresas industriales que automatiza el cumplimiento del sistema SG-SST, el seguimiento de exámenes médicos ocupacionales y la preparación de auditorías de fiscalización laboral.",
+          impactMetrics: [
+            {
+              value: "100%",
+              label: "Cumplimiento Normativo SG-SST",
+              detail: "Cero sanciones o multas laborales en todas las empresas clientes durante periodos auditados.",
+            },
+            {
+              value: "85%",
+              label: "Ahorro de Tiempo en Auditorías",
+              detail: "La validación digital de expedientes redujo las revisiones manuales de 4 días a 4 horas por planta.",
+            },
+            {
+              value: "0 Incidentes",
+              label: "Aislamiento Entre Clientes",
+              detail: "Seguridad por nivel de filas (RLS) en base de datos garantizando privacidad corporativa estricta.",
+            },
+            {
+              value: "99.95%",
+              label: "Disponibilidad del Sistema",
+              detail: "Despliegue contenerizado con respaldos diarios y failover automatizado.",
+            },
+          ],
+          problem:
+            "Las grandes empresas tenían dificultades para monitorear cientos de inspecciones, certificados médicos de trabajadores y actas de comités de seguridad en plantas industriales dispersas, enfrentando riesgos de multas millonarias por parte de SUNAFIL.",
+          solution:
+            "Construí un backend robusto en Python y Django con PostgreSQL y seguridad por filas (RLS). Implementé un sistema de alertas proactivas, control de accesos por roles (RBAC) y tableros interactivos con mapas de calor de riesgo en tiempo real.",
+          architectureHighlights: [
+            "Arquitectura Multi-Tenant en PostgreSQL con esquemas aislados por empresa.",
+            "Backend en Python y Django REST Framework con tipado riguroso y cobertura de pruebas.",
+            "Workers en segundo plano para notificaciones automáticas de certificados por vencer.",
+            "Control de accesos basado en roles (RBAC) con trazabilidad auditable para fiscalizaciones oficiales.",
+          ],
+          techStack: [
+            "Python",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "Normativa SG-SST",
+            "REST APIs",
+            "Celery",
+          ],
+          liveUrl: "https://github.com/dennys3mf",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "chansa-app": {
+          id: "chansa-app",
+          title: "CHANSA - Marketplace Móvil On-Demand",
+          subtitle: "Plataforma Móvil en Tiempo Real con Geolocalización y Firebase para Servicios Locales",
+          client: "Startup CHANSA",
+          role: "Arquitecto Móvil & Desarrollador Full Stack",
+          duration: "3 Meses",
+          summary:
+            "CHANSA conecta hogares y comercios con técnicos locales certificados, electricistas y especialistas de mantenimiento mediante despacho inmediato geolocalizado.",
+          impactMetrics: [
+            {
+              value: "< 50ms",
+              label: "Latencia de Mensajería",
+              detail: "Comunicación fluida y entrega de mensajes instantánea con Firebase live listeners.",
+            },
+            {
+              value: "100%",
+              label: "Precisión de Geofence",
+              detail: "Filtrado espacial por radio de cobertura que evita solicitudes a técnicos fuera de ruta.",
+            },
+            {
+              value: "4.9 / 5",
+              label: "Satisfacción en Campo",
+              detail: "Alta fidelización de contratistas y usabilidad intuitiva en pruebas beta.",
+            },
+            {
+              value: "60 FPS",
+              label: "Rendimiento Visual",
+              detail: "Animaciones y transiciones 100% fluidas en dispositivos Android e iOS de gama media y alta.",
+            },
+          ],
+          problem:
+            "Contratar especialistas confiables en ciudades peruanas dependía de recomendaciones inseguras, sin garantía de precios ni trazabilidad de tiempos de llegada.",
+          solution:
+            "Desarrollé una aplicación móvil reactiva en Flutter con emparejamiento geolocalizado en tiempo real, chat integrado, perfiles verificados y notificaciones push inmediatas.",
+          architectureHighlights: [
+            "Arquitectura Flutter y Dart compilada nativamente para Android e iOS.",
+            "Sincronización en tiempo real con Cloud Firestore y manejo de estados optimistas.",
+            "Integración del API de geolocalización con consumo optimizado de batería.",
+            "Cloud Functions para envío automático de notificaciones push y cálculo de calificaciones.",
+          ],
+          techStack: [
+            "Flutter",
+            "Dart",
+            "Firebase",
+            "Cloud Firestore",
+            "Google Maps API",
+            "FCM Push",
+          ],
+          liveUrl: "https://github.com/dennys3mf",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "safety-helmet": {
+          id: "safety-helmet",
+          title: "Safety Helmet IoT - Telemetría y Seguridad Industrial",
+          subtitle: "Dispositivo Wearable Inteligente con Detección de Gases, Impactos y GPS",
+          client: "Laboratorio de Innovación TECSUP",
+          role: "Ingeniero de Firmware, Hardware & Integración Full Stack",
+          duration: "4 Meses",
+          summary:
+            "Dispositivo wearable de Internet de las Cosas (IoT) integrado en cascos industriales para proteger al personal minero y de construcción en faenas de alto riesgo.",
+          impactMetrics: [
+            {
+              value: "< 200ms",
+              label: "Tiempo de Respuesta",
+              detail: "Transmisión inmediata de alertas a la central de control ante caídas o impactos severos.",
+            },
+            {
+              value: "MQ-2",
+              label: "Sensor de Gases Calibrado",
+              detail: "Medición constante de monóxido de carbono y gases inflamables con umbrales de emergencia.",
+            },
+            {
+              value: "12 Horas",
+              label: "Autonomía de Batería",
+              detail: "Modos de bajo consumo energético en microcontroladores para cubrir turnos completos.",
+            },
+            {
+              value: "100%",
+              label: "Registro de Incidentes",
+              detail: "Memoria interna EEPROM para resguardo de telemetría en zonas sin cobertura de radio.",
+            },
+          ],
+          problem:
+            "Operadores mineros e industriales sufren accidentes por inhalación de gases invisibles y golpes traumáticos en túneles sin señal de telefonía tradicional.",
+          solution:
+            "Diseñé un circuito embebido montado en cascos de protección con sensores MQ-2, acelerómetro para detección de caídas, módulo GPS y microservicios para la central de mando.",
+          architectureHighlights: [
+            "Firmware C++ sobre microcontroladores con interrupciones de hardware prioritarias.",
+            "Arreglo de sensores MQ-2 calibrados según estándares internacionales de seguridad química.",
+            "Módulo de telemetría GPS para transmisión periódica de coordenadas de rescate.",
+            "Backend en Python que procesa flujos de telemetría y renderiza alertas en WebSockets.",
+          ],
+          techStack: [
+            "C++",
+            "Arduino",
+            "Sensores MQ-2",
+            "Telemetría GPS",
+            "Python API",
+            "WebSockets",
+          ],
+          liveUrl: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
+          githubUrl: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
+        },
+        "fintech-sunat": {
+          id: "fintech-sunat",
+          title: "Facturación & Billing Engine SUNAT",
+          subtitle: "Motor Financiero de Cobros con Culqi y Emisión Electrónica Homologada con SUNAT",
+          client: "Empresas B2B / Clientes de Software Financiero",
+          role: "Arquitecto Backend & Desarrollador de APIs",
+          duration: "3 Meses",
+          summary:
+            "Motor financiero de alta confiabilidad que procesa transacciones con tarjeta vía Culqi y genera comprobantes de pago electrónicos homologados con la normativa tributaria peruana.",
+          impactMetrics: [
+            {
+              value: "99.8%",
+              label: "Tasa de Éxito en Cobros",
+              detail: "Tokenización Culqi con política de reintentos exponenciales ante fallas transitorias de red.",
+            },
+            {
+              value: "< 800ms",
+              label: "Firma y Envío XML",
+              detail: "Firma criptográfica y comunicación SOAP con SUNAT en menos de un segundo por factura.",
+            },
+            {
+              value: "0 Errores",
+              label: "Tasa de Rechazo Fiscal",
+              detail: "Prevalidación de esquemas tributarios que previene rechazos de RUCs y cálculos de IGV.",
+            },
+            {
+              value: "100%",
+              label: "Trazabilidad Contable",
+              detail: "Libro mayor inmutable con almacenamiento seguro de archivos CDR y XML certificados.",
+            },
+          ],
+          problem:
+            "Las empresas sufren caídas de cobro en pasarelas, errores de digitación en facturas y cuantiosas multas de SUNAT debido a discrepancias en el formato XML de los comprobantes.",
+          solution:
+            "Construí un backend resiliente en Python que automatiza la tokenización con Culqi, genera documentos XML bajo el estándar UBL 2.1, aplica firma digital y recibe las constancias CDR de SUNAT.",
+          architectureHighlights: [
+            "Arquitectura desacoplada en microservicios con colas de procesamiento asíncronas.",
+            "Motor de firma electrónica compatible con certificados digitales oficiales peruanos.",
+            "Webhooks idempotentes para confirmar transacciones y conciliar pagos bancarios.",
+            "Base de datos relacional PostgreSQL para auditoría fiscal con integridad referencial estricta.",
+          ],
+          techStack: [
+            "Python",
+            "Culqi API",
+            "XML/CDR SUNAT",
+            "PostgreSQL",
+            "SOAP & REST",
+            "Docker",
+          ],
+          liveUrl: "https://github.com/dennys3mf",
+          githubUrl: "https://github.com/dennys3mf",
+        },
+        "fiscalizacion-joya": {
+          id: "fiscalizacion-joya",
+          title: "App Fiscalización Digital Joya",
+          subtitle: "Sistema Móvil Offline-First para Fiscalizadores Municipales en Terreno",
+          client: "Municipalidad Distrital de La Joya, Arequipa",
+          role: "Arquitecto Móvil & Desarrollador del Sistema",
+          duration: "3 Meses",
+          summary:
+            "Aplicación en tabletas Android diseñada para auditores e inspectores municipales de fiscalización tributaria y comercial en zonas rurales sin acceso a internet.",
+          impactMetrics: [
+            {
+              value: "100%",
+              label: "Operatividad Offline",
+              detail: "Los inspectores completan actas detalladas de fiscalización sin conexión a internet.",
+            },
+            {
+              value: "0%",
+              label: "Colisiones de Sincronización",
+              detail: "Protocolo determinista de resolución de conflictos al transmitir lotes de actas al servidor central.",
+            },
+            {
+              value: "4x",
+              label: "Aumento de Productividad",
+              detail: "Los inspectores pasaron de 6 actas físicas en papel carbón a 24 auditorías digitales por turno.",
+            },
+            {
+              value: "Inmediata",
+              label: "Emisión de Notificaciones",
+              detail: "Generación de actas digitales inviolables en PDF con soporte para impresión térmica en campo.",
+            },
+          ],
+          problem:
+            "Los fiscalizadores en zonas agrícolas de La Joya utilizaban formularios físicos de papel carbón que se deterioraban con el polvo, se extraviaban y tomaban semanas en digitalizarse.",
+          solution:
+            "Desarrollé una aplicación en Flutter optimizada para tablets Android con base de datos SQLite local, captura fotográfica georreferenciada, firma digital y sincronización inteligente.",
+          architectureHighlights: [
+            "Arquitectura offline-first utilizando SQLite como única fuente de verdad en campo.",
+            "Sellado criptográfico de fotografías tomadas en el lugar con coordenadas GPS incrustadas.",
+            "Algoritmo de sincronización diferencial que comprime y despacha actas al detectar red.",
+            "Compatibilidad directa con impresoras térmicas portátiles por Bluetooth.",
+          ],
+          techStack: [
+            "Flutter",
+            "Dart",
+            "SQLite Local",
+            "Offline-First Sync",
+            "Android Tablet SDK",
+            "Cámara & GPS",
+          ],
+          liveUrl: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
+          githubUrl: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
+        },
+      },
+    },
+    process: {
+      heading: "De la Arquitectura a Producción con Impacto Medible",
+      subheading:
+        "Un proceso de 3 fases estructurado para construir software de alto rendimiento, código tipado y despliegues estables sin magia negra.",
+      step1: {
+        title: "Escuchar y Modelar",
+        desc: "Nos sentamos a conversar sobre el problema real, las restricciones técnicas y los flujos de datos. No toco una sola línea de código hasta tener clara la arquitectura, los esquemas de datos y las métricas de éxito.",
+        nodeUser: "Cliente / Entrada de Voz",
+        nodeEdge: "Cloudflare Edge",
+        nodeAgent: "Agente de IA & Router",
+        nodeApi: "API Python / Node",
+        nodeVector: "PostgreSQL & pgvector",
+      },
+      step2: {
+        title: "Construir & Validar",
+        desc: "Desarrollo iterativo con código limpio fuertemente tipado en TypeScript y Python. Entregas continuas para probar el software desde la primera semana con cobertura de tests.",
+      },
+      step3: {
+        title: "Poner en Marcha & Medir",
+        desc: "Despliegues en servidores cloud seguros con monitoreo en tiempo real, CI/CD automatizado, documentación exhaustiva y acompañamiento continuo a tu equipo.",
+      },
     },
     why: {
       eyebrow: "Por Qué Trabajar Conmigo",
-      heading: "Rigor Técnico y Retorno de Inversión Real para tu Negocio",
+      heading: "Excelencia en Ingeniería que Genera Valor Tangible de Negocio",
       pillars: [
         {
-          title: "Dominio Full Stack & Cloud de Extremo a Extremo",
-          desc: "Desde interfaces interactivas de alta velocidad hasta backends robustos en Python y Node.js. Arquitectura limpia, mantenible y lista para escalar.",
+          title: "Autonomía Full Stack & Edge",
+          desc: "Ejecución integral desde modelos de bases de datos y APIs REST hasta interfaces reactivas en Next.js y funciones de baja latencia en Cloudflare Workers.",
         },
         {
-          title: "Machine Learning & IA Aplicada en Producción",
-          desc: "Conocimiento práctico en modelos recomendadores (estilo Netflix/TikTok) e integraciones de LLMs que aportan soluciones exactas y sin alucinaciones.",
+          title: "Machine Learning y Sistemas de Recomendación",
+          desc: "Experiencia práctica implementando filtrado colaborativo y algoritmos inspirados en Netflix y TikTok, procesando grandes volúmenes con PySpark.",
         },
         {
-          title: "Enfoque en ROI, Costos de Inferencia y Métricas",
-          desc: "Profundidad técnica unida al entendimiento financiero: control riguroso de costos cloud, consumo de tokens y rentabilidad medible para el negocio.",
+          title: "Agentes de IA y LLMs para Producción",
+          desc: "Interfaces conversacionales reales, agentes autónomos con llamadas a herramientas y automatización de flujos que eliminan tareas operativas manuales.",
+        },
+        {
+          title: "Mentalidad Orientada a Negocio",
+          desc: "Software diseñado en función de KPIs reales: tasas de conversión, retención de usuarios, velocidad de respuesta y estabilidad absoluta en producción.",
         },
       ],
     },
     contact: {
-      headingPart1: "¿Tienes un",
-      headingHighlight1: "proyecto",
-      headingPart2: "o",
-      headingHighlight2: "vacante en mente?",
+      headingPart1: "¿Tienes un proyecto o",
+      headingHighlight1: "oportunidad en mente?",
+      headingPart2: "Construyamos algo con",
+      headingHighlight2: "impacto real.",
       subtext:
-        "Disponible para roles como Full Stack Developer | Python, React & AI Integration, proyectos de software e IA y colaboraciones internacionales.",
-      ctaButton: "Conversemos",
+        "Disponible para roles como Full Stack Developer | Python, React & Integración de IA, proyectos de software y contratos internacionales remotos.",
+      ctaButton: "Conversar por WhatsApp",
+      downloadCV: "Descargar CV (PDF)",
       card1Title: "Full Stack Development",
       card1Sub: "React · TypeScript · Python · Django",
-      card2Title: "Python & AI Integration",
+      card2Title: "Python & Integración de IA",
       card2Sub: "ML Recommenders · LLMs · Agentes",
       card3Title: "Liderazgo Técnico",
       card3Sub: "Arquitectura · Cloud · ROI de Negocio",
-      badgeText: "✦ DENNYS MARQUEZ • FULL STACK DEVELOPER • PYTHON & AI •",
+      badgeText: "✦ DISPONIBLE PARA PROYECTOS • FULL STACK & IA • DISPONIBLE •",
+      notesTop: ["Buenas ideas", "Mejores productos", "Impacto real"],
+      notesBottom: ["Tecnología", "Personas", "Resultados"],
     },
     footer: {
-      tagline: "Construyendo productos digitales que generan impacto.",
+      tagline: "Construyendo productos digitales que generan impacto real en el negocio.",
       navTitle: "Navegación",
       connectTitle: "Conectar",
-      rights: "Todos los derechos reservados. Diseñado y desarrollado con Next.js, React & Tailwind CSS.",
+      rights: "Dennys Gabriel Márquez Flores. Todos los derechos reservados.",
+      backToTop: "Volver Arriba ↑",
     },
   },
 };

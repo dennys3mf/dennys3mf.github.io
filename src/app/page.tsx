@@ -13,6 +13,7 @@ import ThreeHeroSphere from "../components/ThreeHeroSphere";
 import GsapScrollOrchestrator from "../components/GsapScrollOrchestrator";
 import SmoothScroller from "../components/SmoothScroller";
 import VerticalDepthCarousel from "../components/VerticalDepthCarousel";
+import SystemArchitectureDiagram from "../components/SystemArchitectureDiagram";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "../components/Icons";
 import {
@@ -29,10 +30,11 @@ import {
   Layers,
   Cpu,
   Coins,
+  FileDown,
 } from "lucide-react";
 
 export default function Home() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = async () => {
@@ -350,18 +352,16 @@ export default function Home() {
           <ScrollReveal>
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>
-                {language === "en" ? "From Architecture to Production with Measurable Impact" : "De la Arquitectura a Producción con Impacto Medible"}
+                {t.process.heading}
               </h2>
               <p className={styles.sectionSubtitle}>
-                {language === "en"
-                  ? "A rigorous 3-stage delivery pipeline ensuring rock-solid stability, zero shortcuts, and fast time-to-market."
-                  : "Un proceso de 3 fases estructurado para construir software de alto rendimiento, código tipado y despliegues estables sin magia negra."}
+                {t.process.subheading}
               </p>
             </div>
           </ScrollReveal>
 
           <div className={styles.processGrid}>
-            {/* Paso 01: Blue Card */}
+            {/* Paso 01: Blue Card with System Architecture Diagram Canvas */}
             <ScrollReveal delay={100}>
               <div className={`${styles.processCardEnhanced} ${styles.processCardBlue}`}>
                 <div className={styles.processCardTop}>
@@ -372,14 +372,14 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={styles.processTitle}>
-                    {language === "en" ? "Listen & Model" : "Escuchar y Modelar"}
+                    {t.process.step1.title}
                   </h3>
                   <p className={styles.processDesc}>
-                    {language === "en"
-                      ? "Deep dive into real business needs, data structures, and user constraints before writing code."
-                      : "Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio. No toco una línea de código hasta tener clara la arquitectura y la meta."}
+                    {t.process.step1.desc}
                   </p>
                 </div>
+                {/* Visual Section: System Architecture Node Flow Diagram */}
+                <SystemArchitectureDiagram />
               </div>
             </ScrollReveal>
 
@@ -394,12 +394,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={styles.processTitle}>
-                    {language === "en" ? "Build & Validate" : "Construir & Validar"}
+                    {t.process.step2.title}
                   </h3>
                   <p className={styles.processDesc}>
-                    {language === "en"
-                      ? "Iterative development with clean, typed code in TypeScript and Python, delivering testable software from week one."
-                      : "Desarrollo con entregas continuas para que puedas probar el sistema desde la primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos raros."}
+                    {t.process.step2.desc}
                   </p>
                 </div>
               </div>
@@ -416,12 +414,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={styles.processTitle}>
-                    {language === "en" ? "Deploy & Measure" : "Poner en Marcha & Medir"}
+                    {t.process.step3.title}
                   </h3>
                   <p className={styles.processDesc}>
-                    {language === "en"
-                      ? "Production cloud deployments with real-time observability, documentation, and continuous handover."
-                      : "Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego documentación y te acompaño para que tu equipo opere con total tranquilidad."}
+                    {t.process.step3.desc}
                   </p>
                 </div>
               </div>
@@ -502,7 +498,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Interactive Action Bar (WhatsApp, Email, GitHub, LinkedIn) */}
+          {/* Interactive Action Bar (WhatsApp, Download CV, Email, GitHub, LinkedIn) */}
           <div className={styles.ctaActionsBar}>
             <a
               href="https://wa.me/51922466078"
@@ -511,7 +507,19 @@ export default function Home() {
               className={styles.ctaPillBtn}
             >
               <span>💬</span>
-              <span>{language === "en" ? "Chat on WhatsApp" : "Conversar por WhatsApp"}</span>
+              <span>{t.contact.ctaButton}</span>
+            </a>
+
+            <a
+              href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
+              download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaCvBtn}
+              aria-label={t.contact.downloadCV}
+            >
+              <FileDown size={18} />
+              <span>{t.contact.downloadCV}</span>
             </a>
 
             <div className={styles.ctaAltLinks}>
@@ -609,7 +617,7 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <LanguageToggle variant="segmented" />
               <a href="#home" className={styles.footerNavLink} style={{ fontSize: "1rem", fontWeight: 700 }}>
-                {language === "en" ? "Back to Top ↑" : "Volver Arriba ↑"}
+                {t.footer.backToTop}
               </a>
             </div>
           </div>

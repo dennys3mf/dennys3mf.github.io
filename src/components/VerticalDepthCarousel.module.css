@@ -344,11 +344,90 @@
   line-height: 1.45;
 }
 
-/* Action Link */
+/* Measurable Impact Key Metrics Ribbon (Scannable Data Badge System) */
+.leafImpactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.65rem 0.85rem;
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.16);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+}
+
+.leafImpactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.leafImpactVal {
+  font-family: var(--font-accent, monospace);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #10B981;
+  line-height: 1;
+}
+
+.leafImpactLabel {
+  font-size: 0.73rem;
+  color: #475569;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* Action Links & Case Study Trigger */
 .leafActions {
   display: flex;
   align-items: center;
+  gap: 0.85rem;
   padding-top: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.leafCaseStudyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #10B981;
+  color: #042F2E;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 0.55rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid #10B981;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+.leafCaseStudyBtn:hover {
+  background: #34D399;
+  border-color: #34D399;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+.leafExternalBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(15, 23, 42, 0.04);
+  color: #1E293B;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.55rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.leafExternalBtn:hover {
+  background: rgba(15, 23, 42, 0.08);
+  border-color: rgba(15, 23, 42, 0.2);
+  color: #0F172A;
+  transform: translateY(-1px);
 }
 
 .leafPrimaryBtn {

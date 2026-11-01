@@ -1,0 +1,307 @@
+/* ====================================================================
+   SYSTEM ARCHITECTURE DIAGRAM (SVG & Modern Flow Nodes)
+   ==================================================================== */
+
+.diagramContainer {
+  width: 100%;
+  margin-top: 1.5rem;
+  background: #0A0F1D;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 20px;
+  padding: 1.25rem;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: #F8FAFC;
+}
+
+/* Console Top Bar */
+.consoleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.livePulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseGlow 1.8s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.statusText {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #38BDF8;
+}
+
+.telemetryTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: #64748B;
+}
+
+.telemetryIcon {
+  color: #10B981;
+}
+
+/* Flow Stage */
+.flowStage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.2rem;
+  scrollbar-width: none;
+}
+
+.flowStage::-webkit-scrollbar {
+  display: none;
+}
+
+/* Node Cards */
+.nodeCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 0.75rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  min-width: 110px;
+  flex: 1;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.nodeCard:hover {
+  background: rgba(56, 189, 248, 0.06);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+.nodeActive {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: #38BDF8 !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
+.nodeIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38BDF8;
+  position: relative;
+}
+
+.nodeActive .nodeIconBox {
+  background: #38BDF8;
+  color: #0B1120;
+}
+
+.activeHalo {
+  position: absolute;
+  inset: -3px;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  animation: pulseGlow 2s infinite;
+}
+
+.nodeMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.nodeStepNum {
+  font-family: monospace;
+  font-size: 0.62rem;
+  color: #64748B;
+}
+
+.nodeTitle {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.nodeProtocol {
+  font-family: monospace;
+  font-size: 0.62rem;
+  color: #94A3B8;
+}
+
+/* Connector Between Nodes */
+.connector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.connectorSvg {
+  width: 100%;
+  height: 12px;
+}
+
+.flowingPacket {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 6px #38BDF8;
+  animation: flowAlong 1.4s infinite linear;
+}
+
+@keyframes flowAlong {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Inspector Pane */
+.inspectorPane {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 0.9rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.inspectorLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 420px;
+}
+
+.inspectorBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #38BDF8;
+  font-weight: 700;
+}
+
+.inspectorTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.inspectorDetail {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #94A3B8;
+}
+
+.inspectorRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+}
+
+.techStackRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.techStackLabel {
+  font-family: monospace;
+  color: #64748B;
+}
+
+.techStackValue {
+  font-family: monospace;
+  color: #38BDF8;
+  font-weight: 600;
+}
+
+.validationRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #10B981;
+  font-weight: 600;
+}
+
+.checkIcon {
+  color: #10B981;
+}
+
+@media (max-width: 640px) {
+  .diagramContainer {
+    padding: 1rem;
+  }
+
+  .nodeCard {
+    min-width: 95px;
+    padding: 0.65rem 0.4rem;
+  }
+
+  .inspectorPane {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

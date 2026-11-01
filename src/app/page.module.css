@@ -89,6 +89,29 @@
   box-shadow: 0 4px 16px rgba(79, 107, 255, 0.45);
 }
 
+.navCvBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.52rem 1.05rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  margin-left: 0.25rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navCvBtn:hover {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
+}
+
 /* ====================================================================
    MOBILE TOP HEADER & SLIDE DRAWER (Frees up mobile bottom viewport)
    ==================================================================== */
@@ -278,6 +301,30 @@
   .mobileDrawerFooter {
     padding-top: 0.65rem;
     border-top: 1px solid var(--border-color);
+  }
+
+  .mobileDrawerCv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.85rem 1.15rem;
+    background: rgba(16, 185, 129, 0.12);
+    color: #10B981 !important;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 0.65rem;
+    transition: all 0.2s ease;
+  }
+
+  .mobileDrawerCv:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10B981;
   }
 
   .mobileDrawerCta {
@@ -3184,6 +3231,29 @@
   transform: translateY(-2px) scale(1.03);
   background-color: #a7e0db;
   box-shadow: 0 8px 24px rgba(167, 224, 219, 0.45);
+}
+
+.ctaCvBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #10B981;
+  color: #042F2E;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+  cursor: pointer;
+}
+
+.ctaCvBtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  background-color: #34D399;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45);
 }
 
 .ctaAltLinks {

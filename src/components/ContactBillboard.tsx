@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { MessageSquare, Code2, Box, Users } from "lucide-react";
+import { MessageSquare, Code2, Box, Users, FileDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "./ContactBillboard.module.css";
 
@@ -193,20 +193,37 @@ export default function ContactBillboard() {
             {t.contact.subtext}
           </p>
 
-          {/* Main Action Button */}
-          <a
-            href="https://wa.me/51922466078"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.ctaBtn}
-            title="WhatsApp"
-          >
-            <span className={styles.ctaBtnIcon}>
-              <MessageSquare size={20} fill="currentColor" strokeWidth={0} />
-            </span>
-            <span>{t.contact.ctaButton}</span>
-            <span className={styles.ctaBtnArrow}>›</span>
-          </a>
+          {/* Main Action Buttons (WhatsApp + Download CV) */}
+          <div className={styles.ctaButtonGroup}>
+            <a
+              href="https://wa.me/51922466078"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaBtn}
+              title="WhatsApp"
+            >
+              <span className={styles.ctaBtnIcon}>
+                <MessageSquare size={20} fill="currentColor" strokeWidth={0} />
+              </span>
+              <span>{t.contact.ctaButton}</span>
+              <span className={styles.ctaBtnArrow}>›</span>
+            </a>
+
+            <a
+              href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
+              download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaCvBtn}
+              title={t.contact.downloadCV}
+              aria-label={t.contact.downloadCV}
+            >
+              <span className={styles.ctaBtnIcon}>
+                <FileDown size={19} />
+              </span>
+              <span>{t.contact.downloadCV}</span>
+            </a>
+          </div>
 
           {/* 3 Feature Capability Cards */}
           <div className={styles.featuresRow}>
@@ -336,9 +353,9 @@ export default function ContactBillboard() {
           {/* Top Handwritten Note */}
           <div className={styles.noteTop}>
             <div className={styles.noteText}>
-              <div>Buenas ideas</div>
-              <div>Mejores productos</div>
-              <div>Impacto real</div>
+              {t.contact.notesTop.map((note, i) => (
+                <div key={i}>{note}</div>
+              ))}
             </div>
             <svg
               className={styles.noteArrowTop}
@@ -366,9 +383,9 @@ export default function ContactBillboard() {
           {/* Bottom Handwritten Note */}
           <div className={styles.noteBottom}>
             <div className={styles.noteText}>
-              <div>Tecnología</div>
-              <div>Personas</div>
-              <div>Resultados</div>
+              {t.contact.notesBottom.map((note, i) => (
+                <div key={i}>{note}</div>
+              ))}
             </div>
             <svg
               className={styles.noteArrowBottom}

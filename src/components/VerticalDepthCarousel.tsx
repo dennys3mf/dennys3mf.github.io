@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "./Icons";
+import CaseStudyModal from "./CaseStudyModal";
 import styles from "./VerticalDepthCarousel.module.css";
 
 interface ProjectItem {
+  id: string;
   index: number;
   image: string;
   video?: string;
@@ -22,6 +24,7 @@ interface ProjectItem {
 
 const ALL_PROJECTS: ProjectItem[] = [
   {
+    id: "ahorratiempo.pe",
     index: 0,
     image: "/images/projects/ahorratiempo-preview.webp",
     video: "/videos/ahorratiempo.mp4",
@@ -34,6 +37,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "React 18 · Next.js · Voice AI · Tailwind CSS · Culqi Gateway",
   },
   {
+    id: "controla-servilex",
     index: 1,
     image: "/images/projects/controla-servilex-preview.webp",
     video: "/videos/controla.mp4",
@@ -46,6 +50,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "Python · Django · PostgreSQL · SG-SST Compliance · Multi-Tenant",
   },
   {
+    id: "chansa-app",
     index: 2,
     image: "/images/projects/chansa-app-preview.webp",
     href: "https://github.com/dennys3mf",
@@ -57,6 +62,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "Flutter · Dart · Firebase · Realtime Chat · Geolocation API",
   },
   {
+    id: "safety-helmet",
     index: 3,
     image: "/images/projects/safety-helmet-preview.webp",
     video: "/videos/casco-inteligente.mp4",
@@ -69,6 +75,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "C++ · Arduino · Microservices · MQ-2 Sensors · GPS Telemetry",
   },
   {
+    id: "fintech-sunat",
     index: 4,
     image: "/images/projects/fintech-sunat-preview.webp",
     href: "https://github.com/dennys3mf",
@@ -80,6 +87,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "Python · Culqi API · SUNAT XML / CDR · RESTful Services",
   },
   {
+    id: "fiscalizacion-joya",
     index: 5,
     image: "/images/projects/fiscalizacion-joya-preview.webp",
     video: "/videos/app-fiscalizacion.mp4",
@@ -95,6 +103,7 @@ const ALL_PROJECTS: ProjectItem[] = [
 
 export default function VerticalDepthCarousel() {
   const { t, language } = useLanguage();
+  const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
 
   return (
     <section id="casos" className={styles.treeSection}>
@@ -115,70 +124,57 @@ export default function VerticalDepthCarousel() {
         <div className={styles.branchStage}>
           {/* Central Organic Vertical Trunk (Rama Principal Natural) */}
           <div className={styles.trunkLine} aria-hidden="true">
-            {/* Realistic Organic Wooden / Green Branch SVG */}
             <svg
               className={styles.trunkSvg}
-              viewBox="0 0 60 1400"
-              preserveAspectRatio="none"
+              viewBox="0 0 60 1800"
               fill="none"
+              preserveAspectRatio="none"
             >
               <defs>
-                {/* Organic bark & sapwood gradient */}
-                <linearGradient id="barkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#3E2723" />
-                  <stop offset="30%" stopColor="#4E342E" />
-                  <stop offset="60%" stopColor="#2E7D32" />
-                  <stop offset="100%" stopColor="#1B5E20" />
+                <linearGradient id="trunkGradRealistic" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#2D1B11" />
+                  <stop offset="30%" stopColor="#4A2E1B" />
+                  <stop offset="60%" stopColor="#2E4A1E" />
+                  <stop offset="85%" stopColor="#10B981" />
+                  <stop offset="100%" stopColor="#34D399" />
                 </linearGradient>
-
-                <linearGradient id="trunkGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#10B981" stopOpacity="0.4" />
-                  <stop offset="50%" stopColor="#059669" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#10B981" stopOpacity="0.4" />
+                <linearGradient id="trunkHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#6EE7B7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
                 </linearGradient>
               </defs>
 
-              {/* Ambient Glow */}
               <path
-                d="M30 0 Q 42 220, 20 460 T 38 900 T 26 1400"
-                stroke="url(#trunkGlow)"
-                strokeWidth="14"
-                strokeLinecap="round"
-                opacity="0.3"
-              />
-
-              {/* Main Organic Trunk Bark Path */}
-              <path
-                d="M30 0 Q 42 220, 20 460 T 38 900 T 26 1400"
-                stroke="url(#barkGrad)"
-                strokeWidth="7"
+                d="M30 0 C 38 300, 22 600, 32 900 C 42 1200, 20 1500, 30 1800"
+                stroke="rgba(0, 0, 0, 0.15)"
+                strokeWidth="18"
                 strokeLinecap="round"
               />
-
-              {/* Natural Highlight Vine */}
               <path
-                d="M29 0 Q 40 220, 19 460 T 37 900 T 25 1400"
-                stroke="#4ADE80"
-                strokeWidth="1.8"
+                d="M30 0 C 38 300, 22 600, 32 900 C 42 1200, 20 1500, 30 1800"
+                stroke="url(#trunkGradRealistic)"
+                strokeWidth="11"
                 strokeLinecap="round"
-                opacity="0.85"
+              />
+              <path
+                d="M32 0 C 40 300, 24 600, 34 900 C 44 1200, 22 1500, 32 1800"
+                stroke="url(#trunkHighlight)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
               />
             </svg>
           </div>
 
-          {/* Alternating Realistic Project Leaves along the Branch */}
+          {/* Alternate Project Leaf Cards (Direct Botanical Branch to Leaf) */}
           <div className={styles.leavesList}>
             {ALL_PROJECTS.map((proj, idx) => {
-              const item = t.projects.items[proj.index];
-              if (!item) return null;
+              const item = t.projects.items[proj.index] || t.projects.items[0];
               const isLeft = idx % 2 === 0;
 
               return (
                 <div
-                  key={proj.index}
-                  className={`${styles.leafRow} ${
-                    isLeft ? styles.leafRowLeft : styles.leafRowRight
-                  }`}
+                  key={proj.id}
+                  className={`${styles.leafRow} ${isLeft ? styles.rowLeft : styles.rowRight}`}
                 >
                   {/* Left Column: Left Leaf Card OR Empty Space */}
                   <div className={styles.colLeft}>
@@ -187,7 +183,6 @@ export default function VerticalDepthCarousel() {
                         className={`${styles.leafCard} ${styles.leafCardLeft}`}
                         aria-label={`${item.title} (${idx + 1} de ${ALL_PROJECTS.length})`}
                       >
-                        {/* Organic Leaf Vein Line */}
                         <span className={styles.leafVeinLine} aria-hidden="true" />
 
                         {/* Leaf Visual Media Frame */}
@@ -231,32 +226,54 @@ export default function VerticalDepthCarousel() {
                             <p className={styles.leafDesc}>{item.desc}</p>
                           </div>
 
+                          {/* Measurable Impact Key Metrics Ribbon */}
+                          {item.impactList && item.impactList.length > 0 && (
+                            <div className={styles.leafImpactGrid}>
+                              {item.impactList.map((kpi, kIdx) => (
+                                <div key={kIdx} className={styles.leafImpactItem}>
+                                  <span className={styles.leafImpactVal}>{kpi.value}</span>
+                                  <span className={styles.leafImpactLabel}>{kpi.label}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
                           {/* Plain-Text Tech Stack */}
                           <div className={styles.leafTechRow}>
                             <span className={styles.leafTechLabel}>
-                              {language === "en" ? "Technologies" : "Tecnologías"}
+                              {t.projects.technologiesLabel}
                             </span>
                             <span className={styles.leafTechText}>{proj.stack}</span>
                           </div>
 
-                          {/* Action Link */}
+                          {/* Action Buttons: Case Study Trigger + Live / GitHub Link */}
                           <div className={styles.leafActions}>
+                            <button
+                              type="button"
+                              onClick={() => setSelectedCaseStudyId(proj.id)}
+                              className={styles.leafCaseStudyBtn}
+                              aria-label={`${t.projects.viewCaseStudy}: ${item.title}`}
+                            >
+                              <span>{t.projects.viewCaseStudy}</span>
+                              <ArrowUpRight size={16} />
+                            </button>
+
                             <a
                               href={proj.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={styles.leafPrimaryBtn}
+                              className={styles.leafExternalBtn}
                             >
                               {proj.isLive ? (
                                 <>
                                   <span>{t.projects.visitProject}</span>
-                                  <ArrowUpRight size={17} />
+                                  <ArrowUpRight size={15} />
                                 </>
                               ) : (
                                 <>
-                                  <GithubIcon size={15} />
+                                  <GithubIcon size={14} />
                                   <span>{t.projects.viewGithub}</span>
-                                  <ArrowUpRight size={17} />
+                                  <ArrowUpRight size={14} />
                                 </>
                               )}
                             </a>
@@ -273,7 +290,6 @@ export default function VerticalDepthCarousel() {
                         isLeft ? styles.stemLeft : styles.stemRight
                       }`}
                     >
-                      {/* Realistic leaf sprout cluster at the branch node */}
                       <div className={styles.foliageSproutWrap}>
                         <Image
                           src="/images/leaf-sprout.webp"
@@ -284,7 +300,6 @@ export default function VerticalDepthCarousel() {
                         />
                       </div>
 
-                      {/* Organic curved stem SVG that connects trunk to card edge */}
                       <svg
                         className={styles.stemSvg}
                         viewBox="0 0 50 36"
@@ -315,7 +330,6 @@ export default function VerticalDepthCarousel() {
                           strokeWidth="5"
                           strokeLinecap="round"
                         />
-                        {/* Highlights */}
                         <path
                           d={
                             isLeft
@@ -338,7 +352,6 @@ export default function VerticalDepthCarousel() {
                         className={`${styles.leafCard} ${styles.leafCardRight}`}
                         aria-label={`${item.title} (${idx + 1} de ${ALL_PROJECTS.length})`}
                       >
-                        {/* Organic Leaf Vein Line */}
                         <span className={styles.leafVeinLine} aria-hidden="true" />
 
                         {/* Leaf Visual Media Frame */}
@@ -382,32 +395,54 @@ export default function VerticalDepthCarousel() {
                             <p className={styles.leafDesc}>{item.desc}</p>
                           </div>
 
+                          {/* Measurable Impact Key Metrics Ribbon */}
+                          {item.impactList && item.impactList.length > 0 && (
+                            <div className={styles.leafImpactGrid}>
+                              {item.impactList.map((kpi, kIdx) => (
+                                <div key={kIdx} className={styles.leafImpactItem}>
+                                  <span className={styles.leafImpactVal}>{kpi.value}</span>
+                                  <span className={styles.leafImpactLabel}>{kpi.label}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
                           {/* Plain-Text Tech Stack */}
                           <div className={styles.leafTechRow}>
                             <span className={styles.leafTechLabel}>
-                              {language === "en" ? "Technologies" : "Tecnologías"}
+                              {t.projects.technologiesLabel}
                             </span>
                             <span className={styles.leafTechText}>{proj.stack}</span>
                           </div>
 
-                          {/* Action Link */}
+                          {/* Action Buttons: Case Study Trigger + Live / GitHub Link */}
                           <div className={styles.leafActions}>
+                            <button
+                              type="button"
+                              onClick={() => setSelectedCaseStudyId(proj.id)}
+                              className={styles.leafCaseStudyBtn}
+                              aria-label={`${t.projects.viewCaseStudy}: ${item.title}`}
+                            >
+                              <span>{t.projects.viewCaseStudy}</span>
+                              <ArrowUpRight size={16} />
+                            </button>
+
                             <a
                               href={proj.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={styles.leafPrimaryBtn}
+                              className={styles.leafExternalBtn}
                             >
                               {proj.isLive ? (
                                 <>
                                   <span>{t.projects.visitProject}</span>
-                                  <ArrowUpRight size={17} />
+                                  <ArrowUpRight size={15} />
                                 </>
                               ) : (
                                 <>
-                                  <GithubIcon size={15} />
+                                  <GithubIcon size={14} />
                                   <span>{t.projects.viewGithub}</span>
-                                  <ArrowUpRight size={17} />
+                                  <ArrowUpRight size={14} />
                                 </>
                               )}
                             </a>
@@ -422,6 +457,24 @@ export default function VerticalDepthCarousel() {
           </div>
         </div>
       </div>
+
+      {/* Case Study Full In-Depth Engineering Modal */}
+      <CaseStudyModal
+        isOpen={!!selectedCaseStudyId}
+        onClose={() => setSelectedCaseStudyId(null)}
+        caseStudy={selectedCaseStudyId ? t.projects.caseStudies[selectedCaseStudyId] : null}
+        labels={{
+          close: t.projects.closeCaseStudy,
+          tag: t.projects.caseStudyTag,
+          impactTitle: t.projects.measurableImpact,
+          architectureTitle: t.projects.architectureHeader,
+          problemTitle: t.projects.problemTitle,
+          solutionTitle: t.projects.solutionTitle,
+          technologiesTitle: t.projects.technologiesTitle,
+          visitLive: t.projects.visitProject,
+          viewGithub: t.projects.viewGithub,
+        }}
+      />
     </section>
   );
 }
