@@ -1,8 +1,8 @@
 /* ====================================================================
-   REALISTIC BOTANICAL TREE BRANCH & LEAVES (RAMA Y HOJAS CON TALLOS)
+   OPTION 2: SPLIT CINEMATIC SHOWCASE (Sticky Video + Editorial Leaves)
    ==================================================================== */
 
-.treeSection {
+.showcaseSection {
   background-color: var(--bg-page, #F8F9FC);
   padding: 6.5rem 3.5vw 8.5rem;
   position: relative;
@@ -11,22 +11,22 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.treeContainer {
-  max-width: 1260px;
+.showcaseContainer {
+  max-width: 1320px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3.5rem;
   position: relative;
   z-index: 2;
 }
 
-/* Header with Foliage Accent */
-.treeHeader {
+/* Section Header */
+.sectionHeader {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  max-width: 780px;
+  max-width: 820px;
 }
 
 .headerBadgeRow {
@@ -36,13 +36,13 @@
 }
 
 .sproutIcon {
-  font-size: 1.3rem;
-  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.3));
+  font-size: 1.35rem;
+  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.35));
 }
 
 .eyebrow {
-  font-family: var(--font-accent);
-  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-family: var(--font-accent, monospace);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
   color: #10B981;
   margin: 0;
   font-weight: 700;
@@ -50,7 +50,7 @@
 }
 
 .title {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, sans-serif);
   font-size: clamp(2.3rem, 4.2vw, 3.6rem);
   font-weight: 800;
   line-height: 1.08;
@@ -67,209 +67,414 @@
   font-weight: 450;
 }
 
-/* Realistic Botanical Branch Stage */
-.branchStage {
+/* ====================================================================
+   SPLIT STAGE (Two-Column Layout)
+   ==================================================================== */
+.splitStage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: start;
   position: relative;
-  width: 100%;
-  padding: 1.5rem 0 2rem;
 }
 
-/* Central Organic Vertical Trunk (Rama Principal) */
-.trunkLine {
+/* ====================================================================
+   LEFT COLUMN: STICKY CINEMATIC VIDEO MONITOR
+   ==================================================================== */
+.stickyColumn {
+  position: sticky;
+  top: 13vh;
+  height: fit-content;
+  z-index: 10;
+}
+
+.cinematicViewportWrap {
+  position: relative;
+  width: 100%;
+}
+
+/* Ambient Backlight Glow */
+.ambientBacklight {
+  position: absolute;
+  inset: -15px;
+  border-radius: 36px;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(16, 185, 129, 0.28) 0%,
+    rgba(56, 189, 248, 0.16) 45%,
+    transparent 72%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* High-Tech Device Bezel */
+.cinematicFrame {
+  position: relative;
+  z-index: 1;
+  background: #0B1120;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 28px 65px -15px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(16, 185, 129, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Browser Chrome Header */
+.frameChromeBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.25rem;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chromeWindowDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.windowDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #FF5F56;
+}
+
+.dotYellow {
+  background: #FFBD2E;
+}
+
+.dotGreen {
+  background: #27C93F;
+}
+
+.chromeUrlPill {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 0.9rem;
+  border-radius: 9999px;
+  font-family: monospace;
+  font-size: 0.76rem;
+}
+
+.urlProtocol {
+  color: #64748B;
+}
+
+.urlDomain {
+  color: #38BDF8;
+  font-weight: 600;
+}
+
+.liveStreamBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  animation: liveBlink 1.6s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.liveText {
+  font-family: var(--font-accent, monospace);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #10B981;
+  letter-spacing: 0.06em;
+}
+
+/* Media Stage with Smooth Cross-Fade */
+.mediaStage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #020617;
+  overflow: hidden;
+}
+
+.mediaLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.025);
+  filter: blur(6px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s ease;
+}
+
+.mediaLayerActive {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  filter: blur(0px);
+}
+
+.mediaVideo,
+.mediaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Muted Preview Watermark */
+.mutedBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+/* Frame Bottom Telemetry HUD */
+.frameBottomHud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.4rem;
+  background: rgba(15, 23, 42, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hudMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hudDiscipline {
+  font-family: var(--font-accent, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10B981;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hudTitle {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.hudCounter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  font-family: var(--font-accent, monospace);
+}
+
+.counterNum {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #38BDF8;
+}
+
+.counterSlash {
+  font-size: 0.9rem;
+  color: #64748B;
+}
+
+.counterTotal {
+  font-size: 0.85rem;
+  color: #64748B;
+  font-weight: 700;
+}
+
+/* ====================================================================
+   RIGHT COLUMN: SCROLLABLE BOTANICAL VINE & EDITORIAL LEAF CARDS
+   ==================================================================== */
+.scrollColumn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 36px;
+}
+
+/* Vertical Botanical Vine Line */
+.vineTrunk {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  z-index: 1;
+  left: 6px;
+  width: 30px;
   pointer-events: none;
+  z-index: 1;
 }
 
-.trunkSvg {
+.vineSvg {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.28));
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
 }
 
-/* Leaves Container */
-.leavesList {
+.cardsList {
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  gap: 2.8rem;
   position: relative;
   z-index: 2;
 }
 
-/* 3-Column Grid for Zero-Gap Stem Connection */
-.leafRow {
-  display: grid;
-  grid-template-columns: 1fr 50px 1fr;
-  align-items: center;
+.cardRow {
   position: relative;
-  width: 100%;
-}
-
-.colLeft {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.colRight {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.colCenter {
-  position: relative;
-  width: 50px;
-  height: 100%;
-  min-height: 120px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+/* Stem Anchor connecting vine to card */
+.stemAnchor {
+  position: absolute;
+  left: -36px;
+  top: 42px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
   z-index: 3;
 }
 
-/* Organic Stem (Tallo) connecting trunk to leaf card */
-.stemConnector {
-  position: relative;
-  width: 100%;
-  height: 48px;
+.sproutBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
-.stemSvg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.35));
-}
-
-/* Foliage sprout cluster at the branch node */
-.foliageSproutWrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-  pointer-events: none;
-  z-index: 4;
-}
-
-.sproutFoliageImg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.4));
-  transition: transform 0.4s ease;
-}
-
-.leafRow:hover .sproutFoliageImg {
-  transform: scale(1.15) rotate(5deg);
-}
-
-/* Realistic Leaf Card (La Hoja del Proyecto) */
-.leafCard {
-  width: 100%;
-  max-width: 540px;
+.sproutBadgeActive {
   background: #FFFFFF;
-  border: 1px solid rgba(16, 185, 129, 0.22);
-  box-shadow: 0 18px 45px -12px rgba(15, 23, 42, 0.08),
-              0 0 0 1px rgba(16, 185, 129, 0.06);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.5);
+  transform: scale(1.15);
+}
+
+.sproutImg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.stemCurveSvg {
+  width: 24px;
+  height: 28px;
+  margin-left: -4px;
+}
+
+/* Editorial Leaf Card */
+.editorialLeaf {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 28px 14px 28px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 2.2rem 2.2rem 2rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.05);
   display: flex;
   flex-direction: column;
+  gap: 1.15rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.45s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-/* Asymmetric Botanical Leaf Silhouettes */
-.leafCardLeft {
-  border-radius: 48px 14px 48px 14px;
+.editorialLeaf:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -10px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(16, 185, 129, 0.25);
 }
 
-.leafCardLeft:hover {
-  transform: translateY(-8px) rotate(-1.3deg);
-  box-shadow: 0 26px 55px -12px rgba(16, 185, 129, 0.22),
-              0 0 0 1px rgba(16, 185, 129, 0.4);
-  border-color: rgba(16, 185, 129, 0.5);
+.cardRowActive .editorialLeaf {
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 20px 48px -10px rgba(16, 185, 129, 0.18), 0 0 0 1px rgba(16, 185, 129, 0.3);
+  transform: translateX(4px);
 }
 
-.leafCardRight {
-  border-radius: 14px 48px 14px 48px;
-}
-
-.leafCardRight:hover {
-  transform: translateY(-8px) rotate(1.3deg);
-  box-shadow: 0 26px 55px -12px rgba(16, 185, 129, 0.22),
-              0 0 0 1px rgba(16, 185, 129, 0.4);
-  border-color: rgba(16, 185, 129, 0.5);
-}
-
-/* Leaf Vein Line (Nervadura Orgánica) */
 .leafVeinLine {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3.5px;
-  background: linear-gradient(90deg, #10B981 0%, #4ADE80 50%, #4F6BFF 100%);
-  opacity: 0.95;
-  z-index: 5;
+  height: 4px;
+  background: linear-gradient(90deg, #10B981 0%, #34D399 50%, transparent 100%);
+  opacity: 0.7;
 }
 
-/* Leaf Visual Media Frame */
-.leafVisual {
-  position: relative;
+.cardRowActive .leafVeinLine {
+  height: 5px;
+  opacity: 1;
+}
+
+/* Mobile Video Frame (hidden on desktop) */
+.mobileVideoFrame {
+  display: none;
   width: 100%;
-  height: 275px;
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
   overflow: hidden;
-  background: #0B0F19;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  background: #020617;
+  margin-bottom: 0.5rem;
 }
 
-.leafCardLeft .leafVisual {
-  border-radius: 46px 12px 0 0;
-}
-
-.leafCardRight .leafVisual {
-  border-radius: 12px 46px 0 0;
-}
-
-.leafVideo,
-.leafImage {
+.mobileVideo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
-  background-color: #0B0F19;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.leafCard:hover .leafVideo,
-.leafCard:hover .leafImage {
-  transform: scale(1.03);
-}
-
-/* Leaf Editorial Info Stage */
-.leafInfo {
-  padding: 2.2rem 2.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  background: #FFFFFF;
-}
-
+/* Meta Top Bar */
 .leafMetaTop {
   display: flex;
   align-items: center;
@@ -277,38 +482,37 @@
   gap: 1rem;
 }
 
-/* Robotic Cybernetic Font for Discipline (Orbitron) */
 .leafDiscipline {
-  font-family: var(--font-tech, 'Orbitron', monospace);
+  font-family: var(--font-accent, monospace);
   font-size: 0.78rem;
   font-weight: 700;
+  color: #10B981;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--brand-blue, #4F6BFF);
 }
 
 .leafOrderNum {
-  font-family: var(--font-tech, 'Orbitron', monospace);
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: #10B981;
-  letter-spacing: 0.08em;
+  font-family: var(--font-accent, monospace);
+  font-size: 0.74rem;
+  color: #94A3B8;
+  font-weight: 600;
 }
 
+/* Leaf Body */
 .leafBody {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .leafTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  font-family: var(--font-heading, sans-serif);
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
   color: #0F1115;
   margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 }
 
 .leafDesc {
@@ -316,35 +520,9 @@
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0;
-  font-weight: 400;
 }
 
-/* Plain-Text Tech Stack (No Chips / Badges) */
-.leafTechRow {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
-}
-
-.leafTechLabel {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #94A3B8;
-}
-
-.leafTechText {
-  font-size: 0.84rem;
-  color: #334155;
-  font-weight: 500;
-  line-height: 1.45;
-}
-
-/* Measurable Impact Key Metrics Ribbon (Scannable Data Badge System) */
+/* Measurable Impact Key Metrics Ribbon */
 .leafImpactGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -363,20 +541,44 @@
 
 .leafImpactVal {
   font-family: var(--font-accent, monospace);
-  font-size: 1.12rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #10B981;
   line-height: 1;
 }
 
 .leafImpactLabel {
-  font-size: 0.73rem;
+  font-size: 0.74rem;
   color: #475569;
   line-height: 1.35;
   font-weight: 500;
 }
 
-/* Action Links & Case Study Trigger */
+/* Technologies Stack */
+.leafTechRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.2rem 0;
+}
+
+.leafTechLabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+}
+
+.leafTechText {
+  font-size: 0.85rem;
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* Actions */
 .leafActions {
   display: flex;
   align-items: center;
@@ -393,7 +595,7 @@
   color: #042F2E;
   font-size: 0.86rem;
   font-weight: 700;
-  padding: 0.55rem 1.15rem;
+  padding: 0.58rem 1.25rem;
   border-radius: 12px;
   border: 1px solid #10B981;
   cursor: pointer;
@@ -416,7 +618,7 @@
   color: #1E293B;
   font-size: 0.84rem;
   font-weight: 600;
-  padding: 0.55rem 0.95rem;
+  padding: 0.58rem 1rem;
   border-radius: 12px;
   border: 1px solid rgba(15, 23, 42, 0.1);
   text-decoration: none;
@@ -430,110 +632,57 @@
   transform: translateY(-1px);
 }
 
-.leafPrimaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #0F1115;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.leafPrimaryBtn::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 2px;
-  background: #0F1115;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  transform-origin: left;
-}
-
-.leafPrimaryBtn:hover {
-  color: #10B981;
-}
-
-.leafPrimaryBtn:hover::after {
-  background: #10B981;
-}
-
-.leafPrimaryBtn svg {
-  transition: transform 0.2s ease;
-}
-
-.leafPrimaryBtn:hover svg {
-  transform: translate(2px, -2px);
-}
-
-/* Responsive for Mobile & Tablets */
-@media (max-width: 992px) {
-  .treeSection {
+/* ====================================================================
+   RESPONSIVENESS (Mobile & Tablets < 1024px)
+   ==================================================================== */
+@media (max-width: 1024px) {
+  .showcaseSection {
     padding: 4.5rem 1.25rem 6rem;
   }
 
-  .trunkLine {
-    left: 20px;
-    transform: none;
-    width: 36px;
+  .splitStage {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .leavesList {
-    gap: 3.5rem;
+  .stickyColumn {
+    display: none; /* Mobile switches to inline video in each card */
   }
 
-  .leafRow {
-    display: flex !important;
-    flex-direction: column !important;
-    padding-left: 48px;
-    gap: 0;
+  .scrollColumn {
+    padding-left: 24px;
   }
 
-  .colLeft,
-  .colRight {
-    width: 100% !important;
-    display: block !important;
+  .vineTrunk {
+    left: 4px;
   }
 
-  .colCenter {
-    position: absolute;
-    left: 12px;
-    top: 36px;
-    width: 36px;
-    min-height: auto;
+  .stemAnchor {
+    left: -24px;
+    top: 28px;
   }
 
-  .stemConnector {
-    height: 36px;
+  .sproutBadge {
+    width: 26px;
+    height: 26px;
   }
 
-  .foliageSproutWrap {
-    width: 34px;
-    height: 34px;
+  .sproutImg {
+    width: 18px;
+    height: 18px;
   }
 
-  .leafCard {
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 32px 14px 32px 14px !important;
+  .stemCurveSvg {
+    width: 16px;
   }
 
-  .leafCard:hover {
-    transform: translateY(-4px) !important;
+  .mobileVideoFrame {
+    display: block;
   }
 
-  .leafVisual {
-    height: 220px;
-    border-radius: 30px 12px 0 0 !important;
-  }
-
-  .leafInfo {
-    padding: 1.6rem 1.4rem;
-    gap: 1rem;
+  .editorialLeaf {
+    padding: 1.5rem 1.35rem 1.4rem;
+    border-radius: 24px 12px 24px 12px;
   }
 
   .leafTitle {
@@ -542,6 +691,9 @@
 
   .leafDesc {
     font-size: 0.88rem;
-    line-height: 1.55;
+  }
+
+  .leafImpactGrid {
+    grid-template-columns: 1fr;
   }
 }
