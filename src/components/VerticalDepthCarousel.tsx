@@ -61,10 +61,10 @@ const ALL_PROJECTS: ProjectItem[] = [
     href: "https://github.com/dennys3mf",
     isLive: false,
     discipline: {
-      en: "Cross-Platform Mobile App",
-      es: "App Móvil Multiplataforma",
+      en: "Mood & Comedy Mobile App",
+      es: "App Móvil de Bienestar & Humor",
     },
-    stack: "Flutter · Dart · Firebase · Realtime Chat · Geolocation API",
+    stack: "Flutter · Dart · Firebase Auth · Firestore · Content Recommender",
   },
   {
     id: "safety-helmet",
@@ -119,8 +119,8 @@ const PROJECT_NOTES: Record<string, { en: string; es: string }> = {
     en: "✎ SG-SST platform in React & Django: multi-tenant architecture and 100% legal compliance in audits.",
   },
   "chansa-app": {
-    es: "✎ App móvil en Flutter & Dart con sincronización Firebase en tiempo real (<50ms) y geolocalización.",
-    en: "✎ Mobile app in Flutter & Dart with sub-50ms Firebase real-time sync and geolocation dispatch.",
+    es: "✎ App móvil en Flutter & Dart con detección de estado de ánimo, recomendaciones de humor personalizadas y Firebase.",
+    en: "✎ Mobile app in Flutter & Dart featuring mood-based comedy recommendations, Firebase Auth & Firestore.",
   },
   "safety-helmet": {
     es: "✎ Prototipo IoT para minería con sensores MQ-2, Arduino, AWS y telemetría MQTT ante impactos y gases tóxicos.",
