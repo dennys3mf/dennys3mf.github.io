@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, FileText } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
@@ -44,9 +45,18 @@ export default function Header() {
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.headerContainer}>
-        {/* Brand Monogram */}
+        {/* Brand Logo & Name */}
         <Link href="/" className={styles.brandLink} aria-label="Dennys Marquez — Home">
-          <span className={styles.brandBadge}>D</span>
+          <span className={styles.brandLogoWrapper}>
+            <Image
+              src="/images/logo.png"
+              alt="Dennys Marquez"
+              width={38}
+              height={38}
+              className={styles.brandLogoImg}
+              priority
+            />
+          </span>
           <span className={styles.brandName}>Dennys Marquez</span>
         </Link>
 
@@ -121,7 +131,15 @@ export default function Header() {
           >
             <div className={styles.mobileDrawerTop}>
               <Link href="/" className={styles.brandLink} onClick={() => setMobileOpen(false)}>
-                <span className={styles.brandBadge}>D</span>
+                <span className={styles.brandLogoWrapper}>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Dennys Marquez"
+                    width={38}
+                    height={38}
+                    className={styles.brandLogoImg}
+                  />
+                </span>
                 <span className={styles.brandName}>Dennys Marquez</span>
               </Link>
               <button

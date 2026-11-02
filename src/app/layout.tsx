@@ -74,8 +74,13 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
   },
 };
 
@@ -88,7 +93,7 @@ const jsonLd = {
       name: "Dennys Marquez",
       alternateName: ["Dennys Gabriel Marquez Flores", "Gabriel Marquez"],
       url: "https://dennys3mf.github.io",
-      image: "https://dennys3mf.github.io/images/personal/dennys-workstation.webp",
+      image: "https://dennys3mf.github.io/images/logo.png",
       jobTitle: "Full Stack Developer",
       address: {
         "@type": "PostalAddress",
@@ -129,7 +134,13 @@ const jsonLd = {
       url: "https://dennys3mf.github.io",
       name: "Dennys Marquez — Full Stack Developer",
       publisher: {
+        "@type": "Person",
         "@id": "https://dennys3mf.github.io/#person",
+        name: "Dennys Marquez",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://dennys3mf.github.io/images/logo.png",
+        },
       },
       inLanguage: ["en", "es"],
     },

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import LanguageToggle from "../LanguageToggle";
@@ -24,7 +25,15 @@ export default function Footer() {
           {/* Brand Statement */}
           <div className={styles.brandCol}>
             <Link href="/" className={styles.brandLogo} aria-label="Dennys Marquez — Home">
-              <span className={styles.brandBadge}>D</span>
+              <span className={styles.brandLogoWrapper}>
+                <Image
+                  src="/images/logo.png"
+                  alt="Dennys Marquez"
+                  width={38}
+                  height={38}
+                  className={styles.brandLogoImg}
+                />
+              </span>
               <span>Dennys Marquez</span>
             </Link>
             <p className={styles.brandTagline}>{t.footer.tagline}</p>

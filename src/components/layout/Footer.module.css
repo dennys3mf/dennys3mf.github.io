@@ -36,6 +36,28 @@
   text-decoration: none;
 }
 
+.brandLogoWrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: #FFFFFF;
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.brandLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .brandBadge {
   width: 34px;
   height: 34px;

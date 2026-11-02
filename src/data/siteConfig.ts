@@ -8,6 +8,8 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/dennys-gabriel-marquez-flores",
   resumeUrl: "/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf",
   url: "https://dennys3mf.github.io",
+  logoUrl: "/images/logo.png",
+  ogImage: "/images/og-cover.png",
   navItems: [
     { href: "/work", labelKey: "work" },
     { href: "/about", labelKey: "about" },
