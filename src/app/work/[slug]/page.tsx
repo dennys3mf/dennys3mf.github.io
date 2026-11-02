@@ -16,13 +16,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const project = PROJECTS.find((p) => p.slug === slug);
-  if (!project) return { title: "Case Study | Gabriel Márquez" };
+  if (!project) return { title: "Case Study | Dennys Marquez" };
 
   return {
-    title: `${project.shortTitle} — Case Study | Gabriel Márquez`,
+    title: `${project.shortTitle} — Case Study | Dennys Marquez`,
     description: project.summary.en,
     openGraph: {
-      title: `${project.shortTitle} — Case Study | Gabriel Márquez`,
+      title: `${project.shortTitle} — Case Study | Dennys Marquez`,
       description: project.summary.en,
       images: [project.coverImage],
     },

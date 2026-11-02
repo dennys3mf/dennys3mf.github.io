@@ -74,14 +74,14 @@ export default function Home() {
                 <div className={styles.heroPhotoCard}>
                   <Image
                     src="/images/personal/dennys-workstation.webp"
-                    alt="Gabriel Márquez - Full Stack Developer"
+                    alt="Dennys Marquez - Full Stack Developer"
                     width={520}
                     height={390}
                     priority
                     className={styles.heroPhoto}
                   />
                   <div className={styles.heroPhotoCaption}>
-                    <span className={styles.heroPhotoName}>Gabriel Márquez</span>
+                    <span className={styles.heroPhotoName}>Dennys Marquez</span>
                     <span className={styles.heroPhotoRole}>Full Stack Developer</span>
                   </div>
                 </div>
@@ -310,7 +310,7 @@ export default function Home() {
               <div className={styles.aboutPreviewCard}>
                 <Image
                   src="/images/personal/dennys-portrait.webp"
-                  alt="Gabriel Márquez"
+                  alt="Dennys Marquez"
                   width={600}
                   height={600}
                   className={styles.aboutPreviewImg}

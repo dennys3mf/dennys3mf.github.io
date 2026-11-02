@@ -27,12 +27,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dennys3mf.github.io"),
-  title: "Gabriel Márquez | Full Stack Developer",
+  title: "Dennys Marquez | Full Stack Developer",
   description:
-    "Explore the portfolio of Gabriel Márquez, a Full Stack Developer building intuitive web applications and practical digital solutions. View projects, experience, and services.",
+    "Explore the portfolio of Dennys Marquez, a Full Stack Developer building intuitive web applications and practical digital solutions. View projects, experience, and services.",
   keywords: [
-    "Gabriel Márquez",
     "Dennys Marquez",
+    "Dennys Gabriel Marquez Flores",
     "Full Stack Developer",
     "Product Engineer",
     "React Developer",
@@ -43,29 +43,29 @@ export const metadata: Metadata = {
     "ahorratiempo.pe",
     "TECSUP",
   ],
-  authors: [{ name: "Gabriel Márquez", url: "https://dennys3mf.github.io" }],
-  creator: "Gabriel Márquez",
+  authors: [{ name: "Dennys Marquez", url: "https://dennys3mf.github.io" }],
+  creator: "Dennys Marquez",
   openGraph: {
     type: "website",
     locale: "en_US",
     alternateLocale: "es_PE",
     url: "https://dennys3mf.github.io",
-    title: "Gabriel Márquez | Full Stack Developer",
+    title: "Dennys Marquez | Full Stack Developer",
     description:
       "Building intuitive digital products that solve real problems. Full Stack Developer combining engineering, product thinking, and user experience.",
-    siteName: "Gabriel Márquez Portfolio",
+    siteName: "Dennys Marquez Portfolio",
     images: [
       {
         url: "/images/og-cover.png",
         width: 1200,
         height: 630,
-        alt: "Gabriel Márquez — Full Stack Developer",
+        alt: "Dennys Marquez — Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gabriel Márquez | Full Stack Developer",
+    title: "Dennys Marquez | Full Stack Developer",
     description:
       "Building intuitive digital products that solve real problems. Full Stack Developer combining engineering, product thinking, and user experience.",
     images: ["/images/og-cover.png"],
@@ -85,8 +85,8 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": "https://dennys3mf.github.io/#person",
-      name: "Gabriel Márquez",
-      alternateName: ["Dennys Gabriel Marquez Flores", "Dennys Marquez"],
+      name: "Dennys Marquez",
+      alternateName: ["Dennys Gabriel Marquez Flores", "Gabriel Marquez"],
       url: "https://dennys3mf.github.io",
       image: "https://dennys3mf.github.io/images/personal/dennys-workstation.webp",
       jobTitle: "Full Stack Developer",
@@ -127,7 +127,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://dennys3mf.github.io/#website",
       url: "https://dennys3mf.github.io",
-      name: "Gabriel Márquez — Full Stack Developer",
+      name: "Dennys Marquez — Full Stack Developer",
       publisher: {
         "@id": "https://dennys3mf.github.io/#person",
       },

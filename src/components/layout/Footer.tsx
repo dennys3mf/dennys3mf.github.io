@@ -23,9 +23,9 @@ export default function Footer() {
         <div className={styles.footerTopGrid}>
           {/* Brand Statement */}
           <div className={styles.brandCol}>
-            <Link href="/" className={styles.brandLogo} aria-label="Gabriel Márquez — Home">
-              <span className={styles.brandBadge}>G</span>
-              <span>Gabriel Márquez</span>
+            <Link href="/" className={styles.brandLogo} aria-label="Dennys Marquez — Home">
+              <span className={styles.brandBadge}>D</span>
+              <span>Dennys Marquez</span>
             </Link>
             <p className={styles.brandTagline}>{t.footer.tagline}</p>
             <span className={styles.brandLocation}>
@@ -99,11 +99,11 @@ export default function Footer() {
         {/* Bottom Row */}
         <div className={styles.footerBottom}>
           <span>
-            Gabriel Márquez © {new Date().getFullYear()}. {t.footer.rights}
+            Dennys Marquez © {new Date().getFullYear()}. {t.footer.rights}
           </span>
 
           <div className={styles.bottomActions}>
-            <LanguageToggle variant="segmented" />
+            <LanguageToggle />
             <button
               type="button"
               onClick={handleBackToTop}

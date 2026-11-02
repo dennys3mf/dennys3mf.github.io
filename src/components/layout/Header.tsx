@@ -45,9 +45,9 @@ export default function Header() {
     <header className={styles.headerWrapper}>
       <div className={styles.headerContainer}>
         {/* Brand Monogram */}
-        <Link href="/" className={styles.brandLink} aria-label="Gabriel Márquez — Home">
-          <span className={styles.brandBadge}>G</span>
-          <span className={styles.brandName}>Gabriel Márquez</span>
+        <Link href="/" className={styles.brandLink} aria-label="Dennys Marquez — Home">
+          <span className={styles.brandBadge}>D</span>
+          <span className={styles.brandName}>Dennys Marquez</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -71,7 +71,7 @@ export default function Header() {
 
         {/* Action Group */}
         <div className={styles.actionsGroup}>
-          <LanguageToggle variant="segmented" />
+          <LanguageToggle />
 
           {/* Resume Link */}
           <a
@@ -121,8 +121,8 @@ export default function Header() {
           >
             <div className={styles.mobileDrawerTop}>
               <Link href="/" className={styles.brandLink} onClick={() => setMobileOpen(false)}>
-                <span className={styles.brandBadge}>G</span>
-                <span className={styles.brandName}>Gabriel Márquez</span>
+                <span className={styles.brandBadge}>D</span>
+                <span className={styles.brandName}>Dennys Marquez</span>
               </Link>
               <button
                 type="button"

@@ -3,9 +3,9 @@ import ContactClient from "./ContactClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Gabriel Márquez | Full Stack Developer",
+  title: "Contact Dennys Marquez | Full Stack Developer",
   description:
-    "Start a conversation with Gabriel Márquez about hiring opportunities, software development projects, or technical consulting.",
+    "Start a conversation with Dennys Marquez about hiring opportunities, software development projects, or technical consulting.",
 };
 
 export default function ContactPage() {

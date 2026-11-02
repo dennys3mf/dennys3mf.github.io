@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Gabriel Márquez",
+  name: "Dennys Marquez",
   fullName: "Dennys Gabriel Márquez Flores",
   title: "Full Stack Developer",
   location: "Peru",

@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className={styles.photoFrame}>
           <Image
             src="/images/personal/dennys-workstation.webp"
-            alt="Gabriel Márquez workstation in Peru"
+            alt="Dennys Marquez workstation in Peru"
             width={980}
             height={653}
             className={styles.workstationImg}
