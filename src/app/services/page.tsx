@@ -18,7 +18,6 @@ export default function ServicesPage() {
       <main id="main-content" className={styles.container}>
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
             <span>{t.servicesPage.eyebrow}</span>
           </div>
           <h1 className={styles.pageTitle}>{t.servicesPage.heading}</h1>

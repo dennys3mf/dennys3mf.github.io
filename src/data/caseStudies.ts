@@ -40,12 +40,12 @@ export const CASE_STUDIES: CaseStudyItem[] = [
       es: "2024 — Activo en Producción",
     },
     type: {
-      en: "Public AI SaaS · Commercial Venture",
-      es: "SaaS Ciudadano con IA · Emprendimiento Activo",
+      en: "Public AI SaaS — Commercial Venture",
+      es: "SaaS Ciudadano con IA — Emprendimiento Activo",
     },
     discipline: {
-      en: "AI Citizen SaaS · Next.js · Voice AI",
-      es: "SaaS Ciudadano con IA · Next.js · Voice AI",
+      en: "AI Citizen SaaS / Next.js / Voice AI",
+      es: "SaaS Ciudadano con IA / Next.js / Voice AI",
     },
     summary: {
       en: "A live consumer platform providing automated, voice-assisted guidance for complex Peruvian public paperwork and appointment scheduling, backed by secure electronic checkout.",
@@ -117,8 +117,8 @@ export const CASE_STUDIES: CaseStudyItem[] = [
       es: "Sistema Cloud Empresarial Multi-Tenant",
     },
     discipline: {
-      en: "Enterprise Cloud & Legal IT · Python / Django",
-      es: "Plataforma Cloud & Legal IT · Python / Django",
+      en: "Enterprise Cloud & Legal IT / Python / Django",
+      es: "Plataforma Cloud & Legal IT / Python / Django",
     },
     summary: {
       en: "Enterprise SaaS platform managing occupational health and safety (SG-SST) compliance matrices, legal audit trails, and automated judicial document generation for corporate law firms.",
@@ -189,8 +189,8 @@ export const CASE_STUDIES: CaseStudyItem[] = [
       es: "Aplicación Móvil Multiplataforma (iOS & Android)",
     },
     discipline: {
-      en: "Cross-Platform Mobile App · Flutter & Dart",
-      es: "App Móvil Multiplataforma · Flutter & Dart",
+      en: "Cross-Platform Mobile App / Flutter & Dart",
+      es: "App Móvil Multiplataforma / Flutter & Dart",
     },
     summary: {
       en: "On-demand mobile marketplace connecting homeowners and businesses with verified trade contractors, featuring real-time chat, location-based matching, and direct job scheduling.",
@@ -260,8 +260,8 @@ export const CASE_STUDIES: CaseStudyItem[] = [
       es: "IoT Industrial & Telemetría en Tiempo Real",
     },
     discipline: {
-      en: "Industrial IoT & Telemetry · C++ / Microservices",
-      es: "IoT & Telemetría Industrial · C++ / Microservicios",
+      en: "Industrial IoT & Telemetry / C++ / Microservices",
+      es: "IoT & Telemetría Industrial / C++ / Microservicios",
     },
     summary: {
       en: "Smart industrial safety helmet embedding physical impact detection, toxic gas sensors, and GPS telemetry to protect workers in hazardous mining and construction environments.",
@@ -332,8 +332,8 @@ export const CASE_STUDIES: CaseStudyItem[] = [
       es: "Fintech & Facturación Electrónica SUNAT",
     },
     discipline: {
-      en: "Fintech & Electronic Billing · Python / SUNAT",
-      es: "Fintech & Facturación Electrónica · Python / SUNAT",
+      en: "Fintech & Electronic Billing / Python / SUNAT",
+      es: "Fintech & Facturación Electrónica / Python / SUNAT",
     },
     summary: {
       en: "Automated payment processing and electronic invoicing service that charges cards via Culqi and instantly generates, signs, and dispatches legally compliant XML tax invoices to Peruvian SUNAT.",
@@ -399,12 +399,12 @@ export const CASE_STUDIES: CaseStudyItem[] = [
       es: "Implementación en Terreno Municipal",
     },
     type: {
-      en: "Civic Tech · Field Inspection App",
-      es: "Gobierno Digital · Inspección en Campo",
+      en: "Civic Tech / Field Inspection App",
+      es: "Gobierno Digital / Inspección en Campo",
     },
     discipline: {
-      en: "Field Inspection Tablet App · Flutter / SQLite",
-      es: "App de Inspección en Campo · Flutter / SQLite",
+      en: "Field Inspection Tablet App / Flutter / SQLite",
+      es: "App de Inspección en Campo / Flutter / SQLite",
     },
     summary: {
       en: "Offline-first tablet application for municipal field inspectors in La Joya (Arequipa). Captures evidence photos, digital signatures, and geo-stamped audit records 100% offline, auto-syncing upon reconnecting.",

@@ -32,23 +32,16 @@
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--primary);
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .eyebrowDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  background: var(--accent);
-  border: 1px solid var(--border);
+  display: none;
 }
 
 .heroHeadline {
@@ -156,6 +149,53 @@
 .heroVisual {
   display: flex;
   justify-content: center;
+}
+
+.heroPhotoCard {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-editorial);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.heroPhotoCard:hover {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-editorial-hover);
+}
+
+.heroPhoto {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.heroPhotoCaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: var(--surface);
+  border-top: 2px solid var(--border);
+}
+
+.heroPhotoName {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.heroPhotoRole {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--primary);
 }
 
 /* ====================================================================

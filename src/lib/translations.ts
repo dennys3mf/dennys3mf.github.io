@@ -201,8 +201,8 @@ export const translations: Record<Language, TranslationContent> = {
       workWithMe: "Work with me",
     },
     hero: {
-      eyebrow: "FULL STACK DEVELOPER · BASED IN PERU",
-      headline: "I build software that makes complex things feel simple.",
+      eyebrow: "Full Stack Developer in Peru",
+      headline: "I build software that makes complex things feel simple",
       description:
         "I'm Gabriel, a Full Stack Developer focused on creating intuitive web applications and practical digital solutions. I combine engineering, thoughtful design, and product thinking to build software that serves real needs.",
       ctaPrimary: "Explore my work",
@@ -210,8 +210,8 @@ export const translations: Record<Language, TranslationContent> = {
       ctaRecruiter: "Looking for a developer? View my experience.",
     },
     selectedWork: {
-      eyebrow: "PORTFOLIO EVIDENCE",
-      heading: "Selected work.",
+      eyebrow: "Selected Work",
+      heading: "Featured Projects",
       description:
         "A selection of projects where design, technology, and problem-solving come together.",
       readCaseStudy: "Read case study",
@@ -222,37 +222,37 @@ export const translations: Record<Language, TranslationContent> = {
       role: "Role",
     },
     whatIBring: {
-      eyebrow: "CORE CAPABILITIES",
-      heading: "More than code.",
+      eyebrow: "Capabilities and Approach",
+      heading: "More than code",
       subheading:
         "Software engineering grounded in product thinking and human usability.",
-      p1Title: "01 — Product Thinking",
+      p1Title: "Product Thinking",
       p1Desc:
         "I look beyond features to understand the problem a product needs to solve.",
-      p2Title: "02 — Thoughtful Engineering",
+      p2Title: "Thoughtful Engineering",
       p2Desc:
         "I focus on building maintainable applications with clear structure and reliable behavior.",
-      p3Title: "03 — User Experience",
+      p3Title: "User Experience",
       p3Desc:
         "I believe useful software should also feel intuitive, accessible, and pleasant to use.",
     },
     howIWork: {
-      eyebrow: "METHODOLOGY",
-      heading: "From idea to implementation.",
+      eyebrow: "Methodology",
+      heading: "From idea to implementation",
       subheading:
         "A structured, transparent process designed for reliability and real delivery.",
-      step1Title: "01. Understand",
+      step1Title: "Understand",
       step1Desc: "Clarify the problem, audience, and commercial goals.",
-      step2Title: "02. Plan",
+      step2Title: "Plan",
       step2Desc: "Define scope, technical architecture, and milestones.",
-      step3Title: "03. Build",
+      step3Title: "Build",
       step3Desc: "Develop and validate the solution with clean typed code.",
-      step4Title: "04. Improve",
+      step4Title: "Improve",
       step4Desc: "Refine the experience based on telemetry, feedback, and real use.",
     },
     aboutPreview: {
-      eyebrow: "BACKGROUND",
-      heading: "The person behind the code.",
+      eyebrow: "About Me",
+      heading: "The person behind the code",
       text1:
         "My background in software development has shaped the way I approach digital products: with curiosity, structure, and attention to detail.",
       text2:
@@ -270,7 +270,7 @@ export const translations: Record<Language, TranslationContent> = {
       businessCta: "Discuss your project",
     },
     finalCta: {
-      heading: "Let's build something useful.",
+      heading: "Let's build something useful",
       text:
         "Whether you're hiring for your team or planning a new digital product, I'd love to hear what you're working on.",
       cta: "Start a conversation",
@@ -284,7 +284,7 @@ export const translations: Record<Language, TranslationContent> = {
       backToTop: "Back to Top ↑",
     },
     workPage: {
-      heading: "Work that speaks for itself.",
+      heading: "Work that speaks for itself",
       description:
         "A closer look at the products I've built, the problems behind them, and the decisions that shaped each solution.",
       filterAll: "All Projects",
@@ -298,21 +298,21 @@ export const translations: Record<Language, TranslationContent> = {
     },
     caseStudy: {
       backToWork: "← Back to all projects",
-      projectOverview: "01 — Project Overview",
-      theProblem: "02 — The Problem",
-      goalsAndConstraints: "03 — Goals & Constraints",
-      myApproach: "04 — My Approach",
-      theSolution: "05 — The Solution",
-      engineeringDecisions: "06 — Engineering Decisions",
+      projectOverview: "Project Overview",
+      theProblem: "The Problem",
+      goalsAndConstraints: "Goals & Constraints",
+      myApproach: "My Approach",
+      theSolution: "The Solution",
+      engineeringDecisions: "Engineering Decisions",
       architecture: "System Architecture",
       apisAndState: "APIs & State Management",
       dataPersistence: "Data Persistence & Schemas",
       performanceAndSecurity: "Performance & Security",
-      resultsAndLearnings: "07 — Results & Learnings",
+      resultsAndLearnings: "Results & Learnings",
       measuredResults: "Verified Impact",
       verifiableFeatures: "Verifiable Capabilities",
       keyLearnings: "Key Learnings",
-      nextSteps: "08 — Next Steps",
+      nextSteps: "Next Steps",
       nextProject: "Next Project",
       discussAProject: "Discuss this project with Gabriel",
       roleLabel: "Role",
@@ -321,8 +321,8 @@ export const translations: Record<Language, TranslationContent> = {
       technologiesLabel: "Technologies",
     },
     aboutPage: {
-      eyebrow: "ABOUT GABRIEL",
-      heading: "A little about me.",
+      eyebrow: "About Me",
+      heading: "A little about me",
       lead:
         "I'm a Full Stack Developer based in Peru. I build software that solves tangible problems for businesses and everyday users.",
       bioP1:
@@ -359,8 +359,8 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     experiencePage: {
-      eyebrow: "CAREER & CAPABILITIES",
-      heading: "Experience & technical skill.",
+      eyebrow: "Career and Experience",
+      heading: "Experience & technical skill",
       description:
         "A transparent breakdown of my technical background, verified engineering competencies, education, and career milestones.",
       downloadCv: "Download Resume (PDF)",
@@ -371,8 +371,8 @@ export const translations: Record<Language, TranslationContent> = {
       languagesHeading: "Languages",
     },
     servicesPage: {
-      eyebrow: "SOLUTIONS & COLLABORATION",
-      heading: "Software solutions built around your needs.",
+      eyebrow: "Software Services",
+      heading: "Software solutions built around your needs",
       description:
         "From web applications to internal tools, I help turn ideas and operational challenges into practical, maintainable digital solutions.",
       discussProject: "Tell me about your project",
@@ -437,7 +437,7 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     contactPage: {
-      heading: "Let's start a conversation.",
+      heading: "Let's start a conversation",
       description:
         "Tell me what you're working on, whether it's a new opportunity, a product idea, or a technical challenge.",
       intentHiring: "I'm hiring for a team",
@@ -476,8 +476,8 @@ export const translations: Record<Language, TranslationContent> = {
       workWithMe: "Trabajemos juntos",
     },
     hero: {
-      eyebrow: "FULL STACK DEVELOPER · BASADO EN PERÚ",
-      headline: "Construyo software que hace simple lo complejo.",
+      eyebrow: "Full Stack Developer en Perú",
+      headline: "Construyo software que hace simple lo complejo",
       description:
         "Soy Gabriel, un Desarrollador Full Stack enfocado en crear aplicaciones web intuitivas y soluciones digitales prácticas. Combino ingeniería, diseño reflexivo y visión de producto para construir software que resuelve necesidades reales.",
       ctaPrimary: "Explorar mis proyectos",
@@ -485,8 +485,8 @@ export const translations: Record<Language, TranslationContent> = {
       ctaRecruiter: "¿Buscas un desarrollador? Conoce mi experiencia.",
     },
     selectedWork: {
-      eyebrow: "EVIDENCIA TÉCNICA",
-      heading: "Proyectos destacados.",
+      eyebrow: "Proyectos Seleccionados",
+      heading: "Proyectos destacados",
       description:
         "Una selección de proyectos donde el diseño, la tecnología y la resolución de problemas se unen.",
       readCaseStudy: "Ver caso de estudio",
@@ -497,37 +497,37 @@ export const translations: Record<Language, TranslationContent> = {
       role: "Rol",
     },
     whatIBring: {
-      eyebrow: "CAPACIDADES CLAVE",
-      heading: "Más que solo código.",
+      eyebrow: "Habilidades y Enfoque",
+      heading: "Más que solo código",
       subheading:
         "Ingeniería de software con base en visión de producto y usabilidad humana.",
-      p1Title: "01 — Visión de Producto",
+      p1Title: "Visión de Producto",
       p1Desc:
         "Miro más allá de las funcionalidades para entender el problema real que el producto debe resolver.",
-      p2Title: "02 — Ingeniería Reflexiva",
+      p2Title: "Ingeniería Reflexiva",
       p2Desc:
         "Me enfoco en construir aplicaciones mantenibles, con arquitectura limpia y comportamiento confiable.",
-      p3Title: "03 — Experiencia de Usuario",
+      p3Title: "Experiencia de Usuario",
       p3Desc:
         "Creo firmemente que el software útil también debe sentirse intuitivo, accesible y agradable de usar.",
     },
     howIWork: {
-      eyebrow: "METODOLOGÍA",
-      heading: "De la idea a la implementación.",
+      eyebrow: "Metodología de Trabajo",
+      heading: "De la idea a la implementación",
       subheading:
         "Un proceso estructurado y transparente diseñado para brindar confiabilidad y entregas reales.",
-      step1Title: "01. Entender",
+      step1Title: "Entender",
       step1Desc: "Comprender el problema real, los usuarios y los objetivos de negocio.",
-      step2Title: "02. Planificar",
+      step2Title: "Planificar",
       step2Desc: "Definir alcance, arquitectura técnica y entregables.",
-      step3Title: "03. Construir",
+      step3Title: "Construir",
       step3Desc: "Desarrollar y validar la solución con código limpio y fuertemente tipado.",
-      step4Title: "04. Mejorar",
+      step4Title: "Mejorar",
       step4Desc: "Refinar la experiencia en base a retroalimentación, métricas y uso real.",
     },
     aboutPreview: {
-      eyebrow: "TRAYECTORIA",
-      heading: "La persona detrás del código.",
+      eyebrow: "Sobre mí",
+      heading: "La persona detrás del código",
       text1:
         "Mi formación en desarrollo de software ha definido cómo abordo los productos digitales: con curiosidad, estructura y atención al detalle.",
       text2:
@@ -545,7 +545,7 @@ export const translations: Record<Language, TranslationContent> = {
       businessCta: "Hablemos de tu proyecto",
     },
     finalCta: {
-      heading: "Construyamos algo útil.",
+      heading: "Construyamos algo útil",
       text:
         "Ya sea que estés contratando para tu equipo o planificando un nuevo producto digital, me encantará conocer en qué estás trabajando.",
       cta: "Iniciar una conversación",
@@ -559,7 +559,7 @@ export const translations: Record<Language, TranslationContent> = {
       backToTop: "Volver Arriba ↑",
     },
     workPage: {
-      heading: "Evidencia que habla por sí misma.",
+      heading: "Evidencia que habla por sí misma",
       description:
         "Un análisis en profundidad de los productos que he construido, los problemas detrás de ellos y las decisiones técnicas de cada solución.",
       filterAll: "Todos los proyectos",
@@ -573,21 +573,21 @@ export const translations: Record<Language, TranslationContent> = {
     },
     caseStudy: {
       backToWork: "← Volver a todos los proyectos",
-      projectOverview: "01 — Resumen del Proyecto",
-      theProblem: "02 — El Problema",
-      goalsAndConstraints: "03 — Objetivos & Restricciones",
-      myApproach: "04 — Mi Enfoque",
-      theSolution: "05 — La Solución",
-      engineeringDecisions: "06 — Decisiones de Ingeniería",
+      projectOverview: "Resumen del Proyecto",
+      theProblem: "El Problema",
+      goalsAndConstraints: "Objetivos & Restricciones",
+      myApproach: "Mi Enfoque",
+      theSolution: "La Solución",
+      engineeringDecisions: "Decisiones de Ingeniería",
       architecture: "Arquitectura del Sistema",
       apisAndState: "APIs & Gestión de Estado",
       dataPersistence: "Persistencia de Datos & Esquemas",
       performanceAndSecurity: "Rendimiento & Seguridad",
-      resultsAndLearnings: "07 — Resultados & Aprendizajes",
+      resultsAndLearnings: "Resultados & Aprendizajes",
       measuredResults: "Impacto Verificado",
       verifiableFeatures: "Capacidades Demostrables",
       keyLearnings: "Aprendizajes Clave",
-      nextSteps: "08 — Siguientes Pasos",
+      nextSteps: "Siguientes Pasos",
       nextProject: "Siguiente Proyecto",
       discussAProject: "Conversar sobre este proyecto con Gabriel",
       roleLabel: "Rol",
@@ -596,8 +596,8 @@ export const translations: Record<Language, TranslationContent> = {
       technologiesLabel: "Tecnologías",
     },
     aboutPage: {
-      eyebrow: "SOBRE GABRIEL",
-      heading: "Un poco sobre mí.",
+      eyebrow: "Sobre mí",
+      heading: "Un poco sobre mí",
       lead:
         "Soy un Desarrollador Full Stack basado en Perú. Construyo software que resuelve problemas concretos para empresas y usuarios.",
       bioP1:
@@ -634,8 +634,8 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     experiencePage: {
-      eyebrow: "TRAYECTORIA & COMPETENCIAS",
-      heading: "Experiencia y habilidades técnicas.",
+      eyebrow: "Trayectoria y Experiencia",
+      heading: "Experiencia y habilidades técnicas",
       description:
         "Un desglose transparente de mi trayectoria técnica, competencias de ingeniería verificadas, formación académica y proyectos.",
       downloadCv: "Descargar CV (PDF)",
@@ -646,8 +646,8 @@ export const translations: Record<Language, TranslationContent> = {
       languagesHeading: "Idiomas",
     },
     servicesPage: {
-      eyebrow: "SOLUCIONES & COLABORACIÓN",
-      heading: "Soluciones de software creadas según tus necesidades.",
+      eyebrow: "Servicios de Software",
+      heading: "Soluciones de software creadas según tus necesidades",
       description:
         "Desde aplicaciones web hasta herramientas internas, transformo ideas y desafíos operativos en soluciones digitales prácticas y mantenibles.",
       discussProject: "Cuéntame sobre tu proyecto",
@@ -712,7 +712,7 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     contactPage: {
-      heading: "Iniciemos una conversación.",
+      heading: "Iniciemos una conversación",
       description:
         "Cuéntame qué estás construyendo, ya sea una nueva oportunidad profesional, una idea de producto o un desafío técnico.",
       intentHiring: "Contratación para un equipo",

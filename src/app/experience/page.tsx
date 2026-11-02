@@ -19,7 +19,6 @@ export default function ExperiencePage() {
       <main id="main-content" className={styles.container}>
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
             <span>{t.experiencePage.eyebrow}</span>
           </div>
           <h1 className={styles.pageTitle}>{t.experiencePage.heading}</h1>
@@ -74,14 +73,13 @@ export default function ExperiencePage() {
                   <span className={styles.careerPeriod}>{item.period}</span>
                 </div>
                 <div className={styles.careerCompany}>
-                  {item.company} · {item.location}
+                  {item.company} — {item.location}
                 </div>
                 <p className={styles.careerSummary}>{item.summary[language]}</p>
 
                 <ul className={styles.highlightsList}>
                   {item.highlights[language].map((h, hIdx) => (
                     <li key={hIdx} className={styles.highlightItem}>
-                      <span className={styles.bullet}>•</span>
                       <span>{h}</span>
                     </li>
                   ))}
@@ -116,7 +114,7 @@ export default function ExperiencePage() {
               <div key={idx} className={styles.eduCard}>
                 <h3 className={styles.eduDegree}>{edu.degree[language]}</h3>
                 <div className={styles.eduInstitution}>
-                  {edu.institution} · {edu.location}
+                  {edu.institution} — {edu.location}
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", color: "var(--muted-foreground)" }}>
                   {edu.period} ({edu.status[language]})

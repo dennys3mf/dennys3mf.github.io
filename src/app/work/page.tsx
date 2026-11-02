@@ -33,8 +33,7 @@ export default function WorkPage() {
       <main id="main-content" className={styles.container}>
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
-            <span>PORTFOLIO PROOF</span>
+            <span>{language === "es" ? "Proyectos en Producción" : "Selected Projects"}</span>
           </div>
           <h1 className={styles.pageTitle}>{t.workPage.heading}</h1>
           <p className={styles.pageDesc}>{t.workPage.description}</p>

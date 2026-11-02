@@ -10,7 +10,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import styles from "./Contact.module.css";
 
 export default function ContactClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const searchParams = useSearchParams();
   const queryIntent = searchParams?.get("intent");
   const [userIntent, setUserIntent] = useState<"hiring" | "project" | null>(null);
@@ -87,8 +87,7 @@ ${formData.message}
       <main id="main-content" className={styles.container}>
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
-            <span>DIRECT ENGAGEMENT</span>
+            <span>{language === "es" ? "Contacto Directo" : "Get In Touch"}</span>
           </div>
           <h1 className={styles.pageTitle}>{t.contactPage.heading}</h1>
           <p className={styles.pageDesc}>{t.contactPage.description}</p>

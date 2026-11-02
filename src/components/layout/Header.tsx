@@ -47,9 +47,7 @@ export default function Header() {
         {/* Brand Monogram */}
         <Link href="/" className={styles.brandLink} aria-label="Gabriel Márquez — Home">
           <span className={styles.brandBadge}>G</span>
-          <span className={styles.brandName}>
-            Gabriel Márquez<span className={styles.brandDot}>.</span>
-          </span>
+          <span className={styles.brandName}>Gabriel Márquez</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -160,6 +158,9 @@ export default function Header() {
             </nav>
 
             <div className={styles.mobileDrawerBottom}>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: "0.5rem" }}>
+                <LanguageToggle showLabels />
+              </div>
               <a
                 href={siteConfig.resumeUrl}
                 target="_blank"

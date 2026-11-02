@@ -19,7 +19,6 @@ export default function AboutPage() {
       <main id="main-content" className={styles.container}>
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
             <span>{t.aboutPage.eyebrow}</span>
           </div>
           <h1 className={styles.pageTitle}>{t.aboutPage.heading}</h1>

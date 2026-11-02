@@ -51,9 +51,6 @@
   font-size: 0.95rem;
 }
 
-.brandDot {
-  color: var(--accent);
-}
 
 .brandTagline {
   color: var(--muted-foreground);

@@ -25,13 +25,11 @@ export default function Footer() {
           <div className={styles.brandCol}>
             <Link href="/" className={styles.brandLogo} aria-label="Gabriel Márquez — Home">
               <span className={styles.brandBadge}>G</span>
-              <span>
-                Gabriel Márquez<span className={styles.brandDot}>.</span>
-              </span>
+              <span>Gabriel Márquez</span>
             </Link>
             <p className={styles.brandTagline}>{t.footer.tagline}</p>
             <span className={styles.brandLocation}>
-              Full Stack Developer · Peru
+              Full Stack Developer — Peru
             </span>
           </div>
 

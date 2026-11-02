@@ -6,7 +6,6 @@ import Image from "next/image";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import HeroSystemSvg from "../components/home/HeroSystemSvg";
 import { PROJECTS } from "../data/projects";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "./page.module.css";
@@ -30,7 +29,6 @@ export default function Home() {
               {/* Copy Side */}
               <div className={styles.heroContent}>
                 <div className={styles.eyebrow}>
-                  <span className={styles.eyebrowDot} />
                   <span>{t.hero.eyebrow}</span>
                 </div>
 
@@ -38,12 +36,12 @@ export default function Home() {
                   {language === "es" ? (
                     <>
                       Construyo software que hace{" "}
-                      <span className={styles.highlightWord}>simple</span> lo complejo.
+                      <span className={styles.highlightWord}>simple</span> lo complejo
                     </>
                   ) : (
                     <>
                       I build software that makes complex things feel{" "}
-                      <span className={styles.highlightWord}>simple</span>.
+                      <span className={styles.highlightWord}>simple</span>
                     </>
                   )}
                 </h1>
@@ -71,9 +69,22 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Bespoke System SVG Visual Side */}
+              {/* Developer Portrait / Workstation Card */}
               <div className={styles.heroVisual}>
-                <HeroSystemSvg />
+                <div className={styles.heroPhotoCard}>
+                  <Image
+                    src="/images/personal/dennys-workstation.webp"
+                    alt="Gabriel Márquez - Full Stack Developer"
+                    width={520}
+                    height={390}
+                    priority
+                    className={styles.heroPhoto}
+                  />
+                  <div className={styles.heroPhotoCaption}>
+                    <span className={styles.heroPhotoName}>Gabriel Márquez</span>
+                    <span className={styles.heroPhotoRole}>Full Stack Developer</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -86,7 +97,6 @@ export default function Home() {
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
               <div className={styles.eyebrow}>
-                <span className={styles.eyebrowDot} />
                 <span>{t.selectedWork.eyebrow}</span>
               </div>
               <h2 className={styles.sectionTitle}>{t.selectedWork.heading}</h2>
@@ -204,7 +214,6 @@ export default function Home() {
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
               <div className={styles.eyebrow}>
-                <span className={styles.eyebrowDot} />
                 <span>{t.whatIBring.eyebrow}</span>
               </div>
               <h2 className={styles.sectionTitle}>{t.whatIBring.heading}</h2>
@@ -243,7 +252,6 @@ export default function Home() {
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
               <div className={styles.eyebrow}>
-                <span className={styles.eyebrowDot} />
                 <span>{t.howIWork.eyebrow}</span>
               </div>
               <h2 className={styles.sectionTitle}>{t.howIWork.heading}</h2>
@@ -286,7 +294,6 @@ export default function Home() {
             <div className={styles.aboutPreviewGrid}>
               <div className={styles.aboutPreviewText}>
                 <div className={styles.eyebrow}>
-                  <span className={styles.eyebrowDot} />
                   <span>{t.aboutPreview.eyebrow}</span>
                 </div>
                 <h2 className={styles.sectionTitle}>{t.aboutPreview.heading}</h2>
@@ -302,10 +309,10 @@ export default function Home() {
 
               <div className={styles.aboutPreviewCard}>
                 <Image
-                  src="/images/personal/dennys-workstation.webp"
-                  alt="Gabriel Márquez workspace"
-                  width={800}
-                  height={533}
+                  src="/images/personal/dennys-portrait.webp"
+                  alt="Gabriel Márquez"
+                  width={600}
+                  height={600}
                   className={styles.aboutPreviewImg}
                 />
               </div>

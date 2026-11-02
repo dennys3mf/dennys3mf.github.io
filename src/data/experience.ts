@@ -106,7 +106,7 @@ export const EXPERIENCE_DATA: ExperienceData = {
         es: "Fundador & Ingeniero Full Stack con IA",
       },
       company: "AhorraTiempo (ahorratiempo.pe)",
-      location: "Peru · Remote",
+      location: "Peru (Remote)",
       summary: {
         en: "Designed, engineered, and launched a consumer SaaS platform helping citizens navigate public administrative procedures with voice-assisted AI guidance and digital payments.",
         es: "Diseño, desarrollo y puesta en producción de un SaaS ciudadano que guía a usuarios en trámites administrativos mediante asistencia de voz con IA y pagos digitales.",
