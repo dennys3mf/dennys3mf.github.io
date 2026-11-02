@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import ScrollReveal from "../components/ScrollReveal";
@@ -15,6 +15,7 @@ import SmoothScroller from "../components/SmoothScroller";
 import VerticalDepthCarousel from "../components/VerticalDepthCarousel";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "../components/Icons";
+import { scrollToSectionWithoutHash } from "../utils/scrollWithoutHash";
 import {
   ArrowUpRight,
   Mail,
@@ -44,6 +45,31 @@ export default function Home() {
       // fallback
     }
   };
+
+  // Strip '#' from address bar immediately while preserving smooth section scrolling
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const cleanHash = () => {
+      if (window.location.hash) {
+        try {
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        } catch {
+          // ignore
+        }
+      }
+    };
+
+    if (window.location.hash) {
+      const targetId = window.location.hash.replace("#", "");
+      setTimeout(() => {
+        scrollToSectionWithoutHash(null, targetId);
+      }, 150);
+    }
+
+    window.addEventListener("hashchange", cleanHash);
+    return () => window.removeEventListener("hashchange", cleanHash);
+  }, []);
 
   return (
     <main className={styles.main}>
@@ -325,6 +351,7 @@ export default function Home() {
                   <a
                     key={idx}
                     href="#contacto"
+                    onClick={(e) => scrollToSectionWithoutHash(e, "contacto")}
                     className={`${styles.servicePillBtn} ${colorClasses[idx % colorClasses.length]}`}
                   >
                     <span className={styles.servicePillIcon}>↗</span>
@@ -566,11 +593,11 @@ export default function Home() {
             {/* Nav Links */}
             <div className={styles.footerNavCol}>
               <span className={styles.footerNavColTitle}>{t.footer.navTitle}</span>
-              <a href="#home" className={styles.footerNavLink}>{t.nav.home}</a>
-              <a href="#servicios" className={styles.footerNavLink}>{t.nav.services}</a>
-              <a href="#casos" className={styles.footerNavLink}>{t.nav.projects}</a>
-              <a href="#about" className={styles.footerNavLink}>{t.nav.about}</a>
-              <a href="#contacto" className={styles.footerNavLink}>{t.nav.contact}</a>
+              <a href="#home" onClick={(e) => scrollToSectionWithoutHash(e, "home")} className={styles.footerNavLink}>{t.nav.home}</a>
+              <a href="#servicios" onClick={(e) => scrollToSectionWithoutHash(e, "servicios")} className={styles.footerNavLink}>{t.nav.services}</a>
+              <a href="#casos" onClick={(e) => scrollToSectionWithoutHash(e, "casos")} className={styles.footerNavLink}>{t.nav.projects}</a>
+              <a href="#about" onClick={(e) => scrollToSectionWithoutHash(e, "about")} className={styles.footerNavLink}>{t.nav.about}</a>
+              <a href="#contacto" onClick={(e) => scrollToSectionWithoutHash(e, "contacto")} className={styles.footerNavLink}>{t.nav.contact}</a>
             </div>
 
             {/* Social Links */}
@@ -608,7 +635,12 @@ export default function Home() {
             <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. {t.footer.rights}</span>
             <div className="flex items-center gap-4">
               <LanguageToggle variant="segmented" />
-              <a href="#home" className={styles.footerNavLink} style={{ fontSize: "1rem", fontWeight: 700 }}>
+              <a
+                href="#home"
+                onClick={(e) => scrollToSectionWithoutHash(e, "home")}
+                className={styles.footerNavLink}
+                style={{ fontSize: "1rem", fontWeight: 700 }}
+              >
                 {language === "en" ? "Back to Top ↑" : "Volver Arriba ↑"}
               </a>
             </div>

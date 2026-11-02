@@ -4,6 +4,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "../app/page.module.css";
+import { scrollToSectionWithoutHash } from "../utils/scrollWithoutHash";
 
 interface NavSectionDef {
   id: string;
@@ -93,7 +94,10 @@ export default function FloatingNav() {
               <motion.a
                 key={item.id}
                 href={item.href}
-                onClick={() => setActiveSectionId(item.id)}
+                onClick={(e) => {
+                  scrollToSectionWithoutHash(e, item.href);
+                  setActiveSectionId(item.id);
+                }}
                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
@@ -112,7 +116,11 @@ export default function FloatingNav() {
           <a
             href="#home"
             className={styles.mobileLogo}
-            onClick={() => setMobileOpen(false)}
+            onClick={(e) => {
+              scrollToSectionWithoutHash(e, "home");
+              setActiveSectionId("home");
+              setMobileOpen(false);
+            }}
             aria-label="Dennys Marquez — Inicio"
           >
             <span className={styles.mobileIsotipo}>
@@ -167,7 +175,8 @@ export default function FloatingNav() {
                       <motion.a
                         key={item.id}
                         href={item.href}
-                        onClick={() => {
+                        onClick={(e) => {
+                          scrollToSectionWithoutHash(e, item.href);
                           setActiveSectionId(item.id);
                           setMobileOpen(false);
                         }}

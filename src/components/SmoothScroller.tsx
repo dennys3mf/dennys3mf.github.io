@@ -5,6 +5,10 @@ import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+interface WindowWithLenis extends Window {
+  __lenis?: Lenis;
+}
+
 export default function SmoothScroller() {
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -22,6 +26,8 @@ export default function SmoothScroller() {
       touchMultiplier: 1.5,
       infinite: false,
     });
+
+    (window as WindowWithLenis).__lenis = lenis;
 
     // Synchronize Lenis scroll with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
@@ -96,6 +102,7 @@ export default function SmoothScroller() {
     });
 
     return () => {
+      delete (window as WindowWithLenis).__lenis;
       ctx.revert();
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
