@@ -1,33 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  /* Exact Editorial Tech Color Palette (Master Prompt Section 5) */
-  --background: #F7F6F2;
+  /* ====================================================================
+     AZURE EDITORIAL OFFICIAL PALETTE
+     ==================================================================== */
+  --background: #F7FAFF;
   --surface: #FFFFFF;
-  --foreground: #182128;
+  --foreground: #152B49;
 
-  --primary: #087F72;
-  --primary-hover: #06695F;
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
   --primary-foreground: #FFFFFF;
 
-  --accent: #E97C59;
-  --accent-hover: #D86A47;
-  --accent-foreground: #FFFFFF;
+  --secondary: #77CEF5;
+  --secondary-light: #BDEBFF;
 
-  --muted: #EDF0EC;
-  --muted-foreground: #52636B;
+  --accent: #FFCF70;
+  --accent-hover: #F7C054;
+  --accent-foreground: #152B49;
 
-  --border: #DFE4E0;
-  --border-strong: #C8D1CA;
-  --focus-ring: #087F72;
+  --muted: #EDF5FC;
+  --muted-foreground: #526780;
 
+  --border: #152B49;
+  --border-muted: #D3E2F2;
+  --focus-ring: #2563EB;
+
+  /* Editorial Hard Offset Shadows */
+  --shadow-editorial: 4px 4px 0 #152B49;
+  --shadow-editorial-hover: 2px 2px 0 #152B49;
+  --shadow-editorial-sm: 2px 2px 0 #152B49;
+  --shadow-editorial-lg: 6px 6px 0 #152B49;
+
+  /* Global Radii */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-xl: 18px;
   --radius-pill: 9999px;
 
-  /* Harmonized Theme Variables */
+  /* Harmonized Semantic Aliases */
   --bg-page: var(--background);
   --bg-card: var(--surface);
   --bg-card-subtle: var(--muted);
@@ -35,26 +47,25 @@
 
   --text-main: var(--foreground);
   --text-muted: var(--muted-foreground);
-  --text-subtle: #6D7E87;
+  --text-subtle: #6D8299;
 
   --border-color: var(--border);
+  --border-strong: var(--border);
   --border-hover: var(--primary);
-  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
-  --brand-black: #182128;
+  --brand-black: #152B49;
   --brand-blue: var(--primary);
-  --brand-periwinkle: #06695F;
-  --brand-light: var(--muted);
+  --brand-periwinkle: var(--secondary);
+  --brand-light: var(--secondary-light);
 
-  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-bg: rgba(255, 255, 255, 0.95);
   --nav-border: var(--border);
   --nav-active-bg: var(--primary);
   --nav-active-text: #FFFFFF;
 
-  --shadow-sm: 0 1px 3px rgba(24, 33, 40, 0.05);
-  --shadow-card: 0 4px 20px -2px rgba(24, 33, 40, 0.05), 0 0 0 1px var(--border);
-  --shadow-card-hover: 0 14px 34px -4px rgba(24, 33, 40, 0.09), 0 0 0 1px rgba(8, 127, 114, 0.35);
-  --shadow-floating: 0 16px 40px -8px rgba(24, 33, 40, 0.12), 0 0 0 1px var(--border);
+  --shadow-card: var(--shadow-editorial);
+  --shadow-card-hover: var(--shadow-editorial-hover);
+  --shadow-floating: var(--shadow-editorial);
 
   --btn-primary-bg: var(--primary);
   --btn-primary-text: #FFFFFF;
@@ -74,26 +85,27 @@
   position: absolute;
   top: -100px;
   left: 1.5rem;
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: var(--foreground);
+  color: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-editorial-sm);
   padding: 0.75rem 1.25rem;
   font-weight: 700;
   font-size: 0.875rem;
   border-radius: var(--radius-sm);
   z-index: 99999;
   text-decoration: none;
-  box-shadow: var(--shadow-floating);
   transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skipToContent:focus {
   top: 1rem;
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 
 /* ====================================================================
-   LENIS SMOOTH SCROLL STYLES (Cinematic Momentum)
+   LENIS SMOOTH SCROLL STYLES
    ==================================================================== */
 html.lenis,
 html.lenis body {
@@ -104,20 +116,12 @@ html.lenis body {
   scroll-behavior: auto !important;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
 
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
 /* ====================================================================
-   BASE RESETS & GRID MESH BACKGROUND (Sin textos)
+   BASE RESETS & AZURE EDITORIAL TEXTURE
    ==================================================================== */
 * {
   box-sizing: border-box;
@@ -132,38 +136,35 @@ html {
 }
 
 body {
-  background-color: var(--bg-page);
-  color: var(--text-main);
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
 }
 
-/* Editorial Ambient Lighting Background */
+/* Subtle Azure Editorial Dot Matrix Texture */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(8, 127, 114, 0.05) 0%, transparent 60%),
-    radial-gradient(circle 600px at 90% 20%, rgba(233, 124, 89, 0.04) 0%, transparent 60%),
-    radial-gradient(circle 500px at 10% 70%, rgba(8, 127, 114, 0.03) 0%, transparent 60%);
+  background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1.25px, transparent 1.25px);
+  background-size: 24px 24px;
   pointer-events: none;
   z-index: 0;
 }
 
 ::selection {
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: var(--secondary-light);
+  color: var(--foreground);
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus-ring);
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
 
@@ -179,11 +180,7 @@ button {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  color: var(--text-main);
-  line-height: 1.1;
-}
-
-.handwritten {
-  font-family: var(--font-accent);
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+  line-height: 1.15;
 }

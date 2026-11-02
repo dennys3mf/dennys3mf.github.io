@@ -35,7 +35,17 @@ export default function Home() {
                 </div>
 
                 <h1 className={styles.heroHeadline}>
-                  {t.hero.headline}
+                  {language === "es" ? (
+                    <>
+                      Construyo software que hace{" "}
+                      <span className={styles.highlightWord}>simple</span> lo complejo.
+                    </>
+                  ) : (
+                    <>
+                      I build software that makes complex things feel{" "}
+                      <span className={styles.highlightWord}>simple</span>.
+                    </>
+                  )}
                 </h1>
 
                 <p className={styles.heroDescription}>

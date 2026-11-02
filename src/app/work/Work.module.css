@@ -24,17 +24,18 @@
   gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--primary);
 }
 
 .eyebrowDot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 9999px;
   background: var(--accent);
+  border: 1px solid var(--border);
 }
 
 .pageTitle {
@@ -55,34 +56,36 @@
 .filtersRow {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
   flex-wrap: wrap;
   margin-bottom: 3.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
 }
 
 .filterBtn {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.15rem;
   font-size: 0.875rem;
-  font-weight: 600;
-  border: 1px solid var(--border);
+  font-weight: 700;
+  border: 2px solid var(--border);
   background: var(--surface);
-  color: var(--muted-foreground);
-  border-radius: var(--radius-pill);
+  color: var(--foreground);
+  border-radius: var(--radius-sm);
+  box-shadow: 2px 2px 0 var(--border);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .filterBtn:hover {
-  color: var(--foreground);
-  border-color: var(--border-strong);
+  background: var(--secondary-light);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .filterBtnActive {
   background: var(--primary);
-  color: var(--primary-foreground);
-  border-color: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 2px 2px 0 var(--border);
 }
 
 .projectsGrid {
@@ -93,31 +96,30 @@
 
 .projectCard {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border: 2px solid var(--border);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-editorial);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .projectCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: rgba(8, 127, 114, 0.35);
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-editorial-hover);
 }
 
 .mediaFrame {
   position: relative;
-  background: #0B0F19;
+  background: #0D1B2E;
   height: 290px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
 }
 
 .mediaImg {
@@ -150,7 +152,7 @@
 .categoryTag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--primary);
 }
@@ -158,6 +160,7 @@
 .yearTag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 700;
   color: var(--muted-foreground);
 }
 
@@ -184,11 +187,14 @@
 
 .techBadge {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.2rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
   background: var(--muted);
   color: var(--foreground);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .cardActions {
@@ -196,22 +202,30 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--border);
 }
 
 .caseStudyLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--primary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 1rem;
+  box-shadow: 2px 2px 0 var(--border);
   text-decoration: none;
+  transition: all 0.15s ease;
 }
 
 .caseStudyLink:hover {
-  text-decoration: underline;
+  background: var(--primary-hover);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .extLinks {
@@ -221,17 +235,25 @@
 }
 
 .subLink {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--muted-foreground);
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 1.5px 1.5px 0 var(--border);
+  padding: 0.35rem 0.65rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  transition: all 0.15s ease;
 }
 
 .subLink:hover {
-  color: var(--foreground);
+  background: var(--secondary-light);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 @media (max-width: 900px) {

@@ -1,6 +1,6 @@
 .footerWrapper {
   background: var(--surface);
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--border);
   margin-top: 5rem;
   padding: 4.5rem 1.5rem 2.5rem;
 }
@@ -15,7 +15,7 @@
   grid-template-columns: 2fr 1fr 1fr;
   gap: 3.5rem;
   padding-bottom: 3.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
 }
 
 .brandCol {
@@ -37,15 +37,18 @@
 }
 
 .brandBadge {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-sm);
   background: var(--primary);
-  color: var(--primary-foreground);
+  color: #FFFFFF;
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
+  font-size: 0.95rem;
 }
 
 .brandDot {
@@ -62,7 +65,7 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -75,7 +78,7 @@
 
 .colTitle {
   font-family: var(--font-heading);
-  font-size: 0.825rem;
+  font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -86,9 +89,9 @@
 .footerLink {
   color: var(--muted-foreground);
   font-size: 0.925rem;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -97,7 +100,7 @@
 
 .footerLink:hover {
   color: var(--primary);
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .footerBottom {
@@ -118,17 +121,22 @@
 }
 
 .backToTopBtn {
-  background: none;
-  border: none;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 2px 2px 0 var(--border);
   color: var(--foreground);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .backToTopBtn:hover {
-  color: var(--primary);
+  background: var(--secondary-light);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 @media (max-width: 840px) {
