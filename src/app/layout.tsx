@@ -4,9 +4,24 @@ import {
   JetBrains_Mono,
   Architects_Daughter,
   Orbitron,
+  Cinzel,
+  Cormorant_Garamond,
 } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-serif-var",
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-editorial-var",
+  display: "swap",
+});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -147,7 +162,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="light"
-      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} ${architectsDaughter.variable} ${orbitron.variable}`}
+      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} ${architectsDaughter.variable} ${orbitron.variable} ${cinzel.variable} ${cormorantGaramond.variable}`}
       suppressHydrationWarning
     >
       <head>

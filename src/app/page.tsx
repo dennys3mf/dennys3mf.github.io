@@ -9,7 +9,6 @@ import RotatingBadge from "../components/RotatingBadge";
 import FloatingNav from "../components/FloatingNav";
 import ContactBillboard from "../components/ContactBillboard";
 import LanguageToggle from "../components/LanguageToggle";
-import ThreeHeroSphere from "../components/ThreeHeroSphere";
 import GsapScrollOrchestrator from "../components/GsapScrollOrchestrator";
 import SmoothScroller from "../components/SmoothScroller";
 import VerticalDepthCarousel from "../components/VerticalDepthCarousel";
@@ -61,46 +60,22 @@ export default function Home() {
       <FloatingNav />
 
       {/* ====================================================================
-          HERO SECTION - EXACT BRAND SPECIFICATION
+          HERO SECTION - LA PALATINE SURREALIST COLLAGE & SCRAPBOOK ARTWORK
          ==================================================================== */}
-      <section id="home" className={styles.hero}>
-        {/* Decorative Fluid Vector Curves & Interactive 3D Three.js Sphere */}
-        <div className={styles.heroBackgroundDecor} aria-hidden="true" data-scrub="hero-bg">
-          <div className={styles.heroOrb}>
-            <ThreeHeroSphere />
-          </div>
-          <div className={styles.heroCurvesWrap}>
-            <svg className={styles.heroCurvesSvg} viewBox="0 0 1440 500" fill="none" preserveAspectRatio="none">
-              <path
-                d="M-100 450 C 320 360, 680 500, 1050 390 C 1240 330, 1380 410, 1540 440"
-                stroke="url(#brandCurveGrad1)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M-60 490 C 380 430, 780 560, 1180 370 C 1320 320, 1450 390, 1540 420"
-                stroke="url(#brandCurveGrad2)"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient id="brandCurveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#4F6BFF" stopOpacity="0.45" />
-                  <stop offset="60%" stopColor="#8A7BFF" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#4F6BFF" stopOpacity="0.05" />
-                </linearGradient>
-                <linearGradient id="brandCurveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#8A7BFF" stopOpacity="0.4" />
-                  <stop offset="50%" stopColor="#4F6BFF" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#8A7BFF" stopOpacity="0.05" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
+      <section id="home" className={styles.palatineHeroSection}>
+        {/* Top Header Bar */}
+        <div className={styles.palatineTopBar}>
+          <a href="#home" className={styles.palatineSeal} aria-label="Dennys Marquez — Portafolio">
+            <div className={styles.palatineSealMedallion}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="#1A1A1A" strokeWidth="1.2" strokeDasharray="2 2" />
+                <path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#1A1A1A" strokeWidth="1" />
+              </svg>
+              <div className={styles.palatineSealDot} />
+            </div>
+            <span className={styles.palatineSealText}>DENNYS MARQUEZ</span>
+          </a>
 
-        {/* Top Meta Bar */}
-        <div className={styles.heroMeta}>
           <div className={styles.heroMetaGroup}>
             <div className={styles.heroLocalTime}>
               <LiveClock />
@@ -123,7 +98,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.heroMetaActions}>
+          <div className={styles.palatineTopActions}>
             <LanguageToggle variant="segmented" />
             <div className="inline-flex items-center gap-1.5">
               <a
@@ -137,7 +112,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-600 border border-slate-200/80 transition-all duration-200 shadow-sm cursor-pointer"
+                className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-300 transition-all duration-200 shadow-sm cursor-pointer"
                 title={t.projects.copyEmail}
                 aria-label={t.projects.copyEmail}
               >
@@ -152,20 +127,118 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Center Brand Statement */}
-        <div className={styles.heroTopWrap}>
-          <div className={styles.heroCenterBrand}>
-            <h1 className={styles.textHero}>
-              <span className={styles.logoDennys}>dennys</span>{" "}
-              <span className={styles.logoMarquez}>marquez</span>
-            </h1>
-            <div className={styles.heroSubtrack}>{t.hero.title}</div>
-            <p className={styles.heroImpactMotto}>{t.hero.motto}</p>
+        {/* Main Stage: Left Collage Artwork & Right Editorial Headline */}
+        <div className={styles.palatineStage}>
+          {/* Left Column: Surrealist Classical Collage */}
+          <div className={styles.palatineArtworkWrap} aria-hidden="true">
+            {/* Radiant Lemon-Yellow Paper Sunburst Rays */}
+            <svg
+              className={styles.palatineSunburstSvg}
+              viewBox="0 0 600 600"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Symmetrical fanned trapezoidal rays emanating from center */}
+              <polygon points="300,340 10,240 20,180" fill="#F6FF3B" />
+              <polygon points="300,340 70,110 130,70" fill="#F6FF3B" />
+              <polygon points="300,340 210,30 290,15" fill="#F6FF3B" />
+              <polygon points="300,340 370,15 450,45" fill="#F6FF3B" />
+              <polygon points="300,340 510,95 565,155" fill="#F6FF3B" />
+              <polygon points="300,340 580,230 590,300" fill="#F6FF3B" />
+              <polygon points="300,340 540,370 490,430" fill="#F6FF3B" />
+            </svg>
+
+            {/* Dennys' Cutout Photo emerging from inside the sliced head */}
+            <Image
+              src="/images/collage/dennys-cutout.webp"
+              alt="Dennys Gabriel Marquez Flores"
+              width={260}
+              height={345}
+              priority
+              className={styles.palatineDennysCutout}
+            />
+
+            {/* Carrara Classical Marble Bust cleanly sliced at temple line */}
+            <Image
+              src="/images/collage/classical-bust.webp"
+              alt="Classical Greco-Roman Sculpture"
+              width={340}
+              height={455}
+              priority
+              className={styles.palatineBust}
+            />
+
+            {/* Perched 19th-century Naturalist Songbird on left ray */}
+            <Image
+              src="/images/collage/vintage-bird.webp"
+              alt="Vintage Bird Illustration"
+              width={110}
+              height={110}
+              className={styles.palatineBird}
+            />
+
+            {/* Vintage Hot Pink Engraved Hand pointing up-right */}
+            <Image
+              src="/images/collage/vintage-hand-pink.webp"
+              alt="Vintage Hand Engraving"
+              width={105}
+              height={105}
+              className={styles.palatineHand}
+            />
+
+            {/* Scrapbook Washi Tape Strips */}
+            <div className={`${styles.palatineWashi1} washi-tape`} />
+            <div className={`${styles.palatineWashi2} washi-tape`} />
+
+            {/* Postage Stamp Badge */}
+            <div className={styles.palatineStampTecsup}>
+              <div>TECSUP · 18/20</div>
+              <div style={{ fontSize: "0.62rem", color: "#666" }}>TERCIO SUPERIOR</div>
+            </div>
+          </div>
+
+          {/* Right Column: Editorial Typography & Poetic Manifesto */}
+          <div className={styles.palatineContent}>
+            <div>
+              <h1 className={styles.palatineNameTitle}>DENNYS MARQUEZ</h1>
+              <p className={styles.palatineRoleSubtitle}>{t.hero.submeta}</p>
+            </div>
+
+            {/* The Signature Quote with Hot Pink & Neon Lime Quotes */}
+            <div className={styles.palatineQuoteContainer}>
+              <span className={styles.palatineQuoteMarkPink}>“</span>
+              <p className={styles.palatineQuoteText}>
+                {t.hero.motto}
+              </p>
+              <span className={styles.palatineQuoteMarkLime}>”</span>
+              <span className={styles.palatineQuoteAttribution}>
+                ahorratiempo.pe · Arequipa, Perú
+              </span>
+            </div>
+
+            {/* Stamped Action Tickets */}
+            <div className={styles.palatineActionRow}>
+              <a href="#casos" className={styles.palatinePrimaryTicket}>
+                <span>{t.projects.eyebrow}</span>
+                <ArrowUpRight size={16} />
+              </a>
+
+              <a
+                href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
+                download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.palatineCvTicket}
+              >
+                <FileDown size={15} />
+                <span>{t.nav.downloadCV}</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Wrap: Spacing for floating navbar */}
-        <div className={styles.heroBottomWrap} />
+        {/* Bottom Spacing */}
+        <div style={{ height: "1.5rem" }} />
       </section>
 
       {/* ====================================================================
@@ -196,13 +269,18 @@ export default function Home() {
           {/* Photo stage with clean workstation image */}
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
+              <div className="washi-tape" style={{ top: "-12px", left: "28px", width: "100px", transform: "rotate(-6deg)" }} />
+              <div className="washi-tape" style={{ top: "-12px", right: "28px", width: "100px", transform: "rotate(5deg)" }} />
               <Image
                 src="/images/personal/dennys-workstation.webp"
-                alt="Dennys Gabriel Marquez Flores — Full Stack Developer | Python, React & AI Integration"
+                alt="Dennys Gabriel Marquez Flores — Full Stack Developer | React, Node.js & TypeScript"
                 width={1024}
                 height={682}
                 loading="lazy"
               />
+              <div className="handwritten" style={{ padding: "0.85rem 1rem", textAlign: "center", color: "var(--text-muted)", fontSize: "1.05rem" }}>
+                Arequipa, Perú · Workstation & Architecture Lab ✎
+              </div>
             </div>
           </div>
 
@@ -289,16 +367,16 @@ export default function Home() {
                   <span className={styles.consoleKey}>stack:</span> [
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;React, TypeScript, Python, Django&quot;</span>,
+                  <span className={styles.consoleString}>&quot;React 18, TypeScript, Node.js, Vite&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;PySpark &amp; ML Recommenders&quot;</span>,
+                  <span className={styles.consoleString}>&quot;Meta Llama 3.2 &amp; Hybrid RAG&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;AI Chatbots, LLMs &amp; Agents&quot;</span>,
+                  <span className={styles.consoleString}>&quot;Cloudflare Workers, D1 &amp; Vectorize&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Firebase &amp; Cloudflare Workers&quot;</span>
+                  <span className={styles.consoleString}>&quot;Docker Compose, Python &amp; PostgreSQL&quot;</span>
                 </div>
                 <div className={styles.consoleLineIndent}>
                   ],

@@ -109,6 +109,33 @@ const ALL_PROJECTS: ProjectItem[] = [
   },
 ];
 
+const PROJECT_NOTES: Record<string, { en: string; es: string }> = {
+  "ahorratiempo.pe": {
+    es: "✎ LOTA IA con Meta Llama 3.2 y RAG híbrido: 3,033 trámites peruanos indexados con Cloudflare D1 + Vectorize y SSE.",
+    en: "✎ LOTA AI with Meta Llama 3.2 & Hybrid RAG: 3,033 public procedures indexed with Cloudflare D1 + Vectorize & SSE.",
+  },
+  "controla-servilex": {
+    es: "✎ Software SG-SST en React & Django: arquitectura multi-tenant y 100% de cumplimiento legal en auditorías.",
+    en: "✎ SG-SST platform in React & Django: multi-tenant architecture and 100% legal compliance in audits.",
+  },
+  "chansa-app": {
+    es: "✎ App móvil en Flutter & Dart con sincronización Firebase en tiempo real (<50ms) y geolocalización.",
+    en: "✎ Mobile app in Flutter & Dart with sub-50ms Firebase real-time sync and geolocation dispatch.",
+  },
+  "safety-helmet": {
+    es: "✎ Prototipo IoT para minería con sensores MQ-2, Arduino, AWS y telemetría MQTT ante impactos y gases tóxicos.",
+    en: "✎ Mining safety IoT prototype with MQ-2 sensors, Arduino, AWS, and MQTT telemetry for impacts and gases.",
+  },
+  "fintech-sunat": {
+    es: "✎ Motor de cobro Culqi con 99.8% de éxito y facturación electrónica SUNAT con firmado XML y recepción CDR.",
+    en: "✎ Culqi payment engine with 99.8% success rate and automated SUNAT electronic invoicing via XML/CDR.",
+  },
+  "fiscalizacion-joya": {
+    es: "✎ App tablet 100% offline-first con SQLite local y sincronización diferencial por lotes para inspectores.",
+    en: "✎ 100% offline-first tablet app with local SQLite and differential batch sync for field inspectors.",
+  },
+};
+
 export default function VerticalDepthCarousel() {
   const { t, language } = useLanguage();
   const [activeIdx, setActiveIdx] = useState<number>(0);
@@ -217,6 +244,10 @@ export default function VerticalDepthCarousel() {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
+              {/* Scrapbook Board Tape Corners */}
+              <div className={`${styles.boardTapeLeft} washi-tape`} />
+              <div className={`${styles.boardTapeRight} washi-tape`} />
+
               {/* Product Headline & Meta Row */}
               <div className={styles.billboardTop}>
                 <div className={styles.billboardMeta}>
@@ -230,6 +261,14 @@ export default function VerticalDepthCarousel() {
 
                 <h3 className={styles.productName}>{activeItem.title}</h3>
                 <p className={styles.productTagline}>{activeItem.desc}</p>
+
+                {/* Developer Handwritten Note */}
+                {PROJECT_NOTES[activeProject.id] && (
+                  <div className={styles.scrapbookNote}>
+                    <div className={styles.scrapbookNotePin} />
+                    {PROJECT_NOTES[activeProject.id][language]}
+                  </div>
+                )}
               </div>
 
               {/* Apple Studio Display / Titanium Bezel Frame */}

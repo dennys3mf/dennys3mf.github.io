@@ -25,6 +25,16 @@
   --font-accent: var(--font-accent-var), 'Architects Daughter', cursive, sans-serif;
   --font-mono: var(--font-mono-var), 'JetBrains Mono', monospace;
   --font-tech: var(--font-tech-var), 'Orbitron', monospace;
+  --font-serif: var(--font-serif-var), 'Cinzel', serif;
+  --font-editorial: var(--font-editorial-var), 'Cormorant Garamond', Georgia, serif;
+
+  /* La Palatine Collage Pop-Art Accents */
+  --collage-sunburst: #F6FF3B;
+  --collage-pink: #FF1A75;
+  --collage-lime: #D7FC37;
+  --collage-kraft: #EFE9DC;
+  --collage-tape: rgba(255, 248, 220, 0.72);
+  --collage-tape-border: rgba(210, 195, 155, 0.45);
 
   /* Global Radius & Grid */
   --radius-pill: 9999px;
@@ -166,4 +176,62 @@ h1, h2, h3, h4, h5, h6 {
 
 .handwritten {
   font-family: var(--font-accent);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+/* Scrapbook & Collage Elements */
+.washi-tape {
+  position: absolute;
+  height: 24px;
+  background: rgba(255, 246, 214, 0.82);
+  border-left: 2px dashed rgba(200, 180, 130, 0.4);
+  border-right: 2px dashed rgba(200, 180, 130, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.washi-tape-dark {
+  background: rgba(230, 230, 220, 0.85);
+  border-left: 2px dashed rgba(160, 160, 150, 0.5);
+  border-right: 2px dashed rgba(160, 160, 150, 0.5);
+}
+
+.post-it-note {
+  background: #FEF9D9;
+  box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(220, 205, 140, 0.35);
+  transition: transform 0.25s ease;
+}
+
+.post-it-pink {
+  background: #FDE8EC;
+  border-color: rgba(235, 170, 185, 0.4);
+}
+
+.post-it-cyan {
+  background: #E6F7FF;
+  border-color: rgba(160, 215, 245, 0.4);
+}
+
+.postal-stamp {
+  border: 2px dashed rgba(17, 20, 26, 0.25);
+  border-radius: 4px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-cutout {
+  border: 1px solid rgba(17, 20, 26, 0.15);
+  background: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  position: relative;
 }
