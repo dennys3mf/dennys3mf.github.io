@@ -24,12 +24,38 @@ export default function Home() {
             SECTION 02 — HERO
            ==================================================================== */}
         <section className={styles.heroSection}>
+          {/* Subtle Azure Editorial Dot Matrix Texture */}
+          <div
+            aria-hidden="true"
+            className={styles.heroDotPattern}
+            style={{ backgroundImage: "url('/mascot/patron-puntos.svg')" }}
+          />
+          {/* Blue Waves Base Transition */}
+          <Image
+            src="/mascot/fondo-olas-azules.svg"
+            alt=""
+            aria-hidden="true"
+            width={1440}
+            height={360}
+            className={styles.heroWaves}
+          />
+
           <div className={styles.container}>
             <div className={styles.heroGrid}>
               {/* Copy Side */}
               <div className={styles.heroContent}>
-                <div className={styles.eyebrow}>
-                  <span>{t.hero.eyebrow}</span>
+                <div style={{ position: "relative", display: "inline-block", width: "fit-content" }}>
+                  <div className={styles.eyebrow}>
+                    <span>{t.hero.eyebrow}</span>
+                  </div>
+                  <Image
+                    src="/mascot/acento-estrellas.svg"
+                    alt=""
+                    aria-hidden="true"
+                    width={310}
+                    height={170}
+                    className={styles.heroStarsAccent}
+                  />
                 </div>
 
                 <h1 className={styles.heroHeadline}>
@@ -69,26 +95,48 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Developer Portrait / Workstation Card */}
+              {/* Patatus Developer Mascot Visual */}
               <div className={styles.heroVisual}>
-                <div className={styles.heroPhotoCard}>
+                <div className={styles.patatusHeroWrapper}>
+                  {/* Decorative Orbit Accent */}
                   <Image
-                    src="/images/personal/dennys-workstation.webp"
-                    alt="Dennys Marquez - Full Stack Developer"
-                    width={520}
-                    height={390}
-                    priority
-                    className={styles.heroPhoto}
+                    src="/mascot/acento-orbita.svg"
+                    alt=""
+                    aria-hidden="true"
+                    width={360}
+                    height={300}
+                    className={styles.patatusOrbitAccent}
                   />
-                  <div className={styles.heroPhotoCaption}>
-                    <span className={styles.heroPhotoName}>Dennys Marquez</span>
-                    <span className={styles.heroPhotoRole}>Full Stack Developer</span>
-                  </div>
+                  {/* Main Hero Mascot SVG */}
+                  <Image
+                    src="/mascot/patatus-hero.svg"
+                    width={760}
+                    height={600}
+                    priority
+                    alt={
+                      language === "es"
+                        ? "Patatus, mascota pingüino desarrollador de Dennys programando en una laptop"
+                        : "Patatus, Dennys's penguin developer mascot coding on a laptop"
+                    }
+                    className={`${styles.patatusHeroImg} patatusFloating`}
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Editorial Curved Divider */}
+        <div className={styles.editorialDividerWrapper} aria-hidden="true">
+          <Image
+            src="/mascot/separador-editorial.svg"
+            alt=""
+            aria-hidden="true"
+            width={1200}
+            height={110}
+            className={styles.editorialDivider}
+          />
+        </div>
 
         {/* ====================================================================
             SECTION 03 — SELECTED WORK
@@ -258,30 +306,52 @@ export default function Home() {
               <p className={styles.sectionDesc}>{t.howIWork.subheading}</p>
             </div>
 
-            <div className={styles.stepsGrid}>
-              <div className={styles.stepCard}>
-                <span className={styles.stepNumber}>01</span>
-                <h3 className={styles.stepTitle}>{t.howIWork.step1Title}</h3>
-                <p className={styles.stepDesc}>{t.howIWork.step1Desc}</p>
+            <div className={styles.stepsContainer}>
+              {/* Process Curve Connector */}
+              <Image
+                src="/mascot/conector-secciones.svg"
+                alt=""
+                aria-hidden="true"
+                width={1000}
+                height={150}
+                className={styles.stepsConnector}
+              />
+
+              <div className={styles.stepsGrid}>
+                <div className={styles.stepCard}>
+                  <span className={styles.stepNumber}>01</span>
+                  <h3 className={styles.stepTitle}>{t.howIWork.step1Title}</h3>
+                  <p className={styles.stepDesc}>{t.howIWork.step1Desc}</p>
+                </div>
+
+                <div className={styles.stepCard}>
+                  <span className={styles.stepNumber}>02</span>
+                  <h3 className={styles.stepTitle}>{t.howIWork.step2Title}</h3>
+                  <p className={styles.stepDesc}>{t.howIWork.step2Desc}</p>
+                </div>
+
+                <div className={styles.stepCard}>
+                  <span className={styles.stepNumber}>03</span>
+                  <h3 className={styles.stepTitle}>{t.howIWork.step3Title}</h3>
+                  <p className={styles.stepDesc}>{t.howIWork.step3Desc}</p>
+                </div>
+
+                <div className={styles.stepCard}>
+                  <span className={styles.stepNumber}>04</span>
+                  <h3 className={styles.stepTitle}>{t.howIWork.step4Title}</h3>
+                  <p className={styles.stepDesc}>{t.howIWork.step4Desc}</p>
+                </div>
               </div>
 
-              <div className={styles.stepCard}>
-                <span className={styles.stepNumber}>02</span>
-                <h3 className={styles.stepTitle}>{t.howIWork.step2Title}</h3>
-                <p className={styles.stepDesc}>{t.howIWork.step2Desc}</p>
-              </div>
-
-              <div className={styles.stepCard}>
-                <span className={styles.stepNumber}>03</span>
-                <h3 className={styles.stepTitle}>{t.howIWork.step3Title}</h3>
-                <p className={styles.stepDesc}>{t.howIWork.step3Desc}</p>
-              </div>
-
-              <div className={styles.stepCard}>
-                <span className={styles.stepNumber}>04</span>
-                <h3 className={styles.stepTitle}>{t.howIWork.step4Title}</h3>
-                <p className={styles.stepDesc}>{t.howIWork.step4Desc}</p>
-              </div>
+              {/* Decorative Footprints */}
+              <Image
+                src="/mascot/huellas-patatus.svg"
+                alt=""
+                aria-hidden="true"
+                width={250}
+                height={130}
+                className={styles.stepsFootprints}
+              />
             </div>
           </div>
         </section>
@@ -373,6 +443,15 @@ export default function Home() {
                 <span>{t.finalCta.cta}</span>
                 <ArrowUpRight size={18} />
               </Link>
+              {/* Patatus Peeking Mascot Asset */}
+              <Image
+                src="/mascot/patatus-asomandose.svg"
+                alt=""
+                aria-hidden="true"
+                width={380}
+                height={320}
+                className={styles.patatusPeeking}
+              />
             </div>
           </div>
         </section>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 460" width="440" height="460" role="img" aria-labelledby="title desc"><title id="title">Patatus Saludando.Svg</title><desc id="desc">Patatus de pie saludando con un ala levantada, gafas, bufanda azul y fondo transparente.</desc>
+<ellipse cx="211" cy="412" rx="131" ry="15" fill="#77CEF5" opacity=".28"/>
+<path d="M137 265 C94 302 101 378 146 403 Q217 426 274 390 C316 359 302 289 264 255Z" fill="#152B49"/>
+<ellipse cx="212" cy="337" rx="67" ry="71" fill="#F7FAFF"/>
+<path d="M267 285 C300 240 341 193 343 137 Q356 125 372 134 C388 149 372 180 365 206 C355 255 325 305 290 331Z" fill="#152B49"/>
+<path d="M126 295 Q88 291 76 334 Q71 350 85 362 Q109 372 143 342" fill="#152B49"/>
+<path d="M150 393 Q112 403 119 422 Q130 443 173 419 L178 404Z" fill="#FFCF70" stroke="#152B49" stroke-width="5"/>
+<path d="M243 393 Q286 401 290 424 Q278 444 240 421Z" fill="#FFCF70" stroke="#152B49" stroke-width="5"/>
+<ellipse cx="207" cy="179" rx="113" ry="112" fill="#152B49"/>
+<path d="M216 74 Q250 50 278 67 Q252 74 239 92 Q269 81 293 94 Q274 96 263 110" fill="#152B49"/>
+<path d="M124 176 C132 126 166 133 204 160 Q240 127 280 154 Q319 176 298 237 C272 284 161 282 132 237Z" fill="#F7FAFF"/>
+<path d="M118 272 Q212 306 298 269 Q308 289 295 306 Q213 338 132 308 Q116 297 118 272Z" fill="#2563EB" stroke="#152B49" stroke-width="5"/>
+<path d="M278 301 Q315 332 338 371 Q316 385 294 373 L267 320Z" fill="#2563EB" stroke="#152B49" stroke-width="5"/>
+<circle cx="169" cy="201" r="40" fill="none" stroke="#152B49" stroke-width="8"/>
+<circle cx="244" cy="201" r="40" fill="none" stroke="#152B49" stroke-width="8"/>
+<path d="M209 198 Q208 192 206 198 M129 187 L120 186 M284 187 L294 186" stroke="#152B49" stroke-width="8" stroke-linecap="round" fill="none"/>
+<ellipse cx="170" cy="207" rx="13" ry="18" fill="#152B49"/><ellipse cx="246" cy="207" rx="13" ry="18" fill="#152B49"/>
+<circle cx="175" cy="201" r="5" fill="#FFFFFF"/><circle cx="251" cy="201" r="5" fill="#FFFFFF"/>
+<path d="M193 231 Q209 219 225 231 Q217 253 198 249Z" fill="#FFCF70" stroke="#152B49" stroke-width="3"/>
+<path d="M200 246 Q211 255 222 244" stroke="#152B49" stroke-width="3" stroke-linecap="round" fill="none"/>
+<g fill="none" stroke="#FFCF70" stroke-width="8" stroke-linecap="round"><path d="M333 88l16 -20"/><path d="M359 105l27 -10"/><path d="M326 64l-2 -23"/></g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 110" width="1200" height="110" role="img" aria-labelledby="title desc"><title id="title">Separador Editorial.Svg</title><desc id="desc">Separador editorial horizontal con motivo de programación abstracto en colores de marca.</desc>
+<path d="M0 52H430" fill="none" stroke="#152B49" stroke-width="2" opacity=".27"/>
+<path d="M770 52H1200" fill="none" stroke="#152B49" stroke-width="2" opacity=".27"/>
+<path d="M507 54Q600 -23 693 54Q600 130 507 54Z" fill="#BDEBFF" stroke="#152B49" stroke-width="3"/>
+<path d="M573 51L589 67L624 33" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="650" cy="52" r="7" fill="#FFCF70"/>
+</svg>

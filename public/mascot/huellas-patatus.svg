@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 130" width="250" height="130" role="img" aria-labelledby="title desc"><title id="title">Huellas Patatus.Svg</title><desc id="desc">Huellas estilizadas de Patatus para indicar recorridos y elementos de navegación decorativos.</desc>
+<g fill="#2563EB" opacity=".75">
+ <path d="M45 66 Q33 50 49 39 Q67 36 70 51 Q77 70 60 75Q51 76 45 66Z"/><ellipse cx="31" cy="32" rx="7" ry="12" transform="rotate(-28 31 32)"/><ellipse cx="50" cy="23" rx="7" ry="12"/><ellipse cx="69" cy="29" rx="7" ry="12" transform="rotate(25 69 29)"/>
+ <g transform="translate(100,31) rotate(22 50 48)" opacity=".5"><path d="M45 66Q33 50 49 39Q67 36 70 51Q77 70 60 75Q51 76 45 66Z"/><ellipse cx="31" cy="32" rx="7" ry="12" transform="rotate(-28 31 32)"/><ellipse cx="50" cy="23" rx="7" ry="12"/><ellipse cx="69" cy="29" rx="7" ry="12" transform="rotate(25 69 29)"/></g>
+</g>
+</svg>

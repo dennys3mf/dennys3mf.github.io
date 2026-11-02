@@ -184,3 +184,26 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--foreground);
   line-height: 1.15;
 }
+
+/* ====================================================================
+   PATATUS MASCOT ACCESSORIES & ANIMATIONS
+   ==================================================================== */
+.patatusFloating {
+  animation: patatusFloat 7s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes patatusFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .patatusFloating {
+    animation: none !important;
+  }
+}

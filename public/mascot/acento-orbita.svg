@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300" role="img" aria-labelledby="title desc"><title id="title">Acento Orbita.Svg</title><desc id="desc">Órbita celeste con detalles amarillos para acompañar titulares y separadores.</desc>
+<path d="M41 194 C105 46 288 26 328 112 C361 191 221 286 86 257" fill="none" stroke="#77CEF5" stroke-width="16" stroke-linecap="round"/>
+<path d="M74 214 C154 273 278 204 311 136" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 18"/>
+<circle cx="68" cy="213" r="17" fill="#FFCF70" stroke="#152B49" stroke-width="5"/>
+<circle cx="304" cy="125" r="10" fill="#2563EB"/>
+<path d="M191 44L191 20M211 49L225 30M171 49L157 29" fill="none" stroke="#FFCF70" stroke-width="7" stroke-linecap="round"/>
+</svg>

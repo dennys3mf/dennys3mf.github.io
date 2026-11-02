@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150" width="1000" height="150" role="img" aria-labelledby="title desc"><title id="title">Conector Secciones.Svg</title><desc id="desc">Línea curva discontinua y puntos para conectar visualmente secciones o pasos de un proceso.</desc>
+<path d="M18 70 C180 -10 290 139 448 73 S748 6 979 76" fill="none" stroke="#77CEF5" stroke-width="4" stroke-linecap="round" stroke-dasharray="4 13"/>
+<circle cx="18" cy="70" r="11" fill="#FFCF70" stroke="#152B49" stroke-width="4"/>
+<circle cx="448" cy="73" r="11" fill="#2563EB" stroke="#152B49" stroke-width="4"/>
+<circle cx="979" cy="76" r="11" fill="#FFCF70" stroke="#152B49" stroke-width="4"/>
+<path d="M423 18 l-8 -12 M448 14 L448 1 M472 18 l9 -12" stroke="#FFCF70" stroke-width="5" stroke-linecap="round"/>
+</svg>

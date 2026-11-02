@@ -10,7 +10,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import styles from "./About.module.css";
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className={styles.aboutPageWrapper}>
@@ -55,6 +55,32 @@ export default function AboutPage() {
           <p className={styles.paragraph}>{t.aboutPage.philosophyP1}</p>
           <p className={styles.paragraph}>{t.aboutPage.philosophyP2}</p>
         </div>
+
+        {/* Meet Patatus Developer Companion Box */}
+        <aside className={styles.mascotCard}>
+          <div className={styles.mascotContent}>
+            <span className={styles.mascotBadge}>
+              {language === "es" ? "COMPAÑERO DE DESARROLLO" : "DEVELOPER COMPANION"}
+            </span>
+            <h2 className={styles.mascotTitle}>
+              {language === "es" ? "Conoce a Patatus" : "Meet Patatus"}
+            </h2>
+            <p className={styles.mascotText}>
+              {language === "es"
+                ? "Mi mascota pingüino desarrollador. Simboliza la curiosidad analítica, la dedicación en código y el objetivo de transformar retos técnicos en productos intuitivos y fluidos."
+                : "My penguin developer companion. He represents analytical curiosity, focus in engineering, and the commitment to turning complex technical challenges into simple, human-centered products."}
+            </p>
+          </div>
+          <div className={styles.mascotVisual}>
+            <Image
+              src="/mascot/patatus-saludando.svg"
+              width={440}
+              height={460}
+              alt={language === "es" ? "Patatus saludando amistosamente" : "Patatus waving hello"}
+              className={`${styles.mascotSaludandoImg} patatusFloating`}
+            />
+          </div>
+        </aside>
 
         {/* Principles Grid */}
         <section className={styles.principlesSection}>

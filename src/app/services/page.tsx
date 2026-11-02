@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Check } from "lucide-react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
@@ -68,10 +69,19 @@ export default function ServicesPage() {
 
         {/* Commercial CTA */}
         <div className={styles.ctaBox}>
+          <div className={styles.ctaAvatarBadge}>
+            <Image
+              src="/mascot/patatus-avatar.svg"
+              alt="Patatus mascot"
+              width={224}
+              height={224}
+              className={styles.ctaAvatarImg}
+            />
+          </div>
           <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "2rem", fontWeight: 800 }}>
             {t.servicesPage.discussProject}
           </h2>
-          <p style={{ maxWidth: "560px", color: "var(--muted-foreground)", fontSize: "1.05rem", lineHeight: 1.6 }}>
+          <p style={{ maxWidth: "560px", color: "var(--foreground)", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.6 }}>
             Have an MVP, automation workflow, or internal tool you want to build? Let&apos;s discuss your scope, requirements, and timeline.
           </p>
           <Link
@@ -83,11 +93,12 @@ export default function ServicesPage() {
               padding: "0.95rem 2rem",
               background: "var(--primary)",
               color: "var(--primary-foreground)",
-              fontWeight: 700,
+              fontWeight: 800,
               fontSize: "1rem",
               borderRadius: "var(--radius-sm)",
+              border: "2px solid var(--border)",
+              boxShadow: "3px 3px 0 var(--border)",
               textDecoration: "none",
-              boxShadow: "0 4px 14px rgba(8, 127, 114, 0.25)",
             }}
           >
             <span>{t.servicesPage.discussProject}</span>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, FileDown } from "lucide-react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
@@ -64,7 +65,19 @@ export default function ExperiencePage() {
 
         {/* 2. Work & Project History */}
         <section className={styles.sectionBlock}>
-          <h2 className={styles.sectionHeading}>{t.experiencePage.careerHeading}</h2>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "1.5rem" }}>
+            <h2 className={styles.sectionHeading} style={{ margin: 0, border: "none", padding: 0 }}>
+              {t.experiencePage.careerHeading}
+            </h2>
+            <Image
+              src="/mascot/huellas-patatus.svg"
+              alt=""
+              aria-hidden="true"
+              width={250}
+              height={130}
+              style={{ width: "95px", height: "auto", opacity: 0.65, pointerEvents: "none" }}
+            />
+          </div>
           <div className={styles.careerList}>
             {EXPERIENCE_DATA.career.map((item, idx) => (
               <article key={idx} className={styles.careerCard}>

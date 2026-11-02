@@ -198,6 +198,78 @@
   flex-wrap: wrap;
 }
 
+/* Mascot Companion Card */
+.mascotCard {
+  background: var(--secondary-light);
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow-editorial);
+  margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mascotContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.mascotBadge {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+}
+
+.mascotTitle {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 0.4rem 0 0.75rem;
+  line-height: 1.2;
+}
+
+.mascotText {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--foreground);
+  max-width: 540px;
+}
+
+.mascotVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mascotSaludandoImg {
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(21, 43, 73, 0.08));
+}
+
+@media (max-width: 640px) {
+  .mascotCard {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .mascotVisual {
+    margin-top: 1rem;
+  }
+  .mascotSaludandoImg {
+    width: 140px;
+  }
+}
+
 @media (max-width: 768px) {
   .principlesGrid {
     grid-template-columns: 1fr;

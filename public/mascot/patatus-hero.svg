@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600" width="760" height="600" role="img" aria-labelledby="title desc"><title id="title">Patatus Hero.Svg</title><desc id="desc">Patatus, pingüino desarrollador con gafas, bufanda azul y portátil; mascota principal con fondo transparente.</desc>
+<defs>
+  <linearGradient id="scarf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563EB"/><stop offset="1" stop-color="#318CE7"/></linearGradient>
+</defs>
+<!-- Light orbit and details -->
+<path d="M155 414 C94 336 175 214 296 192" fill="none" stroke="#BDEBFF" stroke-width="28" stroke-linecap="round" opacity=".62"/>
+<path d="M562 146 C660 178 691 245 660 295" fill="none" stroke="#77CEF5" stroke-width="14" stroke-linecap="round" opacity=".58"/>
+<g fill="#FFCF70"><path d="M320 76l-7-29" stroke="#FFCF70" stroke-width="11" stroke-linecap="round"/><path d="M283 95l-20-20" stroke="#FFCF70" stroke-width="11" stroke-linecap="round"/><path d="M267 128l-28-8" stroke="#FFCF70" stroke-width="11" stroke-linecap="round"/></g>
+<ellipse cx="442" cy="553" rx="217" ry="22" fill="#77CEF5" opacity=".24"/>
+<!-- Feet behind laptop -->
+<path d="M323 484 Q290 504 305 536 Q321 561 371 548 Q391 528 365 502Z" fill="#FFCF70" stroke="#152B49" stroke-width="7" stroke-linejoin="round"/>
+<path d="M517 498 Q563 480 589 507 Q608 540 565 551 Q534 565 508 548 Q502 533 517 498Z" fill="#FFCF70" stroke="#152B49" stroke-width="7" stroke-linejoin="round"/>
+<!-- Body and belly -->
+<path d="M309 307 C292 347 283 416 311 486 C332 535 382 544 444 538 C517 548 575 523 598 472 C614 423 600 349 570 312 Z" fill="#0B2540"/>
+<path d="M365 331 C335 373 333 476 372 503 C398 531 485 532 529 496 C552 464 541 373 515 331Z" fill="#F7FAFF"/>
+<!-- Head silhouette and tuft -->
+<path d="M344 209 C355 149 413 117 474 125 C525 125 569 161 585 214 C606 277 574 344 512 360 C457 379 387 355 354 313 C330 287 334 246 344 209Z" fill="#152B49"/>
+<path d="M475 134 Q508 103 545 118 Q527 124 512 143 Q548 124 577 143 Q554 143 532 159" fill="#152B49"/>
+<!-- Face cream region -->
+<path d="M366 243 C369 207 395 181 433 191 C455 195 465 216 470 229 C486 201 511 189 539 204 C565 217 569 258 560 295 C549 337 512 348 458 349 C407 348 369 329 362 294 C358 279 362 255 366 243Z" fill="#F7FAFF"/>
+<!-- Neck scarf, knot and tail -->
+<path d="M357 334 C422 358 516 355 564 322 C582 321 593 335 584 353 C543 388 414 392 354 363 C338 354 341 339 357 334Z" fill="url(#scarf)" stroke="#152B49" stroke-width="5"/>
+<path d="M552 351 C604 351 625 393 664 412 Q637 438 602 432 C574 420 562 395 548 378Z" fill="#2563EB" stroke="#152B49" stroke-width="5" stroke-linejoin="round"/>
+<path d="M585 383 Q606 412 627 413" fill="none" stroke="#77CEF5" stroke-width="5" stroke-linecap="round"/>
+<!-- Left flipper and right flipper -->
+<path d="M341 357 C299 358 273 403 281 442 C294 459 325 441 347 406 C359 386 370 366 341 357Z" fill="#152B49"/>
+<path d="M565 376 C611 385 632 438 613 471 C595 490 559 465 540 435Z" fill="#152B49"/>
+<!-- Glasses -->
+<circle cx="419" cy="263" r="53" fill="none" stroke="#152B49" stroke-width="10"/>
+<circle cx="517" cy="263" r="53" fill="none" stroke="#152B49" stroke-width="10"/>
+<path d="M466 256 Q470 249 471 254 M365 245 L350 244 M568 245 L583 244" fill="none" stroke="#152B49" stroke-width="10" stroke-linecap="round"/>
+<!-- Eyes and highlights -->
+<ellipse cx="423" cy="270" rx="16" ry="23" fill="#152B49"/>
+<ellipse cx="514" cy="270" rx="16" ry="23" fill="#152B49"/>
+<ellipse cx="429" cy="260" rx="5" ry="8" fill="#FFFFFF"/>
+<ellipse cx="520" cy="260" rx="5" ry="8" fill="#FFFFFF"/>
+<!-- Beak -->
+<path d="M457 291 C471 278 482 277 495 290 C488 306 465 311 453 299Z" fill="#FFCF70" stroke="#152B49" stroke-width="3" stroke-linejoin="round"/>
+<path d="M465 303 Q476 310 487 302" fill="none" stroke="#152B49" stroke-width="3" stroke-linecap="round"/>
+<!-- Laptop -->
+<path d="M268 384 Q268 370 282 369 L511 389 Q525 390 527 404 L543 495 Q543 508 529 507 L296 486 Q286 484 283 472Z" fill="#7297C2" stroke="#152B49" stroke-width="8" stroke-linejoin="round"/>
+<path d="M282 379 L510 398 L528 495 L301 475Z" fill="#5D85B2"/>
+<path d="M296 487 L541 506 Q568 511 590 496 L606 504 Q573 528 545 526 L315 505Z" fill="#152B49"/>
+<g fill="none" stroke="#FFCF70" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M375 424 L353 445 L374 467"/>
+ <path d="M444 427 L468 449 L447 470"/>
+ <path d="M419 417 L397 474"/>
+</g>
+<!-- Small right doodles -->
+<circle cx="665" cy="341" r="9" fill="#FFCF70"/>
+<circle cx="687" cy="332" r="4" fill="#152B49" opacity=".7"/>
+</svg>

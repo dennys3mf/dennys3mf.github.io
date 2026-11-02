@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 320" width="380" height="320" role="img" aria-labelledby="title desc"><title id="title">Patatus Asomandose.Svg</title><desc id="desc">Patatus asomándose desde el borde inferior de una sección, con gafas y bufanda azul.</desc>
+<path d="M38 232 Q8 190 38 151 Q56 136 91 157 L126 213Z" fill="#152B49"/>
+<path d="M270 212 Q318 151 346 181 Q355 200 325 227Z" fill="#152B49"/>
+<ellipse cx="192" cy="167" rx="131" ry="133" fill="#152B49"/>
+<path d="M179 40 Q218 15 255 34 Q230 43 215 61 Q253 43 282 59 Q257 62 240 73" fill="#152B49"/>
+<path d="M80 166 C80 118 112 97 153 124 Q179 145 190 151 C226 109 265 114 294 145 C317 180 293 238 261 253 Q181 290 105 247 Q79 219 80 166Z" fill="#F7FAFF"/>
+<circle cx="142" cy="185" r="47" fill="none" stroke="#152B49" stroke-width="9"/>
+<circle cx="244" cy="185" r="47" fill="none" stroke="#152B49" stroke-width="9"/>
+<path d="M190 180Q192 173 196 181" stroke="#152B49" stroke-width="8" fill="none"/>
+<ellipse cx="148" cy="193" rx="15" ry="20" fill="#152B49"/><ellipse cx="242" cy="193" rx="15" ry="20" fill="#152B49"/>
+<circle cx="154" cy="184" r="5" fill="#FFFFFF"/><circle cx="248" cy="184" r="5" fill="#FFFFFF"/>
+<path d="M184 219Q197 207 210 217Q203 239 188 237Z" fill="#FFCF70" stroke="#152B49" stroke-width="3"/>
+<path d="M190 235Q200 243 209 233" fill="none" stroke="#152B49" stroke-width="3" stroke-linecap="round"/>
+<path d="M76 267 Q188 298 309 268 L340 328 L51 328Z" fill="#2563EB" stroke="#152B49" stroke-width="5"/>
+</svg>
