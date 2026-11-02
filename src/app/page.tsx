@@ -9,10 +9,10 @@ import RotatingBadge from "../components/RotatingBadge";
 import FloatingNav from "../components/FloatingNav";
 import ContactBillboard from "../components/ContactBillboard";
 import LanguageToggle from "../components/LanguageToggle";
+import ThreeHeroSphere from "../components/ThreeHeroSphere";
 import GsapScrollOrchestrator from "../components/GsapScrollOrchestrator";
 import SmoothScroller from "../components/SmoothScroller";
 import VerticalDepthCarousel from "../components/VerticalDepthCarousel";
-import SystemArchitectureDiagram from "../components/SystemArchitectureDiagram";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "../components/Icons";
 import {
@@ -29,11 +29,10 @@ import {
   Layers,
   Cpu,
   Coins,
-  FileDown,
 } from "lucide-react";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = async () => {
@@ -60,22 +59,46 @@ export default function Home() {
       <FloatingNav />
 
       {/* ====================================================================
-          HERO SECTION - LA PALATINE SURREALIST COLLAGE & SCRAPBOOK ARTWORK
+          HERO SECTION - EXACT BRAND SPECIFICATION
          ==================================================================== */}
-      <section id="home" className={styles.palatineHeroSection}>
-        {/* Top Header Bar */}
-        <div className={styles.palatineTopBar}>
-          <a href="#home" className={styles.palatineSeal} aria-label="Dennys Marquez — Portafolio">
-            <div className={styles.palatineSealMedallion}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="9" stroke="#1A1A1A" strokeWidth="1.2" strokeDasharray="2 2" />
-                <path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#1A1A1A" strokeWidth="1" />
-              </svg>
-              <div className={styles.palatineSealDot} />
-            </div>
-            <span className={styles.palatineSealText}>DENNYS MARQUEZ</span>
-          </a>
+      <section id="home" className={styles.hero}>
+        {/* Decorative Fluid Vector Curves & Interactive 3D Three.js Sphere */}
+        <div className={styles.heroBackgroundDecor} aria-hidden="true" data-scrub="hero-bg">
+          <div className={styles.heroOrb}>
+            <ThreeHeroSphere />
+          </div>
+          <div className={styles.heroCurvesWrap}>
+            <svg className={styles.heroCurvesSvg} viewBox="0 0 1440 500" fill="none" preserveAspectRatio="none">
+              <path
+                d="M-100 450 C 320 360, 680 500, 1050 390 C 1240 330, 1380 410, 1540 440"
+                stroke="url(#brandCurveGrad1)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M-60 490 C 380 430, 780 560, 1180 370 C 1320 320, 1450 390, 1540 420"
+                stroke="url(#brandCurveGrad2)"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+              <defs>
+                <linearGradient id="brandCurveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#4F6BFF" stopOpacity="0.45" />
+                  <stop offset="60%" stopColor="#8A7BFF" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#4F6BFF" stopOpacity="0.05" />
+                </linearGradient>
+                <linearGradient id="brandCurveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#8A7BFF" stopOpacity="0.4" />
+                  <stop offset="50%" stopColor="#4F6BFF" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#8A7BFF" stopOpacity="0.05" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
 
+        {/* Top Meta Bar */}
+        <div className={styles.heroMeta}>
           <div className={styles.heroMetaGroup}>
             <div className={styles.heroLocalTime}>
               <LiveClock />
@@ -98,7 +121,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.palatineTopActions}>
+          <div className={styles.heroMetaActions}>
             <LanguageToggle variant="segmented" />
             <div className="inline-flex items-center gap-1.5">
               <a
@@ -112,7 +135,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-300 transition-all duration-200 shadow-sm cursor-pointer"
+                className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-600 border border-slate-200/80 transition-all duration-200 shadow-sm cursor-pointer"
                 title={t.projects.copyEmail}
                 aria-label={t.projects.copyEmail}
               >
@@ -127,118 +150,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Main Stage: Left Collage Artwork & Right Editorial Headline */}
-        <div className={styles.palatineStage}>
-          {/* Left Column: Surrealist Classical Collage */}
-          <div className={styles.palatineArtworkWrap} aria-hidden="true">
-            {/* Radiant Lemon-Yellow Paper Sunburst Rays */}
-            <svg
-              className={styles.palatineSunburstSvg}
-              viewBox="0 0 600 600"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Symmetrical fanned trapezoidal rays emanating from center */}
-              <polygon points="300,340 10,240 20,180" fill="#F6FF3B" />
-              <polygon points="300,340 70,110 130,70" fill="#F6FF3B" />
-              <polygon points="300,340 210,30 290,15" fill="#F6FF3B" />
-              <polygon points="300,340 370,15 450,45" fill="#F6FF3B" />
-              <polygon points="300,340 510,95 565,155" fill="#F6FF3B" />
-              <polygon points="300,340 580,230 590,300" fill="#F6FF3B" />
-              <polygon points="300,340 540,370 490,430" fill="#F6FF3B" />
-            </svg>
-
-            {/* Dennys' Cutout Photo emerging from inside the sliced head */}
-            <Image
-              src="/images/collage/dennys-cutout.webp"
-              alt="Dennys Gabriel Marquez Flores"
-              width={260}
-              height={345}
-              priority
-              className={styles.palatineDennysCutout}
-            />
-
-            {/* Carrara Classical Marble Bust cleanly sliced at temple line */}
-            <Image
-              src="/images/collage/classical-bust.webp"
-              alt="Classical Greco-Roman Sculpture"
-              width={340}
-              height={455}
-              priority
-              className={styles.palatineBust}
-            />
-
-            {/* Perched 19th-century Naturalist Songbird on left ray */}
-            <Image
-              src="/images/collage/vintage-bird.webp"
-              alt="Vintage Bird Illustration"
-              width={110}
-              height={110}
-              className={styles.palatineBird}
-            />
-
-            {/* Vintage Hot Pink Engraved Hand pointing up-right */}
-            <Image
-              src="/images/collage/vintage-hand-pink.webp"
-              alt="Vintage Hand Engraving"
-              width={105}
-              height={105}
-              className={styles.palatineHand}
-            />
-
-            {/* Scrapbook Washi Tape Strips */}
-            <div className={`${styles.palatineWashi1} washi-tape`} />
-            <div className={`${styles.palatineWashi2} washi-tape`} />
-
-            {/* Postage Stamp Badge */}
-            <div className={styles.palatineStampTecsup}>
-              <div>TECSUP · 18/20</div>
-              <div style={{ fontSize: "0.62rem", color: "#666" }}>TERCIO SUPERIOR</div>
-            </div>
-          </div>
-
-          {/* Right Column: Editorial Typography & Poetic Manifesto */}
-          <div className={styles.palatineContent}>
-            <div>
-              <h1 className={styles.palatineNameTitle}>DENNYS MARQUEZ</h1>
-              <p className={styles.palatineRoleSubtitle}>{t.hero.submeta}</p>
-            </div>
-
-            {/* The Signature Quote with Hot Pink & Neon Lime Quotes */}
-            <div className={styles.palatineQuoteContainer}>
-              <span className={styles.palatineQuoteMarkPink}>“</span>
-              <p className={styles.palatineQuoteText}>
-                {t.hero.motto}
-              </p>
-              <span className={styles.palatineQuoteMarkLime}>”</span>
-              <span className={styles.palatineQuoteAttribution}>
-                ahorratiempo.pe · Arequipa, Perú
-              </span>
-            </div>
-
-            {/* Stamped Action Tickets */}
-            <div className={styles.palatineActionRow}>
-              <a href="#casos" className={styles.palatinePrimaryTicket}>
-                <span>{t.projects.eyebrow}</span>
-                <ArrowUpRight size={16} />
-              </a>
-
-              <a
-                href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
-                download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.palatineCvTicket}
-              >
-                <FileDown size={15} />
-                <span>{t.nav.downloadCV}</span>
-              </a>
-            </div>
+        {/* Center Brand Statement */}
+        <div className={styles.heroTopWrap}>
+          <div className={styles.heroCenterBrand}>
+            <h1 className={styles.textHero}>
+              <span className={styles.logoDennys}>dennys</span>{" "}
+              <span className={styles.logoMarquez}>marquez</span>
+            </h1>
+            <div className={styles.heroSubtrack}>{t.hero.title}</div>
+            <p className={styles.heroImpactMotto}>{t.hero.motto}</p>
           </div>
         </div>
 
-        {/* Bottom Spacing */}
-        <div style={{ height: "1.5rem" }} />
+        {/* Bottom Wrap: Spacing for floating navbar */}
+        <div className={styles.heroBottomWrap} />
       </section>
 
       {/* ====================================================================
@@ -269,18 +194,13 @@ export default function Home() {
           {/* Photo stage with clean workstation image */}
           <div className={styles.aboutStageWrap}>
             <div className={styles.aboutMainImgCard}>
-              <div className="washi-tape" style={{ top: "-12px", left: "28px", width: "100px", transform: "rotate(-6deg)" }} />
-              <div className="washi-tape" style={{ top: "-12px", right: "28px", width: "100px", transform: "rotate(5deg)" }} />
               <Image
                 src="/images/personal/dennys-workstation.webp"
-                alt="Dennys Gabriel Marquez Flores — Full Stack Developer | React, Node.js & TypeScript"
+                alt="Dennys Gabriel Marquez Flores — Full Stack Developer | Python, React & AI Integration"
                 width={1024}
                 height={682}
                 loading="lazy"
               />
-              <div className="handwritten" style={{ padding: "0.85rem 1rem", textAlign: "center", color: "var(--text-muted)", fontSize: "1.05rem" }}>
-                Arequipa, Perú · Workstation & Architecture Lab ✎
-              </div>
             </div>
           </div>
 
@@ -367,16 +287,16 @@ export default function Home() {
                   <span className={styles.consoleKey}>stack:</span> [
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;React 18, TypeScript, Node.js, Vite&quot;</span>,
+                  <span className={styles.consoleString}>&quot;React, TypeScript, Python, Django&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Meta Llama 3.2 &amp; Hybrid RAG&quot;</span>,
+                  <span className={styles.consoleString}>&quot;PySpark &amp; ML Recommenders&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Cloudflare Workers, D1 &amp; Vectorize&quot;</span>,
+                  <span className={styles.consoleString}>&quot;AI Chatbots, LLMs &amp; Agents&quot;</span>,
                 </div>
                 <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Docker Compose, Python &amp; PostgreSQL&quot;</span>
+                  <span className={styles.consoleString}>&quot;Firebase &amp; Cloudflare Workers&quot;</span>
                 </div>
                 <div className={styles.consoleLineIndent}>
                   ],
@@ -430,16 +350,18 @@ export default function Home() {
           <ScrollReveal>
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>
-                {t.process.heading}
+                {language === "en" ? "From Architecture to Production with Measurable Impact" : "De la Arquitectura a Producción con Impacto Medible"}
               </h2>
               <p className={styles.sectionSubtitle}>
-                {t.process.subheading}
+                {language === "en"
+                  ? "A rigorous 3-stage delivery pipeline ensuring rock-solid stability, zero shortcuts, and fast time-to-market."
+                  : "Un proceso de 3 fases estructurado para construir software de alto rendimiento, código tipado y despliegues estables sin magia negra."}
               </p>
             </div>
           </ScrollReveal>
 
           <div className={styles.processGrid}>
-            {/* Paso 01: Blue Card with System Architecture Diagram Canvas */}
+            {/* Paso 01: Blue Card */}
             <ScrollReveal delay={100}>
               <div className={`${styles.processCardEnhanced} ${styles.processCardBlue}`}>
                 <div className={styles.processCardTop}>
@@ -450,14 +372,14 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={styles.processTitle}>
-                    {t.process.step1.title}
+                    {language === "en" ? "Listen & Model" : "Escuchar y Modelar"}
                   </h3>
                   <p className={styles.processDesc}>
-                    {t.process.step1.desc}
+                    {language === "en"
+                      ? "Deep dive into real business needs, data structures, and user constraints before writing code."
+                      : "Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio. No toco una línea de código hasta tener clara la arquitectura y la meta."}
                   </p>
                 </div>
-                {/* Visual Section: System Architecture Node Flow Diagram */}
-                <SystemArchitectureDiagram />
               </div>
             </ScrollReveal>
 
@@ -472,10 +394,12 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={styles.processTitle}>
-                    {t.process.step2.title}
+                    {language === "en" ? "Build & Validate" : "Construir & Validar"}
                   </h3>
                   <p className={styles.processDesc}>
-                    {t.process.step2.desc}
+                    {language === "en"
+                      ? "Iterative development with clean, typed code in TypeScript and Python, delivering testable software from week one."
+                      : "Desarrollo con entregas continuas para que puedas probar el sistema desde la primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos raros."}
                   </p>
                 </div>
               </div>
@@ -492,10 +416,12 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={styles.processTitle}>
-                    {t.process.step3.title}
+                    {language === "en" ? "Deploy & Measure" : "Poner en Marcha & Medir"}
                   </h3>
                   <p className={styles.processDesc}>
-                    {t.process.step3.desc}
+                    {language === "en"
+                      ? "Production cloud deployments with real-time observability, documentation, and continuous handover."
+                      : "Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego documentación y te acompaño para que tu equipo opere con total tranquilidad."}
                   </p>
                 </div>
               </div>
@@ -576,7 +502,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Interactive Action Bar (WhatsApp, Download CV, Email, GitHub, LinkedIn) */}
+          {/* Interactive Action Bar (WhatsApp, Email, GitHub, LinkedIn) */}
           <div className={styles.ctaActionsBar}>
             <a
               href="https://wa.me/51922466078"
@@ -585,19 +511,7 @@ export default function Home() {
               className={styles.ctaPillBtn}
             >
               <span>💬</span>
-              <span>{t.contact.ctaButton}</span>
-            </a>
-
-            <a
-              href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
-              download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaCvBtn}
-              aria-label={t.contact.downloadCV}
-            >
-              <FileDown size={18} />
-              <span>{t.contact.downloadCV}</span>
+              <span>{language === "en" ? "Chat on WhatsApp" : "Conversar por WhatsApp"}</span>
             </a>
 
             <div className={styles.ctaAltLinks}>
@@ -695,7 +609,7 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <LanguageToggle variant="segmented" />
               <a href="#home" className={styles.footerNavLink} style={{ fontSize: "1rem", fontWeight: 700 }}>
-                {t.footer.backToTop}
+                {language === "en" ? "Back to Top ↑" : "Volver Arriba ↑"}
               </a>
             </div>
           </div>

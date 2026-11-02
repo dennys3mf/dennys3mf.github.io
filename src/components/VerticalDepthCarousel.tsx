@@ -1,22 +1,23 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "./Icons";
-import CaseStudyModal from "./CaseStudyModal";
+import CaseStudyDrawer from "./CaseStudyDrawer";
 import styles from "./VerticalDepthCarousel.module.css";
 
 interface ProjectItem {
-  id: string;
-  tabName: string;
   index: number;
   image: string;
   video?: string;
   href: string;
   isLive: boolean;
+  shortName: {
+    en: string;
+    es: string;
+  };
   discipline: {
     en: string;
     es: string;
@@ -26,13 +27,15 @@ interface ProjectItem {
 
 const ALL_PROJECTS: ProjectItem[] = [
   {
-    id: "ahorratiempo.pe",
-    tabName: "ahorratiempo.pe",
     index: 0,
     image: "/images/projects/ahorratiempo-preview.webp",
     video: "/videos/ahorratiempo.mp4",
     href: "https://ahorratiempo.pe",
     isLive: true,
+    shortName: {
+      en: "ahorratiempo.pe",
+      es: "ahorratiempo.pe",
+    },
     discipline: {
       en: "AI Citizen SaaS",
       es: "SaaS Ciudadano con IA",
@@ -40,13 +43,15 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "React 18 · Next.js · Voice AI · Tailwind CSS · Culqi Gateway",
   },
   {
-    id: "controla-servilex",
-    tabName: "CONTROLA Servilex",
     index: 1,
     image: "/images/projects/controla-servilex-preview.webp",
     video: "/videos/controla.mp4",
     href: "https://github.com/dennys3mf",
     isLive: false,
+    shortName: {
+      en: "CONTROLA Cloud",
+      es: "CONTROLA Cloud",
+    },
     discipline: {
       en: "Enterprise Cloud & Legal IT",
       es: "Plataforma Cloud & Legal IT",
@@ -54,26 +59,30 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "Python · Django · PostgreSQL · SG-SST Compliance · Multi-Tenant",
   },
   {
-    id: "chansa-app",
-    tabName: "CHANSA Mobile",
     index: 2,
     image: "/images/projects/chansa-app-preview.webp",
     href: "https://github.com/dennys3mf",
     isLive: false,
-    discipline: {
-      en: "Mood & Comedy Mobile App",
-      es: "App Móvil de Bienestar & Humor",
+    shortName: {
+      en: "CHANSA App",
+      es: "CHANSA App",
     },
-    stack: "Flutter · Dart · Firebase Auth · Firestore · Content Recommender",
+    discipline: {
+      en: "Cross-Platform Mobile App",
+      es: "App Móvil Multiplataforma",
+    },
+    stack: "Flutter · Dart · Firebase · Realtime Chat · Geolocation API",
   },
   {
-    id: "safety-helmet",
-    tabName: "Safety Helmet IoT",
     index: 3,
     image: "/images/projects/safety-helmet-preview.webp",
     video: "/videos/casco-inteligente.mp4",
     href: "https://github.com/dennys3mf/Proyecto-Casco-Seguridad-IoT",
     isLive: false,
+    shortName: {
+      en: "Safety Helmet IoT",
+      es: "Safety Helmet IoT",
+    },
     discipline: {
       en: "Industrial IoT & Telemetry",
       es: "IoT & Telemetría Industrial",
@@ -81,12 +90,14 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "C++ · Arduino · Microservices · MQ-2 Sensors · GPS Telemetry",
   },
   {
-    id: "fintech-sunat",
-    tabName: "Facturación SUNAT",
     index: 4,
     image: "/images/projects/fintech-sunat-preview.webp",
     href: "https://github.com/dennys3mf",
     isLive: false,
+    shortName: {
+      en: "Facturación SUNAT",
+      es: "Facturación SUNAT",
+    },
     discipline: {
       en: "Fintech & Electronic Billing",
       es: "Fintech & Facturación Electrónica",
@@ -94,13 +105,15 @@ const ALL_PROJECTS: ProjectItem[] = [
     stack: "Python · Culqi API · SUNAT XML / CDR · RESTful Services",
   },
   {
-    id: "fiscalizacion-joya",
-    tabName: "Fiscalización Joya",
     index: 5,
     image: "/images/projects/fiscalizacion-joya-preview.webp",
     video: "/videos/app-fiscalizacion.mp4",
     href: "https://github.com/dennys3mf/App-Fiscalizacion-Joya",
     isLive: false,
+    shortName: {
+      en: "Fiscalización Joya",
+      es: "Fiscalización Joya",
+    },
     discipline: {
       en: "Field Inspection Tablet App",
       es: "App de Inspección en Campo",
@@ -109,305 +122,341 @@ const ALL_PROJECTS: ProjectItem[] = [
   },
 ];
 
-const PROJECT_NOTES: Record<string, { en: string; es: string }> = {
-  "ahorratiempo.pe": {
-    es: "✎ LOTA IA con Meta Llama 3.2 y RAG híbrido: 3,033 trámites peruanos indexados con Cloudflare D1 + Vectorize y SSE.",
-    en: "✎ LOTA AI with Meta Llama 3.2 & Hybrid RAG: 3,033 public procedures indexed with Cloudflare D1 + Vectorize & SSE.",
-  },
-  "controla-servilex": {
-    es: "✎ Software SG-SST en React & Django: arquitectura multi-tenant y 100% de cumplimiento legal en auditorías.",
-    en: "✎ SG-SST platform in React & Django: multi-tenant architecture and 100% legal compliance in audits.",
-  },
-  "chansa-app": {
-    es: "✎ App móvil en Flutter & Dart con detección de estado de ánimo, recomendaciones de humor personalizadas y Firebase.",
-    en: "✎ Mobile app in Flutter & Dart featuring mood-based comedy recommendations, Firebase Auth & Firestore.",
-  },
-  "safety-helmet": {
-    es: "✎ Prototipo IoT para minería con sensores MQ-2, Arduino, AWS y telemetría MQTT ante impactos y gases tóxicos.",
-    en: "✎ Mining safety IoT prototype with MQ-2 sensors, Arduino, AWS, and MQTT telemetry for impacts and gases.",
-  },
-  "fintech-sunat": {
-    es: "✎ Motor de cobro Culqi con 99.8% de éxito y facturación electrónica SUNAT con firmado XML y recepción CDR.",
-    en: "✎ Culqi payment engine with 99.8% success rate and automated SUNAT electronic invoicing via XML/CDR.",
-  },
-  "fiscalizacion-joya": {
-    es: "✎ App tablet 100% offline-first con SQLite local y sincronización diferencial por lotes para inspectores.",
-    en: "✎ 100% offline-first tablet app with local SQLite and differential batch sync for field inspectors.",
-  },
-};
+const AUTOPLAY_INTERVAL_MS = 6500;
 
 export default function VerticalDepthCarousel() {
   const { t, language } = useLanguage();
-  const [activeIdx, setActiveIdx] = useState<number>(0);
-  const [selectedCaseStudyId, setSelectedCaseStudyId] = useState<string | null>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<number | null>(null);
 
-  const activeProject = ALL_PROJECTS[activeIdx] || ALL_PROJECTS[0];
-  const activeItem = t.projects.items[activeProject.index] || t.projects.items[0];
-  const activeCaseStudy = t.projects.caseStudies[activeProject.id];
-
-  const handlePrev = useCallback(() => {
-    setActiveIdx((prev) => (prev > 0 ? prev - 1 : ALL_PROJECTS.length - 1));
-  }, []);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const lastWheelTime = useRef<number>(0);
+  const stageRef = useRef<HTMLDivElement | null>(null);
 
   const handleNext = useCallback(() => {
     setActiveIdx((prev) => (prev < ALL_PROJECTS.length - 1 ? prev + 1 : 0));
   }, []);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-        return;
-      }
-      if (e.key === "ArrowLeft") {
-        handlePrev();
-      } else if (e.key === "ArrowRight") {
-        handleNext();
-      }
-    };
+  const handlePrev = useCallback(() => {
+    setActiveIdx((prev) => (prev > 0 ? prev - 1 : ALL_PROJECTS.length - 1));
+  }, []);
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handlePrev, handleNext]);
+  // Smooth automatic rotation with pause on hover or when case study drawer is open
+  useEffect(() => {
+    if (isPaused || selectedCaseStudy !== null) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, AUTOPLAY_INTERVAL_MS);
+
+    return () => clearInterval(timer);
+  }, [isPaused, selectedCaseStudy, handleNext]);
+
+  // Touch gesture handler for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const diffX = touchStartX.current - e.changedTouches[0].clientX;
+    const diffY = touchStartY.current - e.changedTouches[0].clientY;
+
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    } else if (Math.abs(diffY) > 50) {
+      if (diffY > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
+  // Wheel interaction over the carousel stage
+  const handleWheel = (e: React.WheelEvent) => {
+    const now = Date.now();
+    if (now - lastWheelTime.current < 700) return;
+
+    if (e.deltaY > 45 && activeIdx < ALL_PROJECTS.length - 1) {
+      setActiveIdx((prev) => prev + 1);
+      lastWheelTime.current = now;
+    } else if (e.deltaY < -45 && activeIdx > 0) {
+      setActiveIdx((prev) => prev - 1);
+      lastWheelTime.current = now;
+    }
+  };
+
+  // 3D Depth Card Stacking Transform
+  const getCardStyle = (index: number) => {
+    const diff = index - activeIdx;
+
+    if (diff === 0) {
+      // In focus
+      return {
+        transform: "translate3d(0, 0px, 0) scale(1)",
+        opacity: 1,
+        zIndex: 30,
+        pointerEvents: "auto" as const,
+        visibility: "visible" as const,
+      };
+    } else if (diff === 1) {
+      // Next card peeking from depth
+      return {
+        transform: "translate3d(0, 26px, 0) scale(0.96)",
+        opacity: 0.5,
+        zIndex: 20,
+        pointerEvents: "auto" as const,
+        visibility: "visible" as const,
+      };
+    } else if (diff === 2) {
+      // 2nd card in background
+      return {
+        transform: "translate3d(0, 50px, 0) scale(0.92)",
+        opacity: 0.18,
+        zIndex: 10,
+        pointerEvents: "none" as const,
+        visibility: "visible" as const,
+      };
+    } else if (diff === -1) {
+      // Previous card gliding up and fading out
+      return {
+        transform: "translate3d(0, -45px, 0) scale(0.97)",
+        opacity: 0,
+        zIndex: 5,
+        pointerEvents: "none" as const,
+        visibility: "hidden" as const,
+      };
+    } else {
+      // Far cards hidden
+      return {
+        transform: "translate3d(0, 65px, 0) scale(0.88)",
+        opacity: 0,
+        zIndex: 1,
+        pointerEvents: "none" as const,
+        visibility: "hidden" as const,
+      };
+    }
+  };
 
   return (
-    <section id="casos" className={styles.appleSection}>
-      <div className={styles.appleContainer}>
-        {/* Apple Style Section Header */}
-        <div className={styles.appleHeader}>
-          <p className={styles.appleEyebrow}>{t.projects.eyebrow}</p>
-          <h2 className={styles.appleTitle} data-gsap="heading">
-            {t.projects.heading}
-          </h2>
-          <p className={styles.appleSubheading}>{t.projects.subheading}</p>
+    <section id="casos" className={styles.carouselSection}>
+      <div className={styles.carouselContainer}>
+        {/* Header Row: Title & Subtitle */}
+        <div className={styles.carouselHeaderRow}>
+          <div className={styles.carouselHeaderLeft}>
+            <p className={styles.eyebrow}>{t.projects.eyebrow}</p>
+            <h2 className={styles.title} data-gsap="heading">
+              {t.projects.heading}
+            </h2>
+            <p className={styles.subheading}>{t.projects.subheading}</p>
+          </div>
         </div>
 
-        {/* Apple Product Lineup Switcher (Segmented Subnav Dock) */}
-        <div className={styles.lineupDockWrap}>
-          <div className={styles.lineupDock} role="tablist" aria-label="Project Selection">
+        {/* Minimalist Project Index Tabs (Without < and > buttons) */}
+        <nav
+          className={styles.projectTabsRow}
+          role="tablist"
+          aria-label="Proyectos destacados"
+        >
+          {ALL_PROJECTS.map((proj, idx) => {
+            const isCurrent = idx === activeIdx;
+            return (
+              <button
+                key={proj.index}
+                type="button"
+                role="tab"
+                aria-selected={isCurrent}
+                aria-controls={`project-panel-${idx}`}
+                onClick={() => setActiveIdx(idx)}
+                className={`${styles.projectTabBtn} ${
+                  isCurrent ? styles.projectTabBtnActive : ""
+                }`}
+              >
+                <span className={styles.tabNum}>0{idx + 1}</span>
+                <span className={styles.tabName}>{proj.shortName[language]}</span>
+                {isCurrent && (
+                  <span className={styles.tabActiveIndicator} aria-hidden="true">
+                    <span
+                      key={activeIdx}
+                      className={styles.tabProgressFill}
+                      style={{
+                        animationDuration: `${AUTOPLAY_INTERVAL_MS}ms`,
+                        animationPlayState: isPaused ? "paused" : "running",
+                      }}
+                    />
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* 3D Depth Card Stage with Orderly Fluid Transition */}
+        <div
+          ref={stageRef}
+          className={styles.stageWrapper}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onWheel={handleWheel}
+        >
+          <div className={styles.deckStage}>
             {ALL_PROJECTS.map((proj, idx) => {
-              const isSelected = idx === activeIdx;
+              const item = t.projects.items[proj.index];
+              if (!item) return null;
+
+              const isCurrent = idx === activeIdx;
+              const cardStyle = getCardStyle(idx);
 
               return (
-                <button
-                  key={proj.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isSelected}
-                  onClick={() => setActiveIdx(idx)}
-                  className={`${styles.dockTab} ${isSelected ? styles.dockTabActive : ""}`}
+                <article
+                  key={proj.index}
+                  id={`project-panel-${idx}`}
+                  role="tabpanel"
+                  aria-hidden={!isCurrent}
+                  className={`${styles.cardDeckItem} ${
+                    isCurrent ? styles.cardActive : ""
+                  }`}
+                  style={cardStyle}
+                  onClick={() => {
+                    if (!isCurrent) setActiveIdx(idx);
+                  }}
+                  tabIndex={isCurrent ? 0 : -1}
                 >
-                  <span className={styles.dockTabLabel}>{proj.tabName}</span>
-                  {isSelected && (
-                    <motion.div
-                      layoutId="appleActivePill"
-                      className={styles.dockTabActivePill}
-                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                    />
-                  )}
-                </button>
+                  <div className={styles.cardInner}>
+                    {/* Visual Media Stage: Video or Crisp High-Fidelity Poster */}
+                    <div className={styles.cardVisual}>
+                      {proj.video ? (
+                        <video
+                          ref={(el) => {
+                            if (el) {
+                              el.defaultMuted = true;
+                              el.muted = true;
+                              if (isCurrent) {
+                                el.play().catch(() => {});
+                              } else {
+                                el.pause();
+                              }
+                            }
+                          }}
+                          src={proj.video}
+                          poster={proj.image}
+                          loop
+                          muted
+                          playsInline
+                          preload={isCurrent ? "auto" : "metadata"}
+                          className={styles.cardVideo}
+                          aria-label={`${item.title} video`}
+                        />
+                      ) : (
+                        <Image
+                          src={proj.image}
+                          alt={item.title}
+                          width={1200}
+                          height={825}
+                          priority={idx === 0}
+                          loading={idx === 0 ? "eager" : "lazy"}
+                          className={styles.cardImage}
+                        />
+                      )}
+                    </div>
+
+                    {/* Editorial Information Stage (Pure Typography, Zero Chips) */}
+                    <div className={styles.cardInfo}>
+                      <div className={styles.cardMetaTop}>
+                        <span className={styles.cardDiscipline}>
+                          {proj.discipline[language]}
+                        </span>
+                      </div>
+
+                      <div className={styles.cardBody}>
+                        <h3 className={styles.cardTitle}>{item.title}</h3>
+                        <p className={styles.cardDesc}>{item.desc}</p>
+                      </div>
+
+                      {/* Plain-Text Tech Stack (No Chips / Badges) */}
+                      <div className={styles.cardTechRow}>
+                        <span className={styles.cardTechLabel}>
+                          {language === "en" ? "Technologies" : "Tecnologías"}
+                        </span>
+                        <span className={styles.cardTechText}>{proj.stack}</span>
+                      </div>
+
+                      {/* Action Links Bar: Case Study Drawer + Direct Live/Repo */}
+                      <div className={styles.cardActions}>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedCaseStudy(proj.index);
+                          }}
+                          className={styles.cardCaseStudyBtn}
+                          aria-label={
+                            language === "en"
+                              ? `Read case study for ${item.title}`
+                              : `Ver estudio de caso de ${item.title}`
+                          }
+                        >
+                          <span>
+                            {language === "en"
+                              ? "Case Study"
+                              : "Estudio de Caso"}
+                          </span>
+                          <ArrowUpRight size={16} />
+                        </button>
+
+                        <a
+                          href={proj.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.cardSecondaryLink}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          {proj.isLive ? (
+                            <>
+                              <span>
+                                {language === "en" ? "Live Web" : "Web en Vivo"}
+                              </span>
+                              <ArrowUpRight size={14} />
+                            </>
+                          ) : (
+                            <>
+                              <GithubIcon size={14} />
+                              <span>GitHub</span>
+                              <ArrowUpRight size={14} />
+                            </>
+                          )}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               );
             })}
           </div>
         </div>
-
-        {/* Apple Keynote Showcase Stage */}
-        <div className={styles.showcaseStage}>
-          {/* Previous / Next Floating Chevrons */}
-          <button
-            type="button"
-            onClick={handlePrev}
-            className={`${styles.navChevron} ${styles.chevronLeft}`}
-            aria-label="Previous project"
-            title="Previous project (←)"
-          >
-            <ChevronLeft size={22} />
-          </button>
-
-          <button
-            type="button"
-            onClick={handleNext}
-            className={`${styles.navChevron} ${styles.chevronRight}`}
-            aria-label="Next project"
-            title="Next project (→)"
-          >
-            <ChevronRight size={22} />
-          </button>
-
-          {/* Active Product Billboard Card */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeProject.id}
-              className={styles.productBillboard}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {/* Scrapbook Board Tape Corners */}
-              <div className={`${styles.boardTapeLeft} washi-tape`} />
-              <div className={`${styles.boardTapeRight} washi-tape`} />
-
-              {/* Product Headline & Meta Row */}
-              <div className={styles.billboardTop}>
-                <div className={styles.billboardMeta}>
-                  <span className={styles.disciplineBadge}>
-                    {activeProject.discipline[language]}
-                  </span>
-                  <span className={styles.counterBadge}>
-                    0{activeIdx + 1} <span className={styles.counterTotal}>/ 0{ALL_PROJECTS.length}</span>
-                  </span>
-                </div>
-
-                <h3 className={styles.productName}>{activeItem.title}</h3>
-                <p className={styles.productTagline}>{activeItem.desc}</p>
-
-                {/* Developer Handwritten Note */}
-                {PROJECT_NOTES[activeProject.id] && (
-                  <div className={styles.scrapbookNote}>
-                    <div className={styles.scrapbookNotePin} />
-                    {PROJECT_NOTES[activeProject.id][language]}
-                  </div>
-                )}
-              </div>
-
-              {/* Apple Studio Display / Titanium Bezel Frame */}
-              <div className={styles.hardwareDisplayWrap}>
-                <div className={styles.ambientGlow} aria-hidden="true" />
-
-                <div className={styles.hardwareBezel}>
-                  {/* Top Display Bezel Bar with Camera Dot and Clean Domain */}
-                  <div className={styles.bezelHeader}>
-                    <div className={styles.trafficDots}>
-                      <span className={`${styles.dot} ${styles.dotRed}`} />
-                      <span className={`${styles.dot} ${styles.dotYellow}`} />
-                      <span className={`${styles.dot} ${styles.dotGreen}`} />
-                    </div>
-
-                    <div className={styles.bezelDomainPill}>
-                      <span className={styles.domainProtocol}>https://</span>
-                      <span className={styles.domainName}>
-                        {activeProject.id.includes(".") ? activeProject.id : `${activeProject.id}.pe`}
-                      </span>
-                    </div>
-
-                    <div className={styles.proResBadge}>
-                      <span className={styles.proResDot} />
-                      <span className={styles.proResText}>DEMO</span>
-                    </div>
-                  </div>
-
-                  {/* Liquid Retina Screen Surface with Pre-recorded Video or High-Res Preview */}
-                  <div className={styles.screenSurface}>
-                    {activeProject.video ? (
-                      <>
-                        <video
-                          key={activeProject.video}
-                          src={activeProject.video}
-                          poster={activeProject.image}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="metadata"
-                          className={styles.screenVideo}
-                          aria-label={`${activeItem.title} video demo`}
-                        />
-                        <div className={styles.watermarkTag}>
-                          <VolumeX size={13} />
-                          <span>PRE-RECORDED STREAM</span>
-                        </div>
-                      </>
-                    ) : (
-                      <Image
-                        src={activeProject.image}
-                        alt={activeItem.title}
-                        width={1400}
-                        height={880}
-                        priority
-                        className={styles.screenImage}
-                      />
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Apple Keynote Stat Callouts (Giant Numbers & Punchy Insights) */}
-              <div className={styles.statsCalloutSection}>
-                <div className={styles.statsGrid}>
-                  {(activeCaseStudy?.impactMetrics || activeItem.impactList || []).slice(0, 3).map((metric, mIdx) => (
-                    <div key={mIdx} className={styles.statBlock}>
-                      <span className={styles.statGiantNum}>{metric.value}</span>
-                      <span className={styles.statTitle}>{metric.label}</span>
-                      {"detail" in metric && metric.detail && (
-                        <p className={styles.statDetail}>{metric.detail}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Apple Bottom Specs & Action Row */}
-              <div className={styles.billboardFooter}>
-                <div className={styles.techSpecsCol}>
-                  <span className={styles.techSpecsLabel}>
-                    {t.projects.technologiesLabel}
-                  </span>
-                  <span className={styles.techSpecsText}>{activeProject.stack}</span>
-                </div>
-
-                <div className={styles.actionButtonsCol}>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedCaseStudyId(activeProject.id)}
-                    className={styles.applePrimaryBtn}
-                    aria-label={`${t.projects.viewCaseStudy}: ${activeItem.title}`}
-                  >
-                    <span>{t.projects.viewCaseStudy}</span>
-                    <ArrowUpRight size={16} />
-                  </button>
-
-                  <a
-                    href={activeProject.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.appleSecondaryLink}
-                  >
-                    {activeProject.isLive ? (
-                      <>
-                        <span>{t.projects.visitProject}</span>
-                        <ArrowUpRight size={16} />
-                      </>
-                    ) : (
-                      <>
-                        <GithubIcon size={15} />
-                        <span>{t.projects.viewGithub}</span>
-                        <ArrowUpRight size={15} />
-                      </>
-                    )}
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
       </div>
 
-      {/* Case Study Full In-Depth Engineering Modal */}
-      <CaseStudyModal
-        isOpen={!!selectedCaseStudyId}
-        onClose={() => setSelectedCaseStudyId(null)}
-        caseStudy={selectedCaseStudyId ? t.projects.caseStudies[selectedCaseStudyId] : null}
-        labels={{
-          close: t.projects.closeCaseStudy,
-          tag: t.projects.caseStudyTag,
-          impactTitle: t.projects.measurableImpact,
-          architectureTitle: t.projects.architectureHeader,
-          problemTitle: t.projects.problemTitle,
-          solutionTitle: t.projects.solutionTitle,
-          technologiesTitle: t.projects.technologiesTitle,
-          visitLive: t.projects.visitProject,
-          viewGithub: t.projects.viewGithub,
+      {/* Slide-over Case Study Drawer (Option 1) */}
+      <CaseStudyDrawer
+        projectIndex={selectedCaseStudy}
+        onClose={() => setSelectedCaseStudy(null)}
+        onSelectProject={(idx) => {
+          setSelectedCaseStudy(idx);
+          setActiveIdx(idx);
         }}
       />
     </section>

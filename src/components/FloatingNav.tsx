@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight, FileDown } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "../app/page.module.css";
@@ -103,23 +103,6 @@ export default function FloatingNav() {
               </motion.a>
             );
           })}
-
-          {/* Direct Download CV Action Pill */}
-          <motion.a
-            href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
-            download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.navCvBtn}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            aria-label={t.nav.downloadCV}
-            title={t.nav.downloadCV}
-          >
-            <FileDown size={14} />
-            <span>CV</span>
-          </motion.a>
         </motion.nav>
       </header>
 
@@ -202,21 +185,6 @@ export default function FloatingNav() {
                 </div>
 
                 <div className={styles.mobileDrawerFooter}>
-                  <motion.a
-                    href="/documents/CV-Dennys-Gabriel-Marquez-Flores.pdf"
-                    download="CV-Dennys-Gabriel-Marquez-Flores.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.mobileDrawerCv}
-                    onClick={() => setMobileOpen(false)}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.98 }}
-                    aria-label={t.nav.downloadCV}
-                  >
-                    <FileDown size={17} />
-                    <span>{t.nav.downloadCV}</span>
-                  </motion.a>
-
                   <motion.a
                     href="https://wa.me/51922466078"
                     target="_blank"
