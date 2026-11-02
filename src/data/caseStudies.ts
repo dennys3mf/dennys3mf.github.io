@@ -317,7 +317,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
   {
     index: 4,
     slug: "fintech-sunat",
-    shortTitle: "Facturación SUNAT",
+    shortTitle: "Billing Engine",
     title: "Billing Engine — Pasarela de Pagos Culqi & Emisión Fiscal SUNAT",
     role: {
       en: "Fintech & Backend Systems Developer",
@@ -352,20 +352,20 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     ],
     metrics: [
       {
-        label: { en: "SUNAT Approval", es: "Aprobación SUNAT" },
-        value: "100% Válido",
+        label: { en: "Successful Charges", es: "Cobros Exitosos" },
+        value: "99.8%",
       },
       {
-        label: { en: "Invoice Dispatch", es: "Tiempo de Emisión" },
-        value: "< 2.0 Segundos",
+        label: { en: "Invoices Issued", es: "Facturas Emitidas" },
+        value: "2,846",
       },
       {
-        label: { en: "Payment Security", es: "Seguridad Culqi" },
-        value: "Tokenizado",
+        label: { en: "Signing Time", es: "Tiempo de Firma" },
+        value: "682 ms",
       },
       {
-        label: { en: "Tax Schema", es: "Estándar Fiscal" },
-        value: "UBL 2.1 Oficial",
+        label: { en: "SUNAT Rejections", es: "Rechazos SUNAT" },
+        value: "0.0%",
       },
     ],
     challenge: {

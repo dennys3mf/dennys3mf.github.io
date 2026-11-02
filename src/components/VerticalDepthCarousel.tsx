@@ -95,8 +95,8 @@ const ALL_PROJECTS: ProjectItem[] = [
     href: "https://github.com/dennys3mf",
     isLive: false,
     shortName: {
-      en: "Facturación SUNAT",
-      es: "Facturación SUNAT",
+      en: "Billing Engine",
+      es: "Billing Engine",
     },
     discipline: {
       en: "Fintech & Electronic Billing",
