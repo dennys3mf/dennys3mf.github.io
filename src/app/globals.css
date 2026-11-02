@@ -1,75 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  /* Official Brand Palette (HEX codes from identity sheet) */
-  --brand-black: #0F1115;
-  --brand-blue: #4F6BFF;
-  --brand-periwinkle: #8A7BFF;
-  --brand-light: #F7F8FB;
+  /* Exact Editorial Tech Color Palette (Master Prompt Section 5) */
+  --background: #F7F6F2;
+  --surface: #FFFFFF;
+  --foreground: #182128;
 
-  /* Accent & Semantic System */
-  --accent-blue: #4F6BFF;
-  --accent-azure: #4F6BFF;
-  --accent-cyan: #8A7BFF;
-  --accent-mint: #4F6BFF;
-  --accent-ice: #F7F8FB;
-  --accent-pink: #8A7BFF;
-  --accent-orange: #4F6BFF;
-  --accent-green: #4F6BFF;
-  --accent-yellow: #8A7BFF;
-  --accent-lilac: #8A7BFF;
+  --primary: #087F72;
+  --primary-hover: #06695F;
+  --primary-foreground: #FFFFFF;
 
-  /* Typography (Self-hosted & zero-CLS optimized via next/font/google) */
-  --font-heading: var(--font-heading-var), 'Plus Jakarta Sans', sans-serif;
-  --font-body: var(--font-heading-var), 'Plus Jakarta Sans', sans-serif;
-  --font-accent: var(--font-accent-var), 'Architects Daughter', cursive, sans-serif;
-  --font-mono: var(--font-mono-var), 'JetBrains Mono', monospace;
-  --font-tech: var(--font-tech-var), 'Orbitron', monospace;
+  --accent: #E97C59;
+  --accent-hover: #D86A47;
+  --accent-foreground: #FFFFFF;
 
-  /* Global Radius & Grid */
+  --muted: #EDF0EC;
+  --muted-foreground: #52636B;
+
+  --border: #DFE4E0;
+  --border-strong: #C8D1CA;
+  --focus-ring: #087F72;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-pill: 9999px;
-  --radius-xl: 32px;
-  --radius-l: 24px;
-  --radius-m: 16px;
-  --radius-s: 10px;
-}
 
-/* ====================================================================
-   TEMA CLARO (Default / Modern Clean Brand Edition - 01. WEB / PORTADA)
-   ==================================================================== */
-:root,
-[data-theme='light'] {
-  --bg-page: #F8F9FC;
-  --bg-card: #FFFFFF;
-  --bg-card-subtle: #EEF2F8;
-  --bg-input: #FFFFFF;
+  /* Harmonized Theme Variables */
+  --bg-page: var(--background);
+  --bg-card: var(--surface);
+  --bg-card-subtle: var(--muted);
+  --bg-input: var(--surface);
 
-  --text-main: #11141A;
-  --text-muted: #464D5D;
-  --text-subtle: #636B7C;
+  --text-main: var(--foreground);
+  --text-muted: var(--muted-foreground);
+  --text-subtle: #6D7E87;
 
-  --border-color: rgba(17, 20, 26, 0.08);
-  --border-strong: rgba(17, 20, 26, 0.16);
-  --border-hover: rgba(79, 107, 255, 0.45);
+  --border-color: var(--border);
+  --border-hover: var(--primary);
   --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
-  --nav-bg: #FFFFFF;
-  --nav-border: rgba(17, 20, 26, 0.1);
-  --nav-active-bg: #11141A;
+  --brand-black: #182128;
+  --brand-blue: var(--primary);
+  --brand-periwinkle: #06695F;
+  --brand-light: var(--muted);
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-border: var(--border);
+  --nav-active-bg: var(--primary);
   --nav-active-text: #FFFFFF;
 
-  --shadow-card: 0 4px 16px rgba(17, 20, 26, 0.04), 0 16px 36px -4px rgba(79, 107, 255, 0.06);
-  --shadow-card-hover: 0 8px 24px rgba(17, 20, 26, 0.06), 0 24px 48px -6px rgba(79, 107, 255, 0.14);
-  --shadow-floating: 0 20px 48px -8px rgba(17, 20, 26, 0.14), 0 0 0 1px rgba(17, 20, 26, 0.06);
+  --shadow-sm: 0 1px 3px rgba(24, 33, 40, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(24, 33, 40, 0.05), 0 0 0 1px var(--border);
+  --shadow-card-hover: 0 14px 34px -4px rgba(24, 33, 40, 0.09), 0 0 0 1px rgba(8, 127, 114, 0.35);
+  --shadow-floating: 0 16px 40px -8px rgba(24, 33, 40, 0.12), 0 0 0 1px var(--border);
 
-  --btn-primary-bg: #11141A;
+  --btn-primary-bg: var(--primary);
   --btn-primary-text: #FFFFFF;
-  --btn-secondary-bg: #FFFFFF;
-  --btn-secondary-text: #11141A;
+  --btn-secondary-bg: var(--surface);
+  --btn-secondary-text: var(--foreground);
 
-  --theme-btn-bg: rgba(17, 20, 26, 0.05);
-  --grid-line: rgba(79, 107, 255, 0.08);
-  --paper-grain-opacity: 0.015;
+  /* Typography */
+  --font-heading: var(--font-heading-var), 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: var(--font-body-var), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-mono-var), 'JetBrains Mono', monospace;
+  --font-tech: var(--font-heading-var), 'Manrope', sans-serif;
+  --font-accent: var(--font-heading-var), 'Manrope', sans-serif;
+}
+
+/* Skip to content accessibility link */
+.skipToContent {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  z-index: 99999;
+  text-decoration: none;
+  box-shadow: var(--shadow-floating);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skipToContent:focus {
+  top: 1rem;
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* ====================================================================
@@ -124,26 +144,26 @@ body {
   position: relative;
 }
 
-/* Ethereal Atmospheric Ambient Lighting Background */
+/* Editorial Ambient Lighting Background */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 85% 55% at 50% -8%, rgba(79, 107, 255, 0.08) 0%, transparent 68%),
-    radial-gradient(circle 550px at 88% 22%, rgba(138, 123, 255, 0.07) 0%, transparent 65%),
-    radial-gradient(circle 480px at 12% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 65%);
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(8, 127, 114, 0.05) 0%, transparent 60%),
+    radial-gradient(circle 600px at 90% 20%, rgba(233, 124, 89, 0.04) 0%, transparent 60%),
+    radial-gradient(circle 500px at 10% 70%, rgba(8, 127, 114, 0.03) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 ::selection {
-  background: var(--brand-blue);
-  color: #FFFFFF;
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
 :focus-visible {
-  outline: 2px solid var(--brand-blue);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 

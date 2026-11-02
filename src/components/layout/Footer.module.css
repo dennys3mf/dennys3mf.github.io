@@ -1,0 +1,139 @@
+.footerWrapper {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  margin-top: 5rem;
+  padding: 4.5rem 1.5rem 2.5rem;
+}
+
+.footerContainer {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.footerTopGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 440px;
+}
+
+.brandLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.brandBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.brandDot {
+  color: var(--accent);
+}
+
+.brandTagline {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.brandLocation {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.colTitle {
+  font-family: var(--font-heading);
+  font-size: 0.825rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.footerLink {
+  color: var(--muted-foreground);
+  font-size: 0.925rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+}
+
+.footerLink:hover {
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
+.footerBottom {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.bottomActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.backToTopBtn {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.backToTopBtn:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 840px) {
+  .footerTopGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

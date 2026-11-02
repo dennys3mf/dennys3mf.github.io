@@ -1,0 +1,200 @@
+.aboutPageWrapper {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 6rem;
+}
+
+.headerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.2vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--foreground);
+}
+
+.leadText {
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.photoFrame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 4rem;
+}
+
+.workstationImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.paragraph {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted-foreground);
+}
+
+/* Philosophy Card */
+.philosophyCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophyCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  bottom: 0;
+  background: var(--primary);
+}
+
+.philosophyQuote {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.3;
+}
+
+/* Principles Grid */
+.principlesSection {
+  margin-bottom: 4rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.principleCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.principleTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.principleDesc {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+/* Bottom CTA */
+.ctaBox {
+  background: var(--muted);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.ctaSub {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .principlesGrid {
+    grid-template-columns: 1fr;
+  }
+}

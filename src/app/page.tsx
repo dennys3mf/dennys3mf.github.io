@@ -1,652 +1,367 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import styles from "./page.module.css";
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
-import ScrollReveal from "../components/ScrollReveal";
-import LiveClock from "../components/LiveClock";
-import RotatingBadge from "../components/RotatingBadge";
-import FloatingNav from "../components/FloatingNav";
-import ContactBillboard from "../components/ContactBillboard";
-import LanguageToggle from "../components/LanguageToggle";
-import ThreeHeroSphere from "../components/ThreeHeroSphere";
-import GsapScrollOrchestrator from "../components/GsapScrollOrchestrator";
-import SmoothScroller from "../components/SmoothScroller";
-import VerticalDepthCarousel from "../components/VerticalDepthCarousel";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
+import HeroSystemSvg from "../components/home/HeroSystemSvg";
+import { PROJECTS } from "../data/projects";
 import { useLanguage } from "../context/LanguageContext";
-import { GithubIcon } from "../components/Icons";
-import { scrollToSectionWithoutHash } from "../utils/scrollWithoutHash";
-import {
-  ArrowUpRight,
-  Mail,
-  Copy,
-  Check,
-  Search,
-  Terminal,
-  Rocket,
-  Brain,
-  Workflow,
-  Code2,
-  Layers,
-  Cpu,
-  Coins,
-} from "lucide-react";
+import styles from "./page.module.css";
 
 export default function Home() {
   const { t, language } = useLanguage();
-  const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText("dennys.marquez.dev@gmail.com");
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2200);
-    } catch {
-      // fallback
-    }
-  };
-
-  // Strip '#' from address bar immediately while preserving smooth section scrolling
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const cleanHash = () => {
-      if (window.location.hash) {
-        try {
-          history.replaceState(null, "", window.location.pathname + window.location.search);
-        } catch {
-          // ignore
-        }
-      }
-    };
-
-    if (window.location.hash) {
-      const targetId = window.location.hash.replace("#", "");
-      setTimeout(() => {
-        scrollToSectionWithoutHash(null, targetId);
-      }, 150);
-    }
-
-    window.addEventListener("hashchange", cleanHash);
-    return () => window.removeEventListener("hashchange", cleanHash);
-  }, []);
+  const featuredProjects = PROJECTS.filter((p) => p.featured);
 
   return (
-    <main className={styles.main}>
-      {/* Lenis Smooth Inertia Momentum (Video-like Scroll) */}
-      <SmoothScroller />
+    <div className={styles.main}>
+      <Header />
 
-      {/* GSAP & ScrollTrigger Animation Orchestrator */}
-      <GsapScrollOrchestrator />
+      <main id="main-content">
+        {/* ====================================================================
+            SECTION 02 — HERO
+           ==================================================================== */}
+        <section className={styles.heroSection}>
+          <div className={styles.container}>
+            <div className={styles.heroGrid}>
+              {/* Copy Side */}
+              <div className={styles.heroContent}>
+                <div className={styles.eyebrow}>
+                  <span className={styles.eyebrowDot} />
+                  <span>{t.hero.eyebrow}</span>
+                </div>
 
-      {/* ====================================================================
-          FLOATING BOTTOM PILL NAVBAR (With Language Switcher & Active Section Pill)
-         ==================================================================== */}
-      <FloatingNav />
+                <h1 className={styles.heroHeadline}>
+                  {t.hero.headline}
+                </h1>
 
-      {/* ====================================================================
-          HERO SECTION - EXACT BRAND SPECIFICATION
-         ==================================================================== */}
-      <section id="home" className={styles.hero}>
-        {/* Decorative Fluid Vector Curves & Interactive 3D Three.js Sphere */}
-        <div className={styles.heroBackgroundDecor} aria-hidden="true" data-scrub="hero-bg">
-          <div className={styles.heroOrb}>
-            <ThreeHeroSphere />
-          </div>
-          <div className={styles.heroCurvesWrap}>
-            <svg className={styles.heroCurvesSvg} viewBox="0 0 1440 500" fill="none" preserveAspectRatio="none">
-              <path
-                d="M-100 450 C 320 360, 680 500, 1050 390 C 1240 330, 1380 410, 1540 440"
-                stroke="url(#brandCurveGrad1)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M-60 490 C 380 430, 780 560, 1180 370 C 1320 320, 1450 390, 1540 420"
-                stroke="url(#brandCurveGrad2)"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient id="brandCurveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#4F6BFF" stopOpacity="0.45" />
-                  <stop offset="60%" stopColor="#8A7BFF" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#4F6BFF" stopOpacity="0.05" />
-                </linearGradient>
-                <linearGradient id="brandCurveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#8A7BFF" stopOpacity="0.4" />
-                  <stop offset="50%" stopColor="#4F6BFF" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#8A7BFF" stopOpacity="0.05" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
-
-        {/* Top Meta Bar */}
-        <div className={styles.heroMeta}>
-          <div className={styles.heroMetaGroup}>
-            <div className={styles.heroLocalTime}>
-              <LiveClock />
-            </div>
-            <div className={styles.heroTimezone}>
-              {t.hero.location}
-              <svg
-                width="18"
-                height="12"
-                viewBox="0 0 18 12"
-                className={styles.peruFlag}
-                aria-label="Bandera de Perú"
-                role="img"
-                style={{ marginLeft: "0.5rem", verticalAlign: "-1px", display: "inline-block" }}
-              >
-                <rect width="6" height="12" fill="#D91023" />
-                <rect x="6" width="6" height="12" fill="#FFFFFF" />
-                <rect x="12" width="6" height="12" fill="#D91023" />
-              </svg>
-            </div>
-          </div>
-
-          <div className={styles.heroMetaActions}>
-            <LanguageToggle variant="segmented" />
-            <div className="inline-flex items-center gap-1.5">
-              <a
-                href="mailto:dennys.marquez.dev@gmail.com"
-                className={styles.heroContactLink}
-                aria-label={t.hero.emailAria}
-              >
-                <Mail size={16} />
-                <span>dennys.marquez.dev@gmail.com</span>
-              </a>
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-600 border border-slate-200/80 transition-all duration-200 shadow-sm cursor-pointer"
-                title={t.projects.copyEmail}
-                aria-label={t.projects.copyEmail}
-              >
-                {copiedEmail ? <Check size={14} className="text-emerald-600" /> : <Copy size={13} />}
-                {copiedEmail && (
-                  <span className="absolute -bottom-8 right-0 bg-slate-900 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-lg whitespace-nowrap z-50 animate-in fade-in">
-                    {t.projects.copiedEmail}
-                  </span>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Center Brand Statement */}
-        <div className={styles.heroTopWrap}>
-          <div className={styles.heroCenterBrand}>
-            <h1 className={styles.textHero}>
-              <span className={styles.logoDennys}>dennys</span>{" "}
-              <span className={styles.logoMarquez}>marquez</span>
-            </h1>
-            <div className={styles.heroSubtrack}>{t.hero.title}</div>
-            <p className={styles.heroImpactMotto}>{t.hero.motto}</p>
-          </div>
-        </div>
-
-        {/* Bottom Wrap: Spacing for floating navbar */}
-        <div className={styles.heroBottomWrap} />
-      </section>
-
-      {/* ====================================================================
-          ABOUT SECTION (Moddo Blue Canvas + Photo + Accounting)
-         ==================================================================== */}
-      <section id="about" className={styles.aboutModdoSection}>
-        <div className={styles.aboutModdoContainer}>
-          <div className={styles.aboutModdoHeader}>
-            <div className={styles.aboutModdoLeft}>
-              <span className={styles.aboutSimpleEyebrow}>{t.about.eyebrow}</span>
-              <h2 className={styles.aboutModdoHeading} data-gsap="heading">
-                {t.about.heading}
-              </h2>
-            </div>
-            <div>
-              <p className={styles.aboutModdoParagraph}>
-                {t.about.lead1}
-              </p>
-              <p className={styles.aboutModdoParagraph}>
-                {t.about.lead2}
-              </p>
-              <p className={styles.aboutModdoParagraph}>
-                {t.about.lead3}
-              </p>
-            </div>
-          </div>
-
-          {/* Photo stage with clean workstation image */}
-          <div className={styles.aboutStageWrap}>
-            <div className={styles.aboutMainImgCard}>
-              <Image
-                src="/images/personal/dennys-workstation.webp"
-                alt="Dennys Gabriel Marquez Flores — Full Stack Developer | Python, React & AI Integration"
-                width={1024}
-                height={682}
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          {/* ====================================================================
-              FEATURED EDITORIAL CARD: FULL STACK · MACHINE LEARNING · AI INTEGRATION
-             ==================================================================== */}
-          <ScrollReveal delay={150}>
-            <div className={styles.accountingCard}>
-              <div className={styles.accountingHeader}>
-                <h3 className={styles.accountingTitle}>
-                  {t.about.featuredHeading}
-                </h3>
-                <p className={styles.accountingLead}>
-                  {t.about.pRecommenders}
+                <p className={styles.heroDescription}>
+                  {t.hero.description}
                 </p>
-                <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
-                  {t.about.pAiAgents}
-                </p>
-                <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
-                  {t.about.pAhorratiempo}
-                </p>
-                <p className={styles.accountingLead} style={{ marginTop: "1rem" }}>
-                  {t.about.pMobile}
-                </p>
+
+                {/* CTAs */}
+                <div className={styles.heroCtaRow}>
+                  <Link href="/work" className={styles.primaryBtn}>
+                    <span>{t.hero.ctaPrimary}</span>
+                    <ArrowUpRight size={16} />
+                  </Link>
+
+                  <Link href="/contact?intent=project" className={styles.secondaryBtn}>
+                    <span>{t.hero.ctaSecondary}</span>
+                  </Link>
+                </div>
+
+                {/* Recruiter CTA (Discreet) */}
+                <Link href="/experience" className={styles.recruiterCta}>
+                  <span>{t.hero.ctaRecruiter}</span>
+                  <ArrowUpRight size={14} />
+                </Link>
               </div>
 
-              {/* 4 Core Pillars Grid */}
-              <div className={styles.accountingGrid} data-gsap="card-grid">
-                {t.about.pillars.map((pillar, idx) => (
-                  <div key={idx} className={styles.accountingItem} data-gsap="feature-card">
-                    <div className={styles.accountingItemIcon}>
-                      {idx === 0 && <Code2 size={24} />}
-                      {idx === 1 && <Brain size={24} />}
-                      {idx === 2 && <Workflow size={24} />}
-                      {idx === 3 && <Layers size={24} />}
-                    </div>
-                    <h4 className={styles.accountingItemTitle}>{pillar.title}</h4>
-                    <p className={styles.accountingItemDesc}>{pillar.desc}</p>
-                  </div>
-                ))}
+              {/* Bespoke System SVG Visual Side */}
+              <div className={styles.heroVisual}>
+                <HeroSystemSvg />
               </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ====================================================================
-          SERVICES SECTION (Engineering Console & Direct Service Cards)
-         ==================================================================== */}
-      <section id="servicios" className={styles.servicesModdoSection}>
-        <div className={styles.servicesModdoContainer}>
-          <div className={styles.servicesModdoHeader}>
-            <h2 className={styles.servicesModdoTitle} data-gsap="heading">
-              {t.services.heading}
-            </h2>
-            <p className={styles.servicesModdoEyebrow}>{t.services.eyebrow}</p>
-          </div>
-
-          <div className={styles.servicesModdoStage}>
-            {/* Left: Architecture Core Console */}
-            <div className={styles.serviceConsoleCard}>
-              <div className={styles.consoleHeader}>
-                <div className={styles.consoleDots}>
-                  <span className={styles.consoleDotRed} />
-                  <span className={styles.consoleDotYellow} />
-                  <span className={styles.consoleDotGreen} />
-                </div>
-                <span className={styles.consoleTitle}>architecture-core.ts</span>
-              </div>
-              <div className={styles.consoleBody}>
-                <div className={styles.consoleLine}>
-                  <span className={styles.consoleKeyword}>export const</span> <span className={styles.consoleVar}>engineerCore</span> = &#123;
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>lead:</span> <span className={styles.consoleString}>&quot;Dennys Marquez&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>degree:</span> <span className={styles.consoleString}>&quot;{t.services.consoleDegree}&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>role:</span> <span className={styles.consoleString}>&quot;{t.services.consoleRole}&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>stack:</span> [
-                </div>
-                <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;React, TypeScript, Python, Django&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;PySpark &amp; ML Recommenders&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;AI Chatbots, LLMs &amp; Agents&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent2}>
-                  <span className={styles.consoleString}>&quot;Firebase &amp; Cloudflare Workers&quot;</span>
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  ],
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>founder:</span> <span className={styles.consoleString}>&quot;ahorratiempo.pe&quot;</span>,
-                </div>
-                <div className={styles.consoleLineIndent}>
-                  <span className={styles.consoleKey}>businessImpact:</span> <span className={styles.consoleBoolean}>true</span>
-                </div>
-                <div className={styles.consoleLine}>&#125;;</div>
-              </div>
-            </div>
-
-            {/* Right: Stack of 5 Moddo Pill Service Buttons */}
-            <div className={styles.servicesPillStack}>
-              {t.services.items.map((item, idx) => {
-                const colorClasses = [
-                  styles.pillPink,
-                  styles.pillBlue,
-                  styles.pillOrange,
-                  styles.pillGreen,
-                  styles.pillRed,
-                ];
-                return (
-                  <a
-                    key={idx}
-                    href="#contacto"
-                    onClick={(e) => scrollToSectionWithoutHash(e, "contacto")}
-                    className={`${styles.servicePillBtn} ${colorClasses[idx % colorClasses.length]}`}
-                  >
-                    <span className={styles.servicePillIcon}>↗</span>
-                    <span>{item}</span>
-                  </a>
-                );
-              })}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ====================================================================
-          CASES / WORK SECTION: 3D VERTICAL DEPTH CAROUSEL (From Depth into Focus)
-         ==================================================================== */}
-      <VerticalDepthCarousel />
-
-      {/* ====================================================================
-          PROCESS SECTION (Engineering Phases)
-         ==================================================================== */}
-      <section id="proceso" className={styles.processModdoSection}>
-        <div className={styles.sectionContainer} style={{ padding: "0 1rem", position: "relative", zIndex: 2 }}>
-          <ScrollReveal>
+        {/* ====================================================================
+            SECTION 03 — SELECTED WORK
+           ==================================================================== */}
+        <section className={styles.workSection}>
+          <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>
-                {language === "en" ? "From Architecture to Production with Measurable Impact" : "De la Arquitectura a Producción con Impacto Medible"}
-              </h2>
-              <p className={styles.sectionSubtitle}>
-                {language === "en"
-                  ? "A rigorous 3-stage delivery pipeline ensuring rock-solid stability, zero shortcuts, and fast time-to-market."
-                  : "Un proceso de 3 fases estructurado para construir software de alto rendimiento, código tipado y despliegues estables sin magia negra."}
-              </p>
+              <div className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} />
+                <span>{t.selectedWork.eyebrow}</span>
+              </div>
+              <h2 className={styles.sectionTitle}>{t.selectedWork.heading}</h2>
+              <p className={styles.sectionDesc}>{t.selectedWork.description}</p>
             </div>
-          </ScrollReveal>
 
-          <div className={styles.processGrid}>
-            {/* Paso 01: Blue Card */}
-            <ScrollReveal delay={100}>
-              <div className={`${styles.processCardEnhanced} ${styles.processCardBlue}`}>
-                <div className={styles.processCardTop}>
-                  <span className={styles.processStepNum}>01</span>
+            <div className={styles.projectsList}>
+              {featuredProjects.map((project) => (
+                <article key={project.slug} className={styles.projectCard}>
+                  {/* Media Frame (Clean object-fit: contain) */}
+                  <div className={styles.projectVisual}>
+                    {project.video ? (
+                      <video
+                        src={project.video}
+                        poster={project.coverImage}
+                        loop
+                        muted
+                        autoPlay
+                        playsInline
+                        className={styles.projectMedia}
+                        aria-label={`${project.title} video preview`}
+                      />
+                    ) : (
+                      <Image
+                        src={project.coverImage}
+                        alt={project.title}
+                        width={960}
+                        height={540}
+                        className={styles.projectMedia}
+                      />
+                    )}
+                  </div>
+
+                  {/* Editorial Details */}
+                  <div className={styles.projectDetails}>
+                    <div className={styles.projectMetaTop}>
+                      <span className={styles.projectCategory}>
+                        {project.categoryLabel[language]}
+                      </span>
+                      <span className={styles.projectStatus}>
+                        {project.status === "live" ? "Production" : "In Progress"}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className={styles.projectTitle}>
+                        {project.shortTitle}
+                      </h3>
+                      <p className={styles.projectSummary} style={{ marginTop: "0.5rem" }}>
+                        {project.summary[language]}
+                      </p>
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className={styles.projectTechList}>
+                      {project.technologies.slice(0, 5).map((tech) => (
+                        <span key={tech} className={styles.techTag}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className={styles.projectActions}>
+                      <Link
+                        href={`/work/${project.slug}`}
+                        className={styles.caseStudyBtn}
+                      >
+                        <span>{t.selectedWork.readCaseStudy}</span>
+                        <ArrowUpRight size={15} />
+                      </Link>
+
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.externalLink}
+                        >
+                          <span>{t.selectedWork.liveDemo}</span>
+                          <ExternalLink size={13} />
+                        </a>
+                      )}
+
+                      {project.repositoryUrl && (
+                        <a
+                          href={project.repositoryUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.externalLink}
+                        >
+                          <span>{t.selectedWork.sourceCode}</span>
+                          <ExternalLink size={13} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className={styles.viewAllRow}>
+              <Link href="/work" className={styles.secondaryBtn}>
+                <span>{t.selectedWork.viewAll} ({PROJECTS.length})</span>
+                <ArrowUpRight size={15} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ====================================================================
+            SECTION 04 — WHAT I BRING (More than code)
+           ==================================================================== */}
+        <section className={styles.pillarsSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} />
+                <span>{t.whatIBring.eyebrow}</span>
+              </div>
+              <h2 className={styles.sectionTitle}>{t.whatIBring.heading}</h2>
+              <p className={styles.sectionDesc}>{t.whatIBring.subheading}</p>
+            </div>
+
+            <div className={styles.pillarsGrid}>
+              {/* Pillar 1 */}
+              <div className={styles.pillarCard}>
+                <span className={styles.pillarNumber}>01</span>
+                <h3 className={styles.pillarTitle}>{t.whatIBring.p1Title}</h3>
+                <p className={styles.pillarDesc}>{t.whatIBring.p1Desc}</p>
+              </div>
+
+              {/* Pillar 2 */}
+              <div className={styles.pillarCard}>
+                <span className={styles.pillarNumber}>02</span>
+                <h3 className={styles.pillarTitle}>{t.whatIBring.p2Title}</h3>
+                <p className={styles.pillarDesc}>{t.whatIBring.p2Desc}</p>
+              </div>
+
+              {/* Pillar 3 */}
+              <div className={styles.pillarCard}>
+                <span className={styles.pillarNumber}>03</span>
+                <h3 className={styles.pillarTitle}>{t.whatIBring.p3Title}</h3>
+                <p className={styles.pillarDesc}>{t.whatIBring.p3Desc}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ====================================================================
+            SECTION 05 — HOW I WORK (From idea to implementation)
+           ==================================================================== */}
+        <section className={styles.processSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <div className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} />
+                <span>{t.howIWork.eyebrow}</span>
+              </div>
+              <h2 className={styles.sectionTitle}>{t.howIWork.heading}</h2>
+              <p className={styles.sectionDesc}>{t.howIWork.subheading}</p>
+            </div>
+
+            <div className={styles.stepsGrid}>
+              <div className={styles.stepCard}>
+                <span className={styles.stepNumber}>01</span>
+                <h3 className={styles.stepTitle}>{t.howIWork.step1Title}</h3>
+                <p className={styles.stepDesc}>{t.howIWork.step1Desc}</p>
+              </div>
+
+              <div className={styles.stepCard}>
+                <span className={styles.stepNumber}>02</span>
+                <h3 className={styles.stepTitle}>{t.howIWork.step2Title}</h3>
+                <p className={styles.stepDesc}>{t.howIWork.step2Desc}</p>
+              </div>
+
+              <div className={styles.stepCard}>
+                <span className={styles.stepNumber}>03</span>
+                <h3 className={styles.stepTitle}>{t.howIWork.step3Title}</h3>
+                <p className={styles.stepDesc}>{t.howIWork.step3Desc}</p>
+              </div>
+
+              <div className={styles.stepCard}>
+                <span className={styles.stepNumber}>04</span>
+                <h3 className={styles.stepTitle}>{t.howIWork.step4Title}</h3>
+                <p className={styles.stepDesc}>{t.howIWork.step4Desc}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ====================================================================
+            SECTION 06 — ABOUT PREVIEW
+           ==================================================================== */}
+        <section className={styles.aboutPreviewSection}>
+          <div className={styles.container}>
+            <div className={styles.aboutPreviewGrid}>
+              <div className={styles.aboutPreviewText}>
+                <div className={styles.eyebrow}>
+                  <span className={styles.eyebrowDot} />
+                  <span>{t.aboutPreview.eyebrow}</span>
                 </div>
-                <div className={styles.processIconBoxBlue}>
-                  <Search size={30} />
+                <h2 className={styles.sectionTitle}>{t.aboutPreview.heading}</h2>
+                <p className={styles.aboutPreviewParagraph}>{t.aboutPreview.text1}</p>
+                <p className={styles.aboutPreviewParagraph}>{t.aboutPreview.text2}</p>
+                <div>
+                  <Link href="/about" className={styles.secondaryBtn}>
+                    <span>{t.aboutPreview.link}</span>
+                    <ArrowUpRight size={15} />
+                  </Link>
+                </div>
+              </div>
+
+              <div className={styles.aboutPreviewCard}>
+                <Image
+                  src="/images/personal/dennys-workstation.webp"
+                  alt="Gabriel Márquez workspace"
+                  width={800}
+                  height={533}
+                  className={styles.aboutPreviewImg}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ====================================================================
+            SECTION 07 — DUAL CONVERSION
+           ==================================================================== */}
+        <section className={styles.dualSection}>
+          <div className={styles.container}>
+            <div className={styles.dualGrid}>
+              {/* For teams */}
+              <div className={styles.dualCard}>
+                <div className={styles.dualTop}>
+                  <span className={styles.dualBadge}>CAREER &amp; HIRING</span>
+                  <h3 className={styles.dualHeading}>{t.dualConversion.teamsTitle}</h3>
+                  <p className={styles.dualText}>{t.dualConversion.teamsDesc}</p>
                 </div>
                 <div>
-                  <h3 className={styles.processTitle}>
-                    {language === "en" ? "Listen & Model" : "Escuchar y Modelar"}
-                  </h3>
-                  <p className={styles.processDesc}>
-                    {language === "en"
-                      ? "Deep dive into real business needs, data structures, and user constraints before writing code."
-                      : "Nos sentamos a conversar sobre el problema real y las restricciones de tu negocio. No toco una línea de código hasta tener clara la arquitectura y la meta."}
-                  </p>
+                  <Link href="/experience" className={styles.primaryBtn}>
+                    <span>{t.dualConversion.teamsCta}</span>
+                    <ArrowUpRight size={16} />
+                  </Link>
                 </div>
               </div>
-            </ScrollReveal>
 
-            {/* Paso 02: Purple Card */}
-            <ScrollReveal delay={200}>
-              <div className={`${styles.processCardEnhanced} ${styles.processCardPurple}`}>
-                <div className={styles.processCardTop}>
-                  <span className={styles.processStepNum}>02</span>
-                </div>
-                <div className={styles.processIconBoxPurple}>
-                  <Terminal size={30} />
+              {/* For businesses */}
+              <div className={styles.dualCard}>
+                <div className={styles.dualTop}>
+                  <span className={styles.dualBadge} style={{ color: "var(--accent)" }}>
+                    FREELANCE &amp; CONSULTING
+                  </span>
+                  <h3 className={styles.dualHeading}>{t.dualConversion.businessTitle}</h3>
+                  <p className={styles.dualText}>{t.dualConversion.businessDesc}</p>
                 </div>
                 <div>
-                  <h3 className={styles.processTitle}>
-                    {language === "en" ? "Build & Validate" : "Construir & Validar"}
-                  </h3>
-                  <p className={styles.processDesc}>
-                    {language === "en"
-                      ? "Iterative development with clean, typed code in TypeScript and Python, delivering testable software from week one."
-                      : "Desarrollo con entregas continuas para que puedas probar el sistema desde la primera semana. Código fuertemente tipado en TypeScript y Python, sin atajos raros."}
-                  </p>
+                  <Link href="/contact?intent=project" className={styles.secondaryBtn}>
+                    <span>{t.dualConversion.businessCta}</span>
+                    <ArrowUpRight size={16} />
+                  </Link>
                 </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Paso 03: Emerald Card */}
-            <ScrollReveal delay={300}>
-              <div className={`${styles.processCardEnhanced} ${styles.processCardEmerald}`}>
-                <div className={styles.processCardTop}>
-                  <span className={styles.processStepNum}>03</span>
-                </div>
-                <div className={styles.processIconBoxEmerald}>
-                  <Rocket size={30} />
-                </div>
-                <div>
-                  <h3 className={styles.processTitle}>
-                    {language === "en" ? "Deploy & Measure" : "Poner en Marcha & Medir"}
-                  </h3>
-                  <p className={styles.processDesc}>
-                    {language === "en"
-                      ? "Production cloud deployments with real-time observability, documentation, and continuous handover."
-                      : "Despliegue en servidores cloud seguros con monitoreo en tiempo real. Te entrego documentación y te acompaño para que tu equipo opere con total tranquilidad."}
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================================
-          WHY US SECTION (Professional Engineering Pillars)
-         ==================================================================== */}
-      <section id="whyus" className={styles.whyUsSection}>
-        <div className={styles.whyUsContainer}>
-          <div className={styles.whyUsHeader}>
-            <h2 className={styles.whyUsTitle}>{t.why.heading}</h2>
-            <p className={styles.whyUsEyebrow}>{t.why.eyebrow}</p>
-          </div>
-
-          <div className={styles.whyUsGridModern}>
-            {/* Pillar 1 */}
-            <ScrollReveal delay={100}>
-              <div className={`${styles.whyUsCardModern} ${styles.whyUsModernIndigo}`}>
-                <div className={styles.whyUsModernTop}>
-                  <div className={styles.whyUsModernIcon}>
-                    <Layers size={28} />
-                  </div>
-                  <span className={styles.whyUsModernBadge}>TECSUP</span>
-                </div>
-                <h3 className={styles.whyUsModernTitle}>{t.why.pillars[0].title}</h3>
-                <p className={styles.whyUsModernDesc}>{t.why.pillars[0].desc}</p>
-              </div>
-            </ScrollReveal>
-
-            {/* Pillar 2 */}
-            <ScrollReveal delay={200}>
-              <div className={`${styles.whyUsCardModern} ${styles.whyUsModernCrimson}`}>
-                <div className={styles.whyUsModernTop}>
-                  <div className={styles.whyUsModernIcon}>
-                    <Cpu size={28} />
-                  </div>
-                  <span className={styles.whyUsModernBadge}>AI / ML</span>
-                </div>
-                <h3 className={styles.whyUsModernTitle}>{t.why.pillars[1].title}</h3>
-                <p className={styles.whyUsModernDesc}>{t.why.pillars[1].desc}</p>
-              </div>
-            </ScrollReveal>
-
-            {/* Pillar 3 */}
-            <ScrollReveal delay={300}>
-              <div className={`${styles.whyUsCardModern} ${styles.whyUsModernEmerald}`}>
-                <div className={styles.whyUsModernTop}>
-                  <div className={styles.whyUsModernIcon}>
-                    <Coins size={28} />
-                  </div>
-                  <span className={styles.whyUsModernBadge}>ROI &amp; CLOUD</span>
-                </div>
-                <h3 className={styles.whyUsModernTitle}>{t.why.pillars[2].title}</h3>
-                <p className={styles.whyUsModernDesc}>{t.why.pillars[2].desc}</p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================================
-          CTA SECTION (Moddo Charcoal Canvas, Hero Contact Showcase & Action Bar)
-         ==================================================================== */}
-      <section id="contacto" className={styles.ctaModdoSection}>
-        <div className={styles.ctaModdoContainer}>
-          <ScrollReveal>
-            <div className={styles.ctaStageWrap}>
-              <ContactBillboard />
-
-              {/* Rotating Badge Floating on the corner */}
-              <div className={styles.ctaBadgeWrap}>
-                <RotatingBadge size={145} text={t.contact.badgeText} />
               </div>
             </div>
-          </ScrollReveal>
+          </div>
+        </section>
 
-          {/* Interactive Action Bar (WhatsApp, Email, GitHub, LinkedIn) */}
-          <div className={styles.ctaActionsBar}>
-            <a
-              href="https://wa.me/51922466078"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaPillBtn}
-            >
-              <span>💬</span>
-              <span>{language === "en" ? "Chat on WhatsApp" : "Conversar por WhatsApp"}</span>
-            </a>
-
-            <div className={styles.ctaAltLinks}>
-              <a
-                href="mailto:dennys.marquez.dev@gmail.com"
-                className={styles.ctaAltLink}
-              >
-                <Mail size={16} />
-                <span>dennys.marquez.dev@gmail.com</span>
-              </a>
-              <a
-                href="https://github.com/dennys3mf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.ctaAltLink}
-              >
-                <GithubIcon size={16} />
-                <span>github.com/dennys3mf</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/dennys-gabriel-marquez-flores"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.ctaAltLink}
-              >
-                <ArrowUpRight size={16} />
-                <span>LinkedIn</span>
-              </a>
+        {/* ====================================================================
+            SECTION 08 — FINAL CTA
+           ==================================================================== */}
+        <section className={styles.finalCtaSection}>
+          <div className={styles.container}>
+            <div className={styles.finalCtaBox}>
+              <h2 className={styles.finalCtaHeading}>{t.finalCta.heading}</h2>
+              <p className={styles.finalCtaDesc}>{t.finalCta.text}</p>
+              <Link href="/contact" className={styles.primaryBtn} style={{ padding: "1rem 2rem", fontSize: "1rem" }}>
+                <span>{t.finalCta.cta}</span>
+                <ArrowUpRight size={18} />
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* ====================================================================
-          FOOTER (Moddo Clean Studio Bottom with Floating Badges Strip)
-         ==================================================================== */}
-      <footer id="footer" className={styles.footerModdoWrapper}>
-        <div className={styles.footerModdoContainer}>
-          <div className={styles.footerModdoTop}>
-            {/* Secondary Logo */}
-            <div className={styles.footerBrandCol}>
-              <div className={styles.footerLogoVertical}>
-                <span className={styles.footerLogoDennys}>dennys</span>
-                <span className={styles.footerLogoMarquez}>marquez</span>
-              </div>
-              <span className={styles.footerLogoSub}>{t.hero.title}</span>
-              <p className={styles.footerBrandDesc}>
-                {t.footer.tagline}
-              </p>
-            </div>
-
-            {/* Nav Links */}
-            <div className={styles.footerNavCol}>
-              <span className={styles.footerNavColTitle}>{t.footer.navTitle}</span>
-              <a href="#home" onClick={(e) => scrollToSectionWithoutHash(e, "home")} className={styles.footerNavLink}>{t.nav.home}</a>
-              <a href="#servicios" onClick={(e) => scrollToSectionWithoutHash(e, "servicios")} className={styles.footerNavLink}>{t.nav.services}</a>
-              <a href="#casos" onClick={(e) => scrollToSectionWithoutHash(e, "casos")} className={styles.footerNavLink}>{t.nav.projects}</a>
-              <a href="#about" onClick={(e) => scrollToSectionWithoutHash(e, "about")} className={styles.footerNavLink}>{t.nav.about}</a>
-              <a href="#contacto" onClick={(e) => scrollToSectionWithoutHash(e, "contacto")} className={styles.footerNavLink}>{t.nav.contact}</a>
-            </div>
-
-            {/* Social Links */}
-            <div className={styles.footerNavCol}>
-              <span className={styles.footerNavColTitle}>{t.footer.connectTitle}</span>
-              <a
-                href="https://www.linkedin.com/in/dennys-gabriel-marquez-flores"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerNavLink}
-              >
-                LinkedIn ↗
-              </a>
-              <a
-                href="https://github.com/dennys3mf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerNavLink}
-              >
-                GitHub ↗
-              </a>
-              <a
-                href="https://wa.me/51922466078"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerNavLink}
-              >
-                WhatsApp ↗
-              </a>
-            </div>
-          </div>
-
-          {/* Bottom Row */}
-          <div className={styles.footerBottomRow}>
-            <span>Dennys Gabriel Marquez Flores © {new Date().getFullYear()}. {t.footer.rights}</span>
-            <div className="flex items-center gap-4">
-              <LanguageToggle variant="segmented" />
-              <a
-                href="#home"
-                onClick={(e) => scrollToSectionWithoutHash(e, "home")}
-                className={styles.footerNavLink}
-                style={{ fontSize: "1rem", fontWeight: 700 }}
-              >
-                {language === "en" ? "Back to Top ↑" : "Volver Arriba ↑"}
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </main>
+      <Footer />
+    </div>
   );
 }

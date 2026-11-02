@@ -1,0 +1,257 @@
+.caseStudyWrapper {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--primary);
+}
+
+.heroBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+}
+
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+/* Overview Info Grid */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 3.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.overviewCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.overviewLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.overviewVal {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Media Showcase */
+.mediaShowcase {
+  background: #0B0F19;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-card);
+}
+
+.mediaItem {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Content Sections */
+.narrativeSection {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionBody {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted-foreground);
+}
+
+/* Metrics Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metricCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metricValue {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.metricLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* Decisions Grid */
+.decisionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.decisionCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.decisionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.decisionText {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+/* Next Project Row */
+.nextNavRow {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nextProjectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nextProjectBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .overviewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .decisionsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import {
-  Plus_Jakarta_Sans,
+  Manrope,
+  Inter,
   JetBrains_Mono,
-  Architects_Daughter,
-  Orbitron,
 } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-heading-var",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body-var",
   display: "swap",
 });
 
@@ -20,62 +25,49 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const architectsDaughter = Architects_Daughter({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-accent-var",
-  display: "swap",
-});
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-tech-var",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://dennys3mf.github.io"),
-  title: "Dennys Marquez — Full Stack Developer | Python, React & AI Integration",
+  title: "Gabriel Márquez | Full Stack Developer",
   description:
-    "Full Stack Developer & AI Developer from Peru, with a Professional Technical Degree in Software Design and Development from TECSUP. React, TypeScript, Python, Django, Machine Learning & AI Integration.",
+    "Explore the portfolio of Gabriel Márquez, a Full Stack Developer building intuitive web applications and practical digital solutions. View projects, experience, and services.",
   keywords: [
+    "Gabriel Márquez",
     "Dennys Marquez",
     "Full Stack Developer",
-    "Python Developer",
+    "Product Engineer",
     "React Developer",
-    "AI Integration",
-    "Machine Learning",
-    "TECSUP",
+    "TypeScript",
     "Next.js",
-    "Django",
+    "Python",
     "Peru Developer",
     "ahorratiempo.pe",
+    "TECSUP",
   ],
-  authors: [{ name: "Dennys Gabriel Marquez Flores", url: "https://dennys3mf.github.io" }],
-  creator: "Dennys Marquez",
+  authors: [{ name: "Gabriel Márquez", url: "https://dennys3mf.github.io" }],
+  creator: "Gabriel Márquez",
   openGraph: {
     type: "website",
-    locale: "es_PE",
-    alternateLocale: "en_US",
+    locale: "en_US",
+    alternateLocale: "es_PE",
     url: "https://dennys3mf.github.io",
-    title: "Dennys Marquez — Full Stack Developer | Python, React & AI Integration",
+    title: "Gabriel Márquez | Full Stack Developer",
     description:
-      "Building digital products that make an impact. Full Stack Engineer specializing in React, TypeScript, Python, Django, and Machine Learning / AI Integration.",
-    siteName: "Dennys Marquez Portfolio",
+      "Building intuitive digital products that solve real problems. Full Stack Developer combining engineering, product thinking, and user experience.",
+    siteName: "Gabriel Márquez Portfolio",
     images: [
       {
         url: "/images/og-cover.png",
         width: 1200,
         height: 630,
-        alt: "Dennys Marquez — Full Stack Developer | Python, React & AI Integration",
+        alt: "Gabriel Márquez — Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dennys Marquez — Full Stack Developer | Python, React & AI Integration",
+    title: "Gabriel Márquez | Full Stack Developer",
     description:
-      "Building digital products that make an impact. Full Stack Engineer specializing in React, TypeScript, Python, Django, and Machine Learning / AI Integration.",
+      "Building intuitive digital products that solve real problems. Full Stack Developer combining engineering, product thinking, and user experience.",
     images: ["/images/og-cover.png"],
   },
   icons: {
@@ -93,35 +85,41 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": "https://dennys3mf.github.io/#person",
-      name: "Dennys Gabriel Marquez Flores",
-      alternateName: "Dennys Marquez",
+      name: "Gabriel Márquez",
+      alternateName: ["Dennys Gabriel Marquez Flores", "Dennys Marquez"],
       url: "https://dennys3mf.github.io",
-      image: "https://dennys3mf.github.io/images/og-cover.png",
-      jobTitle: "Full Stack Developer & AI Engineer",
-      worksFor: {
-        "@type": "Organization",
-        name: "Ahorratiempo.pe",
+      image: "https://dennys3mf.github.io/images/personal/dennys-workstation.webp",
+      jobTitle: "Full Stack Developer",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "PE",
       },
-      alumniOf: {
-        "@type": "EducationalOrganization",
-        name: "TECSUP",
-        sameAs: "https://www.tecsup.edu.pe",
-      },
+      alumniOf: [
+        {
+          "@type": "EducationalOrganization",
+          name: "TECSUP",
+          sameAs: "https://www.tecsup.edu.pe",
+        },
+        {
+          "@type": "EducationalOrganization",
+          name: "Universidad Continental",
+        },
+      ],
       knowsAbout: [
         "Full Stack Web Development",
-        "Python",
         "React",
-        "Next.js",
         "TypeScript",
-        "Django",
-        "Machine Learning",
-        "Voice AI",
-        "Artificial Intelligence Integration",
-        "Cloud Architectures",
-        "Flutter & Dart",
+        "Next.js",
+        "Tailwind CSS",
+        "Python",
+        "Node.js",
+        "Product Thinking",
+        "User Experience Design",
+        "Cloud & APIs",
       ],
       sameAs: [
         "https://github.com/dennys3mf",
+        "https://www.linkedin.com/in/dennys-gabriel-marquez-flores",
         "https://ahorratiempo.pe",
       ],
     },
@@ -129,7 +127,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://dennys3mf.github.io/#website",
       url: "https://dennys3mf.github.io",
-      name: "Dennys Marquez — Portfolio",
+      name: "Gabriel Márquez — Full Stack Developer",
       publisher: {
         "@id": "https://dennys3mf.github.io/#person",
       },
@@ -146,8 +144,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="light"
-      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} ${architectsDaughter.variable} ${orbitron.variable}`}
+      className={`${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -155,18 +152,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                localStorage.removeItem('brand-theme');
-                document.documentElement.setAttribute('data-theme', 'light');
-              } catch (e) {}
-            `,
-          }}
-        />
       </head>
       <body>
+        <a href="#main-content" className="skipToContent">
+          Skip to main content
+        </a>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

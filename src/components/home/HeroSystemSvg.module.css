@@ -1,0 +1,90 @@
+.svgWrapper {
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.svgWrapper:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(8, 127, 114, 0.35);
+}
+
+.systemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.systemTitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(8, 127, 114, 0.2);
+}
+
+.systemMeta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+}
+
+.svgCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.systemFooter {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.metricBadge {
+  background: var(--muted);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metricKey {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+
+.metricVal {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
