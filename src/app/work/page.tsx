@@ -69,12 +69,12 @@ export default function WorkPage() {
                     autoPlay
                     playsInline
                     className={styles.mediaImg}
-                    aria-label={`${project.title} video`}
+                    aria-label={`${project.title[language]} video`}
                   />
                 ) : (
                   <Image
                     src={project.coverImage}
-                    alt={project.title}
+                    alt={project.title[language]}
                     width={800}
                     height={450}
                     className={styles.mediaImg}

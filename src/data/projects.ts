@@ -2,7 +2,7 @@ export type ProjectStatus = "live" | "in-progress" | "concept";
 
 export interface Project {
   slug: string;
-  title: string;
+  title: { en: string; es: string };
   shortTitle: string;
   category: "saas-ai" | "fintech" | "cloud-enterprise" | "mobile-iot";
   categoryLabel: { en: string; es: string };
@@ -40,7 +40,10 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     slug: "ahorratiempo",
-    title: "AhorraTiempo — AI-Assisted Citizen Paperwork Platform with Voice Guidance & Payments",
+    title: {
+      en: "AhorraTiempo — AI-Assisted Citizen Paperwork Platform with Voice Guidance & Payments",
+      es: "AhorraTiempo — Plataforma Ciudadana con Asistencia de Voz e IA y Pagos Digitales",
+    },
     shortTitle: "ahorratiempo.pe",
     category: "saas-ai",
     categoryLabel: {
@@ -144,7 +147,10 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "billing-engine",
-    title: "Billing Engine — Culqi Payment Gateway & SUNAT XML Electronic Invoicing",
+    title: {
+      en: "Billing Engine — Culqi Payment Gateway & SUNAT XML Electronic Invoicing",
+      es: "Billing Engine — Pasarela de Pagos Culqi y Facturación Electrónica SUNAT XML",
+    },
     shortTitle: "Billing Engine",
     category: "fintech",
     categoryLabel: {
@@ -246,7 +252,10 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "controla-cloud",
-    title: "CONTROLA Cloud — Legal IT & Occupational Health Multi-Tenant Compliance Platform",
+    title: {
+      en: "CONTROLA Cloud — Legal IT & Occupational Health Multi-Tenant Compliance Platform",
+      es: "CONTROLA Cloud — Plataforma Cloud Multi-Tenant de Cumplimiento Legal y SST",
+    },
     shortTitle: "CONTROLA Cloud",
     category: "cloud-enterprise",
     categoryLabel: {
@@ -349,7 +358,10 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "safety-helmet-iot",
-    title: "Safety Helmet IoT — Industrial Worker Safety Telemetry & Emergency Broadcast",
+    title: {
+      en: "Safety Helmet IoT — Industrial Worker Safety Telemetry & Emergency Broadcast",
+      es: "Safety Helmet IoT — Telemetría de Seguridad Industrial y Alerta de Emergencia",
+    },
     shortTitle: "Safety Helmet IoT",
     category: "mobile-iot",
     categoryLabel: {
@@ -452,7 +464,10 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "chansa-app",
-    title: "CHANSA — On-Demand Mobile Marketplace for Verified Home Contractors",
+    title: {
+      en: "CHANSA — On-Demand Mobile Marketplace for Verified Home Contractors",
+      es: "CHANSA — Marketplace Móvil On-Demand de Servicios Técnicos para el Hogar",
+    },
     shortTitle: "CHANSA App",
     category: "mobile-iot",
     categoryLabel: {
@@ -550,7 +565,10 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "fiscalizacion-joya",
-    title: "Fiscalización Joya — Offline-First Municipal Field Inspection Tablet App",
+    title: {
+      en: "Fiscalización Joya — Offline-First Municipal Field Inspection Tablet App",
+      es: "Fiscalización Joya — App Móvil Offline-First para Fiscalizadores Municipales en Tablet",
+    },
     shortTitle: "Fiscalización Joya",
     category: "cloud-enterprise",
     categoryLabel: {

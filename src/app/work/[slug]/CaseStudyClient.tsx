@@ -40,11 +40,13 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
               {project.categoryLabel[language]}
             </span>
             <span className={styles.status}>
-              {project.status === "live" ? "Production" : "In Progress"}
+              {project.status === "live"
+                ? (language === "es" ? "En Producción" : "Production")
+                : (language === "es" ? "En Desarrollo" : "In Progress")}
             </span>
           </div>
 
-          <h1 className={styles.title}>{project.title}</h1>
+          <h1 className={styles.title}>{project.title[language]}</h1>
           <p className={styles.lead}>{project.summary[language]}</p>
         </div>
 
@@ -108,12 +110,12 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
               muted
               playsInline
               className={styles.mediaItem}
-              aria-label={`${project.title} demonstration video`}
+              aria-label={`${project.title[language]} demonstration video`}
             />
           ) : (
             <Image
               src={project.coverImage}
-              alt={project.title}
+              alt={project.title[language]}
               width={1100}
               height={620}
               className={styles.mediaItem}

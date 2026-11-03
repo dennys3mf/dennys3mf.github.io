@@ -165,12 +165,12 @@ export default function Home() {
                         autoPlay
                         playsInline
                         className={styles.projectMedia}
-                        aria-label={`${project.title} video preview`}
+                        aria-label={`${project.title[language]} video preview`}
                       />
                     ) : (
                       <Image
                         src={project.coverImage}
-                        alt={project.title}
+                        alt={project.title[language]}
                         width={960}
                         height={540}
                         className={styles.projectMedia}

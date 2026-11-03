@@ -297,7 +297,7 @@ export const translations: Record<Language, TranslationContent> = {
       sourceCode: "GitHub",
     },
     caseStudy: {
-      backToWork: "← Back to all projects",
+      backToWork: "Back to all projects",
       projectOverview: "Project Overview",
       theProblem: "The Problem",
       goalsAndConstraints: "Goals & Constraints",
@@ -572,7 +572,7 @@ export const translations: Record<Language, TranslationContent> = {
       sourceCode: "GitHub",
     },
     caseStudy: {
-      backToWork: "← Volver a todos los proyectos",
+      backToWork: "Volver a todos los proyectos",
       projectOverview: "Resumen del Proyecto",
       theProblem: "El Problema",
       goalsAndConstraints: "Objetivos & Restricciones",
