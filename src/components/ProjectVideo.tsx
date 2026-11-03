@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX, Lock, RotateCw } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 import styles from "../app/page.module.css";
 
 interface ProjectVideoProps {
@@ -10,6 +11,8 @@ interface ProjectVideoProps {
 }
 
 export default function ProjectVideo({ src, url, title }: ProjectVideoProps) {
+  const { language } = useLanguage();
+  const isEs = language === "es";
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -84,8 +87,8 @@ export default function ProjectVideo({ src, url, title }: ProjectVideoProps) {
         <button
           onClick={handleReload}
           className={styles.browserReloadBtn}
-          title="Reiniciar video"
-          aria-label="Reiniciar demostración"
+          title={isEs ? "Reiniciar video" : "Restart video"}
+          aria-label={isEs ? "Reiniciar demostración" : "Restart demonstration"}
         >
           <RotateCw size={12} />
         </button>
@@ -102,7 +105,7 @@ export default function ProjectVideo({ src, url, title }: ProjectVideoProps) {
           muted
           playsInline
           preload="metadata"
-          aria-label={`Demostración en video de ${title}`}
+          aria-label={isEs ? `Demostración en video de ${title}` : `Video demonstration of ${title}`}
           onClick={togglePlay}
           className={styles.projectVideoElement}
         >
@@ -114,8 +117,8 @@ export default function ProjectVideo({ src, url, title }: ProjectVideoProps) {
           <button
             onClick={togglePlay}
             className={styles.videoControlBtn}
-            title={isPlaying ? "Pausar video" : "Reproducir video"}
-            aria-label={isPlaying ? "Pausar" : "Reproducir"}
+            title={isPlaying ? (isEs ? "Pausar video" : "Pause video") : (isEs ? "Reproducir video" : "Play video")}
+            aria-label={isPlaying ? (isEs ? "Pausar" : "Pause") : (isEs ? "Reproducir" : "Play")}
           >
             {isPlaying ? <Pause size={13} /> : <Play size={13} />}
           </button>
@@ -123,8 +126,8 @@ export default function ProjectVideo({ src, url, title }: ProjectVideoProps) {
           <button
             onClick={toggleMute}
             className={styles.videoControlBtn}
-            title={isMuted ? "Activar audio" : "Silenciar audio"}
-            aria-label={isMuted ? "Activar sonido" : "Silenciar"}
+            title={isMuted ? (isEs ? "Activar audio" : "Unmute audio") : (isEs ? "Silenciar audio" : "Mute audio")}
+            aria-label={isMuted ? (isEs ? "Activar sonido" : "Unmute") : (isEs ? "Silenciar" : "Mute")}
           >
             {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
           </button>

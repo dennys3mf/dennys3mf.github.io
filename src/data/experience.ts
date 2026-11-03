@@ -4,20 +4,20 @@ export interface SkillGroup {
 }
 
 export interface CareerItem {
-  period: string;
+  period: { en: string; es: string };
   role: { en: string; es: string };
   company: string;
-  location: string;
+  location: { en: string; es: string };
   summary: { en: string; es: string };
   highlights: { en: string[]; es: string[] };
   technologies: string[];
 }
 
 export interface EducationItem {
-  period: string;
+  period: { en: string; es: string };
   degree: { en: string; es: string };
   institution: string;
-  location: string;
+  location: { en: string; es: string };
   status: { en: string; es: string };
   description: { en: string; es: string };
 }
@@ -100,13 +100,19 @@ export const EXPERIENCE_DATA: ExperienceData = {
   ],
   career: [
     {
-      period: "2024 — Present",
+      period: {
+        en: "2024 — Present",
+        es: "2024 — Presente",
+      },
       role: {
         en: "Founder & Full Stack AI Engineer",
         es: "Fundador & Ingeniero Full Stack con IA",
       },
       company: "AhorraTiempo (ahorratiempo.pe)",
-      location: "Peru (Remote)",
+      location: {
+        en: "Peru (Remote)",
+        es: "Perú (Remoto)",
+      },
       summary: {
         en: "Designed, engineered, and launched a consumer SaaS platform helping citizens navigate public administrative procedures with voice-assisted AI guidance and digital payments.",
         es: "Diseño, desarrollo y puesta en producción de un SaaS ciudadano que guía a usuarios en trámites administrativos mediante asistencia de voz con IA y pagos digitales.",
@@ -126,13 +132,19 @@ export const EXPERIENCE_DATA: ExperienceData = {
       technologies: ["React 18", "Next.js 14", "TypeScript", "Voice AI", "Culqi API", "PostgreSQL"],
     },
     {
-      period: "2023 — 2024",
+      period: {
+        en: "2023 — 2024",
+        es: "2023 — 2024",
+      },
       role: {
         en: "Lead Full Stack & Systems Developer",
         es: "Desarrollador Full Stack & Sistemas Líder",
       },
       company: "Independent Software Solutions",
-      location: "Peru",
+      location: {
+        en: "Peru",
+        es: "Perú",
+      },
       summary: {
         en: "Engineered production software systems including multi-tenant compliance cloud platforms (CONTROLA), electronic billing services (SUNAT UBL 2.1), and municipal tablet applications.",
         es: "Desarrollo de sistemas de software en producción, incluyendo plataformas cloud multi-tenant (CONTROLA), facturación electrónica SUNAT y aplicaciones móviles municipales.",
@@ -154,13 +166,19 @@ export const EXPERIENCE_DATA: ExperienceData = {
   ],
   education: [
     {
-      period: "2021 — 2024",
+      period: {
+        en: "2021 — 2024",
+        es: "2021 — 2024",
+      },
       degree: {
         en: "Professional Technical Degree in Software Design and Development",
         es: "Título Profesional Técnico en Diseño y Desarrollo de Software",
       },
       institution: "TECSUP",
-      location: "Peru",
+      location: {
+        en: "Peru",
+        es: "Perú",
+      },
       status: {
         en: "Graduated (2024)",
         es: "Titulado / Graduado (2024)",
@@ -171,13 +189,19 @@ export const EXPERIENCE_DATA: ExperienceData = {
       },
     },
     {
-      period: "Prior Studies",
+      period: {
+        en: "Prior Studies",
+        es: "Estudios Previos",
+      },
       degree: {
         en: "Studies in Accounting and Finance",
         es: "Estudios en Contabilidad y Finanzas",
       },
       institution: "Universidad Continental",
-      location: "Peru",
+      location: {
+        en: "Peru",
+        es: "Perú",
+      },
       status: {
         en: "Academic Background",
         es: "Formación Universitaria",

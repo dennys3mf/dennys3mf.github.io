@@ -83,10 +83,10 @@ export default function ExperiencePage() {
               <article key={idx} className={styles.careerCard}>
                 <div className={styles.careerHeader}>
                   <h3 className={styles.careerRole}>{item.role[language]}</h3>
-                  <span className={styles.careerPeriod}>{item.period}</span>
+                  <span className={styles.careerPeriod}>{item.period[language]}</span>
                 </div>
                 <div className={styles.careerCompany}>
-                  {item.company} — {item.location}
+                  {item.company} — {item.location[language]}
                 </div>
                 <p className={styles.careerSummary}>{item.summary[language]}</p>
 
@@ -127,10 +127,10 @@ export default function ExperiencePage() {
               <div key={idx} className={styles.eduCard}>
                 <h3 className={styles.eduDegree}>{edu.degree[language]}</h3>
                 <div className={styles.eduInstitution}>
-                  {edu.institution} — {edu.location}
+                  {edu.institution} — {edu.location[language]}
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", color: "var(--muted-foreground)" }}>
-                  {edu.period} ({edu.status[language]})
+                  {edu.period[language]} ({edu.status[language]})
                 </div>
                 <p className={styles.eduDesc}>{edu.description[language]}</p>
               </div>

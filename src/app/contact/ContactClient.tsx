@@ -53,15 +53,19 @@ export default function ContactClient() {
 
     const subject =
       intent === "hiring"
-        ? `[Hiring Opportunity] ${formData.name} - ${formData.company || "Company"}`
-        : `[Project Inquiry] ${formData.name} - ${formData.roleOrProject || "Digital Solution"}`;
+        ? (language === "es"
+            ? `[Oportunidad Laboral] ${formData.name} - ${formData.company || "Empresa"}`
+            : `[Hiring Opportunity] ${formData.name} - ${formData.company || "Company"}`)
+        : (language === "es"
+            ? `[Consulta de Proyecto] ${formData.name} - ${formData.roleOrProject || "Solución Digital"}`
+            : `[Project Inquiry] ${formData.name} - ${formData.roleOrProject || "Digital Solution"}`);
 
-    const body = `Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || "N/A"}
-${intent === "hiring" ? `Role: ${formData.roleOrProject || "N/A"}` : `Timeline: ${formData.timeline || "N/A"} | Budget: ${formData.budget || "N/A"}`}
+    const body = `${language === "es" ? "Nombre" : "Name"}: ${formData.name}
+${language === "es" ? "Correo" : "Email"}: ${formData.email}
+${language === "es" ? "Empresa" : "Company"}: ${formData.company || "N/A"}
+${intent === "hiring" ? `${language === "es" ? "Rol" : "Role"}: ${formData.roleOrProject || "N/A"}` : `${language === "es" ? "Plazo" : "Timeline"}: ${formData.timeline || "N/A"} | ${language === "es" ? "Presupuesto" : "Budget"}: ${formData.budget || "N/A"}`}
 
-Message:
+${language === "es" ? "Mensaje" : "Message"}:
 ${formData.message}
 `;
 
@@ -179,7 +183,11 @@ ${formData.message}
                 <input
                   id="contact-roleOrProject"
                   type="text"
-                  placeholder={intent === "hiring" ? "e.g. Senior Full Stack Developer" : "e.g. Web App MVP / Automation"}
+                  placeholder={
+                    intent === "hiring"
+                      ? (language === "es" ? "ej. Desarrollador Full Stack Senior" : "e.g. Senior Full Stack Developer")
+                      : (language === "es" ? "ej. MVP Web / Automatización" : "e.g. Web App MVP / Automation")
+                  }
                   value={formData.roleOrProject}
                   onChange={(e) => setFormData({ ...formData, roleOrProject: e.target.value })}
                   className={styles.input}
@@ -196,7 +204,7 @@ ${formData.message}
                   <input
                     id="contact-timeline"
                     type="text"
-                    placeholder="e.g. 4 - 8 weeks"
+                    placeholder={language === "es" ? "ej. 4 - 8 semanas" : "e.g. 4 - 8 weeks"}
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                     className={styles.input}
@@ -210,7 +218,7 @@ ${formData.message}
                   <input
                     id="contact-budget"
                     type="text"
-                    placeholder="e.g. $1,500 - $3,500+"
+                    placeholder={language === "es" ? "ej. $1,500 - $3,500+" : "e.g. $1,500 - $3,500+"}
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                     className={styles.input}
@@ -230,8 +238,12 @@ ${formData.message}
                 className={styles.textarea}
                 placeholder={
                   intent === "hiring"
-                    ? "Tell me about the role, tech stack, and what problem your team is solving..."
-                    : "Describe what you want to build, key features, and any existing systems or designs..."
+                    ? (language === "es"
+                        ? "Cuéntame sobre el rol, stack tecnológico y el reto que tu equipo busca resolver..."
+                        : "Tell me about the role, tech stack, and what problem your team is solving...")
+                    : (language === "es"
+                        ? "Describe qué deseas construir, funcionalidades clave y sistemas o diseños existentes..."
+                        : "Describe what you want to build, key features, and any existing systems or designs...")
                 }
                 aria-required="true"
                 aria-invalid={!!errors.message}

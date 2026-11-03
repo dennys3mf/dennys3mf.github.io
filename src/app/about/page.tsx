@@ -98,9 +98,13 @@ export default function AboutPage() {
         {/* Bottom CTA */}
         <div className={styles.ctaBox}>
           <div className={styles.ctaText}>
-            <div className={styles.ctaTitle}>Interested in working together?</div>
+            <div className={styles.ctaTitle}>
+              {language === "es" ? "¿Te interesa colaborar en un proyecto?" : "Interested in working together?"}
+            </div>
             <div className={styles.ctaSub}>
-              I&apos;m available for international remote roles and selective freelance development.
+              {language === "es"
+                ? "Disponible para roles remotos internacionales y proyectos de desarrollo seleccionados."
+                : "I'm available for international remote roles and selective freelance development."}
             </div>
           </div>
           <div className={styles.ctaActions}>

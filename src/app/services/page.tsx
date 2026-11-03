@@ -10,7 +10,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import styles from "./Services.module.css";
 
 export default function ServicesPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className={styles.servicesPageWrapper}>
@@ -30,14 +30,18 @@ export default function ServicesPage() {
           {t.servicesPage.servicesList.map((service, idx) => (
             <article key={idx} className={styles.serviceCard}>
               <div className={styles.serviceLeft}>
-                <span className={styles.serviceNumber}>Service 0{idx + 1}</span>
+                <span className={styles.serviceNumber}>
+                  {language === "es" ? `Servicio 0${idx + 1}` : `Service 0${idx + 1}`}
+                </span>
                 <h2 className={styles.serviceTitle}>{service.title}</h2>
                 <div className={styles.serviceSubtitle}>{service.subtitle}</div>
                 <p className={styles.serviceDesc}>{service.desc}</p>
               </div>
 
               <div className={styles.serviceRight}>
-                <span className={styles.deliverablesTitle}>What is included:</span>
+                <span className={styles.deliverablesTitle}>
+                  {language === "es" ? "Qué incluye:" : "What is included:"}
+                </span>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                   {service.deliverables.map((item, dIdx) => (
                     <div key={dIdx} className={styles.deliverableItem}>
@@ -82,7 +86,9 @@ export default function ServicesPage() {
             {t.servicesPage.discussProject}
           </h2>
           <p style={{ maxWidth: "560px", color: "var(--foreground)", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.6 }}>
-            Have an MVP, automation workflow, or internal tool you want to build? Let&apos;s discuss your scope, requirements, and timeline.
+            {language === "es"
+              ? "¿Tienes un MVP, flujo automatizado o herramienta interna que deseas construir? Conversemos sobre el alcance, requerimientos y tiempos de entrega."
+              : "Have an MVP, automation workflow, or internal tool you want to build? Let's discuss your scope, requirements, and timeline."}
           </p>
           <Link
             href="/contact?intent=project"

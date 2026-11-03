@@ -185,7 +185,9 @@ export default function Home() {
                         {project.categoryLabel[language]}
                       </span>
                       <span className={styles.projectStatus}>
-                        {project.status === "live" ? "Production" : "In Progress"}
+                        {project.status === "live"
+                          ? (language === "es" ? "En Producción" : "Production")
+                          : (language === "es" ? "En Desarrollo" : "In Progress")}
                       </span>
                     </div>
 
@@ -399,7 +401,9 @@ export default function Home() {
               {/* For teams */}
               <div className={styles.dualCard}>
                 <div className={styles.dualTop}>
-                  <span className={styles.dualBadge}>CAREER &amp; HIRING</span>
+                  <span className={styles.dualBadge}>
+                    {language === "es" ? "CARRERA Y CONTRATACIÓN" : "CAREER & HIRING"}
+                  </span>
                   <h3 className={styles.dualHeading}>{t.dualConversion.teamsTitle}</h3>
                   <p className={styles.dualText}>{t.dualConversion.teamsDesc}</p>
                 </div>
@@ -415,7 +419,7 @@ export default function Home() {
               <div className={styles.dualCard}>
                 <div className={styles.dualTop}>
                   <span className={styles.dualBadge} style={{ color: "var(--accent)" }}>
-                    FREELANCE &amp; CONSULTING
+                    {language === "es" ? "FREELANCE Y CONSULTORÍA" : "FREELANCE & CONSULTING"}
                   </span>
                   <h3 className={styles.dualHeading}>{t.dualConversion.businessTitle}</h3>
                   <p className={styles.dualText}>{t.dualConversion.businessDesc}</p>

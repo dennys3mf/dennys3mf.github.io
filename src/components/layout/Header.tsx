@@ -11,7 +11,7 @@ import { siteConfig } from "../../data/siteConfig";
 import styles from "./Header.module.css";
 
 export default function Header() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
@@ -109,7 +109,11 @@ export default function Header() {
             type="button"
             className={styles.mobileMenuBtn}
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open navigation menu"}
+            aria-label={
+              mobileOpen
+                ? (language === "es" ? "Cerrar menú" : "Close menu")
+                : (language === "es" ? "Abrir menú de navegación" : "Open navigation menu")
+            }
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -146,7 +150,7 @@ export default function Header() {
                 type="button"
                 className={styles.mobileCloseBtn}
                 onClick={() => setMobileOpen(false)}
-                aria-label="Close navigation menu"
+                aria-label={language === "es" ? "Cerrar menú de navegación" : "Close navigation menu"}
               >
                 <X size={20} />
               </button>

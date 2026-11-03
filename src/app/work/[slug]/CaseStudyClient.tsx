@@ -61,11 +61,15 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           <div className={styles.overviewCol}>
             <span className={styles.overviewLabel}>{t.caseStudy.statusLabel}</span>
             <span className={styles.overviewVal}>
-              {project.status === "live" ? "Live in Production" : "Active Development"}
+              {project.status === "live"
+                ? (language === "es" ? "En Producción" : "Live in Production")
+                : (language === "es" ? "En Desarrollo Activo" : "Active Development")}
             </span>
           </div>
           <div className={styles.overviewCol}>
-            <span className={styles.overviewLabel}>Links</span>
+            <span className={styles.overviewLabel}>
+              {language === "es" ? "Enlaces" : "Links"}
+            </span>
             <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
               {project.liveUrl && (
                 <a
@@ -75,7 +79,7 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
                   className={styles.overviewVal}
                   style={{ color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: "2px" }}
                 >
-                  Live Web <ExternalLink size={12} />
+                  {language === "es" ? "Ver en vivo" : "Live Web"} <ExternalLink size={12} />
                 </a>
               )}
               {project.repositoryUrl && (

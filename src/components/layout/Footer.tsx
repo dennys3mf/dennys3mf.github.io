@@ -10,7 +10,7 @@ import { siteConfig } from "../../data/siteConfig";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleBackToTop = () => {
     if (typeof window !== "undefined") {
@@ -38,7 +38,7 @@ export default function Footer() {
             </Link>
             <p className={styles.brandTagline}>{t.footer.tagline}</p>
             <span className={styles.brandLocation}>
-              Full Stack Developer — Peru
+              {language === "es" ? "Desarrollador Full Stack — Perú" : "Full Stack Developer — Peru"}
             </span>
           </div>
 
@@ -117,7 +117,7 @@ export default function Footer() {
               type="button"
               onClick={handleBackToTop}
               className={styles.backToTopBtn}
-              aria-label="Scroll back to top"
+              aria-label={language === "es" ? "Volver arriba" : "Scroll back to top"}
             >
               {t.footer.backToTop}
             </button>
