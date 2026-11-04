@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import {
+  Newsreader,
   Manrope,
   Inter,
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif-var",
+  display: "swap",
+});
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -155,7 +163,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${newsreader.variable} ${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
