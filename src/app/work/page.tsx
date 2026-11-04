@@ -8,6 +8,7 @@ import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import { PROJECTS, Project } from "../../data/projects";
 import { useLanguage } from "../../context/LanguageContext";
+import { playTactileClick } from "../../lib/sound";
 import styles from "./Work.module.css";
 
 export default function WorkPage() {
@@ -47,7 +48,10 @@ export default function WorkPage() {
               type="button"
               role="tab"
               aria-selected={activeFilter === f.key}
-              onClick={() => setActiveFilter(f.key)}
+              onClick={() => {
+                playTactileClick();
+                setActiveFilter(f.key);
+              }}
               className={`${styles.filterBtn} ${activeFilter === f.key ? styles.filterBtnActive : ""}`}
             >
               {f.label}
@@ -111,6 +115,7 @@ export default function WorkPage() {
                   <Link
                     href={`/work/${project.slug}`}
                     className={styles.caseStudyLink}
+                    onClick={() => playTactileClick()}
                   >
                     <span>{t.workPage.readCaseStudy}</span>
                     <ArrowUpRight size={15} />

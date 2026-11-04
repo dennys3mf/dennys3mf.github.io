@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { playTactilePop } from "../lib/sound";
 import styles from "./LanguageToggle.module.css";
 
 interface LanguageToggleProps {
@@ -28,7 +29,10 @@ export default function LanguageToggle({
             : "Current language: English. Switch to Spanish"
         }
         title={isEs ? "Cambiar a English" : "Switch to Español"}
-        onClick={toggleLanguage}
+        onClick={() => {
+          playTactilePop();
+          toggleLanguage();
+        }}
         className={styles.switchTrack}
       >
         {/* Sliding Thumb Knob */}

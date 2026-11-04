@@ -114,13 +114,36 @@
   border-radius: var(--radius-sm);
   text-decoration: none;
   box-shadow: 4px 4px 0 var(--border);
-  transition: all 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.primaryBtn svg,
+.secondaryBtn svg,
+.caseStudyBtn svg,
+.recruiterCta svg {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .primaryBtn:hover {
   background: var(--primary-hover);
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--border);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--border);
+}
+
+.primaryBtn:hover svg,
+.secondaryBtn:hover svg,
+.caseStudyBtn:hover svg,
+.recruiterCta:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.primaryBtn:active {
+  transform: scale(0.98) translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .secondaryBtn {
@@ -136,13 +159,22 @@
   border-radius: var(--radius-sm);
   box-shadow: 3px 3px 0 var(--border);
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
 }
 
 .secondaryBtn:hover {
   background: var(--secondary-light);
-  transform: translate(1.5px, 1.5px);
-  box-shadow: 1.5px 1.5px 0 var(--border);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.secondaryBtn:active {
+  transform: scale(0.98) translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .recruiterCta {
@@ -311,12 +343,18 @@
   box-shadow: var(--shadow-editorial);
   display: grid;
   grid-template-columns: 1.15fr 0.95fr;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.15s ease;
 }
 
 .projectCard:hover {
-  transform: translate(2px, 2px);
-  box-shadow: var(--shadow-editorial-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--border);
+}
+
+.projectCard:active {
+  transform: scale(0.995) translate(1px, 1px);
 }
 
 .projectVisual {
@@ -367,6 +405,9 @@
 }
 
 .projectStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
@@ -374,8 +415,30 @@
   background: var(--secondary-light);
   border: 1.5px solid var(--border);
   box-shadow: 1px 1px 0 var(--border);
-  padding: 0.2rem 0.55rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 9999px;
+}
+
+.statusPulseDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: livePulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes livePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
 
 .projectTitle {
@@ -390,6 +453,57 @@
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--muted-foreground);
+}
+
+/* Delba-style Engineering Metric Bar */
+.projectMetricBar {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  background: var(--muted);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.95rem;
+  margin: 0.35rem 0;
+  box-shadow: 2px 2px 0 var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectMetricBar:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.metricItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.metricItem:not(:last-child) {
+  border-right: 1.5px solid var(--border-muted);
+  padding-right: 0.75rem;
+}
+
+.metricVal {
+  font-family: var(--font-mono);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.metricLab {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .projectTechList {
@@ -408,6 +522,12 @@
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
   box-shadow: 1px 1px 0 var(--border);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.techTag:hover {
+  background: var(--secondary-light);
+  transform: translateY(-1px);
 }
 
 .projectActions {
@@ -432,13 +552,22 @@
   border-radius: var(--radius-sm);
   box-shadow: 3px 3px 0 var(--border);
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
 }
 
 .caseStudyBtn:hover {
   background: var(--primary);
-  transform: translate(1.5px, 1.5px);
-  box-shadow: 1.5px 1.5px 0 var(--border);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.caseStudyBtn:active {
+  transform: scale(0.98) translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .externalLink {
@@ -447,20 +576,21 @@
   gap: 0.35rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--foreground);
-  background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-sm);
-  box-shadow: 2px 2px 0 var(--border);
+  color: var(--muted-foreground);
   text-decoration: none;
-  padding: 0.6rem 0.95rem;
-  transition: all 0.15s ease;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.externalLink svg {
+  transition: transform 0.2s ease;
 }
 
 .externalLink:hover {
-  background: var(--secondary-light);
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--border);
+  color: var(--primary);
+}
+
+.externalLink:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .viewAllRow {
@@ -492,20 +622,29 @@
   flex-direction: column;
   gap: 1.25rem;
   box-shadow: 3px 3px 0 var(--border);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
 }
 
 .pillarCard:hover {
-  transform: translate(1.5px, 1.5px);
-  box-shadow: 1.5px 1.5px 0 var(--border);
-  background: var(--muted);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--border);
+  border-color: var(--primary);
+  background: var(--surface);
 }
 
 .pillarNumber {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 800;
   color: var(--primary);
+  background: var(--secondary-light);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.15rem 0.55rem;
+  width: fit-content;
   letter-spacing: 0.06em;
 }
 
@@ -600,13 +739,15 @@
   gap: 1rem;
   box-shadow: 3px 3px 0 var(--border);
   position: relative;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.15s ease;
 }
 
 .stepCard:hover {
-  transform: translate(1.5px, 1.5px);
-  box-shadow: 1.5px 1.5px 0 var(--border);
-  background: var(--muted);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--border);
+  border-color: var(--primary);
 }
 
 .stepNumber {
@@ -850,5 +991,15 @@
   }
   .projectDetails {
     padding: 1.75rem;
+  }
+  .projectMetricBar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .metricItem:not(:last-child) {
+    border-right: none;
+    border-bottom: 1.5px solid var(--border-muted);
+    padding-right: 0;
+    padding-bottom: 0.5rem;
   }
 }

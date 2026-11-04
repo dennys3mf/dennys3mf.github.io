@@ -66,12 +66,21 @@
   border-radius: var(--radius-sm);
   box-shadow: 2px 2px 0 var(--border);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease,
+              color 0.15s ease;
+  user-select: none;
 }
 
 .filterBtn:hover {
   background: var(--secondary-light);
-  transform: translate(1px, 1px);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.filterBtn:active {
+  transform: scale(0.97) translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--border);
 }
 
@@ -79,6 +88,11 @@
   background: var(--primary);
   color: #FFFFFF;
   box-shadow: 2px 2px 0 var(--border);
+}
+
+.filterBtnActive:hover {
+  background: var(--primary-hover);
+  color: #FFFFFF;
 }
 
 .projectsGrid {
@@ -95,12 +109,13 @@
   box-shadow: var(--shadow-editorial);
   display: flex;
   flex-direction: column;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .projectCard:hover {
-  transform: translate(2px, 2px);
-  box-shadow: var(--shadow-editorial-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--border);
 }
 
 .mediaFrame {
@@ -212,12 +227,29 @@
   padding: 0.45rem 1rem;
   box-shadow: 2px 2px 0 var(--border);
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.caseStudyLink svg {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .caseStudyLink:hover {
   background: var(--primary-hover);
-  transform: translate(1px, 1px);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.caseStudyLink:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.caseStudyLink:active {
+  transform: scale(0.98) translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--border);
 }
 

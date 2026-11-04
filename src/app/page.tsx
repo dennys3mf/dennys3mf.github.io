@@ -8,6 +8,8 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { PROJECTS } from "../data/projects";
 import { useLanguage } from "../context/LanguageContext";
+import HandDrawn from "../components/ui/HandDrawn";
+import { playTactileClick } from "../lib/sound";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -46,7 +48,9 @@ export default function Home() {
               <div className={styles.heroContent}>
                 <div style={{ position: "relative", display: "inline-block", width: "fit-content" }}>
                   <div className={styles.eyebrow}>
-                    <span>{t.hero.eyebrow}</span>
+                    <HandDrawn variant="underline" color="var(--secondary)">
+                      <span>{t.hero.eyebrow}</span>
+                    </HandDrawn>
                   </div>
                   <Image
                     src="/mascot/acento-estrellas.svg"
@@ -62,12 +66,17 @@ export default function Home() {
                   {language === "es" ? (
                     <>
                       Construyo software que hace{" "}
-                      <span className={styles.highlightWord}>simple</span> lo complejo
+                      <HandDrawn variant="highlight" color="var(--accent)">
+                        simple
+                      </HandDrawn>{" "}
+                      lo complejo
                     </>
                   ) : (
                     <>
                       I build software that makes complex things feel{" "}
-                      <span className={styles.highlightWord}>simple</span>
+                      <HandDrawn variant="highlight" color="var(--accent)">
+                        simple
+                      </HandDrawn>
                     </>
                   )}
                 </h1>
@@ -78,18 +87,30 @@ export default function Home() {
 
                 {/* CTAs */}
                 <div className={styles.heroCtaRow}>
-                  <Link href="/work" className={styles.primaryBtn}>
+                  <Link
+                    href="/work"
+                    className={styles.primaryBtn}
+                    onClick={() => playTactileClick()}
+                  >
                     <span>{t.hero.ctaPrimary}</span>
                     <ArrowUpRight size={16} />
                   </Link>
 
-                  <Link href="/contact?intent=project" className={styles.secondaryBtn}>
+                  <Link
+                    href="/contact?intent=project"
+                    className={styles.secondaryBtn}
+                    onClick={() => playTactileClick()}
+                  >
                     <span>{t.hero.ctaSecondary}</span>
                   </Link>
                 </div>
 
                 {/* Recruiter CTA (Discreet) */}
-                <Link href="/experience" className={styles.recruiterCta}>
+                <Link
+                  href="/experience"
+                  className={styles.recruiterCta}
+                  onClick={() => playTactileClick()}
+                >
                   <span>{t.hero.ctaRecruiter}</span>
                   <ArrowUpRight size={14} />
                 </Link>
@@ -185,6 +206,9 @@ export default function Home() {
                         {project.categoryLabel[language]}
                       </span>
                       <span className={styles.projectStatus}>
+                        {project.status === "live" && (
+                          <span className={styles.statusPulseDot} aria-hidden="true" />
+                        )}
                         {project.status === "live"
                           ? (language === "es" ? "En Producción" : "Production")
                           : (language === "es" ? "En Desarrollo" : "In Progress")}
@@ -200,6 +224,20 @@ export default function Home() {
                       </p>
                     </div>
 
+                    {/* Delba-style Engineering Metric Spec Bar */}
+                    {project.metrics && project.metrics.length > 0 && (
+                      <div className={styles.projectMetricBar}>
+                        {project.metrics.slice(0, 3).map((metric, idx) => (
+                          <div key={idx} className={styles.metricItem}>
+                            <span className={styles.metricVal}>{metric.value}</span>
+                            <span className={styles.metricLab}>
+                              {metric.label[language]}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     {/* Tech Stack */}
                     <div className={styles.projectTechList}>
                       {project.technologies.slice(0, 5).map((tech) => (
@@ -214,6 +252,7 @@ export default function Home() {
                       <Link
                         href={`/work/${project.slug}`}
                         className={styles.caseStudyBtn}
+                        onClick={() => playTactileClick()}
                       >
                         <span>{t.selectedWork.readCaseStudy}</span>
                         <ArrowUpRight size={15} />
@@ -249,7 +288,11 @@ export default function Home() {
             </div>
 
             <div className={styles.viewAllRow}>
-              <Link href="/work" className={styles.secondaryBtn}>
+              <Link
+                href="/work"
+                className={styles.secondaryBtn}
+                onClick={() => playTactileClick()}
+              >
                 <span>{t.selectedWork.viewAll} ({PROJECTS.length})</span>
                 <ArrowUpRight size={15} />
               </Link>
@@ -372,7 +415,11 @@ export default function Home() {
                 <p className={styles.aboutPreviewParagraph}>{t.aboutPreview.text1}</p>
                 <p className={styles.aboutPreviewParagraph}>{t.aboutPreview.text2}</p>
                 <div>
-                  <Link href="/about" className={styles.secondaryBtn}>
+                  <Link
+                    href="/about"
+                    className={styles.secondaryBtn}
+                    onClick={() => playTactileClick()}
+                  >
                     <span>{t.aboutPreview.link}</span>
                     <ArrowUpRight size={15} />
                   </Link>
@@ -408,7 +455,11 @@ export default function Home() {
                   <p className={styles.dualText}>{t.dualConversion.teamsDesc}</p>
                 </div>
                 <div>
-                  <Link href="/experience" className={styles.primaryBtn}>
+                  <Link
+                    href="/experience"
+                    className={styles.primaryBtn}
+                    onClick={() => playTactileClick()}
+                  >
                     <span>{t.dualConversion.teamsCta}</span>
                     <ArrowUpRight size={16} />
                   </Link>
@@ -425,7 +476,11 @@ export default function Home() {
                   <p className={styles.dualText}>{t.dualConversion.businessDesc}</p>
                 </div>
                 <div>
-                  <Link href="/contact?intent=project" className={styles.secondaryBtn}>
+                  <Link
+                    href="/contact?intent=project"
+                    className={styles.secondaryBtn}
+                    onClick={() => playTactileClick()}
+                  >
                     <span>{t.dualConversion.businessCta}</span>
                     <ArrowUpRight size={16} />
                   </Link>
@@ -443,7 +498,12 @@ export default function Home() {
             <div className={styles.finalCtaBox}>
               <h2 className={styles.finalCtaHeading}>{t.finalCta.heading}</h2>
               <p className={styles.finalCtaDesc}>{t.finalCta.text}</p>
-              <Link href="/contact" className={styles.primaryBtn} style={{ padding: "1rem 2rem", fontSize: "1rem" }}>
+              <Link
+                href="/contact"
+                className={styles.primaryBtn}
+                style={{ padding: "1rem 2rem", fontSize: "1rem" }}
+                onClick={() => playTactileClick()}
+              >
                 <span>{t.finalCta.cta}</span>
                 <ArrowUpRight size={18} />
               </Link>

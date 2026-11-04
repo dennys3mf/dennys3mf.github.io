@@ -1,0 +1,137 @@
+/* HandDrawn Styles — Inspired by Delba.dev Rough Notation craft */
+
+.highlightWrapper {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  color: inherit;
+  --handdrawn-color: var(--accent);
+}
+
+.highlightText {
+  position: relative;
+  z-index: 2;
+  color: var(--foreground);
+}
+
+.highlightSvg {
+  position: absolute;
+  top: 55%;
+  left: -4%;
+  width: 108%;
+  height: 52%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  color: var(--handdrawn-color);
+  opacity: 0.85;
+  transform: rotate(-0.5deg);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.highlightWrapper:hover .highlightSvg {
+  transform: scale(1.03) rotate(-1deg);
+  opacity: 0.95;
+}
+
+.markerFill {
+  fill: currentColor;
+}
+
+/* Underline Variant */
+.underlineWrapper {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  --handdrawn-color: var(--primary);
+}
+
+.textRel {
+  position: relative;
+  z-index: 2;
+}
+
+.underlineSvg {
+  position: absolute;
+  bottom: -6px;
+  left: -2%;
+  width: 104%;
+  height: 12px;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  color: var(--handdrawn-color);
+  transition: transform 0.25s ease;
+}
+
+.underlineWrapper:hover .underlineSvg {
+  transform: translateY(1px) scaleX(1.02);
+}
+
+/* Circle Variant */
+.circleWrapper {
+  position: relative;
+  display: inline-block;
+  padding: 0.15em 0.35em;
+  --handdrawn-color: var(--accent);
+}
+
+.circleSvg {
+  position: absolute;
+  top: -24%;
+  left: -12%;
+  width: 124%;
+  height: 148%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  color: var(--handdrawn-color);
+  transition: transform 0.25s ease;
+}
+
+.circleWrapper:hover .circleSvg {
+  transform: scale(1.04) rotate(1deg);
+}
+
+/* Box Variant */
+.boxWrapper {
+  position: relative;
+  display: inline-block;
+  padding: 0.1em 0.25em;
+  --handdrawn-color: var(--secondary);
+}
+
+.boxSvg {
+  position: absolute;
+  top: -12%;
+  left: -6%;
+  width: 112%;
+  height: 124%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  color: var(--handdrawn-color);
+  transition: transform 0.25s ease;
+}
+
+.pathStroke {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 0;
+  animation: drawHandDrawn 0.55s ease forwards;
+}
+
+@keyframes drawHandDrawn {
+  from {
+    stroke-dashoffset: 600;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pathStroke {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

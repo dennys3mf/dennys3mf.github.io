@@ -8,6 +8,7 @@ import Header from "../../../components/layout/Header";
 import Footer from "../../../components/layout/Footer";
 import { PROJECTS } from "../../../data/projects";
 import { useLanguage } from "../../../context/LanguageContext";
+import { playTactileClick } from "../../../lib/sound";
 import styles from "./CaseStudy.module.css";
 
 interface CaseStudyClientProps {
@@ -28,7 +29,11 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
 
       <main id="main-content" className={styles.container}>
         {/* Back Link */}
-        <Link href="/work" className={styles.backLink}>
+        <Link
+          href="/work"
+          className={styles.backLink}
+          onClick={() => playTactileClick()}
+        >
           <ArrowLeft size={16} />
           <span>{t.caseStudy.backToWork}</span>
         </Link>
@@ -40,6 +45,9 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
               {project.categoryLabel[language]}
             </span>
             <span className={styles.status}>
+              {project.status === "live" && (
+                <span className={styles.statusPulseDot} aria-hidden="true" />
+              )}
               {project.status === "live"
                 ? (language === "es" ? "En Producción" : "Production")
                 : (language === "es" ? "En Desarrollo" : "In Progress")}
