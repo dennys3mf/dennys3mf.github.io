@@ -169,59 +169,7 @@ export default function Home() {
                 )}
               </li>
 
-              {/* Item 4 — Safety Helmet IoT */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/safety-helmet-iot"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  Safety Helmet IoT
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Sistema de telemetría de seguridad industrial con detección
-                    de impacto físico y alerta de emergencia en faenas mineras (
-                    <span className={styles.strongTopic}>ESP32</span> &amp;{" "}
-                    <span className={styles.strongTopic}>Python</span>).
-                  </>
-                ) : (
-                  <>
-                    Industrial worker telemetry &amp; emergency broadcast system
-                    with physical impact and toxic gas detection on{" "}
-                    <span className={styles.strongTopic}>ESP32</span> &amp;{" "}
-                    <span className={styles.strongTopic}>Python</span>.
-                  </>
-                )}
-              </li>
-
-              {/* Item 5 — CHANSA */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/chansa-app"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  CHANSA
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Marketplace móvil bajo demanda para contratación de técnicos
-                    certificados del hogar con chat en tiempo real y
-                    geolocalización.
-                  </>
-                ) : (
-                  <>
-                    Built on-demand mobile marketplace connecting verified home
-                    contractors with real-time chat, location-based matching, and
-                    job scheduling.
-                  </>
-                )}
-              </li>
-
-              {/* Item 6 — Fiscalización Joya */}
+              {/* Item 4 — Fiscalización Joya */}
               <li className={styles.workItem}>
                 <Link
                   href="/work/fiscalizacion-joya"
@@ -244,6 +192,150 @@ export default function Home() {
                     municipal inspectors.
                   </>
                 )}
+              </li>
+            </ul>
+
+            {/* ================================================================
+                PERSONAL SECTION — Side Projects, IoT & Open Source Experiments
+               ================================================================ */}
+            <h2 className={styles.personalHeading}>Personal</h2>
+
+            <ul className={styles.workList}>
+              {/* Personal Item 1 — Safety Helmet IoT */}
+              <li className={styles.workItem}>
+                <Link
+                  href="/work/safety-helmet-iot"
+                  className={styles.projectLink}
+                  onClick={() => playTactileClick()}
+                >
+                  Safety Helmet IoT
+                </Link>
+                <span className={styles.subtleTag}> (Hardware Prototype)</span>
+                {": "}
+                {isEs ? (
+                  <>
+                    Sistema físico de telemetría y seguridad industrial para faenas
+                    mineras construido sobre microcontrolador{" "}
+                    <span className={styles.strongTopic}>ESP32</span>, sensores analógicos
+                    y <span className={styles.strongTopic}>Python</span>. Módulos y alertas:
+                  </>
+                ) : (
+                  <>
+                    A physical telemetry &amp; industrial safety prototype built on top
+                    of an <span className={styles.strongTopic}>ESP32</span> microcontroller,
+                    analog sensors, and <span className={styles.strongTopic}>Python</span>.
+                    Examples:
+                  </>
+                )}
+                <ul className={styles.nestedList}>
+                  <li className={styles.nestedItem}>
+                    <Link
+                      href="/work/safety-helmet-iot"
+                      className={styles.projectLink}
+                      onClick={() => playTactileClick()}
+                    >
+                      <code className={styles.codeSpan}>10 Hz Telemetry</code>
+                    </Link>{" "}
+                    {isEs
+                      ? "muestreo continuo y radiotransmisión de coordenadas GPS"
+                      : "real-time continuous telemetry & GPS coordinates broadcast"}
+                  </li>
+                  <li className={styles.nestedItem}>
+                    <Link
+                      href="/work/safety-helmet-iot"
+                      className={styles.projectLink}
+                      onClick={() => playTactileClick()}
+                    >
+                      <code className={styles.codeSpan}>3-Axis G-Force</code>
+                    </Link>{" "}
+                    {isEs
+                      ? "detección de impactos y disparo de emergencia en menos de 1.5s"
+                      : "fall and sudden impact detection with emergency dispatch in < 1.5s"}
+                  </li>
+                </ul>
+              </li>
+
+              {/* Personal Item 2 — CHANSA */}
+              <li className={styles.workItem}>
+                <Link
+                  href="/work/chansa-app"
+                  className={styles.projectLink}
+                  onClick={() => playTactileClick()}
+                >
+                  CHANSA
+                </Link>
+                {": "}
+                {isEs ? (
+                  <>
+                    Marketplace móvil bajo demanda para contratación de técnicos
+                    certificados del hogar con chat en tiempo real y geolocalización (
+                    <span className={styles.strongTopic}>Flutter</span> &amp;{" "}
+                    <span className={styles.strongTopic}>Firebase</span>).
+                  </>
+                ) : (
+                  <>
+                    On-demand mobile marketplace connecting homeowners with verified
+                    trade contractors, featuring real-time chat and geolocation (
+                    <span className={styles.strongTopic}>Flutter</span> &amp;{" "}
+                    <span className={styles.strongTopic}>Firebase</span>).
+                  </>
+                )}
+              </li>
+
+              {/* Personal Item 3 — Patatus & UI Crafts */}
+              <li className={styles.workItem}>
+                <a
+                  href={siteConfig.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.projectLink}
+                  onClick={() => playTactileClick()}
+                >
+                  Patatus &amp; UI Crafts
+                </a>
+                <span className={styles.subtleTag}> (Open Source &amp; Tooling)</span>
+                {": "}
+                {isEs ? (
+                  <>
+                    Experimentos de micro-interacciones, kit SVG de mascota desarrolladora
+                    y utilidades web interactivas. Ejemplos:
+                  </>
+                ) : (
+                  <>
+                    Micro-interaction experiments, developer mascot SVG kit, and
+                    browser-native interactive tooling. Examples:
+                  </>
+                )}
+                <ul className={styles.nestedList}>
+                  <li className={styles.nestedItem}>
+                    <a
+                      href={siteConfig.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectLink}
+                      onClick={() => playTactileClick()}
+                    >
+                      <code className={styles.codeSpan}>Web Audio API</code>
+                    </a>{" "}
+                    {isEs
+                      ? "micro-sintetizador acústico háptico de 18ms con 0 KB de dependencias"
+                      : "18ms zero-latency acoustic haptic click synthesizer with 0 KB dependencies"}
+                  </li>
+                  <li className={styles.nestedItem}>
+                    <a
+                      href={siteConfig.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectLink}
+                      onClick={() => playTactileClick()}
+                    >
+                      <code className={styles.codeSpan}>Rough Notation SVG</code>
+                    </a>{" "}
+                    {isEs
+                      ? "resaltadores y subrayados vectoriales dinámicos para interfaces editoriales"
+                      : "dynamic organic vector highlighters and underlines for editorial UIs"}
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
