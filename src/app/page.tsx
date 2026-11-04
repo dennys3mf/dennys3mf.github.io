@@ -61,11 +61,11 @@ export default function Home() {
                   <span className={styles.highlightUnderline}>
                     desarrollo full stack
                   </span>{" "}
-                  o{" "}
+                  o creando{" "}
                   <span className={styles.highlightUnderline}>
                     sistemas con IA
                   </span>
-                  . Si estás contratando:
+                  . Abierto a colaborar en productos de alto impacto. Si tu equipo está contratando:
                 </>
               ) : (
                 <>
@@ -73,11 +73,11 @@ export default function Home() {
                   <span className={styles.highlightUnderline}>
                     full stack engineering
                   </span>{" "}
-                  or{" "}
+                  or building{" "}
                   <span className={styles.highlightUnderline}>
-                    AI systems development
+                    production AI systems
                   </span>
-                  . If you&apos;re hiring:
+                  . Open to high-impact teams and products. If you&apos;re hiring:
                 </>
               )}
             </p>
@@ -105,15 +105,17 @@ export default function Home() {
                 {": "}
                 {isEs ? (
                   <>
-                    Construcción de plataforma ciudadana en producción con IA
-                    conversacional por voz en tiempo real y pagos digitales con{" "}
-                    <span className={styles.strongTopic}>Culqi</span>.
+                    Plataforma ciudadana en producción que automatiza trámites burocráticos
+                    y agendamiento de citas en Perú, integrando un{" "}
+                    <span className={styles.strongTopic}>asistente de voz con IA en tiempo real</span>{" "}
+                    y cobros seguros con <span className={styles.strongTopic}>Culqi</span>.
                   </>
                 ) : (
                   <>
-                    Built citizen paperwork automation platform integrating
-                    real-time Voice AI guidance and tokenized digital payments
-                    with <span className={styles.strongTopic}>Culqi</span>.
+                    Live citizen paperwork platform that automates administrative procedures
+                    and appointment bookings via{" "}
+                    <span className={styles.strongTopic}>real-time conversational voice AI</span>{" "}
+                    and digital card payments via <span className={styles.strongTopic}>Culqi</span>.
                   </>
                 )}
               </li>
@@ -130,16 +132,15 @@ export default function Home() {
                 {": "}
                 {isEs ? (
                   <>
-                    Motor de cobros y facturación electrónica automatizada con
-                    validación oficial{" "}
-                    <span className={styles.strongTopic}>SUNAT XML (UBL 2.1)</span>{" "}
-                    y firma digital criptográfica.
+                    Motor de facturación electrónica y cobros recurrentes que emite,
+                    firma criptográficamente y valida comprobantes oficiales bajo el estándar{" "}
+                    <span className={styles.strongTopic}>SUNAT XML (UBL 2.1)</span> con conciliación automática.
                   </>
                 ) : (
                   <>
-                    Engineered payment checkout gateway &amp; automated{" "}
-                    <span className={styles.strongTopic}>SUNAT XML (UBL 2.1)</span>{" "}
-                    fiscal invoice signing pipeline.
+                    Automated billing &amp; payment gateway engine that generates,
+                    cryptographically signs, and validates fiscal invoices against Peru&apos;s{" "}
+                    <span className={styles.strongTopic}>SUNAT XML (UBL 2.1)</span> standard with instant reconciliation.
                   </>
                 )}
               </li>
@@ -156,15 +157,15 @@ export default function Home() {
                 {": "}
                 {isEs ? (
                   <>
-                    Plataforma SaaS corporativa multi-tenant para matrices de
-                    cumplimiento en seguridad y salud laboral (SG-SST) y
-                    auditorías jurídicas.
+                    Plataforma SaaS multi-inquilino que centraliza matrices de riesgos laborales (
+                    <span className={styles.strongTopic}>SG-SST</span>), seguimiento de incidentes
+                    y auditorías legales con generación de reportes normativos en tiempo real.
                   </>
                 ) : (
                   <>
-                    Built multi-tenant enterprise compliance SaaS for occupational
-                    health (SG-SST) matrices and auditable legal inspection
-                    records.
+                    Multi-tenant enterprise SaaS that digitizes occupational safety &amp; health (
+                    <span className={styles.strongTopic}>SG-SST</span>) risk matrices, incident tracking,
+                    and audit-ready legal compliance records.
                   </>
                 )}
               </li>
@@ -181,15 +182,17 @@ export default function Home() {
                 {": "}
                 {isEs ? (
                   <>
-                    Aplicación para tablets Android 100% offline-first con fotos
-                    de evidencia y firmas digitales para fiscalizadores
-                    municipales.
+                    Suite para tablets Android que opera{" "}
+                    <span className={styles.strongTopic}>100% sin conexión a internet (offline-first)</span>
+                    , permitiendo a fiscalizadores municipales levantar actas de infracción con geolocalización GPS,
+                    fotografías de prueba y firmas biométricas.
                   </>
                 ) : (
                   <>
-                    Built 100% offline-first Android tablet inspection suite with
-                    photo evidence, digital signatures, and auto-sync for
-                    municipal inspectors.
+                    Field inspection suite for Android tablets running{" "}
+                    <span className={styles.strongTopic}>100% offline-first</span>
+                    , enabling municipal officers to document infractions with GPS coordinates,
+                    photo evidence, and digital biometric signatures.
                   </>
                 )}
               </li>
@@ -210,21 +213,22 @@ export default function Home() {
                 >
                   Safety Helmet IoT
                 </Link>
-                <span className={styles.subtleTag}> (Hardware Prototype)</span>
+                <span className={styles.subtleTag}>
+                  {" "}
+                  {isEs ? "(Hardware & Telemetría)" : "(Hardware Prototype)"}
+                </span>
                 {": "}
                 {isEs ? (
                   <>
-                    Sistema físico de telemetría y seguridad industrial para faenas
-                    mineras construido sobre microcontrolador{" "}
-                    <span className={styles.strongTopic}>ESP32</span>, sensores analógicos
-                    y <span className={styles.strongTopic}>Python</span>. Módulos y alertas:
+                    Casco inteligente de seguridad industrial para operaciones mineras subterráneas,
+                    desarrollado sobre microcontrolador <span className={styles.strongTopic}>ESP32</span>,
+                    sensores analógicos y backend en <span className={styles.strongTopic}>Python</span>. Módulos clave:
                   </>
                 ) : (
                   <>
-                    A physical telemetry &amp; industrial safety prototype built on top
-                    of an <span className={styles.strongTopic}>ESP32</span> microcontroller,
-                    analog sensors, and <span className={styles.strongTopic}>Python</span>.
-                    Examples:
+                    Smart industrial safety helmet prototype engineered for underground mining operations,
+                    powered by an <span className={styles.strongTopic}>ESP32</span> microcontroller,
+                    analog sensors, and a <span className={styles.strongTopic}>Python</span> backend. Key modules:
                   </>
                 )}
                 <ul className={styles.nestedList}>
@@ -237,8 +241,8 @@ export default function Home() {
                       <code className={styles.codeSpan}>10 Hz Telemetry</code>
                     </Link>{" "}
                     {isEs
-                      ? "muestreo continuo y radiotransmisión de coordenadas GPS"
-                      : "real-time continuous telemetry & GPS coordinates broadcast"}
+                      ? "monitoreo continuo de gases peligrosos (CO, CH4) y radiotransmisión de coordenadas GPS"
+                      : "real-time sensor sampling of toxic gas levels (CO, CH4) and continuous GPS tracking"}
                   </li>
                   <li className={styles.nestedItem}>
                     <Link
@@ -249,8 +253,8 @@ export default function Home() {
                       <code className={styles.codeSpan}>3-Axis G-Force</code>
                     </Link>{" "}
                     {isEs
-                      ? "detección de impactos y disparo de emergencia en menos de 1.5s"
-                      : "fall and sudden impact detection with emergency dispatch in < 1.5s"}
+                      ? "detección instantánea de caídas e impactos severos con alerta de auxilio en < 1.5s"
+                      : "instant fall and sudden impact detection triggering automated emergency dispatch in < 1.5s"}
                   </li>
                 </ul>
               </li>
@@ -267,15 +271,15 @@ export default function Home() {
                 {": "}
                 {isEs ? (
                   <>
-                    Marketplace móvil bajo demanda para contratación de técnicos
-                    certificados del hogar con chat en tiempo real y geolocalización (
+                    Marketplace móvil bajo demanda que conecta a propietarios del hogar con técnicos
+                    y gasfiteros verificados, con presupuestos claros, chat y mapas en vivo (
                     <span className={styles.strongTopic}>Flutter</span> &amp;{" "}
                     <span className={styles.strongTopic}>Firebase</span>).
                   </>
                 ) : (
                   <>
-                    On-demand mobile marketplace connecting homeowners with verified
-                    trade contractors, featuring real-time chat and geolocation (
+                    On-demand mobile marketplace connecting homeowners with verified home maintenance contractors,
+                    featuring live map tracking, real-time chat, and escrow milestones (
                     <span className={styles.strongTopic}>Flutter</span> &amp;{" "}
                     <span className={styles.strongTopic}>Firebase</span>).
                   </>
@@ -293,17 +297,20 @@ export default function Home() {
                 >
                   Patatus &amp; UI Crafts
                 </a>
-                <span className={styles.subtleTag}> (Open Source &amp; Tooling)</span>
+                <span className={styles.subtleTag}>
+                  {" "}
+                  {isEs ? "(Open Source & Herramientas)" : "(Open Source & Tooling)"}
+                </span>
                 {": "}
                 {isEs ? (
                   <>
-                    Experimentos de micro-interacciones, kit SVG de mascota desarrolladora
-                    y utilidades web interactivas. Ejemplos:
+                    Laboratorio de micro-interacciones acústicas, utilidades web nativas
+                    y el kit vectorial de Patatus, mi mascota pingüino. Ejemplos:
                   </>
                 ) : (
                   <>
-                    Micro-interaction experiments, developer mascot SVG kit, and
-                    browser-native interactive tooling. Examples:
+                    A playground of tactile micro-interactions, browser-native experiments,
+                    and the open vector kit of Patatus, my developer penguin mascot. Examples:
                   </>
                 )}
                 <ul className={styles.nestedList}>
@@ -318,8 +325,8 @@ export default function Home() {
                       <code className={styles.codeSpan}>Web Audio API</code>
                     </a>{" "}
                     {isEs
-                      ? "micro-sintetizador acústico háptico de 18ms con 0 KB de dependencias"
-                      : "18ms zero-latency acoustic haptic click synthesizer with 0 KB dependencies"}
+                      ? "sintetizador acústico háptico de 18ms en JavaScript puro con 0 KB de dependencias"
+                      : "zero-dependency, 18ms acoustic haptic click synthesizer running purely on Web Audio nodes"}
                   </li>
                   <li className={styles.nestedItem}>
                     <a
@@ -332,8 +339,8 @@ export default function Home() {
                       <code className={styles.codeSpan}>Rough Notation SVG</code>
                     </a>{" "}
                     {isEs
-                      ? "resaltadores y subrayados vectoriales dinámicos para interfaces editoriales"
-                      : "dynamic organic vector highlighters and underlines for editorial UIs"}
+                      ? "anotaciones vectoriales orgánicas y subrayados editoriales con transiciones fluidas de CSS"
+                      : "organic hand-drawn underlines, editorial highlighters, and smooth native CSS transitions"}
                   </li>
                 </ul>
               </li>
@@ -350,28 +357,40 @@ export default function Home() {
               <Image
                 src="/images/personal/dennys-portrait.webp"
                 alt="Dennys Marquez"
-                width={84}
-                height={84}
+                width={86}
+                height={86}
                 className={styles.avatarImg}
                 priority
               />
 
               <div className={styles.aboutBioText}>
                 {isEs ? (
-                  <p>
-                    Hola, soy Dennys. Construyo aplicaciones web resilientes,
-                    sistemas de IA y arquitecturas cloud en producción. Basado
-                    en Perú, me enfoco en transformar reglas de negocio
-                    complejas y trámites burocráticos en software simple, rápido
-                    y confiable.
-                  </p>
+                  <>
+                    <p>
+                      ¡Hola! Soy <strong>Dennys Marquez</strong>, desarrollador de software e
+                      ingeniero de producto basado en Perú. Me apasiona resolver problemas reales:
+                      transformo procesos burocráticos engorrosos, motores de facturación y flujos
+                      operativos complejos en software ágil, nítido y fácil de usar.
+                    </p>
+                    <p>
+                      Combino arquitectura de backend en <strong>Python</strong> y <strong>Node.js</strong> con
+                      interfaces modernas en <strong>React</strong>, <strong>Next.js</strong> y <strong>TypeScript</strong>.
+                      En mi tiempo libre, diseño experimentos de interfaz junto a <strong>Patatus</strong>, mi mascota pingüino.
+                    </p>
+                  </>
                 ) : (
-                  <p>
-                    Hey, I&apos;m Dennys. I build resilient software, AI workflows,
-                    and cloud systems in production. Based in Peru, I focus on
-                    turning complex business rules and manual bureaucratic
-                    processes into clean, reliable, and scalable digital products.
-                  </p>
+                  <>
+                    <p>
+                      Hey, I&apos;m <strong>Dennys Marquez</strong>, a product-minded software engineer based in Peru.
+                      I specialize in turning tedious bureaucratic workflows, billing engines, and intricate
+                      operational rules into fast, clean, and intuitive digital products.
+                    </p>
+                    <p>
+                      I combine robust backend architecture in <strong>Python</strong> and <strong>Node.js</strong> with
+                      modern, reactive user interfaces in <strong>React</strong>, <strong>Next.js</strong>, and <strong>TypeScript</strong>.
+                      In my spare time, I craft tactile UI experiments alongside <strong>Patatus</strong>, my penguin mascot.
+                    </p>
+                  </>
                 )}
               </div>
             </div>

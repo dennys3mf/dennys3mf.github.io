@@ -1,5 +1,5 @@
 /* ====================================================================
-   DELBA.DEV DIRECT EDITORIAL LAYOUT
+   DELBA.DEV DIRECT EDITORIAL LAYOUT — ULTRA CRISP & LEGIBLE
    Direct, 2-column, content-first, editorial serif design
    ==================================================================== */
 
@@ -10,6 +10,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Minimal Top Navigation */
@@ -17,7 +20,7 @@
   max-width: 1060px;
   margin: 0 auto;
   width: 100%;
-  padding: 1.75rem 2rem 0;
+  padding: 1.85rem 2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,6 +32,11 @@
   gap: 0.65rem;
   text-decoration: none;
   color: #171717;
+  transition: opacity 0.15s ease;
+}
+
+.brandLink:hover {
+  opacity: 0.85;
 }
 
 .brandLogo {
@@ -36,25 +44,29 @@
   height: 32px;
   border-radius: 8px;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .topActions {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .topArchiveLink {
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  color: #525252;
+  color: #4B5563;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.15s ease;
+  text-underline-offset: 3.5px;
+  text-decoration-thickness: 1.2px;
+  text-decoration-color: #D1D5DB;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 .topArchiveLink:hover {
-  color: #171717;
+  color: #111827;
+  text-decoration-color: #111827;
 }
 
 /* Main Container */
@@ -62,7 +74,7 @@
   max-width: 1060px;
   margin: 0 auto;
   width: 100%;
-  padding: 3.5rem 2rem 6rem;
+  padding: 3.75rem 2rem 6.5rem;
   flex: 1;
 }
 
@@ -70,7 +82,7 @@
 .editorialGrid {
   display: grid;
   grid-template-columns: 1.45fr 1fr;
-  gap: 4.5rem;
+  gap: 4.75rem;
   align-items: start;
 }
 
@@ -82,50 +94,54 @@
 
 .portfolioTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4.2vw, 3.25rem);
+  font-size: clamp(2.5rem, 4.3vw, 3.35rem);
   font-weight: 500;
-  line-height: 1.12;
-  color: #171717;
-  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: #111827;
+  letter-spacing: -0.02em;
   margin: 0 0 1.5rem 0;
 }
 
 .rolePitch {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: #262626;
-  margin: 0 0 1.25rem 0;
+  font-size: 1.18rem;
+  line-height: 1.68;
+  color: #27272A;
+  margin: 0 0 1.35rem 0;
 }
 
 .highlightUnderline {
-  font-weight: 700;
-  color: #171717;
+  font-weight: 600;
+  color: #111827;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3.5px;
+  text-decoration-thickness: 1.25px;
+  text-decoration-color: #9CA3AF;
 }
 
 .letsTalkBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: #171717;
+  background: #111827;
   color: #FFFFFF;
-  padding: 0.6rem 1.25rem;
+  padding: 0.62rem 1.35rem;
   border-radius: 8px;
   font-size: 0.925rem;
   font-weight: 600;
   text-decoration: none;
   width: fit-content;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   margin-bottom: 3.5rem;
   cursor: pointer;
   user-select: none;
 }
 
 .letsTalkBtn:hover {
-  background: #2b2b2b;
+  background: #27272A;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
   transform: translateY(-1px);
 }
 
@@ -135,20 +151,20 @@
 
 .workHeading {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 500;
-  color: #171717;
-  margin: 0 0 1.75rem 0;
-  letter-spacing: -0.01em;
+  color: #111827;
+  margin: 0 0 1.65rem 0;
+  letter-spacing: -0.015em;
 }
 
 .personalHeading {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 500;
-  color: #171717;
-  margin: 3.25rem 0 1.75rem 0;
-  letter-spacing: -0.01em;
+  color: #111827;
+  margin: 3.5rem 0 1.65rem 0;
+  letter-spacing: -0.015em;
 }
 
 .workList {
@@ -157,7 +173,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.65rem;
+  gap: 1.75rem;
 }
 
 .workItem {
@@ -165,26 +181,27 @@
   padding-left: 1.35rem;
   font-family: var(--font-serif);
   font-size: 1.05rem;
-  line-height: 1.65;
-  color: #262626;
+  line-height: 1.68;
+  color: #27272A;
 }
 
 .workItem::before {
   content: "▪";
   position: absolute;
   left: 0;
-  top: 0.15em;
-  color: #a3a3a3;
+  top: 0.14em;
+  color: #9CA3AF;
   font-size: 0.65rem;
+  line-height: 1;
 }
 
 .nestedList {
   list-style: none;
   padding-left: 1.35rem;
-  margin: 0.65rem 0 0.25rem 0;
+  margin: 0.65rem 0 0.35rem 0;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.65rem;
 }
 
 .nestedItem {
@@ -192,40 +209,45 @@
   padding-left: 1.25rem;
   font-family: var(--font-serif);
   font-size: 1rem;
-  line-height: 1.6;
-  color: #262626;
+  line-height: 1.62;
+  color: #3F3F46;
 }
 
 .nestedItem::before {
   content: "▪";
   position: absolute;
   left: 0;
-  top: 0.15em;
-  color: #a3a3a3;
-  font-size: 0.65rem;
+  top: 0.14em;
+  color: #9CA3AF;
+  font-size: 0.62rem;
+  line-height: 1;
 }
 
 .codeSpan {
   font-family: var(--font-mono);
   font-size: 0.88em;
   background: #F4F4F5;
-  color: #171717;
-  padding: 0.1em 0.35em;
+  color: #18181B;
+  padding: 0.12em 0.4em;
   border-radius: 4px;
   border: 1px solid #E4E4E7;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .subtleTag {
-  color: #737373;
+  color: #6B7280;
   font-weight: 400;
+  font-size: 0.96rem;
 }
 
 .projectLink {
-  font-weight: 700;
-  color: #171717;
+  font-weight: 600;
+  color: #111827;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3.5px;
+  text-decoration-thickness: 1.25px;
+  text-decoration-color: #D1D5DB;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
@@ -235,10 +257,12 @@
 }
 
 .strongTopic {
-  font-weight: 700;
-  color: #171717;
+  font-weight: 600;
+  color: #111827;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 3.5px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #E5E7EB;
 }
 
 /* Right Column */
@@ -249,11 +273,11 @@
 
 .aboutHeading {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 500;
-  color: #171717;
-  margin: 0 0 1.75rem 0;
-  letter-spacing: -0.01em;
+  color: #111827;
+  margin: 0 0 1.65rem 0;
+  letter-spacing: -0.015em;
 }
 
 .aboutBioBlock {
@@ -263,25 +287,34 @@
 }
 
 .avatarImg {
-  width: 84px;
-  height: 84px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .aboutBioText {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  line-height: 1.65;
-  color: #333333;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #27272A;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.aboutBioText strong {
+  font-weight: 600;
+  color: #111827;
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #E5E7EB;
   margin: 2.25rem 0 1.5rem 0;
 }
 
@@ -292,30 +325,33 @@
   flex-wrap: wrap;
   font-family: var(--font-serif);
   font-size: 1rem;
-  color: #737373;
+  color: #6B7280;
 }
 
 .socialLink {
-  color: #171717;
+  color: #111827;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 3.5px;
   text-decoration-thickness: 1.2px;
+  text-decoration-color: #D1D5DB;
   font-weight: 500;
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 .socialLink:hover {
   color: #2563EB;
+  text-decoration-color: #2563EB;
 }
 
-/* Patatus Corner Companion — Matching Delba's bottom-right mascot */
+/* Patatus Corner Companion */
 .patatusCorner {
   position: fixed;
-  bottom: 1.25rem;
-  right: 1.75rem;
+  bottom: 1.35rem;
+  right: 1.85rem;
   z-index: 40;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 6px 14px rgba(21, 43, 73, 0.12));
 }
 
 .patatusCorner:hover {
@@ -330,7 +366,7 @@
   width: 82px;
   height: 82px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(21, 43, 73, 0.12));
+  image-rendering: -webkit-optimize-contrast;
 }
 
 /* Responsive */
@@ -349,7 +385,7 @@
   }
 
   .topNav {
-    padding: 1.25rem 1.5rem 0;
+    padding: 1.35rem 1.5rem 0;
   }
 
   .container {
@@ -357,7 +393,7 @@
   }
 
   .patatusCorner {
-    bottom: 0.75rem;
+    bottom: 0.85rem;
     right: 1rem;
   }
 
