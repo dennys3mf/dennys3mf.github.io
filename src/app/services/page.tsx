@@ -3,20 +3,59 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Check } from "lucide-react";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { siteConfig } from "../../data/siteConfig";
 import { useLanguage } from "../../context/LanguageContext";
+import LanguageToggle from "../../components/LanguageToggle";
+import { playTactileClick, playTactilePop } from "../../lib/sound";
 import styles from "./Services.module.css";
 
 export default function ServicesPage() {
   const { t, language } = useLanguage();
+  const isEs = language === "es";
 
   return (
     <div className={styles.servicesPageWrapper}>
-      <Header />
+      {/* Minimal Top Navigation */}
+      <header className={styles.topNav}>
+        <Link
+          href="/"
+          className={styles.brandLink}
+          aria-label="Dennys Marquez — Home"
+          onClick={() => playTactileClick()}
+        >
+          <Image
+            src={siteConfig.logoUrl}
+            alt="Dennys Marquez"
+            width={32}
+            height={32}
+            className={styles.brandLogo}
+            priority
+          />
+        </Link>
+
+        <div className={styles.topActions}>
+          <Link
+            href="/"
+            className={styles.topBackLink}
+            onClick={() => playTactileClick()}
+          >
+            {isEs ? "← Portafolio" : "← Portfolio"}
+          </Link>
+          <LanguageToggle />
+        </div>
+      </header>
 
       <main id="main-content" className={styles.container}>
+        {/* Subtle Editorial Breadcrumb Link */}
+        <Link
+          href="/"
+          className={styles.backBreadcrumb}
+          onClick={() => playTactileClick()}
+        >
+          {isEs ? "← Volver al inicio" : "← Back to portfolio"}
+        </Link>
+
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
             <span>{t.servicesPage.eyebrow}</span>
@@ -25,45 +64,43 @@ export default function ServicesPage() {
           <p className={styles.pageDesc}>{t.servicesPage.description}</p>
         </div>
 
-        {/* 3 Focused Services */}
+        {/* Services List */}
         <div className={styles.servicesList}>
-          {t.servicesPage.servicesList.map((service, idx) => (
+          {t.servicesPage.servicesList.map((srv, idx) => (
             <article key={idx} className={styles.serviceCard}>
-              <div className={styles.serviceLeft}>
-                <span className={styles.serviceNumber}>
-                  {language === "es" ? `Servicio 0${idx + 1}` : `Service 0${idx + 1}`}
-                </span>
-                <h2 className={styles.serviceTitle}>{service.title}</h2>
-                <div className={styles.serviceSubtitle}>{service.subtitle}</div>
-                <p className={styles.serviceDesc}>{service.desc}</p>
+              <div className={styles.serviceHeader}>
+                <h2 className={styles.serviceTitle}>{srv.title}</h2>
+                <span className={styles.serviceSubtitle}>{srv.subtitle}</span>
               </div>
 
-              <div className={styles.serviceRight}>
-                <span className={styles.deliverablesTitle}>
-                  {language === "es" ? "Qué incluye:" : "What is included:"}
+              <p className={styles.serviceDesc}>{srv.desc}</p>
+
+              <div className={styles.deliverablesBlock}>
+                <span className={styles.deliverablesLabel}>
+                  {language === "es" ? "Entregables clave" : "Key deliverables"}
                 </span>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                  {service.deliverables.map((item, dIdx) => (
-                    <div key={dIdx} className={styles.deliverableItem}>
-                      <Check size={16} className={styles.checkIcon} />
+                <ul className={styles.deliverablesList}>
+                  {srv.deliverables.map((item, dIdx) => (
+                    <li key={dIdx} className={styles.deliverableItem}>
+                      <CheckCircle2 size={15} color="#10B981" />
                       <span>{item}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </article>
           ))}
         </div>
 
-        {/* 4-Step Collaboration Process */}
+        {/* Process Section */}
         <section className={styles.processSection}>
           <h2 className={styles.sectionHeading}>{t.servicesPage.processTitle}</h2>
-          <p className={styles.sectionSubtitle}>{t.servicesPage.processSubtitle}</p>
+          <p className={styles.sectionSub}>{t.servicesPage.processSubtitle}</p>
 
           <div className={styles.processGrid}>
-            {t.servicesPage.processSteps.map((step) => (
-              <div key={step.step} className={styles.processCard}>
-                <span className={styles.stepBadge}>{step.step}</span>
+            {t.servicesPage.processSteps.map((step, idx) => (
+              <div key={idx} className={styles.stepCard}>
+                <span className={styles.stepNumber}>{step.step}</span>
                 <h3 className={styles.stepTitle}>{step.title}</h3>
                 <p className={styles.stepDesc}>{step.desc}</p>
               </div>
@@ -71,49 +108,39 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Commercial CTA */}
-        <div className={styles.ctaBox}>
-          <div className={styles.ctaAvatarBadge}>
-            <Image
-              src="/mascot/patatus-avatar.svg"
-              alt="Patatus mascot"
-              width={224}
-              height={224}
-              className={styles.ctaAvatarImg}
-            />
-          </div>
-          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "2rem", fontWeight: 800 }}>
-            {t.servicesPage.discussProject}
-          </h2>
-          <p style={{ maxWidth: "560px", color: "var(--foreground)", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.6 }}>
+        {/* Final CTA */}
+        <div className={styles.discussCta}>
+          <div className={styles.ctaText}>
             {language === "es"
-              ? "¿Tienes un MVP, flujo automatizado o herramienta interna que deseas construir? Conversemos sobre el alcance, requerimientos y tiempos de entrega."
-              : "Have an MVP, automation workflow, or internal tool you want to build? Let's discuss your scope, requirements, and timeline."}
-          </p>
+              ? "¿Tienes un proyecto o sistema en mente?"
+              : "Have a project or system in mind?"}
+          </div>
           <Link
             href="/contact?intent=project"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.95rem 2rem",
-              background: "var(--primary)",
-              color: "var(--primary-foreground)",
-              fontWeight: 800,
-              fontSize: "1rem",
-              borderRadius: "var(--radius-sm)",
-              border: "2px solid var(--border)",
-              boxShadow: "3px 3px 0 var(--border)",
-              textDecoration: "none",
-            }}
+            className={styles.discussBtn}
+            onClick={() => playTactileClick()}
           >
             <span>{t.servicesPage.discussProject}</span>
-            <ArrowUpRight size={18} />
+            <ArrowUpRight size={15} />
           </Link>
         </div>
       </main>
 
-      <Footer />
+      {/* Patatus Mascot — Bottom Right Companion */}
+      <aside
+        className={styles.patatusCorner}
+        title="Patatus — Dennys's penguin developer mascot"
+        aria-label="Patatus mascot"
+        onClick={() => playTactilePop()}
+      >
+        <Image
+          src="/mascot/patatus-saludando.svg"
+          alt="Patatus, mascota pingüino de Dennys"
+          width={82}
+          height={82}
+          className={styles.patatusImg}
+        />
+      </aside>
     </div>
   );
 }

@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Send, Copy, Check } from "lucide-react";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
 import { siteConfig } from "../../data/siteConfig";
 import { useLanguage } from "../../context/LanguageContext";
+import LanguageToggle from "../../components/LanguageToggle";
+import { playTactileClick, playTactilePop } from "../../lib/sound";
 import styles from "./Contact.module.css";
 
 export default function ContactClient() {
   const { t, language } = useLanguage();
+  const isEs = language === "es";
   const searchParams = useSearchParams();
   const queryIntent = searchParams?.get("intent");
   const [userIntent, setUserIntent] = useState<"hiring" | "project" | null>(null);
@@ -78,6 +81,7 @@ ${formData.message}
     try {
       await navigator.clipboard.writeText(siteConfig.email);
       setCopiedEmail(true);
+      playTactilePop();
       setTimeout(() => setCopiedEmail(false), 2200);
     } catch {
       // ignore
@@ -86,24 +90,64 @@ ${formData.message}
 
   return (
     <div className={styles.contactPageWrapper}>
-      <Header />
+      {/* Minimal Top Navigation */}
+      <header className={styles.topNav}>
+        <Link
+          href="/"
+          className={styles.brandLink}
+          aria-label="Dennys Marquez — Home"
+          onClick={() => playTactileClick()}
+        >
+          <Image
+            src={siteConfig.logoUrl}
+            alt="Dennys Marquez"
+            width={32}
+            height={32}
+            className={styles.brandLogo}
+            priority
+          />
+        </Link>
+
+        <div className={styles.topActions}>
+          <Link
+            href="/"
+            className={styles.topBackLink}
+            onClick={() => playTactileClick()}
+          >
+            {isEs ? "← Portafolio" : "← Portfolio"}
+          </Link>
+          <LanguageToggle />
+        </div>
+      </header>
 
       <main id="main-content" className={styles.container}>
+        {/* Subtle Editorial Breadcrumb Link */}
+        <Link
+          href="/"
+          className={styles.backBreadcrumb}
+          onClick={() => playTactileClick()}
+        >
+          {isEs ? "← Volver al inicio" : "← Back to portfolio"}
+        </Link>
+
         <div className={styles.headerBlock}>
           <div className={styles.eyebrow}>
-            <span>{language === "es" ? "Contacto Directo" : "Get In Touch"}</span>
+            <span>{isEs ? "Contacto Directo" : "Get In Touch"}</span>
           </div>
           <h1 className={styles.pageTitle}>{t.contactPage.heading}</h1>
           <p className={styles.pageDesc}>{t.contactPage.description}</p>
         </div>
 
         {/* Intent Switcher */}
-        <div className={styles.intentRow} role="tablist" aria-label="Conversation intent">
+        <div className={styles.intentRow} role="tablist" aria-label="Contact purpose">
           <button
             type="button"
             role="tab"
             aria-selected={intent === "hiring"}
-            onClick={() => setUserIntent("hiring")}
+            onClick={() => {
+              playTactileClick();
+              setUserIntent("hiring");
+            }}
             className={`${styles.intentBtn} ${intent === "hiring" ? styles.intentBtnActive : ""}`}
           >
             {t.contactPage.intentHiring}
@@ -112,20 +156,21 @@ ${formData.message}
             type="button"
             role="tab"
             aria-selected={intent === "project"}
-            onClick={() => setUserIntent("project")}
+            onClick={() => {
+              playTactileClick();
+              setUserIntent("project");
+            }}
             className={`${styles.intentBtn} ${intent === "project" ? styles.intentBtnActive : ""}`}
           >
             {t.contactPage.intentProject}
           </button>
         </div>
 
-        {/* Form Card */}
+        {/* Direct Form */}
         <div className={styles.formCard}>
-          <div className={styles.formSubtitle}>
-            {intent === "hiring"
-              ? t.contactPage.hiringSubtitle
-              : t.contactPage.projectSubtitle}
-          </div>
+          <p className={styles.formSubtitle}>
+            {intent === "hiring" ? t.contactPage.hiringSubtitle : t.contactPage.projectSubtitle}
+          </p>
 
           <form onSubmit={handleSubmit} className={styles.form} noValidate>
             <div className={styles.fieldRow}>
@@ -136,11 +181,11 @@ ${formData.message}
                 <input
                   id="contact-name"
                   type="text"
+                  required
+                  placeholder={language === "es" ? "Ej. Ana Vega" : "e.g. Jane Doe"}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={styles.input}
-                  aria-required="true"
-                  aria-invalid={!!errors.name}
                 />
                 {errors.name && <span className={styles.fieldError}>{errors.name}</span>}
               </div>
@@ -152,11 +197,11 @@ ${formData.message}
                 <input
                   id="contact-email"
                   type="email"
+                  required
+                  placeholder={language === "es" ? "ana@empresa.com" : "jane@company.com"}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={styles.input}
-                  aria-required="true"
-                  aria-invalid={!!errors.email}
                 />
                 {errors.email && <span className={styles.fieldError}>{errors.email}</span>}
               </div>
@@ -170,6 +215,7 @@ ${formData.message}
                 <input
                   id="contact-company"
                   type="text"
+                  placeholder={language === "es" ? "Ej. Acme Corp o Startup" : "e.g. Acme Corp or Startup"}
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   className={styles.input}
@@ -177,16 +223,20 @@ ${formData.message}
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="contact-roleOrProject" className={styles.label}>
-                  {intent === "hiring" ? t.contactPage.roleLabel : t.contactPage.projectTypeLabel}
+                <label htmlFor="contact-role" className={styles.label}>
+                  {intent === "hiring" ? t.contactPage.roleLabel : (isEs ? "Idea o Tipo de Proyecto" : "Project Idea or Type")}
                 </label>
                 <input
-                  id="contact-roleOrProject"
+                  id="contact-role"
                   type="text"
                   placeholder={
                     intent === "hiring"
-                      ? (language === "es" ? "ej. Desarrollador Full Stack Senior" : "e.g. Senior Full Stack Developer")
-                      : (language === "es" ? "ej. MVP Web / Automatización" : "e.g. Web App MVP / Automation")
+                      ? language === "es"
+                        ? "Ej. Senior Full Stack Engineer"
+                        : "e.g. Senior Full Stack Engineer"
+                      : language === "es"
+                      ? "Ej. Aplicación SaaS con IA"
+                      : "e.g. AI-powered SaaS Web App"
                   }
                   value={formData.roleOrProject}
                   onChange={(e) => setFormData({ ...formData, roleOrProject: e.target.value })}
@@ -201,28 +251,37 @@ ${formData.message}
                   <label htmlFor="contact-timeline" className={styles.label}>
                     {t.contactPage.timelineLabel}
                   </label>
-                  <input
+                  <select
                     id="contact-timeline"
-                    type="text"
-                    placeholder={language === "es" ? "ej. 4 - 8 semanas" : "e.g. 4 - 8 weeks"}
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className={styles.input}
-                  />
+                    className={styles.select}
+                  >
+                    <option value="">{isEs ? "Seleccionar plazo deseado..." : "Select target timeline..."}</option>
+                    <option value="Inmediato / Urgent">{isEs ? "Inmediato / Urgente (< 1 mes)" : "Immediate (< 1 month)"}</option>
+                    <option value="1-3 meses / 1-3 months">{isEs ? "1 - 3 meses" : "1 - 3 months"}</option>
+                    <option value="3+ meses / 3+ months">{isEs ? "3+ meses" : "3+ months"}</option>
+                    <option value="Flexible">{isEs ? "Flexible" : "Flexible"}</option>
+                  </select>
                 </div>
 
                 <div className={styles.formGroup}>
                   <label htmlFor="contact-budget" className={styles.label}>
                     {t.contactPage.budgetLabel}
                   </label>
-                  <input
+                  <select
                     id="contact-budget"
-                    type="text"
-                    placeholder={language === "es" ? "ej. $1,500 - $3,500+" : "e.g. $1,500 - $3,500+"}
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className={styles.input}
-                  />
+                    className={styles.select}
+                  >
+                    <option value="">{isEs ? "Seleccionar rango referencial..." : "Select budget range..."}</option>
+                    <option value="< $2,000">&lt; $2,000 USD</option>
+                    <option value="$2,000 - $5,000">$2,000 - $5,000 USD</option>
+                    <option value="$5,000 - $10,000">$5,000 - $10,000 USD</option>
+                    <option value="$10,000+">$10,000+ USD</option>
+                    <option value="Por definir / Undefined">{isEs ? "Por definir" : "To be determined"}</option>
+                  </select>
                 </div>
               </div>
             )}
@@ -233,36 +292,36 @@ ${formData.message}
               </label>
               <textarea
                 id="contact-message"
+                required
+                rows={5}
+                placeholder={
+                  intent === "hiring"
+                    ? language === "es"
+                      ? "Cuéntame sobre el equipo, los desafíos técnicos y la visión..."
+                      : "Tell me about the team, technical challenges, and role expectations..."
+                    : language === "es"
+                    ? "Describe el problema comercial o el producto que necesitas construir..."
+                    : "Describe the business challenge or software system you want to build..."
+                }
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className={styles.textarea}
-                placeholder={
-                  intent === "hiring"
-                    ? (language === "es"
-                        ? "Cuéntame sobre el rol, stack tecnológico y el reto que tu equipo busca resolver..."
-                        : "Tell me about the role, tech stack, and what problem your team is solving...")
-                    : (language === "es"
-                        ? "Describe qué deseas construir, funcionalidades clave y sistemas o diseños existentes..."
-                        : "Describe what you want to build, key features, and any existing systems or designs...")
-                }
-                aria-required="true"
-                aria-invalid={!!errors.message}
               />
               {errors.message && <span className={styles.fieldError}>{errors.message}</span>}
             </div>
 
-            <button type="submit" className={styles.submitBtn}>
+            <button
+              type="submit"
+              className={styles.submitBtn}
+              onClick={() => playTactileClick()}
+            >
               <Send size={16} />
-              <span>
-                {intent === "hiring"
-                  ? t.contactPage.submitHiring
-                  : t.contactPage.submitProject}
-              </span>
+              <span>{intent === "hiring" ? t.contactPage.submitHiring : t.contactPage.submitProject}</span>
             </button>
           </form>
         </div>
 
-        {/* Direct Email Card */}
+        {/* Direct Email fallback */}
         <div className={styles.directEmailCard}>
           <div className={styles.emailInfo}>
             <span className={styles.emailTitle}>{t.contactPage.emailDirectly}</span>
@@ -275,15 +334,29 @@ ${formData.message}
             type="button"
             onClick={handleCopy}
             className={styles.copyBtn}
-            title={t.contactPage.copyEmail}
+            aria-label="Copiar dirección de email"
           >
-            {copiedEmail ? <Check size={14} style={{ color: "var(--primary)" }} /> : <Copy size={14} />}
+            {copiedEmail ? <Check size={16} color="#10B981" /> : <Copy size={16} />}
             <span>{copiedEmail ? t.contactPage.copiedEmail : t.contactPage.copyEmail}</span>
           </button>
         </div>
       </main>
 
-      <Footer />
+      {/* Patatus Mascot — Bottom Right Companion */}
+      <aside
+        className={styles.patatusCorner}
+        title="Patatus — Dennys's penguin developer mascot"
+        aria-label="Patatus mascot"
+        onClick={() => playTactilePop()}
+      >
+        <Image
+          src="/mascot/patatus-saludando.svg"
+          alt="Patatus, mascota pingüino de Dennys"
+          width={82}
+          height={82}
+          className={styles.patatusImg}
+        />
+      </aside>
     </div>
   );
 }

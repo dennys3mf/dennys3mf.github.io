@@ -3,12 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
-import Header from "../../../components/layout/Header";
-import Footer from "../../../components/layout/Footer";
+import { siteConfig } from "../../../data/siteConfig";
 import { PROJECTS } from "../../../data/projects";
 import { useLanguage } from "../../../context/LanguageContext";
-import { playTactileClick } from "../../../lib/sound";
+import LanguageToggle from "../../../components/LanguageToggle";
+import { playTactileClick, playTactilePop } from "../../../lib/sound";
 import styles from "./CaseStudy.module.css";
 
 interface CaseStudyClientProps {
@@ -17,6 +16,8 @@ interface CaseStudyClientProps {
 
 export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
   const { t, language } = useLanguage();
+  const isEs = language === "es";
+
   const projectIndex = PROJECTS.findIndex((p) => p.slug === slug);
   const project = PROJECTS[projectIndex !== -1 ? projectIndex : 0];
 
@@ -25,71 +26,99 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
 
   return (
     <div className={styles.caseStudyWrapper}>
-      <Header />
-
-      <main id="main-content" className={styles.container}>
-        {/* Back Link */}
+      {/* Discreet Minimalist Top Navigation — Delba.dev aesthetic */}
+      <header className={styles.topNav}>
         <Link
-          href="/work"
-          className={styles.backLink}
+          href="/"
+          className={styles.brandLink}
+          aria-label="Dennys Marquez — Home"
           onClick={() => playTactileClick()}
         >
-          <ArrowLeft size={16} />
-          <span>{t.caseStudy.backToWork}</span>
+          <Image
+            src={siteConfig.logoUrl}
+            alt="Dennys Marquez"
+            width={32}
+            height={32}
+            className={styles.brandLogo}
+            priority
+          />
+        </Link>
+
+        <div className={styles.topActions}>
+          <Link
+            href="/"
+            className={styles.topBackLink}
+            onClick={() => playTactileClick()}
+          >
+            {isEs ? "← Portafolio" : "← Portfolio"}
+          </Link>
+          <LanguageToggle />
+        </div>
+      </header>
+
+      {/* Main Reading-First Case Study Container */}
+      <main id="main-content" className={styles.container}>
+        {/* Subtle Editorial Breadcrumb Link */}
+        <Link
+          href="/"
+          className={styles.backBreadcrumb}
+          onClick={() => playTactileClick()}
+        >
+          {isEs ? "← Volver al inicio" : "← Back to portfolio"}
         </Link>
 
         {/* Hero Block */}
-        <div className={styles.heroBlock}>
+        <header className={styles.heroBlock}>
           <div className={styles.metaRow}>
-            <span className={styles.category}>
+            <span className={styles.categoryBadge}>
               {project.categoryLabel[language]}
             </span>
-            <span className={styles.status}>
+            <span className={styles.statusBadge}>
               {project.status === "live" && (
                 <span className={styles.statusPulseDot} aria-hidden="true" />
               )}
               {project.status === "live"
-                ? (language === "es" ? "En Producción" : "Production")
-                : (language === "es" ? "En Desarrollo" : "In Progress")}
+                ? (isEs ? "En Producción" : "Production")
+                : (isEs ? "En Desarrollo" : "In Progress")}
             </span>
           </div>
 
           <h1 className={styles.title}>{project.title[language]}</h1>
           <p className={styles.lead}>{project.summary[language]}</p>
-        </div>
+        </header>
 
-        {/* Overview Info Grid */}
-        <div className={styles.overviewGrid}>
-          <div className={styles.overviewCol}>
-            <span className={styles.overviewLabel}>{t.caseStudy.roleLabel}</span>
-            <span className={styles.overviewVal}>{project.role[language]}</span>
+        {/* Minimalist Metadata Strip */}
+        <section className={styles.metadataStrip} aria-label="Project details summary">
+          <div className={styles.metaCol}>
+            <span className={styles.metaLabel}>{t.caseStudy.roleLabel}</span>
+            <span className={styles.metaVal}>{project.role[language]}</span>
           </div>
-          <div className={styles.overviewCol}>
-            <span className={styles.overviewLabel}>{t.caseStudy.yearLabel}</span>
-            <span className={styles.overviewVal}>{project.year}</span>
+          <div className={styles.metaCol}>
+            <span className={styles.metaLabel}>{t.caseStudy.yearLabel}</span>
+            <span className={styles.metaVal}>{project.year}</span>
           </div>
-          <div className={styles.overviewCol}>
-            <span className={styles.overviewLabel}>{t.caseStudy.statusLabel}</span>
-            <span className={styles.overviewVal}>
+          <div className={styles.metaCol}>
+            <span className={styles.metaLabel}>{t.caseStudy.statusLabel}</span>
+            <span className={styles.metaVal}>
               {project.status === "live"
-                ? (language === "es" ? "En Producción" : "Live in Production")
-                : (language === "es" ? "En Desarrollo Activo" : "Active Development")}
+                ? (isEs ? "En Producción" : "Live in Production")
+                : (isEs ? "En Desarrollo Activo" : "Active Development")}
             </span>
           </div>
-          <div className={styles.overviewCol}>
-            <span className={styles.overviewLabel}>
-              {language === "es" ? "Enlaces" : "Links"}
+          <div className={styles.metaCol}>
+            <span className={styles.metaLabel}>
+              {isEs ? "Enlaces" : "Links"}
             </span>
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "0.85rem", flexWrap: "wrap", alignItems: "center" }}>
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.overviewVal}
-                  style={{ color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: "2px" }}
+                  className={styles.metaLink}
+                  onClick={() => playTactileClick()}
                 >
-                  {language === "es" ? "Ver en vivo" : "Live Web"} <ExternalLink size={12} />
+                  <span>{isEs ? "Ver en vivo ↗" : "Live web ↗"}</span>
                 </a>
               )}
               {project.repositoryUrl && (
@@ -97,18 +126,18 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
                   href={project.repositoryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.overviewVal}
-                  style={{ color: "var(--foreground)", display: "inline-flex", alignItems: "center", gap: "2px" }}
+                  className={styles.metaLink}
+                  onClick={() => playTactileClick()}
                 >
-                  GitHub <ExternalLink size={12} />
+                  <span>GitHub ↗</span>
                 </a>
               )}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Solution Media Showcase */}
-        <div className={styles.mediaShowcase}>
+        {/* Media Showcase */}
+        <div className={styles.mediaContainer}>
           {project.video ? (
             <video
               src={project.video}
@@ -132,25 +161,25 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           )}
         </div>
 
-        {/* 02 — The Problem */}
+        {/* 01 — The Problem */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.theProblem}</h2>
           <p className={styles.sectionBody}>{project.problem[language]}</p>
         </section>
 
-        {/* 03 — Goals & Constraints */}
+        {/* 02 — Goals & Constraints */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.goalsAndConstraints}</h2>
           <p className={styles.sectionBody}>{project.goalsConstraints[language]}</p>
         </section>
 
-        {/* 04 — My Approach */}
+        {/* 03 — My Approach */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.myApproach}</h2>
           <p className={styles.sectionBody}>{project.approach[language]}</p>
         </section>
 
-        {/* 05 — The Solution */}
+        {/* 04 — The Solution */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.theSolution}</h2>
           <p className={styles.sectionBody}>{project.solution[language]}</p>
@@ -168,7 +197,7 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           )}
         </section>
 
-        {/* 06 — Engineering Decisions */}
+        {/* 05 — Engineering Decisions */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.engineeringDecisions}</h2>
           <div className={styles.decisionsGrid}>
@@ -191,74 +220,70 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           </div>
         </section>
 
-        {/* 07 — Results & Learnings */}
+        {/* 06 — Results & Learnings */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.resultsAndLearnings}</h2>
           {project.resultsLearnings.measuredResults && (
-            <div style={{ marginBottom: "1rem" }}>
-              <strong style={{ display: "block", marginBottom: "0.25rem", color: "var(--foreground)" }}>
-                {t.caseStudy.measuredResults}:
-              </strong>
+            <div className={styles.resultItem}>
+              <span className={styles.resultTitle}>{t.caseStudy.measuredResults}:</span>
               <p className={styles.sectionBody}>{project.resultsLearnings.measuredResults[language]}</p>
             </div>
           )}
-          <div style={{ marginBottom: "1rem" }}>
-            <strong style={{ display: "block", marginBottom: "0.25rem", color: "var(--foreground)" }}>
-              {t.caseStudy.verifiableFeatures}:
-            </strong>
+          <div className={styles.resultItem}>
+            <span className={styles.resultTitle}>{t.caseStudy.verifiableFeatures}:</span>
             <p className={styles.sectionBody}>{project.resultsLearnings.verifiableFeatures[language]}</p>
           </div>
-          <div>
-            <strong style={{ display: "block", marginBottom: "0.25rem", color: "var(--foreground)" }}>
-              {t.caseStudy.keyLearnings}:
-            </strong>
+          <div className={styles.resultItem}>
+            <span className={styles.resultTitle}>{t.caseStudy.keyLearnings}:</span>
             <p className={styles.sectionBody}>{project.resultsLearnings.learnings[language]}</p>
           </div>
         </section>
 
-        {/* 08 — Next Steps */}
+        {/* 07 — Next Steps */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.nextSteps}</h2>
           <p className={styles.sectionBody}>{project.nextSteps[language]}</p>
         </section>
 
-        {/* 09 — Next Project Navigator & Contact CTA */}
-        <div className={styles.nextNavRow}>
-          <div>
-            <span style={{ fontSize: "0.8rem", color: "var(--muted-foreground)", textTransform: "uppercase", fontFamily: "var(--font-mono)" }}>
-              {t.caseStudy.nextProject}
+        {/* 08 — Bottom Navigation: Next Project & Let's talk */}
+        <footer className={styles.bottomNav}>
+          <Link
+            href={`/work/${nextProject.slug}`}
+            className={styles.nextProjectLink}
+            onClick={() => playTactileClick()}
+          >
+            <span>
+              {isEs
+                ? `Siguiente proyecto: ${nextProject.shortTitle} →`
+                : `Next project: ${nextProject.shortTitle} →`}
             </span>
-            <div style={{ fontSize: "1.15rem", fontWeight: 800, marginTop: "0.25rem" }}>
-              {nextProject.shortTitle}
-            </div>
-          </div>
+          </Link>
 
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <Link href={`/work/${nextProject.slug}`} className={styles.nextProjectBtn}>
-              <span>{nextProject.shortTitle}</span>
-              <ArrowUpRight size={16} />
-            </Link>
-            <Link
-              href="/contact?intent=project"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                padding: "0.85rem 1.5rem",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius-sm)",
-                fontWeight: 600,
-                textDecoration: "none",
-                background: "var(--surface)",
-              }}
-            >
-              <span>{t.caseStudy.discussAProject}</span>
-            </Link>
-          </div>
-        </div>
+          <Link
+            href="/contact?intent=project"
+            className={styles.discussBtn}
+            onClick={() => playTactileClick()}
+          >
+            <span>{isEs ? "Hablemos de este proyecto" : "Let's talk about this"}</span>
+          </Link>
+        </footer>
       </main>
 
-      <Footer />
+      {/* Patatus Corner Mascot — Peeking from bottom right corner */}
+      <aside
+        className={styles.patatusCorner}
+        title="Patatus — Dennys's penguin developer mascot"
+        aria-label="Patatus mascot"
+        onClick={() => playTactilePop()}
+      >
+        <Image
+          src="/mascot/patatus-asomandose.svg"
+          alt="Patatus, mascota pingüino de Dennys asomándose"
+          width={82}
+          height={82}
+          className={styles.patatusImg}
+        />
+      </aside>
     </div>
   );
 }
