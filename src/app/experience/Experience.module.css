@@ -92,15 +92,6 @@
   margin-bottom: 2rem;
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #71717A;
-}
-
 .pageTitle {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 3.8vw, 3rem);
@@ -203,21 +194,11 @@
   color: #71717A;
 }
 
-.skillBadges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.skillTag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  background: #FFFFFF;
-  color: #171717;
-  border: 1px solid #E4E4E7;
-  border-radius: 4px;
+.skillsInline {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: #525252;
+  line-height: 1.6;
 }
 
 /* Timeline */

@@ -56,9 +56,6 @@ export default function AboutPage() {
         </Link>
 
         <div className={styles.headerBlock}>
-          <div className={styles.eyebrow}>
-            <span>{t.aboutPage.eyebrow}</span>
-          </div>
           <h1 className={styles.pageTitle}>{t.aboutPage.heading}</h1>
           <p className={styles.leadText}>{t.aboutPage.lead}</p>
         </div>

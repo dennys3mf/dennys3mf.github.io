@@ -71,9 +71,6 @@ export default function WorkPage() {
         </Link>
 
         <div className={styles.headerBlock}>
-          <div className={styles.eyebrow}>
-            <span>{isEs ? "Proyectos en Producción" : "Selected Projects"}</span>
-          </div>
           <h1 className={styles.pageTitle}>{t.workPage.heading}</h1>
           <p className={styles.pageDesc}>{t.workPage.description}</p>
         </div>
@@ -144,13 +141,9 @@ export default function WorkPage() {
                   </p>
                 </div>
 
-                <div className={styles.techRow}>
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span key={tech} className={styles.techBadge}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <p className={styles.techInline}>
+                  {project.technologies.slice(0, 5).join(" · ")}
+                </p>
 
                 <div className={styles.cardActions}>
                   <Link

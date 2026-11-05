@@ -57,9 +57,6 @@ export default function ServicesPage() {
         </Link>
 
         <div className={styles.headerBlock}>
-          <div className={styles.eyebrow}>
-            <span>{t.servicesPage.eyebrow}</span>
-          </div>
           <h1 className={styles.pageTitle}>{t.servicesPage.heading}</h1>
           <p className={styles.pageDesc}>{t.servicesPage.description}</p>
         </div>

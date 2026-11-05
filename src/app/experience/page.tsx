@@ -58,9 +58,6 @@ export default function ExperiencePage() {
         </Link>
 
         <div className={styles.headerBlock}>
-          <div className={styles.eyebrow}>
-            <span>{t.experiencePage.eyebrow}</span>
-          </div>
           <h1 className={styles.pageTitle}>{t.experiencePage.heading}</h1>
           <p className={styles.pageDesc}>{EXPERIENCE_DATA.summary[language]}</p>
         </div>
@@ -95,13 +92,9 @@ export default function ExperiencePage() {
             {EXPERIENCE_DATA.skillGroups.map((cat, idx) => (
               <div key={idx} className={styles.skillCategoryCard}>
                 <span className={styles.categoryTitle}>{cat.category[language]}</span>
-                <div className={styles.skillBadges}>
-                  {cat.skills.map((s) => (
-                    <span key={s} className={styles.skillTag}>
-                      {s}
-                    </span>
-                  ))}
-                </div>
+                <p className={styles.skillsInline}>
+                  {cat.skills.join(" · ")}
+                </p>
               </div>
             ))}
           </div>

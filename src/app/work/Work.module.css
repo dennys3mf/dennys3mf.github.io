@@ -95,15 +95,6 @@
   gap: 0.75rem;
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #71717A;
-}
-
 .pageTitle {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 3.8vw, 3rem);
@@ -120,11 +111,11 @@
   color: #525252;
 }
 
-/* Filter Bar */
+/* Filter Bar — Minimal Editorial Text Links */
 .filtersRow {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
   margin-bottom: 3rem;
   padding-bottom: 1.25rem;
@@ -132,32 +123,32 @@
 }
 
 .filterBtn {
-  padding: 0.35rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid #E4E4E7;
-  background: #FFFFFF;
-  color: #525252;
-  border-radius: 9999px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: #71717A;
   cursor: pointer;
-  transition: all 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: transparent;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
   user-select: none;
 }
 
 .filterBtn:hover {
-  border-color: #A1A1AA;
   color: #171717;
 }
 
 .filterBtnActive {
-  background: #171717;
-  color: #FFFFFF;
-  border-color: #171717;
+  color: #171717;
+  font-weight: 600;
+  text-decoration-color: #171717;
 }
 
 .filterBtnActive:hover {
-  background: #2B2B2B;
-  color: #FFFFFF;
+  color: #171717;
 }
 
 /* Projects Grid / Vertical List */
@@ -221,11 +212,9 @@
 }
 
 .categoryTag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
   color: #71717A;
 }
 
@@ -253,21 +242,11 @@
   margin-top: 0.45rem;
 }
 
-.techRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.techBadge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.2rem 0.55rem;
-  background: #FFFFFF;
-  color: #525252;
-  border: 1px solid #E4E4E7;
-  border-radius: 4px;
+.techInline {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: #71717A;
+  line-height: 1.5;
 }
 
 .cardActions {

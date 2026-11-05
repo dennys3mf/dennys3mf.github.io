@@ -67,22 +67,8 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           {isEs ? "← Volver al inicio" : "← Back to portfolio"}
         </Link>
 
-        {/* Hero Block */}
+        {/* Hero Block — Clean editorial title & lead */}
         <header className={styles.heroBlock}>
-          <div className={styles.metaRow}>
-            <span className={styles.categoryBadge}>
-              {project.categoryLabel[language]}
-            </span>
-            <span className={styles.statusBadge}>
-              {project.status === "live" && (
-                <span className={styles.statusPulseDot} aria-hidden="true" />
-              )}
-              {project.status === "live"
-                ? (isEs ? "En Producción" : "Production")
-                : (isEs ? "En Desarrollo" : "In Progress")}
-            </span>
-          </div>
-
           <h1 className={styles.title}>{project.title[language]}</h1>
           <p className={styles.lead}>{project.summary[language]}</p>
         </header>
@@ -96,14 +82,6 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           <div className={styles.metaCol}>
             <span className={styles.metaLabel}>{t.caseStudy.yearLabel}</span>
             <span className={styles.metaVal}>{project.year}</span>
-          </div>
-          <div className={styles.metaCol}>
-            <span className={styles.metaLabel}>{t.caseStudy.statusLabel}</span>
-            <span className={styles.metaVal}>
-              {project.status === "live"
-                ? (isEs ? "En Producción" : "Live in Production")
-                : (isEs ? "En Desarrollo Activo" : "Active Development")}
-            </span>
           </div>
           <div className={styles.metaCol}>
             <span className={styles.metaLabel}>

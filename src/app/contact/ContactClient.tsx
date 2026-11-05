@@ -131,9 +131,6 @@ ${formData.message}
         </Link>
 
         <div className={styles.headerBlock}>
-          <div className={styles.eyebrow}>
-            <span>{isEs ? "Contacto Directo" : "Get In Touch"}</span>
-          </div>
           <h1 className={styles.pageTitle}>{t.contactPage.heading}</h1>
           <p className={styles.pageDesc}>{t.contactPage.description}</p>
         </div>
