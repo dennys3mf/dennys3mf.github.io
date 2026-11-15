@@ -1,452 +1,93 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { siteConfig } from "../data/siteConfig";
-import EditorialHeader from "../components/EditorialHeader";
-import EditorialFooter from "../components/EditorialFooter";
-import { playTactileClick } from "../lib/sound";
+import { about } from "../data/about";
+import LanguageToggle from "../components/LanguageToggle";
 import styles from "./page.module.css";
+
+const work = [
+  {
+    slug: "ahorratiempo",
+    name: "AhorraTiempo",
+    es: "Plataforma para simplificar trámites y agendar citas en Perú, con asistencia por voz con IA y pagos digitales.",
+    en: "A platform that simplifies paperwork and appointment scheduling in Peru, with AI voice assistance and digital payments.",
+  },
+  {
+    slug: "billing-engine",
+    name: "Billing Engine",
+    es: "Motor de facturación electrónica y cobros recurrentes, con emisión y validación de comprobantes SUNAT y conciliación automática.",
+    en: "An electronic invoicing and recurring payments engine, with SUNAT invoice validation and automatic reconciliation.",
+  },
+  {
+    slug: "fiscalizacion-joya",
+    name: "Fiscalización Joya",
+    es: "Aplicación para inspectores municipales. Permite registrar actas, fotografías, firmas digitales y ubicación, incluso sin conexión.",
+    en: "An app for municipal field inspectors to capture records, photos, digital signatures, and locations, even offline.",
+  },
+];
 
 export default function Home() {
   const { language } = useLanguage();
   const isEs = language === "es";
+  const bio = about[language];
 
   return (
-    <div className={styles.mainWrapper}>
-      {/* Unified Minimalist Editorial Navigation */}
-      <EditorialHeader />
-
-      {/* Main Direct 2-Column Content */}
-      <main id="main-content" className={styles.container}>
-        <div className={styles.editorialGrid}>
-          {/* ================================================================
-              LEFT COLUMN — Portfolio, Intent & Curated Work
-             ================================================================ */}
-          <div className={styles.leftColumn}>
-            <h1 className={styles.portfolioTitle}>Portfolio</h1>
-
-            <p className={styles.rolePitch}>
-              {isEs ? (
-                <>
-                  Busco mi próximo rol en{" "}
-                  <span className={styles.highlightUnderline}>
-                    desarrollo full stack
-                  </span>{" "}
-                  o creando{" "}
-                  <span className={styles.highlightUnderline}>
-                    sistemas con IA
-                  </span>
-                  . Abierto a colaborar en productos de alto impacto. Si tu equipo está contratando:
-                </>
-              ) : (
-                <>
-                  I&apos;m looking for my next role in{" "}
-                  <span className={styles.highlightUnderline}>
-                    full stack engineering
-                  </span>{" "}
-                  or building{" "}
-                  <span className={styles.highlightUnderline}>
-                    production AI systems
-                  </span>
-                  . Open to high-impact teams and products. If you&apos;re hiring:
-                </>
-              )}
-            </p>
-
-            <Link
-              href="/contact?intent=project"
-              className={styles.letsTalkBtn}
-              onClick={() => playTactileClick()}
-            >
-              <span>{isEs ? "Hablemos" : "Let's talk"}</span>
-            </Link>
-
-            <h2 className={styles.workHeading}>Work</h2>
-
-            <ul className={styles.workList}>
-              {/* Item 1 — AhorraTiempo */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/ahorratiempo"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  AhorraTiempo
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Plataforma ciudadana en producción que automatiza trámites burocráticos
-                    y agendamiento de citas en Perú, integrando un{" "}
-                    <span className={styles.strongTopic}>asistente de voz con IA en tiempo real</span>{" "}
-                    y cobros seguros con <span className={styles.strongTopic}>Culqi</span>.
-                  </>
-                ) : (
-                  <>
-                    Live citizen paperwork platform that automates administrative procedures
-                    and appointment bookings via{" "}
-                    <span className={styles.strongTopic}>real-time conversational voice AI</span>{" "}
-                    and digital card payments via <span className={styles.strongTopic}>Culqi</span>.
-                  </>
-                )}
-              </li>
-
-              {/* Item 2 — Billing Engine */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/billing-engine"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  Billing Engine
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Motor de facturación electrónica y cobros recurrentes que emite,
-                    firma criptográficamente y valida comprobantes oficiales bajo el estándar{" "}
-                    <span className={styles.strongTopic}>SUNAT XML (UBL 2.1)</span> con conciliación automática.
-                  </>
-                ) : (
-                  <>
-                    Automated billing &amp; payment gateway engine that generates,
-                    cryptographically signs, and validates fiscal invoices against Peru&apos;s{" "}
-                    <span className={styles.strongTopic}>SUNAT XML (UBL 2.1)</span> standard with instant reconciliation.
-                  </>
-                )}
-              </li>
-
-
-              {/* Item 4 — Fiscalización Joya */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/fiscalizacion-joya"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  Fiscalización Joya
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Suite para tablets Android que opera{" "}
-                    <span className={styles.strongTopic}>100% sin conexión a internet (offline-first)</span>
-                    , permitiendo a fiscalizadores municipales levantar actas de infracción con geolocalización GPS,
-                    fotografías de prueba y firmas biométricas.
-                  </>
-                ) : (
-                  <>
-                    Field inspection suite for Android tablets running{" "}
-                    <span className={styles.strongTopic}>100% offline-first</span>
-                    , enabling municipal officers to document infractions with GPS coordinates,
-                    photo evidence, and digital biometric signatures.
-                  </>
-                )}
-              </li>
+    <main id="main-content" className={styles.container}>
+      <div className={styles.language}><LanguageToggle /></div>
+      <div className={styles.editorialGrid}>
+        <div>
+          <h1 className={styles.portfolioTitle}>Portfolio</h1>
+          <p className={styles.intro}>
+            {isEs ? <>Busco mi próximo rol en <Link href="/services">desarrollo full stack</Link> o creando <Link href="/work">sistemas con IA</Link>. Si tu equipo está contratando:</> : <>I’m looking for my next role in <Link href="/services">full stack development</Link> or building <Link href="/work">AI systems</Link>. If you’re hiring:</>}
+          </p>
+          <Link href="/contact?intent=hiring" className={styles.contactButton}>
+            {isEs ? "Hablemos" : "Let’s talk"}
+          </Link>
+          <section aria-labelledby="work">
+            <h2 id="work" className={styles.sectionTitle}><a href="#work">{isEs ? "Proyectos" : "Work"}</a></h2>
+            <ul className={styles.list}>
+              {work.map((project) => <li key={project.slug}><Link href={`/work/${project.slug}`}>{project.name}</Link>: {project[language]}</li>)}
             </ul>
-
-            {/* ================================================================
-                PERSONAL SECTION — Side Projects, IoT & Open Source Experiments
-               ================================================================ */}
-            <h2 className={styles.personalHeading}>Personal</h2>
-
-            <ul className={styles.workList}>
-              {/* Personal Item 1 — Safety Helmet IoT */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/safety-helmet-iot"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  Safety Helmet IoT
-                </Link>
-                <span className={styles.subtleTag}>
-                  {" "}
-                  {isEs ? "(Hardware & Telemetría)" : "(Hardware Prototype)"}
-                </span>
-                {": "}
-                {isEs ? (
-                  <>
-                    Casco inteligente de seguridad industrial para operaciones mineras subterráneas,
-                    desarrollado sobre microcontrolador <span className={styles.strongTopic}>ESP32</span>,
-                    sensores analógicos y backend en <span className={styles.strongTopic}>Python</span>. Módulos clave:
-                  </>
-                ) : (
-                  <>
-                    Smart industrial safety helmet prototype engineered for underground mining operations,
-                    powered by an <span className={styles.strongTopic}>ESP32</span> microcontroller,
-                    analog sensors, and a <span className={styles.strongTopic}>Python</span> backend. Key modules:
-                  </>
-                )}
-                <ul className={styles.nestedList}>
-                  <li className={styles.nestedItem}>
-                    <Link
-                      href="/work/safety-helmet-iot"
-                      className={styles.projectLink}
-                      onClick={() => playTactileClick()}
-                    >
-                      <code className={styles.codeSpan}>10 Hz Telemetry</code>
-                    </Link>{" "}
-                    {isEs
-                      ? "monitoreo continuo de gases peligrosos (CO, CH4) y radiotransmisión de coordenadas GPS"
-                      : "real-time sensor sampling of toxic gas levels (CO, CH4) and continuous GPS tracking"}
-                  </li>
-                  <li className={styles.nestedItem}>
-                    <Link
-                      href="/work/safety-helmet-iot"
-                      className={styles.projectLink}
-                      onClick={() => playTactileClick()}
-                    >
-                      <code className={styles.codeSpan}>3-Axis G-Force</code>
-                    </Link>{" "}
-                    {isEs
-                      ? "detección instantánea de caídas e impactos severos con alerta de auxilio en < 1.5s"
-                      : "instant fall and sudden impact detection triggering automated emergency dispatch in < 1.5s"}
-                  </li>
+          </section>
+          <section aria-labelledby="personal">
+            <h2 id="personal" className={styles.sectionTitle}><a href="#personal">Personal</a></h2>
+            <ul className={styles.list}>
+              <li>
+                <Link href="/work/safety-helmet-iot">Safety Helmet IoT</Link>: {isEs ? "Prototipo de casco de seguridad para minería, con ESP32 y Python. Incluye:" : "A mining safety helmet prototype built with ESP32 and Python. Features include:"}
+                <ul>
+                  <li>{isEs ? "Monitoreo de gases y ubicación GPS." : "Gas monitoring and GPS location."}</li>
+                  <li>{isEs ? "Detección de caídas e impactos." : "Fall and impact detection."}</li>
                 </ul>
               </li>
-
-              {/* Personal Item 2 — CHANSA */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/chansa-app"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  CHANSA
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Marketplace móvil bajo demanda que conecta a propietarios del hogar con técnicos
-                    y gasfiteros verificados, con presupuestos claros, chat y mapas en vivo (
-                    <span className={styles.strongTopic}>Flutter</span> &amp;{" "}
-                    <span className={styles.strongTopic}>Firebase</span>).
-                  </>
-                ) : (
-                  <>
-                    On-demand mobile marketplace connecting homeowners with verified home maintenance contractors,
-                    featuring live map tracking, real-time chat, and escrow milestones (
-                    <span className={styles.strongTopic}>Flutter</span> &amp;{" "}
-                    <span className={styles.strongTopic}>Firebase</span>).
-                  </>
-                )}
-              </li>
-
-              {/* Personal Item 3 — Tactile UI & Audio Lab */}
-              <li className={styles.workItem}>
-                <a
-                  href={siteConfig.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  Tactile UI &amp; Audio Lab
-                </a>
-                <span className={styles.subtleTag}>
-                  {" "}
-                  {isEs ? "(Open Source & Herramientas)" : "(Open Source & Tooling)"}
-                </span>
-                {": "}
-                {isEs ? (
-                  <>
-                    Laboratorio de micro-interacciones acústicas, utilidades web nativas
-                    y experimentación con síntesis de audio para interfaces hápticas. Módulos clave:
-                  </>
-                ) : (
-                  <>
-                    A playground of tactile micro-interactions, browser-native experiments,
-                    and acoustic audio synthesis for responsive haptic web interfaces. Key modules:
-                  </>
-                )}
-                <ul className={styles.nestedList}>
-                  <li className={styles.nestedItem}>
-                    <a
-                      href={siteConfig.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.projectLink}
-                      onClick={() => playTactileClick()}
-                    >
-                      <code className={styles.codeSpan}>Web Audio API</code>
-                    </a>{" "}
-                    {isEs
-                      ? "sintetizador acústico háptico de 18ms en JavaScript puro con 0 KB de dependencias"
-                      : "zero-dependency, 18ms acoustic haptic click synthesizer running purely on Web Audio nodes"}
-                  </li>
-                  <li className={styles.nestedItem}>
-                    <a
-                      href={siteConfig.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.projectLink}
-                      onClick={() => playTactileClick()}
-                    >
-                      <code className={styles.codeSpan}>Rough Notation SVG</code>
-                    </a>{" "}
-                    {isEs
-                      ? "anotaciones vectoriales orgánicas y subrayados editoriales con transiciones fluidas de CSS"
-                      : "organic hand-drawn underlines, editorial highlighters, and smooth native CSS transitions"}
-                  </li>
-                </ul>
-              </li>
+              <li><Link href="/work/chansa-app">CHANSA</Link>: {isEs ? "Aplicación móvil que conecta a personas con técnicos del hogar, con chat y mapas en tiempo real. Creada con Flutter y Firebase." : "A mobile app connecting homeowners with service professionals, with real-time chat and maps. Built with Flutter and Firebase."}</li>
             </ul>
-
-            <div className={styles.archiveLinkBlock}>
-              <Link
-                href="/work"
-                className={styles.viewAllProjectsLink}
-                onClick={() => playTactileClick()}
-              >
-                <span>{isEs ? "Explora todos los proyectos en el archivo →" : "Explore all projects in the archive →"}</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* ================================================================
-              RIGHT COLUMN — About Me, Portrait & Social Links
-             ================================================================ */}
-          <div className={styles.rightColumn}>
-            <h2 className={styles.aboutHeading}>About me</h2>
-
-            <div className={styles.aboutBioBlock}>
-              <Image
-                src="/images/personal/dennys-portrait.webp"
-                alt="Dennys Marquez"
-                width={86}
-                height={86}
-                className={styles.avatarImg}
-                priority
-              />
-
-              <div className={styles.aboutBioText}>
-                {isEs ? (
-                  <>
-                    <p>
-                      ¡Hola! Soy <strong>Dennys Marquez</strong>, desarrollador de software e
-                      ingeniero de producto basado en Perú. Me apasiona resolver problemas reales:
-                      transformo procesos burocráticos engorrosos, motores de facturación y flujos
-                      operativos complejos en software ágil, nítido y fácil de usar.
-                    </p>
-                    <p>
-                      Combino arquitectura de backend en <strong>Python</strong> y <strong>Node.js</strong> con
-                      interfaces modernas en <strong>React</strong>, <strong>Next.js</strong> y <strong>TypeScript</strong>.
-                      En mi tiempo libre, diseño micro-interacciones táctiles, componentes de código abierto y arquitecturas web de alto rendimiento.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p>
-                      Hey, I&apos;m <strong>Dennys Marquez</strong>, a product-minded software engineer based in Peru.
-                      I specialize in turning tedious bureaucratic workflows, billing engines, and intricate
-                      operational rules into fast, clean, and intuitive digital products.
-                    </p>
-                    <p>
-                      I combine robust backend architecture in <strong>Python</strong> and <strong>Node.js</strong> with
-                      modern, reactive user interfaces in <strong>React</strong>, <strong>Next.js</strong>, and <strong>TypeScript</strong>.
-                      In my spare time, I craft tactile micro-interactions, open-source web components, and high-performance frontend architectures.
-                    </p>
-                  </>
-                )}
-              </div>
-            </div>
-
-            <hr className={styles.divider} />
-
-            <div className={styles.socialRow}>
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                onClick={() => playTactileClick()}
-              >
-                LinkedIn
-              </a>
-              <span>·</span>
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                onClick={() => playTactileClick()}
-              >
-                GitHub
-              </a>
-              <span>·</span>
-              <a
-                href={siteConfig.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                onClick={() => playTactileClick()}
-              >
-                CV / Resume
-              </a>
-              <span>·</span>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className={styles.socialLink}
-                onClick={() => playTactileClick()}
-              >
-                Email
-              </a>
-            </div>
-
-            {/* Editorial Site Directory */}
-            <div className={styles.exploreBlock}>
-              <span className={styles.exploreHeading}>
-                {isEs ? "Explora más" : "Explore more"}
-              </span>
-              <ul className={styles.exploreList}>
-                <li>
-                  <Link
-                    href="/experience"
-                    className={styles.exploreLink}
-                    onClick={() => playTactileClick()}
-                  >
-                    <span>{isEs ? "Trayectoria, habilidades & CV →" : "Career timeline, skills & CV →"}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className={styles.exploreLink}
-                    onClick={() => playTactileClick()}
-                  >
-                    <span>{isEs ? "Servicios & Enfoque de producto →" : "Services & Product workflow →"}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    className={styles.exploreLink}
-                    onClick={() => playTactileClick()}
-                  >
-                    <span>{isEs ? "Sobre mí, estación & filosofía →" : "About me, setup & philosophy →"}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className={styles.exploreLink}
-                    onClick={() => playTactileClick()}
-                  >
-                    <span>{isEs ? "Contacto directo & Contratación →" : "Direct contact & Hiring →"}</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+            <Link href="/work" className={styles.archiveLink}>{isEs ? "Ver todos los proyectos" : "View all projects"}</Link>
+          </section>
         </div>
-      </main>
-
-      {/* Global Minimalist Editorial Footer */}
-      <EditorialFooter />
-    </div>
+        <aside className={styles.about} aria-labelledby="about-me">
+          <h2 id="about-me" className={styles.aboutTitle}><a href="#about-me">{bio.heading}</a></h2>
+          <div className={styles.bio}>
+            <Image src="/images/personal/dennys-portrait.webp" alt="Dennys Marquez" width={84} height={84} className={styles.portrait} priority />
+            <p>{bio.bio}</p>
+          </div>
+          <hr className={styles.divider} />
+          <div className={styles.socials} aria-label={isEs ? "Enlaces de contacto" : "Contact links"}>
+            <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><span aria-hidden="true">·</span>
+            <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub</a><span aria-hidden="true">·</span>
+            <a href={siteConfig.resumeUrl} target="_blank" rel="noopener noreferrer">CV</a><span aria-hidden="true">·</span>
+            <a href={`mailto:${siteConfig.email}`}>Email</a>
+          </div>
+          <nav className={styles.directory} aria-label={isEs ? "Más sobre Dennys" : "More about Dennys"}>
+            <Link href="/about">{bio.heading}</Link>
+            <Link href="/experience">{isEs ? "Trayectoria" : "Experience"}</Link>
+            <Link href="/services">{isEs ? "Servicios" : "Services"}</Link>
+            <Link href="/contact">{isEs ? "Contacto" : "Contact"}</Link>
+          </nav>
+        </aside>
+      </div>
+    </main>
   );
 }

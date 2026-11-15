@@ -17,10 +17,10 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  language: "en",
+  language: "es",
   setLanguage: () => {},
   toggleLanguage: () => {},
-  t: translations.en,
+  t: translations.es,
 });
 
 const STORAGE_KEY = "dennys_portfolio_lang";
@@ -39,7 +39,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         // fallback to en
       }
     }
-    return "en";
+    return "es";
   });
 
   const mounted = useSyncExternalStore(
@@ -69,7 +69,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguage(next);
   };
 
-  const currentLang = mounted ? language : "en";
+  const currentLang = mounted ? language : "es";
 
   return (
     <LanguageContext.Provider

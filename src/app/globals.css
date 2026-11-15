@@ -4,33 +4,33 @@
   /* ====================================================================
      AZURE EDITORIAL OFFICIAL PALETTE
      ==================================================================== */
-  --background: #F7FAFF;
+  --background: #FAFAF9;
   --surface: #FFFFFF;
-  --foreground: #152B49;
+  --foreground: #292524;
 
-  --primary: #2563EB;
-  --primary-hover: #1D4ED8;
+  --primary: #44403C;
+  --primary-hover: #292524;
   --primary-foreground: #FFFFFF;
 
-  --secondary: #77CEF5;
-  --secondary-light: #BDEBFF;
+  --secondary: #D6D3D1;
+  --secondary-light: #E7E5E4;
 
-  --accent: #FFCF70;
-  --accent-hover: #F7C054;
-  --accent-foreground: #152B49;
+  --accent: #E7E5E4;
+  --accent-hover: #D6D3D1;
+  --accent-foreground: #292524;
 
-  --muted: #EDF5FC;
-  --muted-foreground: #526780;
+  --muted: #F5F5F4;
+  --muted-foreground: #57534E;
 
-  --border: #152B49;
-  --border-muted: #D3E2F2;
-  --focus-ring: #2563EB;
+  --border: #292524;
+  --border-muted: #E7E5E4;
+  --focus-ring: #44403C;
 
   /* Editorial Hard Offset Shadows */
-  --shadow-editorial: 4px 4px 0 #152B49;
-  --shadow-editorial-hover: 2px 2px 0 #152B49;
-  --shadow-editorial-sm: 2px 2px 0 #152B49;
-  --shadow-editorial-lg: 6px 6px 0 #152B49;
+  --shadow-editorial: 4px 4px 0 #292524;
+  --shadow-editorial-hover: 2px 2px 0 #292524;
+  --shadow-editorial-sm: 2px 2px 0 #292524;
+  --shadow-editorial-lg: 6px 6px 0 #292524;
 
   /* Global Radii */
   --radius-sm: 8px;
@@ -47,13 +47,13 @@
 
   --text-main: var(--foreground);
   --text-muted: var(--muted-foreground);
-  --text-subtle: #6D8299;
+  --text-subtle: #78716C;
 
   --border-color: var(--border);
   --border-strong: var(--border);
   --border-hover: var(--primary);
 
-  --brand-black: #152B49;
+  --brand-black: #292524;
   --brand-blue: var(--primary);
   --brand-periwinkle: var(--secondary);
   --brand-light: var(--secondary-light);
@@ -73,7 +73,7 @@
   --btn-secondary-text: var(--foreground);
 
   /* Typography */
-  --font-serif: var(--font-serif-var), 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-serif: var(--font-serif-var), 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-heading: var(--font-heading-var), 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: var(--font-body-var), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-mono-var), 'JetBrains Mono', monospace;
@@ -139,7 +139,7 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: var(--background);
   color: #171717;
   font-family: var(--font-body);
   font-size: 1rem;
@@ -184,3 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

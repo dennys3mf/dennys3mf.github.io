@@ -8,6 +8,7 @@ import EditorialHeader from "../../components/EditorialHeader";
 import EditorialFooter from "../../components/EditorialFooter";
 import { playTactileClick } from "../../lib/sound";
 import styles from "./About.module.css";
+import { about } from "../../data/about";
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
@@ -20,8 +21,8 @@ export default function AboutPage() {
 
       <main id="main-content" className={styles.container}>
         <div className={styles.headerBlock}>
-          <h1 className={styles.pageTitle}>{t.aboutPage.heading}</h1>
-          <p className={styles.leadText}>{t.aboutPage.lead}</p>
+          <h1 className={styles.pageTitle}>{about[language].heading}</h1>
+          <p className={styles.leadText}>{about[language].bio}</p>
         </div>
 
         {/* Real Workstation Photo */}

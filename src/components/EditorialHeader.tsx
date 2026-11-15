@@ -23,7 +23,7 @@ export default function EditorialHeader({ className = "" }: EditorialHeaderProps
     { href: "/work", label: isEs ? "Proyectos" : "Work" },
     { href: "/experience", label: isEs ? "Trayectoria" : "Experience" },
     { href: "/services", label: isEs ? "Servicios" : "Services" },
-    { href: "/about", label: isEs ? "Sobre mí" : "About" },
+    { href: "/about", label: isEs ? "Acerca de mí" : "About" },
     { href: "/contact", label: isEs ? "Contacto" : "Contact" },
   ];
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  Newsreader,
+  Fraunces,
   Manrope,
   Inter,
   JetBrains_Mono,
@@ -8,7 +8,7 @@ import {
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
   variable: "--font-serif-var",
@@ -162,8 +162,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${newsreader.variable} ${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      lang="es"
+      className={`${fraunces.variable} ${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -174,7 +174,7 @@ export default function RootLayout({
       </head>
       <body>
         <a href="#main-content" className="skipToContent">
-          Skip to main content
+          Saltar al contenido principal
         </a>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
