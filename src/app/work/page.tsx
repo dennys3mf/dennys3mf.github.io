@@ -3,16 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig } from "../../data/siteConfig";
 import { PROJECTS, Project } from "../../data/projects";
 import { useLanguage } from "../../context/LanguageContext";
-import LanguageToggle from "../../components/LanguageToggle";
-import { playTactileClick, playTactilePop } from "../../lib/sound";
+import EditorialHeader from "../../components/EditorialHeader";
+import EditorialFooter from "../../components/EditorialFooter";
+import { playTactileClick } from "../../lib/sound";
 import styles from "./Work.module.css";
 
 export default function WorkPage() {
   const { t, language } = useLanguage();
-  const isEs = language === "es";
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const filterOptions = [
@@ -30,46 +29,10 @@ export default function WorkPage() {
 
   return (
     <div className={styles.workPageWrapper}>
-      {/* Minimal Top Navigation */}
-      <header className={styles.topNav}>
-        <Link
-          href="/"
-          className={styles.brandLink}
-          aria-label="Dennys Marquez — Home"
-          onClick={() => playTactileClick()}
-        >
-          <Image
-            src={siteConfig.logoUrl}
-            alt="Dennys Marquez"
-            width={32}
-            height={32}
-            className={styles.brandLogo}
-            priority
-          />
-        </Link>
-
-        <div className={styles.topActions}>
-          <Link
-            href="/"
-            className={styles.topBackLink}
-            onClick={() => playTactileClick()}
-          >
-            {isEs ? "← Portafolio" : "← Portfolio"}
-          </Link>
-          <LanguageToggle />
-        </div>
-      </header>
+      {/* Unified Minimalist Editorial Navigation */}
+      <EditorialHeader />
 
       <main id="main-content" className={styles.container}>
-        {/* Subtle Editorial Breadcrumb Link */}
-        <Link
-          href="/"
-          className={styles.backBreadcrumb}
-          onClick={() => playTactileClick()}
-        >
-          {isEs ? "← Volver al inicio" : "← Back to portfolio"}
-        </Link>
-
         <div className={styles.headerBlock}>
           <h1 className={styles.pageTitle}>{t.workPage.heading}</h1>
           <p className={styles.pageDesc}>{t.workPage.description}</p>
@@ -100,7 +63,12 @@ export default function WorkPage() {
         <div className={styles.projectsGrid}>
           {filteredProjects.map((project: Project) => (
             <article key={project.slug} className={styles.projectCard}>
-              <div className={styles.mediaFrame}>
+              <Link
+                href={`/work/${project.slug}`}
+                className={styles.mediaFrame}
+                onClick={() => playTactileClick()}
+                aria-label={project.title[language]}
+              >
                 {project.video ? (
                   <video
                     src={project.video}
@@ -121,7 +89,7 @@ export default function WorkPage() {
                     className={styles.mediaImg}
                   />
                 )}
-              </div>
+              </Link>
 
               <div className={styles.cardBody}>
                 <div>
@@ -133,7 +101,13 @@ export default function WorkPage() {
                   </div>
 
                   <h2 className={styles.projectTitle}>
-                    {project.shortTitle}
+                    <Link
+                      href={`/work/${project.slug}`}
+                      className={styles.titleLink}
+                      onClick={() => playTactileClick()}
+                    >
+                      {project.shortTitle}
+                    </Link>
                   </h2>
 
                   <p className={styles.projectSummary}>
@@ -185,21 +159,7 @@ export default function WorkPage() {
         </div>
       </main>
 
-      {/* Patatus Mascot — Bottom Right Companion */}
-      <aside
-        className={styles.patatusCorner}
-        title="Patatus — Dennys's penguin developer mascot"
-        aria-label="Patatus mascot"
-        onClick={() => playTactilePop()}
-      >
-        <Image
-          src="/mascot/patatus-saludando.svg"
-          alt="Patatus, mascota pingüino de Dennys"
-          width={82}
-          height={82}
-          className={styles.patatusImg}
-        />
-      </aside>
+      <EditorialFooter />
     </div>
   );
 }

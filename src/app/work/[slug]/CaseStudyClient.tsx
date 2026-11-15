@@ -3,11 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig } from "../../../data/siteConfig";
 import { PROJECTS } from "../../../data/projects";
 import { useLanguage } from "../../../context/LanguageContext";
-import LanguageToggle from "../../../components/LanguageToggle";
-import { playTactileClick, playTactilePop } from "../../../lib/sound";
+import EditorialHeader from "../../../components/EditorialHeader";
+import EditorialFooter from "../../../components/EditorialFooter";
+import { playTactileClick } from "../../../lib/sound";
 import styles from "./CaseStudy.module.css";
 
 interface CaseStudyClientProps {
@@ -26,45 +26,18 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
 
   return (
     <div className={styles.caseStudyWrapper}>
-      {/* Discreet Minimalist Top Navigation — Delba.dev aesthetic */}
-      <header className={styles.topNav}>
-        <Link
-          href="/"
-          className={styles.brandLink}
-          aria-label="Dennys Marquez — Home"
-          onClick={() => playTactileClick()}
-        >
-          <Image
-            src={siteConfig.logoUrl}
-            alt="Dennys Marquez"
-            width={32}
-            height={32}
-            className={styles.brandLogo}
-            priority
-          />
-        </Link>
-
-        <div className={styles.topActions}>
-          <Link
-            href="/"
-            className={styles.topBackLink}
-            onClick={() => playTactileClick()}
-          >
-            {isEs ? "← Portafolio" : "← Portfolio"}
-          </Link>
-          <LanguageToggle />
-        </div>
-      </header>
+      {/* Unified Minimalist Editorial Navigation */}
+      <EditorialHeader />
 
       {/* Main Reading-First Case Study Container */}
       <main id="main-content" className={styles.container}>
-        {/* Subtle Editorial Breadcrumb Link */}
+        {/* Subtle Editorial Breadcrumb Link back to Projects Archive */}
         <Link
-          href="/"
+          href="/work"
           className={styles.backBreadcrumb}
           onClick={() => playTactileClick()}
         >
-          {isEs ? "← Volver al inicio" : "← Back to portfolio"}
+          {isEs ? "← Volver a proyectos" : "← Back to projects"}
         </Link>
 
         {/* Hero Block — Clean editorial title & lead */}
@@ -247,21 +220,7 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
         </footer>
       </main>
 
-      {/* Patatus Corner Mascot — Peeking from bottom right corner */}
-      <aside
-        className={styles.patatusCorner}
-        title="Patatus — Dennys's penguin developer mascot"
-        aria-label="Patatus mascot"
-        onClick={() => playTactilePop()}
-      >
-        <Image
-          src="/mascot/patatus-asomandose.svg"
-          alt="Patatus, mascota pingüino de Dennys asomándose"
-          width={82}
-          height={82}
-          className={styles.patatusImg}
-        />
-      </aside>
+      <EditorialFooter />
     </div>
   );
 }

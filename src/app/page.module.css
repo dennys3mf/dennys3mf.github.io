@@ -342,30 +342,67 @@
   text-decoration-color: #2563EB;
 }
 
-/* Patatus Corner Companion */
-.patatusCorner {
-  position: fixed;
-  bottom: 1.35rem;
-  right: 1.85rem;
-  z-index: 40;
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 6px 14px rgba(21, 43, 73, 0.12));
+/* Archive Link at bottom of Left Column */
+.archiveLinkBlock {
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed #E5E7EB;
 }
 
-.patatusCorner:hover {
-  transform: translateY(-4px) scale(1.06);
+.viewAllProjectsLink {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #171717;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #171717;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-.patatusCorner:active {
-  transform: scale(0.95);
+.viewAllProjectsLink:hover {
+  color: #2563EB;
+  text-decoration-color: #2563EB;
 }
 
-.patatusImg {
-  width: 82px;
-  height: 82px;
-  object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
+/* Explore Block in Right Column */
+.exploreBlock {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.exploreHeading {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #171717;
+  letter-spacing: -0.01em;
+}
+
+.exploreList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.exploreLink {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  color: #4B5563;
+  text-decoration: underline;
+  text-underline-offset: 3.5px;
+  text-decoration-color: #D1D5DB;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.exploreLink:hover {
+  color: #171717;
+  text-decoration-color: #171717;
 }
 
 /* Responsive */
@@ -389,15 +426,5 @@
 
   .container {
     padding: 2.5rem 1.5rem 5rem;
-  }
-
-  .patatusCorner {
-    bottom: 0.85rem;
-    right: 1rem;
-  }
-
-  .patatusImg {
-    width: 68px;
-    height: 68px;
   }
 }

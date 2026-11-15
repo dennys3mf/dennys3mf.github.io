@@ -5,8 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { siteConfig } from "../data/siteConfig";
-import LanguageToggle from "../components/LanguageToggle";
-import { playTactileClick, playTactilePop } from "../lib/sound";
+import EditorialHeader from "../components/EditorialHeader";
+import EditorialFooter from "../components/EditorialFooter";
+import { playTactileClick } from "../lib/sound";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -15,35 +16,8 @@ export default function Home() {
 
   return (
     <div className={styles.mainWrapper}>
-      {/* Discreet Minimalist Top Navigation */}
-      <header className={styles.topNav}>
-        <Link
-          href="/"
-          className={styles.brandLink}
-          aria-label="Dennys Marquez — Home"
-          onClick={() => playTactileClick()}
-        >
-          <Image
-            src={siteConfig.logoUrl}
-            alt="Dennys Marquez"
-            width={32}
-            height={32}
-            className={styles.brandLogo}
-            priority
-          />
-        </Link>
-
-        <div className={styles.topActions}>
-          <Link
-            href="/work"
-            className={styles.topArchiveLink}
-            onClick={() => playTactileClick()}
-          >
-            {isEs ? "Archivo de proyectos →" : "All projects archive →"}
-          </Link>
-          <LanguageToggle />
-        </div>
-      </header>
+      {/* Unified Minimalist Editorial Navigation */}
+      <EditorialHeader />
 
       {/* Main Direct 2-Column Content */}
       <main id="main-content" className={styles.container}>
@@ -286,7 +260,7 @@ export default function Home() {
                 )}
               </li>
 
-              {/* Personal Item 3 — Patatus & UI Crafts */}
+              {/* Personal Item 3 — Tactile UI & Audio Lab */}
               <li className={styles.workItem}>
                 <a
                   href={siteConfig.github}
@@ -295,7 +269,7 @@ export default function Home() {
                   className={styles.projectLink}
                   onClick={() => playTactileClick()}
                 >
-                  Patatus &amp; UI Crafts
+                  Tactile UI &amp; Audio Lab
                 </a>
                 <span className={styles.subtleTag}>
                   {" "}
@@ -305,12 +279,12 @@ export default function Home() {
                 {isEs ? (
                   <>
                     Laboratorio de micro-interacciones acústicas, utilidades web nativas
-                    y el kit vectorial de Patatus, mi mascota pingüino. Ejemplos:
+                    y experimentación con síntesis de audio para interfaces hápticas. Módulos clave:
                   </>
                 ) : (
                   <>
                     A playground of tactile micro-interactions, browser-native experiments,
-                    and the open vector kit of Patatus, my developer penguin mascot. Examples:
+                    and acoustic audio synthesis for responsive haptic web interfaces. Key modules:
                   </>
                 )}
                 <ul className={styles.nestedList}>
@@ -345,6 +319,16 @@ export default function Home() {
                 </ul>
               </li>
             </ul>
+
+            <div className={styles.archiveLinkBlock}>
+              <Link
+                href="/work"
+                className={styles.viewAllProjectsLink}
+                onClick={() => playTactileClick()}
+              >
+                <span>{isEs ? "Explora todos los proyectos en el archivo →" : "Explore all projects in the archive →"}</span>
+              </Link>
+            </div>
           </div>
 
           {/* ================================================================
@@ -375,7 +359,7 @@ export default function Home() {
                     <p>
                       Combino arquitectura de backend en <strong>Python</strong> y <strong>Node.js</strong> con
                       interfaces modernas en <strong>React</strong>, <strong>Next.js</strong> y <strong>TypeScript</strong>.
-                      En mi tiempo libre, diseño experimentos de interfaz junto a <strong>Patatus</strong>, mi mascota pingüino.
+                      En mi tiempo libre, diseño micro-interacciones táctiles, componentes de código abierto y arquitecturas web de alto rendimiento.
                     </p>
                   </>
                 ) : (
@@ -388,7 +372,7 @@ export default function Home() {
                     <p>
                       I combine robust backend architecture in <strong>Python</strong> and <strong>Node.js</strong> with
                       modern, reactive user interfaces in <strong>React</strong>, <strong>Next.js</strong>, and <strong>TypeScript</strong>.
-                      In my spare time, I craft tactile UI experiments alongside <strong>Patatus</strong>, my penguin mascot.
+                      In my spare time, I craft tactile micro-interactions, open-source web components, and high-performance frontend architectures.
                     </p>
                   </>
                 )}
@@ -436,25 +420,57 @@ export default function Home() {
                 Email
               </a>
             </div>
+
+            {/* Editorial Site Directory */}
+            <div className={styles.exploreBlock}>
+              <span className={styles.exploreHeading}>
+                {isEs ? "Explora más" : "Explore more"}
+              </span>
+              <ul className={styles.exploreList}>
+                <li>
+                  <Link
+                    href="/experience"
+                    className={styles.exploreLink}
+                    onClick={() => playTactileClick()}
+                  >
+                    <span>{isEs ? "Trayectoria, habilidades & CV →" : "Career timeline, skills & CV →"}</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className={styles.exploreLink}
+                    onClick={() => playTactileClick()}
+                  >
+                    <span>{isEs ? "Servicios & Enfoque de producto →" : "Services & Product workflow →"}</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className={styles.exploreLink}
+                    onClick={() => playTactileClick()}
+                  >
+                    <span>{isEs ? "Sobre mí, estación & filosofía →" : "About me, setup & philosophy →"}</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className={styles.exploreLink}
+                    onClick={() => playTactileClick()}
+                  >
+                    <span>{isEs ? "Contacto directo & Contratación →" : "Direct contact & Hiring →"}</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </main>
 
-      {/* Patatus Corner Companion — Matching Delba's bottom-right mascot */}
-      <aside
-        className={styles.patatusCorner}
-        title="Patatus — Dennys's penguin developer mascot"
-        aria-label="Patatus mascot"
-        onClick={() => playTactilePop()}
-      >
-        <Image
-          src="/mascot/patatus-saludando.svg"
-          alt="Patatus, mascota pingüino de Dennys"
-          width={82}
-          height={82}
-          className={styles.patatusImg}
-        />
-      </aside>
+      {/* Global Minimalist Editorial Footer */}
+      <EditorialFooter />
     </div>
   );
 }

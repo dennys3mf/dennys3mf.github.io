@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Send, Copy, Check } from "lucide-react";
 import { siteConfig } from "../../data/siteConfig";
 import { useLanguage } from "../../context/LanguageContext";
-import LanguageToggle from "../../components/LanguageToggle";
+import EditorialHeader from "../../components/EditorialHeader";
+import EditorialFooter from "../../components/EditorialFooter";
 import { playTactileClick, playTactilePop } from "../../lib/sound";
 import styles from "./Contact.module.css";
 
@@ -90,46 +89,10 @@ ${formData.message}
 
   return (
     <div className={styles.contactPageWrapper}>
-      {/* Minimal Top Navigation */}
-      <header className={styles.topNav}>
-        <Link
-          href="/"
-          className={styles.brandLink}
-          aria-label="Dennys Marquez — Home"
-          onClick={() => playTactileClick()}
-        >
-          <Image
-            src={siteConfig.logoUrl}
-            alt="Dennys Marquez"
-            width={32}
-            height={32}
-            className={styles.brandLogo}
-            priority
-          />
-        </Link>
-
-        <div className={styles.topActions}>
-          <Link
-            href="/"
-            className={styles.topBackLink}
-            onClick={() => playTactileClick()}
-          >
-            {isEs ? "← Portafolio" : "← Portfolio"}
-          </Link>
-          <LanguageToggle />
-        </div>
-      </header>
+      {/* Unified Minimalist Editorial Navigation */}
+      <EditorialHeader />
 
       <main id="main-content" className={styles.container}>
-        {/* Subtle Editorial Breadcrumb Link */}
-        <Link
-          href="/"
-          className={styles.backBreadcrumb}
-          onClick={() => playTactileClick()}
-        >
-          {isEs ? "← Volver al inicio" : "← Back to portfolio"}
-        </Link>
-
         <div className={styles.headerBlock}>
           <h1 className={styles.pageTitle}>{t.contactPage.heading}</h1>
           <p className={styles.pageDesc}>{t.contactPage.description}</p>
@@ -339,21 +302,7 @@ ${formData.message}
         </div>
       </main>
 
-      {/* Patatus Mascot — Bottom Right Companion */}
-      <aside
-        className={styles.patatusCorner}
-        title="Patatus — Dennys's penguin developer mascot"
-        aria-label="Patatus mascot"
-        onClick={() => playTactilePop()}
-      >
-        <Image
-          src="/mascot/patatus-saludando.svg"
-          alt="Patatus, mascota pingüino de Dennys"
-          width={82}
-          height={82}
-          className={styles.patatusImg}
-        />
-      </aside>
+      <EditorialFooter />
     </div>
   );
 }

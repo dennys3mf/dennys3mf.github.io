@@ -280,27 +280,6 @@
   background: #2B2B2B;
 }
 
-/* Patatus Companion */
-.patatusCorner {
-  position: fixed;
-  bottom: 1.25rem;
-  right: 1.75rem;
-  z-index: 40;
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.patatusCorner:hover {
-  transform: translateY(-4px) scale(1.06);
-}
-
-.patatusImg {
-  width: 82px;
-  height: 82px;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(21, 43, 73, 0.12));
-}
-
 @media (max-width: 768px) {
   .processGrid {
     grid-template-columns: 1fr;
@@ -308,13 +287,5 @@
   .discussCta {
     flex-direction: column;
     align-items: flex-start;
-  }
-  .patatusCorner {
-    bottom: 0.75rem;
-    right: 1rem;
-  }
-  .patatusImg {
-    width: 68px;
-    height: 68px;
   }
 }

@@ -1,0 +1,79 @@
+/* ====================================================================
+   EDITORIAL FOOTER STYLES — DELBA.DEV TYPOGRAPHIC AESTHETIC
+   ==================================================================== */
+
+.footerWrapper {
+  width: 100%;
+  padding: 3rem 1.5rem 4rem;
+  border-top: 1px solid #EAEAEA;
+  margin-top: auto;
+}
+
+.footerContainer {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: #71717A;
+}
+
+.footerMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.name {
+  color: #171717;
+  font-weight: 600;
+}
+
+.role {
+  color: #525252;
+}
+
+.location {
+  color: #71717A;
+}
+
+.separator {
+  color: #A1A1AA;
+}
+
+.linksRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: #171717;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #D4D4D8;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.link:hover {
+  color: #2563EB;
+  text-decoration-color: #2563EB;
+}
+
+@media (max-width: 720px) {
+  .footerWrapper {
+    padding: 2.5rem 1.25rem 3.5rem;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
