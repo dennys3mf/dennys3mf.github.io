@@ -146,8 +146,8 @@ export const EXPERIENCE_DATA: ExperienceData = {
         es: "Perú",
       },
       summary: {
-        en: "Engineered production software systems including multi-tenant compliance cloud platforms (CONTROLA), electronic billing services (SUNAT UBL 2.1), and municipal tablet applications.",
-        es: "Desarrollo de sistemas de software en producción, incluyendo plataformas cloud multi-tenant (CONTROLA), facturación electrónica SUNAT y aplicaciones móviles municipales.",
+        en: "Engineered production software systems including multi-tenant compliance cloud platforms, electronic billing services (SUNAT UBL 2.1), and municipal tablet applications.",
+        es: "Desarrollo de sistemas de software en producción, incluyendo plataformas cloud multi-tenant de cumplimiento, facturación electrónica SUNAT y aplicaciones móviles municipales.",
       },
       highlights: {
         en: [

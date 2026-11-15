@@ -330,7 +330,7 @@ export const translations: Record<Language, TranslationContent> = {
       bioP2:
         "Alongside software, my background includes academic studies in Accounting and Finance at Universidad Continental. This dual foundation gives me a unique advantage: I don't just write code; I understand cash flows, fiscal compliance (such as SUNAT regulations), unit economics, and operational efficiency.",
       bioP3:
-        "Today, I build web and mobile applications using React, Next.js, TypeScript, and Python. Whether developing consumer SaaS platforms like AhorraTiempo or enterprise compliance engines like CONTROLA Cloud, my goal is always the same: make complex processes feel simple, reliable, and human.",
+        "Today, I build web and mobile applications using React, Next.js, TypeScript, and Python. Whether developing consumer SaaS platforms like AhorraTiempo or enterprise compliance and business engines, my goal is always the same: make complex processes feel simple, reliable, and human.",
       educationTitle: "Education & Formal Background",
       philosophyTitle: "Working Philosophy",
       philosophyQuote: "Good software starts with understanding people.",
@@ -605,7 +605,7 @@ export const translations: Record<Language, TranslationContent> = {
       bioP2:
         "Complementariamente, cuento con formación universitaria en Contabilidad y Finanzas por la Universidad Continental. Esta combinación me permite entender no solo el código, sino los flujos financieros, la normativa fiscal (SUNAT), la economía unitaria y la eficiencia operativa de los negocios.",
       bioP3:
-        "Actualmente desarrollo aplicaciones web y móviles utilizando React, Next.js, TypeScript y Python. Ya sea creando plataformas SaaS como AhorraTiempo o sistemas corporativos como CONTROLA Cloud, mi objetivo es constante: lograr que los procesos complejos se sientan simples, confiables y humanos.",
+        "Actualmente desarrollo aplicaciones web y móviles utilizando React, Next.js, TypeScript y Python. Ya sea creando plataformas SaaS como AhorraTiempo o motores corporativos y de cumplimiento, mi objetivo es constante: lograr que los procesos complejos se sientan simples, confiables y humanos.",
       educationTitle: "Educación & Formación Formal",
       philosophyTitle: "Filosofía de Trabajo",
       philosophyQuote: "El buen software comienza entendiendo a las personas.",
