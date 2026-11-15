@@ -42,4 +42,3 @@ next-env.d.ts
 
 # raw video recordings (browsers use .mp4)
 *.mkv
-public/videos/Controla.pe.mp4

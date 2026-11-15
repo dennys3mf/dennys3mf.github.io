@@ -119,30 +119,6 @@ export default function Home() {
                 )}
               </li>
 
-              {/* Item 3 — CONTROLA Cloud */}
-              <li className={styles.workItem}>
-                <Link
-                  href="/work/controla-cloud"
-                  className={styles.projectLink}
-                  onClick={() => playTactileClick()}
-                >
-                  CONTROLA Cloud
-                </Link>
-                {": "}
-                {isEs ? (
-                  <>
-                    Plataforma SaaS multi-inquilino que centraliza matrices de riesgos laborales (
-                    <span className={styles.strongTopic}>SG-SST</span>), seguimiento de incidentes
-                    y auditorías legales con generación de reportes normativos en tiempo real.
-                  </>
-                ) : (
-                  <>
-                    Multi-tenant enterprise SaaS that digitizes occupational safety &amp; health (
-                    <span className={styles.strongTopic}>SG-SST</span>) risk matrices, incident tracking,
-                    and audit-ready legal compliance records.
-                  </>
-                )}
-              </li>
 
               {/* Item 4 — Fiscalización Joya */}
               <li className={styles.workItem}>

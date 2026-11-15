@@ -101,78 +101,6 @@ export const CASE_STUDIES: CaseStudyItem[] = [
   },
   {
     index: 1,
-    slug: "controla-servilex",
-    shortTitle: "CONTROLA Cloud",
-    title: "CONTROLA — Plataforma Cloud de Gestión Legal IT & Seguridad Laboral",
-    role: {
-      en: "Lead Full Stack Backend Engineer",
-      es: "Ingeniero Full Stack & Arquitecto Backend",
-    },
-    timeline: {
-      en: "Enterprise SaaS Implementation",
-      es: "Implementación SaaS Empresarial",
-    },
-    type: {
-      en: "Enterprise Multi-Tenant Cloud System",
-      es: "Sistema Cloud Empresarial Multi-Tenant",
-    },
-    discipline: {
-      en: "Enterprise Cloud & Legal IT / Python / Django",
-      es: "Plataforma Cloud & Legal IT / Python / Django",
-    },
-    summary: {
-      en: "Enterprise SaaS platform managing occupational health and safety (SG-SST) compliance matrices, legal audit trails, and automated judicial document generation for corporate law firms.",
-      es: "Plataforma SaaS corporativa para gestión de matrices de seguridad y salud en el trabajo (SG-SST), auditorías jurídicas y generación automatizada de expedientes legales para estudios corporativos.",
-    },
-    video: "/videos/controla.mp4",
-    image: "/images/projects/controla-servilex-preview.webp",
-    githubUrl: "https://github.com/dennys3mf",
-    stack: [
-      "Python 3",
-      "Django ORM",
-      "PostgreSQL",
-      "SG-SST Normativa",
-      "Multi-Tenant Isolation",
-      "Docker",
-      "RESTful API",
-    ],
-    metrics: [
-      {
-        label: { en: "Time Savings", es: "Ahorro de Tiempo" },
-        value: "-75% Horas",
-      },
-      {
-        label: { en: "Audit Accuracy", es: "Precisión Legal" },
-        value: "100% Trazable",
-      },
-      {
-        label: { en: "Data Isolation", es: "Aislamiento Tenant" },
-        value: "Multi-Tenant",
-      },
-      {
-        label: { en: "Query Speed", es: "Tiempo de Consulta" },
-        value: "< 280 ms",
-      },
-    ],
-    challenge: {
-      en: "Corporate law firms and industrial companies managed compliance matrices across hundreds of disparate Excel files. Regulatory deadlines were missed, audit histories were vulnerable to tampering, and generating compliance reports for government authorities required days of manual collation.",
-      es: "Los estudios jurídicos y empresas industriales gestionaban sus matrices de cumplimiento normativo en cientos de archivos Excel desconectados. Los vencimientos legales se pasaban por alto, el historial de cambios no era auditable y generar reportes oficiales para fiscalización tomaba días de trabajo manual.",
-    },
-    architecture: {
-      en: "Engineered a robust multi-tenant backend in Python and Django backed by a normalized PostgreSQL schema with schema-level tenant isolation. Implemented role-based access control (RBAC), automated risk calculation matrices based on Peruvian occupational health regulations, and a document generation engine producing certified PDF/Excel reports.",
-      es: "Se diseñó un backend multi-tenant en Python y Django con PostgreSQL normalizado y separación lógica estricta por cliente corporativo. Se implementó control de accesos basado en roles (RBAC), cálculo automático de matrices de riesgo según la Ley de Seguridad y Salud en el Trabajo, y un motor de exportación de expedientes certificados.",
-    },
-    keyHurdles: {
-      en: "Designing recursive dependency trees for legal requirements that dynamically cascade compliance statuses when laws change, while maintaining fast sub-second query execution across deep relational join tables.",
-      es: "Modelado relacional de árboles de dependencia jerárquica para normativas legales que recalculan en cascada el estado de cumplimiento ante cambios de ley, manteniendo tiempos de respuesta inferiores a 300 ms en consultas complejas.",
-    },
-    impact: {
-      en: "Cut report generation time by 75%, established tamper-evident audit trails for corporate compliance officers, and successfully passed enterprise security audits with zero data leaks across tenants.",
-      es: "Reducción del 75% en las horas dedicadas a la preparación de informes regulatorios, garantizando trazabilidad forense completa de cada cambio y cero incidencias de fuga de información entre empresas clientes.",
-    },
-  },
-  {
-    index: 2,
     slug: "chansa-app",
     shortTitle: "CHANSA App",
     title: "CHANSA — Marketplace Móvil de Servicios Profesionales en Tiempo Real",
@@ -243,7 +171,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     },
   },
   {
-    index: 3,
+    index: 2,
     slug: "safety-helmet-iot",
     shortTitle: "Safety Helmet IoT",
     title: "Safety Helmet IoT — Telemetría Industrial & Prevención de Accidentes",
@@ -315,7 +243,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     },
   },
   {
-    index: 4,
+    index: 3,
     slug: "fintech-sunat",
     shortTitle: "Billing Engine",
     title: "Billing Engine — Pasarela de Pagos Culqi & Emisión Fiscal SUNAT",
@@ -386,7 +314,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     },
   },
   {
-    index: 5,
+    index: 4,
     slug: "fiscalizacion-joya",
     shortTitle: "Fiscalización Joya",
     title: "App Fiscalización Digital — Inspección Municipal Offline-First en Tablet",
