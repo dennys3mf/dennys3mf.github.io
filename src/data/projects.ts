@@ -38,6 +38,95 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+{
+  "slug": "fritzgym",
+  "shortTitle": "FritzGym",
+  "title": {
+    "es": "FritzGym — Sitio web y guías de entrenamiento para gimnasio",
+    "en": "FritzGym — Gym Website and Training Guides"
+  },
+  "category": "cloud-enterprise",
+  "categoryLabel": {
+    "es": "Desarrollo web para negocios",
+    "en": "Business Web Development"
+  },
+  "summary": {
+    "es": "Desarrollé el sitio web de Fritz Gym, en Socabaya, Arequipa: catálogo de máquinas con búsqueda, filtros por grupo muscular, tutoriales en video, códigos QR y un panel para administrar fichas y anuncios.",
+    "en": "I developed the website for Fritz Gym in Socabaya, Arequipa: a searchable machine catalog with muscle-group filters, video tutorials, QR codes, and an admin panel for machine guides and announcements."
+  },
+  "role": {
+    "es": "Desarrollador web",
+    "en": "Web Developer"
+  },
+  "year": 2026,
+  "technologies": [
+    "Python",
+    "Django",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "QR Codes",
+    "Heroku"
+  ],
+  "coverImage": "/images/projects/fritzgym/portada.png",
+  "gallery": [
+    "/images/projects/fritzgym/catalogo.png",
+    "/images/projects/fritzgym/guias.png",
+    "/images/projects/fritzgym/administracion.png"
+  ],
+  "liveUrl": "https://fritzgym-81c41d2ae6dc.herokuapp.com/",
+  "featured": true,
+  "status": "live",
+  "metrics": [],
+  "problem": {
+    "es": "El proyecto reúne dos necesidades del gimnasio: presentar su propuesta y facilitar la consulta de las máquinas y su técnica de uso. El equipo también necesita mantener las fichas, los tutoriales y los anuncios desde un mismo lugar.",
+    "en": "The project brings together two gym needs: presenting its offering and making machine instructions easy to find. Staff also need a single place to maintain machine guides, tutorials, and announcements."
+  },
+  "goalsConstraints": {
+    "es": "Organizar las máquinas por grupo muscular, permitir búsquedas por nombre o descripción y ofrecer acceso directo a cada guía mediante un código QR. Mantener una identidad visual coherente entre el sitio público y el acceso administrativo.",
+    "en": "Organize machines by muscle group, support searches by name or description, and provide direct access to each guide through a QR code. Keep the public site and admin sign-in visually consistent."
+  },
+  "approach": {
+    "es": "Estructuré el sitio alrededor de un catálogo de máquinas, con fichas individuales, videos de técnica y filtros. Completé la experiencia con información del gimnasio, sede y horarios, y personalicé la administración de Django para gestionar el contenido.",
+    "en": "I structured the site around a machine catalog with individual guides, technique videos, and filters. I added gym information, location and opening hours, and customized Django administration for content management."
+  },
+  "solution": {
+    "es": "Un sitio web para Fritz Gym que combina presentación del gimnasio, búsqueda de equipos y formación en sala. Cada máquina tiene una ficha y un código QR; el panel administrativo permite gestionar máquinas, enlaces de tutoriales y anuncios.",
+    "en": "A website for Fritz Gym combining the gym presentation, equipment discovery, and in-gym learning. Each machine has a guide and QR code; the admin panel manages machines, tutorial links, and announcements."
+  },
+  "engineeringDecisions": {
+    "architecture": {
+      "es": "Aplicación Django con modelos para máquinas y anuncios, vistas del catálogo y de detalle, y plantillas HTML para el sitio público. Despliegue en Heroku.",
+      "en": "A Django application with machine and announcement models, catalog and detail views, and HTML templates for the public website. Deployed on Heroku."
+    },
+    "apisAndState": {
+      "es": "La búsqueda y el filtro muscular se reciben como parámetros de la URL y se aplican con el ORM de Django. Las fichas incorporan tutoriales de YouTube.",
+      "en": "Search terms and muscle-group filters are passed in URL parameters and applied through the Django ORM. Machine guides include YouTube tutorials."
+    },
+    "dataPersistence": {
+      "es": "Los modelos relacionan cada máquina con su descripción, grupo muscular y video. Los anuncios incluyen contenido, imagen opcional y un estado que permite mostrarlos u ocultarlos.",
+      "en": "Models store each machine’s description, muscle group, and video. Announcements include content, an optional image, and a visibility flag."
+    },
+    "performanceAndSecurity": {
+      "es": "El acceso administrativo utiliza la autenticación de Django. Los enlaces de video se validan antes de guardarse y los códigos QR se generan para la dirección de la ficha de cada máquina.",
+      "en": "Administrative access uses Django authentication. Video links are validated before saving, and QR codes are generated for each machine guide’s URL."
+    }
+  },
+  "resultsLearnings": {
+    "verifiableFeatures": {
+      "es": "Sitio público disponible con buscador, filtros musculares, fichas de máquinas, videos de técnica y códigos QR. Las capturas muestran la portada, el catálogo de guías y el acceso al panel administrativo.",
+      "en": "A public website with search, muscle-group filters, machine guides, technique videos, and QR codes. The screenshots show the homepage, guide catalog, and admin sign-in."
+    },
+    "learnings": {
+      "es": "El proyecto conecta el desarrollo web para un negocio local con la formación de sus usuarios: una misma ficha puede encontrarse desde el catálogo o abrirse directamente mediante un QR en sala.",
+      "en": "The project connects web development for a local business with user education: the same guide can be found in the catalog or opened directly through an in-gym QR code."
+    }
+  },
+  "nextSteps": {
+    "es": "Como evolución posible, ampliar el catálogo de guías y recoger comentarios del equipo del gimnasio para priorizar mejoras.",
+    "en": "A possible next step is to expand the guide catalog and gather gym staff feedback to prioritize improvements."
+  }
+},
   {
     slug: "ahorratiempo",
     title: {

@@ -112,6 +112,24 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
           )}
         </div>
 
+        {project.gallery?.length ? (
+          <section className={styles.narrativeSection} aria-labelledby="project-gallery">
+            <h2 id="project-gallery" className={styles.sectionHeading}>
+              {isEs ? "Recorrido visual" : "Visual walkthrough"}
+            </h2>
+            <div className={styles.gallery}>
+              {project.gallery.map((image, index) => (
+                <a key={image} href={image} target="_blank" rel="noopener noreferrer"
+                  aria-label={isEs ? `Ampliar captura ${index + 1} de ${project.shortTitle}` : `Enlarge ${project.shortTitle} screenshot ${index + 1}`}>
+                  <Image src={image}
+                    alt={`${project.shortTitle}: ${isEs ? "captura de pantalla" : "screenshot"} ${index + 1}`}
+                    width={1919} height={1079} className={styles.galleryImage} />
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {/* 01 — The Problem */}
         <section className={styles.narrativeSection}>
           <h2 className={styles.sectionHeading}>{t.caseStudy.theProblem}</h2>

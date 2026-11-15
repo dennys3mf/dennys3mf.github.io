@@ -9,6 +9,12 @@ import LanguageToggle from "../components/LanguageToggle";
 import styles from "./page.module.css";
 
 const work = [
+{
+  "slug": "fritzgym",
+  "name": "FritzGym",
+  "es": "Desarrollé el sitio web de Fritz Gym, con catálogo de máquinas, filtros por grupo muscular, tutoriales en video, códigos QR y panel administrativo.",
+  "en": "I developed the Fritz Gym website, with a machine catalog, muscle-group filters, video tutorials, QR codes, and an admin panel."
+},
   {
     slug: "ahorratiempo",
     name: "AhorraTiempo",

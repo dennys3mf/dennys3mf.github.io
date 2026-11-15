@@ -178,6 +178,24 @@
 }
 
 /* Narrative Sections */
+.gallery {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.gallery a {
+  display: block;
+  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.galleryImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .narrativeSection {
   margin-bottom: 3rem;
   display: flex;
