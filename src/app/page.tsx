@@ -10,6 +10,12 @@ import styles from "./page.module.css";
 
 const work = [
 {
+  "slug": "portafolio-voz",
+  "name": "Portafolio de voz y audio",
+  "es": "Diseñé y desarrollé mi sitio bilingüe de voz, mezcla vocal y datos de voz para IA, con controles de audio, experiencia y CV descargable.",
+  "en": "I designed and developed my bilingual voice, vocal mixing, and AI voice-data website, with audio controls, experience, and a downloadable CV."
+},
+{
   "slug": "fritzgym",
   "name": "FritzGym",
   "es": "Desarrollé el sitio web de Fritz Gym, con catálogo de máquinas, filtros por grupo muscular, tutoriales en video, códigos QR y panel administrativo.",

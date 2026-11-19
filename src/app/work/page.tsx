@@ -16,6 +16,7 @@ export default function WorkPage() {
 
   const filterOptions = [
     { key: "all", label: t.workPage.filterAll },
+    { key: "creative-web", label: language === "es" ? "Web & creatividad" : "Web & Creative" },
     { key: "saas-ai", label: t.workPage.filterSaas },
     { key: "fintech", label: t.workPage.filterFintech },
     { key: "cloud-enterprise", label: t.workPage.filterCloud },

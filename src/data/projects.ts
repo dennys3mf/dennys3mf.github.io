@@ -4,7 +4,7 @@ export interface Project {
   slug: string;
   title: { en: string; es: string };
   shortTitle: string;
-  category: "saas-ai" | "fintech" | "cloud-enterprise" | "mobile-iot";
+  category: "saas-ai" | "fintech" | "cloud-enterprise" | "mobile-iot" | "creative-web";
   categoryLabel: { en: string; es: string };
   summary: { en: string; es: string };
   role: { en: string; es: string };
@@ -38,6 +38,88 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+{
+  "slug": "portafolio-voz",
+  "shortTitle": "Portafolio de voz y audio",
+  "title": {
+    "es": "Portafolio de voz — Voz peruana. Oído de productor.",
+    "en": "Voice Portfolio — Peruvian Voice. A Producer’s Ear."
+  },
+  "category": "creative-web",
+  "categoryLabel": {
+    "es": "Web creativa & Audio",
+    "en": "Creative Web & Audio"
+  },
+  "summary": {
+    "es": "Desarrollé mi portafolio bilingüe de voz y audio para presentar grabación en español peruano, mezcla vocal y experiencia en datos de voz para IA. Incluye controles de audio, experiencia, equipo y contacto.",
+    "en": "I developed my bilingual voice and audio portfolio to present Peruvian Spanish recording, vocal mixing, and experience with voice data for AI. It includes audio controls, experience, equipment, and contact information."
+  },
+  "role": {
+    "es": "Diseño y desarrollo web",
+    "en": "Web Design & Development"
+  },
+  "year": 2026,
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "HTML Audio",
+    "GitHub Pages"
+  ],
+  "coverImage": "/images/projects/portafolio-voz/portada.png",
+  "liveUrl": "https://dennys3mf.github.io/portafolio-voz/?v=2",
+  "featured": true,
+  "status": "live",
+  "metrics": [],
+  "problem": {
+    "es": "Presentar mi trabajo de voz y producción de audio en un espacio propio, reuniendo especialidades, experiencia, herramientas y contacto para posibles colaboraciones.",
+    "en": "Present my voice and audio production work in one place, bringing together specialties, experience, tools, and contact information for potential collaborations."
+  },
+  "goalsConstraints": {
+    "es": "Crear un sitio de una sola página, bilingüe y adaptable a distintas pantallas, con una identidad visual centrada en el estudio de grabación. Ofrecer controles de audio sin publicar grabaciones que todavía no están disponibles.",
+    "en": "Create a bilingual, responsive single-page website with a recording-studio visual identity. Provide audio controls without presenting unavailable recordings as published demos."
+  },
+  "approach": {
+    "es": "Organicé el contenido en muestras, experiencia, presentación personal, equipo y contacto. La portada combina tipografía editorial, una fotografía de micrófono y controles para cuatro tipos de muestra: voz natural, lectura para IA, mezcla vocal y narración expresiva.",
+    "en": "I organized the content into samples, experience, a personal introduction, equipment, and contact. The cover combines editorial typography, microphone imagery, and controls for four sample types: natural voice, AI reading, vocal mixing, and expressive narration."
+  },
+  "solution": {
+    "es": "Un portafolio estático ES/EN con presentación de servicios de voz y audio, previsualización de archivos locales, descargas del CV en ambos idiomas y contacto por correo. Las muestras públicas permanecen señaladas como pendientes.",
+    "en": "A static ES/EN portfolio with voice and audio services, local-file previews, CV downloads in both languages, and email contact. Public audio samples are explicitly marked as pending."
+  },
+  "engineeringDecisions": {
+    "architecture": {
+      "es": "HTML, CSS y JavaScript sin framework ni dependencias de instalación. El sitio se publica como archivos estáticos en GitHub Pages.",
+      "en": "HTML, CSS, and JavaScript without a framework or installation dependencies. The site is published as static files on GitHub Pages."
+    },
+    "apisAndState": {
+      "es": "JavaScript actualiza los textos, el idioma del documento y el estado de los controles ES/EN. La reproducción utiliza elementos de audio del navegador y URL de objetos para los archivos seleccionados localmente.",
+      "en": "JavaScript updates text, document language, and ES/EN control states. Playback uses browser audio elements and object URLs for locally selected files."
+    },
+    "dataPersistence": {
+      "es": "El contenido y las traducciones forman parte de los archivos del sitio. La previsualización de audio es temporal: no sube los archivos seleccionados ni los guarda como muestras públicas.",
+      "en": "Content and translations are part of the site files. Audio previews are temporary: selected files are neither uploaded nor saved as public samples."
+    },
+    "performanceAndSecurity": {
+      "es": "La imagen del estudio utiliza WebP y el script carga de forma diferida. El sitio incluye navegación por secciones, enlace para saltar al contenido y etiquetas accesibles en los controles de idioma y audio.",
+      "en": "The studio image uses WebP and the script loads with defer. The site includes section navigation, a skip-to-content link, and accessible labels for language and audio controls."
+    }
+  },
+  "resultsLearnings": {
+    "verifiableFeatures": {
+      "es": "Sitio público con cambio ES/EN, cuatro categorías de muestra, previsualización local de audio, secciones de experiencia y equipo, CV descargables y enlace de contacto.",
+      "en": "A public site with ES/EN switching, four sample categories, local audio previews, experience and equipment sections, downloadable CVs, and a contact link."
+    },
+    "learnings": {
+      "es": "El proyecto reúne mi perfil técnico y mi trabajo con sonido. La implementación distingue entre una previsualización privada en el navegador y una grabación publicada para que la disponibilidad de las muestras sea clara.",
+      "en": "The project brings together my technical background and audio work. The implementation distinguishes a private browser preview from a published recording so sample availability remains clear."
+    }
+  },
+  "nextSteps": {
+    "es": "Publicar muestras propias o autorizadas de voz natural, lectura para IA, mezcla vocal y narración, y actualizar el aviso de disponibilidad cuando estén listas.",
+    "en": "Publish owned or authorized natural voice, AI reading, vocal mixing, and narration samples, then update the availability notice when they are ready."
+  }
+},
 {
   "slug": "fritzgym",
   "shortTitle": "FritzGym",
