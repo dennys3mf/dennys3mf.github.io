@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "../data/siteConfig";
 import { useLanguage } from "../context/LanguageContext";
@@ -30,25 +29,17 @@ export default function EditorialHeader({ className = "" }: EditorialHeaderProps
   return (
     <header className={`${styles.headerWrapper} ${className}`}>
       <div className={styles.headerContainer}>
-        {/* Brand Emblem Logo Link */}
         <Link
           href="/"
           className={styles.brandLink}
-          aria-label="Dennys Marquez — Home"
+          aria-label={`${siteConfig.name}, ${isEs ? "inicio" : "home"}`}
           onClick={() => playTactileClick()}
         >
-          <Image
-            src={siteConfig.logoUrl}
-            alt="Dennys Marquez"
-            width={32}
-            height={32}
-            className={styles.brandLogo}
-            priority
-          />
+          {siteConfig.name}
         </Link>
 
         {/* Editorial Text Navigation */}
-        <nav className={styles.navRow} aria-label="Main navigation">
+        <nav className={styles.navRow} aria-label={isEs ? "Navegación principal" : "Main navigation"}>
           {navItems.map((item) => {
             const isActive =
               item.href === "/work"
