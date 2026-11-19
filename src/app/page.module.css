@@ -16,7 +16,7 @@
 .container a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; color: #292524; transition: text-decoration-color 150ms ease; }
 .container a:hover { text-decoration-color: #a8a29e; }
 .intro a, .list > li > a { font-weight: 600; }
-.container .contactButton { display: inline-flex; min-height: 44px; align-items: center; padding: 8px 16px; border-radius: 6px; background: #292524; color: #fff; font-size: 16px; font-weight: 500; text-decoration: none; }
+.container .contactButton { display: inline-flex; min-height: 44px; align-items: center; gap: 0.45rem; padding: 8px 16px; border-radius: 6px; background: #292524; color: #fff; font-size: 16px; font-weight: 500; text-decoration: none; }
 .container .contactButton:hover { background: #44403c; }
 .sectionTitle, .aboutTitle { font-family: inherit; font-size: 24px; font-weight: 600; line-height: 1.3333; letter-spacing: -0.02em; color: #292524; }
 .sectionTitle { margin: 48px 0 24px; scroll-margin-top: 32px; }

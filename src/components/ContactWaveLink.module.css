@@ -1,0 +1,45 @@
+.wave {
+  position: relative;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 20px;
+  margin-inline-start: 0.2rem;
+  pointer-events: none;
+}
+
+.canvas,
+.fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas canvas {
+  display: block;
+}
+
+.fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5px;
+}
+
+.fallback span {
+  width: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.wave:has(canvas) .fallback {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas {
+    display: none;
+  }
+
+  .wave:has(canvas) .fallback {
+    visibility: visible;
+  }
+}

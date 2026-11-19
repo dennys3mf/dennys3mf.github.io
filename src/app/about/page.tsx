@@ -9,6 +9,7 @@ import EditorialFooter from "../../components/EditorialFooter";
 import { playTactileClick } from "../../lib/sound";
 import styles from "./About.module.css";
 import { about } from "../../data/about";
+import ContactWaveLink from "../../components/ContactWaveLink";
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
@@ -78,13 +79,13 @@ export default function AboutPage() {
           >
             <span>{isEs ? "Explorar proyectos →" : "Explore projects →"}</span>
           </Link>
-          <Link
+          <ContactWaveLink
             href="/contact?intent=hiring"
             className={styles.secondaryBtn}
             onClick={() => playTactileClick()}
           >
             <span>{isEs ? "Hablemos" : "Let's talk"}</span>
-          </Link>
+          </ContactWaveLink>
         </div>
       </main>
 

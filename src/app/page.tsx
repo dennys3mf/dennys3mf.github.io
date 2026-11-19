@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { siteConfig } from "../data/siteConfig";
 import { about } from "../data/about";
+import ContactWaveLink from "../components/ContactWaveLink";
 import LanguageToggle from "../components/LanguageToggle";
 import styles from "./page.module.css";
 
@@ -55,9 +56,9 @@ export default function Home() {
           <p className={styles.intro}>
             {isEs ? <>Busco mi próximo rol en <Link href="/services">desarrollo full stack</Link> o creando <Link href="/work">sistemas con IA</Link>. Si tu equipo está contratando:</> : <>I’m looking for my next role in <Link href="/services">full stack development</Link> or building <Link href="/work">AI systems</Link>. If you’re hiring:</>}
           </p>
-          <Link href="/contact?intent=hiring" className={styles.contactButton}>
+          <ContactWaveLink href="/contact?intent=hiring" className={styles.contactButton}>
             {isEs ? "Hablemos" : "Let’s talk"}
-          </Link>
+          </ContactWaveLink>
           <section aria-labelledby="work">
             <h2 id="work" className={styles.sectionTitle}><a href="#work">{isEs ? "Proyectos" : "Work"}</a></h2>
             <ul className={styles.list}>

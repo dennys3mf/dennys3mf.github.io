@@ -9,6 +9,7 @@ import EditorialHeader from "../../../components/EditorialHeader";
 import EditorialFooter from "../../../components/EditorialFooter";
 import { playTactileClick } from "../../../lib/sound";
 import styles from "./CaseStudy.module.css";
+import ContactWaveLink from "../../../components/ContactWaveLink";
 
 interface CaseStudyClientProps {
   slug: string;
@@ -228,13 +229,13 @@ export default function CaseStudyClient({ slug }: CaseStudyClientProps) {
             </span>
           </Link>
 
-          <Link
+          <ContactWaveLink
             href="/contact?intent=project"
             className={styles.discussBtn}
             onClick={() => playTactileClick()}
           >
             <span>{isEs ? "Hablemos de este proyecto" : "Let's talk about this"}</span>
-          </Link>
+          </ContactWaveLink>
         </footer>
       </main>
 
