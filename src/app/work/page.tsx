@@ -63,7 +63,12 @@ export default function WorkPage() {
         {/* Projects List */}
         <div className={styles.projectsGrid}>
           {filteredProjects.map((project: Project) => (
-            <article key={project.slug} className={styles.projectCard}>
+            <article
+              key={project.slug}
+              className={project.slug === "portafolio-voz"
+                ? `${styles.projectCard} ${styles.voicePreview}`
+                : styles.projectCard}
+            >
               <Link
                 href={`/work/${project.slug}`}
                 className={styles.mediaFrame}
