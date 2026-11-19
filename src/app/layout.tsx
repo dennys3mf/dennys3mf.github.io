@@ -78,18 +78,6 @@ export const metadata: Metadata = {
       "Building intuitive digital products that solve real problems. Full Stack Developer combining engineering, product thinking, and user experience.",
     images: ["/images/og-cover.png"],
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    shortcut: ["/favicon.ico"],
-  },
 };
 
 const jsonLd = {
