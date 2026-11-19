@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
 import { PROJECTS, Project } from "../../data/projects";
 import { useLanguage } from "../../context/LanguageContext";
 import EditorialHeader from "../../components/EditorialHeader";
@@ -13,6 +14,28 @@ import styles from "./Work.module.css";
 export default function WorkPage() {
   const { t, language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<string>("all");
+  const projectsGrid = useRef<HTMLDivElement>(null);
+  const hasChangedFilter = useRef(false);
+
+  useLayoutEffect(() => {
+    const grid = projectsGrid.current;
+    if (!grid || !hasChangedFilter.current || !grid.children.length) return;
+
+    const cards = Array.from(grid.children);
+    const motion = gsap.matchMedia();
+    motion.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.from(cards, {
+        opacity: 0.82,
+        y: 6,
+        duration: 0.28,
+        stagger: { amount: Math.min((cards.length - 1) * 0.035, 0.12) },
+        ease: "power2.out",
+        clearProps: "opacity,transform",
+      });
+    });
+
+    return () => motion.revert();
+  }, [activeFilter]);
 
   const filterOptions = [
     { key: "all", label: t.workPage.filterAll },
@@ -49,6 +72,8 @@ export default function WorkPage() {
               aria-selected={activeFilter === f.key}
               onClick={() => {
                 playTactileClick();
+                if (f.key === activeFilter) return;
+                hasChangedFilter.current = true;
                 setActiveFilter(f.key);
               }}
               className={`${styles.filterBtn} ${
@@ -61,7 +86,7 @@ export default function WorkPage() {
         </div>
 
         {/* Projects List */}
-        <div className={styles.projectsGrid}>
+        <div ref={projectsGrid} className={styles.projectsGrid}>
           {filteredProjects.map((project: Project) => (
             <article
               key={project.slug}
